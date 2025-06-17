@@ -35,6 +35,16 @@ CREATE TABLE IF NOT EXISTS students (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------------------------
+-- Initial Admin User Insert
+-- --------------------------------------------------------------------------
+INSERT INTO students (
+    fname, surname, dob, gender, parent_firstname, parent_surname, address, email, password, phone, yesorno, role, user_session_id, created_at, updated_at
+) VALUES (
+    'Admin', 'User', NULL, NULL, NULL, NULL, NULL, 'admin@successat11plus.com', 'adminpassword', NULL, 'yes', 'admin', NULL, CURRENT_TIMESTAMP, NULL
+)
+ON DUPLICATE KEY UPDATE email=email;
+
+-- --------------------------------------------------------------------------
 -- 2. Enrollments Table: Module/Term Purchases & Access
 -- --------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS enrollments (
@@ -141,3 +151,5 @@ CREATE TABLE IF NOT EXISTS purchased_ebooks (
 -- ============================================================================
 -- End of Schema
 -- ============================================================================
+
+
