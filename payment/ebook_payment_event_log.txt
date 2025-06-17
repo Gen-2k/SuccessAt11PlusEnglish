@@ -1,0 +1,20 @@
+[2025-06-11 13:30:29] Stripe session retrieved | Context: {"session_id":"cs_test_a1BlhMe2WkndkOWmdEWqa6TVA4Z0fmys05bsGMm55ehJEFrnRQjrqySq7K","payment_status":"paid"}
+[2025-06-11 13:30:29] Processing ebook payment | Context: {"session_id":"cs_test_a1BlhMe2WkndkOWmdEWqa6TVA4Z0fmys05bsGMm55ehJEFrnRQjrqySq7K","student_email":"sagosmsr@gmail.com","ebook_title":"cxzczxczc","price":"50.00"}
+[2025-06-11 13:30:29] Ebook purchase created | Context: {"student_id":"22","ebook":"cxzczxczc","purchase_id":1}
+[2025-06-11 13:30:29] Transaction completed successfully | Context: {"session_id":"cs_test_a1BlhMe2WkndkOWmdEWqa6TVA4Z0fmys05bsGMm55ehJEFrnRQjrqySq7K"}
+[2025-06-11 13:30:31] Failed to send confirmation email | Context: {"error":"SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting"}
+[2025-06-12 06:54:22] Stripe session retrieved | Context: {"session_id":"cs_test_a13LyQ4EIkQNuomun9T37BSiOtwG0aOC2t8mXq33PQtkabJUcy900cLCeB","payment_status":"paid"}
+[2025-06-12 06:54:22] Processing ebook payment | Context: {"session_id":"cs_test_a13LyQ4EIkQNuomun9T37BSiOtwG0aOC2t8mXq33PQtkabJUcy900cLCeB","student_email":"asdhas@tuyfd.dfh","ebook_title":"sdas","price":"10.00"}
+[2025-06-12 06:54:22] Ebook purchase created | Context: {"student_id":"24","ebook":"sdas","purchase_id":2}
+[2025-06-12 06:54:22] Transaction completed successfully | Context: {"session_id":"cs_test_a13LyQ4EIkQNuomun9T37BSiOtwG0aOC2t8mXq33PQtkabJUcy900cLCeB"}
+[2025-06-12 06:54:27] Confirmation email sent | Context: {"email":"asdhas@tuyfd.dfh"}
+[2025-06-12 10:18:03] Stripe session retrieved | Context: {"session_id":"cs_test_a1QPirHRNKC16AqpxFwVd1JmVsnMDiU4aadUUHDrfu83k2AohFPIgjhoOd","payment_status":"paid"}
+[2025-06-12 10:18:03] Processing ebook payment | Context: {"session_id":"cs_test_a1QPirHRNKC16AqpxFwVd1JmVsnMDiU4aadUUHDrfu83k2AohFPIgjhoOd","student_email":"asdhas@tuyfd.dfh","ebook_title":"sdasd","price":"10.00"}
+[2025-06-12 10:18:03] Ebook purchase created | Context: {"student_id":"24","ebook":"sdasd","purchase_id":4}
+[2025-06-12 10:18:03] Transaction completed successfully | Context: {"session_id":"cs_test_a1QPirHRNKC16AqpxFwVd1JmVsnMDiU4aadUUHDrfu83k2AohFPIgjhoOd"}
+[2025-06-12 10:18:08] Confirmation email sent | Context: {"email":"asdhas@tuyfd.dfh"}
+[2025-06-12 12:46:00] Stripe session retrieved | Context: {"session_id":"cs_test_a1BJxkwcvMD3JwjoOd0A5Df6qhfMZZZkDN0xmv0P7sr8MPa6Cx4jBLHnw4","payment_status":"paid"}
+[2025-06-12 12:46:00] Processing ebook payment | Context: {"session_id":"cs_test_a1BJxkwcvMD3JwjoOd0A5Df6qhfMZZZkDN0xmv0P7sr8MPa6Cx4jBLHnw4","student_email":"asdhas@tuyfd.dfh","ebook_title":"dfdsf","price":"50.00"}
+[2025-06-12 12:46:00] Ebook purchase created | Context: {"student_id":"24","ebook":"dfdsf","purchase_id":6}
+[2025-06-12 12:46:00] Transaction completed successfully | Context: {"session_id":"cs_test_a1BJxkwcvMD3JwjoOd0A5Df6qhfMZZZkDN0xmv0P7sr8MPa6Cx4jBLHnw4"}
+[2025-06-12 12:46:05] Confirmation email sent | Context: {"email":"asdhas@tuyfd.dfh"}

@@ -1,0 +1,40 @@
+.headerPANJABI {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 5px;
+}
+
+.insidetopic {
+    color: #8943a7;
+    font-weight: bold;
+    font-size: 25px
+}
+
+.text {
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 5px;
+}
+
+.mar {
+    width: 350px;
+    margin: 10px;
+    border-radius: 50px;
+}
+
+.terms {
+    color: #8943a7;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+li {
+    color: #000000;
+    font-weight: 700;
+    line-height: 1.6;
+}

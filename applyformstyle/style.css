@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+.form_bg_container{
+    background-image: url("form_bg.jpg");
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.checkBoxSize{
+    height: 15px;
+    width: 15px;
+}
+.form_container{
+    max-width: 700px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.nextPrevBtn{
+    display: flex;
+    justify-content: flex-end;
+}
+.nextPrevBtn button{
+    background-color: blueviolet;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nextPrevBtn .applyBtn{
+    border-radius: 10px;
+    height: auto;
+    width: auto;
+}
+.form_tab{
+    display: none;
+    transition: 1s;
+}
+.form_tab_active{
+    color: #192a56;
+    display: block;
+    animation: changeTab 1s;
+}
+.cursorPointer{
+    cursor: pointer;
+}
+@keyframes changeTab{
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+.prevform_tab_active{
+    display: block;
+    animation: prevchangeTab 1s;
+}
+@keyframes prevchangeTab{
+    from{
+        transform: translateX(-100%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
