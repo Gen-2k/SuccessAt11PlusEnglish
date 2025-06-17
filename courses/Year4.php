@@ -529,7 +529,7 @@ p {
                          <p>Comprehensive verbal reasoning training covering all question types. Develop logical thinking skills and pattern recognition essential for 11 Plus verbal reasoning success.</p>
                          <div class="module-buttons mt-auto pt-3">
                                <a href="<?php echo BASE_URL; ?>applyForm.php?class=year4&module=Verbal Reasoning" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
-                             <a href="<?php echo BASE_URL; ?>syllabus_juniorteenss" class="btn btn-syllabus"><i class="bi bi-book-fill"></i>Syllabus</a>
+                             <a href="<?php echo BASE_URL; ?>syllabus_verbal_reasoning.php" class="btn btn-syllabus"><i class="bi bi-book-fill"></i>Syllabus</a>
                          </div>
                      </div>
             </div>        </div>
