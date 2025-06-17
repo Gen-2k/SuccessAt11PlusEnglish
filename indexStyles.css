@@ -1,13 +1,13 @@
 :root {
-    --theme-violet: #6e20a7;
-    --theme-violet-dark: #5a1a8a;
-    --theme-teal: #20c997;
-    --theme-teal-dark: #19a479;
-    --bs-primary: var(--theme-violet); 
+    --theme-blue: #1E40AF;
+    --theme-blue-dark: #1e3a8a;
+    --theme-gold: #F59E0B;
+    --theme-gold-dark: #d97706;
+    --bs-primary: var(--theme-blue); 
     --bs-secondary: #6c757d; 
     --bs-success: #198754;
     --bs-info: #0dcaf0;   
-    --bs-warning: #ffc107; 
+    --bs-warning: var(--theme-gold); 
     --bs-danger: #dc3545;  
     --bs-light: #f8f9fa;   
     --bs-dark: #212529;    
@@ -25,20 +25,32 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .head2 {
-    color: var(--theme-violet);
+    color: var(--theme-blue);
     font-weight: 700; 
 }
 
-.violet {
-    color: var(--theme-violet) !important; 
+.blue {
+    color: var(--theme-blue) !important; 
 }
 
-.text-violet {
-    color: var(--theme-violet) !important;
+.text-blue {
+    color: var(--theme-blue) !important;
 }
 
-.bg-violet {
-    background-color: var(--theme-violet) !important;
+.bg-blue {
+    background-color: var(--theme-blue) !important;
+}
+
+.gold {
+    color: var(--theme-gold) !important; 
+}
+
+.text-gold {
+    color: var(--theme-gold) !important;
+}
+
+.bg-gold {
+    background-color: var(--theme-gold) !important;
 }
 
 /* ==========================================================================
@@ -108,7 +120,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .testimonial-card .blockquote-footer {
-    color: var(--theme-violet);
+    color: var(--theme-blue);
 }
 
 /* ==========================================================================
@@ -203,19 +215,35 @@ h1, h2, h3, h4, h5, h6 {
    Button Styles
    ========================================================================== */
 
-.btn-outline-violet {
-    --bs-btn-color: var(--theme-violet);
-    --bs-btn-border-color: var(--theme-violet);
+.btn-outline-blue {
+    --bs-btn-color: var(--theme-blue);
+    --bs-btn-border-color: var(--theme-blue);
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: var(--theme-violet);
-    --bs-btn-hover-border-color: var(--theme-violet);
-    --bs-btn-focus-shadow-rgb: 110, 32, 167;
+    --bs-btn-hover-bg: var(--theme-blue);
+    --bs-btn-hover-border-color: var(--theme-blue);
+    --bs-btn-focus-shadow-rgb: 30, 64, 175;
     --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: var(--theme-violet-dark);
-    --bs-btn-active-border-color: var(--theme-violet-dark);
-    --bs-btn-disabled-color: var(--theme-violet);
+    --bs-btn-active-bg: var(--theme-blue-dark);
+    --bs-btn-active-border-color: var(--theme-blue-dark);
+    --bs-btn-disabled-color: var(--theme-blue);
     --bs-btn-disabled-bg: transparent;
-    --bs-btn-disabled-border-color: var(--theme-violet);
+    --bs-btn-disabled-border-color: var(--theme-blue);
+    --bs-gradient: none;
+}
+
+.btn-outline-gold {
+    --bs-btn-color: var(--theme-gold);
+    --bs-btn-border-color: var(--theme-gold);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--theme-gold);
+    --bs-btn-hover-border-color: var(--theme-gold);
+    --bs-btn-focus-shadow-rgb: 245, 158, 11;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--theme-gold-dark);
+    --bs-btn-active-border-color: var(--theme-gold-dark);
+    --bs-btn-disabled-color: var(--theme-gold);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--theme-gold);
     --bs-gradient: none;
 }
 
@@ -256,7 +284,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     position: relative;
-    background-color: rgba(110,32,167,0.03);
+    background-color: rgba(30,64,175,0.03);
     overflow: hidden;
 }
 
@@ -270,13 +298,13 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    color: var(--theme-violet);
+    color: var(--theme-blue);
 }
 
 .scroll-indicator .mouse {
     width: 30px;
     height: 50px;
-    border: 2px solid var(--theme-violet);
+    border: 2px solid var(--theme-blue);
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -286,7 +314,7 @@ h1, h2, h3, h4, h5, h6 {
 .scroll-indicator .wheel {
     width: 4px;
     height: 10px;
-    background-color: var(--theme-violet);
+    background-color: var(--theme-blue);
     border-radius: 2px;
     animation: scroll-wheel 1.5s ease-in-out infinite;
     margin-top: 8px;
@@ -351,7 +379,7 @@ body.popup-open {
     position: absolute;
     top: 10px;
     right: 0;
-    background-color: var(--theme-violet);
+    background-color: var(--theme-blue);
     color: white;
     padding: 5px 15px;
     font-size: 0.8rem;
@@ -485,7 +513,7 @@ body.popup-open {
 }
 
 .try-class-section .badge:hover {
-    background-color: var(--theme-violet) !important;
+    background-color: var(--theme-blue) !important;
     color: white !important;
 }
 
@@ -531,19 +559,19 @@ body.popup-open {
 }
 
 .what-we-offer-section i.bi-patch-check-fill {
-    background-color: rgba(110, 32, 167, 0.1);
+    background-color: rgba(30, 64, 175, 0.1);
     padding: 10px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
-    color: var(--theme-violet);
+    color: var(--theme-blue);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .what-we-offer-section li:hover i.bi-patch-check-fill {
-    background-color: var(--theme-violet);
+    background-color: var(--theme-blue);
     color: white;
 }
 

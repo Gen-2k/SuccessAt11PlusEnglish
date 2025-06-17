@@ -68,7 +68,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <div class="card p-4 p-md-5 position-relative newsLetterCard">
             <button type="button" class="btn-close closeButton position-absolute top-0 end-0 mt-2 me-2"
                 aria-label="Close"></button>
-            <h3 class="card-title violet fw-bold mb-4">Get Your <br>FREE TOP 10 TIPS</h3>
+            <h3 class="card-title blue fw-bold mb-4">Get Your <br>FREE TOP 10 TIPS</h3>
             <form action="" id="newsPop" method="POST">
                 <div class="mb-3">
                     <label for="n_name" class="form-label visually-hidden">Name</label>
@@ -125,17 +125,17 @@ if (session_status() === PHP_SESSION_NONE) {
         <!-- Hero Section -->
         <section class="hero-section position-relative overflow-hidden">
             <div class="position-absolute top-0 end-0 d-none d-lg-block"
-                style="z-index: 0; width: 30%; height: 100%; background: radial-gradient(circle, rgba(110,32,167,0.08) 0%, rgba(0,0,0,0) 70%);">
+                style="z-index: 0; width: 30%; height: 100%; background: radial-gradient(circle, rgba(30,64,175,0.08) 0%, rgba(0,0,0,0) 70%);">
             </div>
             <div class="position-absolute bottom-0 start-0 d-none d-lg-block"
-                style="z-index: 0; width: 30%; height: 30%; background: radial-gradient(circle, rgba(110,32,167,0.08) 0%, rgba(0,0,0,0) 70%);">
+                style="z-index: 0; width: 30%; height: 30%; background: radial-gradient(circle, rgba(30,64,175,0.08) 0%, rgba(0,0,0,0) 70%);">
             </div>
 
             <div class="position-absolute d-none d-lg-block"
-                style="top: 15%; right: 10%; z-index: 0; width: 150px; height: 150px; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; background-color: rgba(110,32,167,0.04);">
+                style="top: 15%; right: 10%; z-index: 0; width: 150px; height: 150px; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; background-color: rgba(30,64,175,0.04);">
             </div>
             <div class="position-absolute d-none d-lg-block"
-                style="bottom: 10%; left: 5%; z-index: 0; width: 100px; height: 100px; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; background-color: rgba(110,32,167,0.04);">
+                style="bottom: 10%; left: 5%; z-index: 0; width: 100px; height: 100px; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; background-color: rgba(30,64,175,0.04);">
             </div>
 
             <div class="container py-5">
@@ -143,45 +143,45 @@ if (session_status() === PHP_SESSION_NONE) {
                     <!-- Text Column -->
                     <div class="col-lg-6 position-relative" style="z-index: 1;">
                         <h1 class="display-4 fw-bold mb-3 lh-sm">
-                            The <span class="violet position-relative d-inline-block">Outstanding<span
+                            The <span class="blue position-relative d-inline-block">Outstanding<span
                                     class="position-absolute"
-                                    style="height: 8px; width: 100%; bottom: 5px; left: 0; background-color: rgba(110,32,167,0.3); z-index: -1;"></span></span>
+                                    style="height: 8px; width: 100%; bottom: 5px; left: 0; background-color: rgba(30,64,175,0.3); z-index: -1;"></span></span>
                             Experts in<br class="d-none d-sm-block"> ONLINE English & VR Tuition!
                         </h1>
 
-                        <h2 class="h5 violet fw-bold mb-4">
+                        <h2 class="h5 blue fw-bold mb-4">
                             Welcome to Success at 11 plus English.
                         </h2>
 
                         <div class="mb-5">
                             <div class="d-flex align-items-start mb-3">
-                                <div class="flex-shrink-0 me-3 violet">
+                                <div class="flex-shrink-0 me-3 gold">
                                     <i class="bi bi-check-circle-fill fs-4"></i>
                                 </div>
                                 <div>
-                                    <p class="mb-0 fs-5">We cover <strong class="violet">all boards</strong> including
+                                    <p class="mb-0 fs-5">We cover <strong class="blue">all boards</strong> including
                                         Kent 11 plus, independent schools, Entrance Exams and SATs.</p>
                                 </div>
                             </div>
 
                             <div class="d-flex align-items-start mb-3">
-                                <div class="flex-shrink-0 me-3 violet">
+                                <div class="flex-shrink-0 me-3 gold">
                                     <i class="bi bi-trophy-fill fs-4"></i>
                                 </div>
                                 <div>
-                                    <p class="mb-0 fs-5">We nurture your child to <strong class="violet">grow in
-                                            confidence</strong> and <strong class="violet">succeed in English and
+                                    <p class="mb-0 fs-5">We nurture your child to <strong class="blue">grow in
+                                            confidence</strong> and <strong class="blue">succeed in English and
                                             VR</strong>!</p>
                                 </div>
                             </div>
 
                             <div class="d-flex align-items-start">
-                                <div class="flex-shrink-0 me-3 violet">
+                                <div class="flex-shrink-0 me-3 gold">
                                     <i class="bi bi-star-fill fs-4"></i>
                                 </div>
                                 <div>
-                                    <p class="mb-0 fs-5">We offer <strong class="violet">tailored</strong>, <strong
-                                            class="violet">premium quality classes</strong> with GL resources that make
+                                    <p class="mb-0 fs-5">We offer <strong class="blue">tailored</strong>, <strong
+                                            class="blue">premium quality classes</strong> with GL resources that make
                                         your child's confidence grow!</p>
                                 </div>
                             </div>
@@ -194,7 +194,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                 <i class="bi bi-lightning-charge-fill me-2"></i>Apply for Trial Class
                             </a>
                             <a href="#ages-section"
-                                class="btn btn-outline-violet btn-lg px-4 py-3 fw-semibold shadow-sm hover-lift">
+                                class="btn btn-outline-blue btn-lg px-4 py-3 fw-semibold shadow-sm hover-lift">
                                 <i class="bi bi-collection me-2"></i>View All Courses
                             </a>
                         </div>
@@ -202,11 +202,11 @@ if (session_status() === PHP_SESSION_NONE) {
                         <!-- Trust Indicators -->
                         <div class="d-flex align-items-center flex-wrap justify-content-start gap-4 text-muted fs-6">
                             <div class="d-flex align-items-center">
-                                <i class="bi bi-shield-check violet me-2 fs-5"></i>
+                                <i class="bi bi-shield-check blue me-2 fs-5"></i>
                                 <span>Fully DBS checked teachers</span>
                             </div>
                             <div class="d-flex align-items-center">
-                                <i class="bi bi-patch-check violet me-2 fs-5"></i>
+                                <i class="bi bi-patch-check blue me-2 fs-5"></i>
                                 <span>Years 4-6 specialists</span>
                             </div>
                         </div>
@@ -221,16 +221,16 @@ if (session_status() === PHP_SESSION_NONE) {
                                 style="width: 90%; max-width: 550px; border: 8px solid white; z-index: 2; position: relative;">
 
                             <div class="position-absolute top-0 end-0 translate-middle-y d-none d-lg-block"
-                                style="z-index: 1; width: 120px; height: 120px; border-radius: 20px; transform: rotate(10deg); background-color: rgba(110,32,167,0.15);">
+                                style="z-index: 1; width: 120px; height: 120px; border-radius: 20px; transform: rotate(10deg); background-color: rgba(30,64,175,0.15);">
                             </div>
                             <div class="position-absolute bottom-0 start-0 translate-middle d-none d-lg-block"
-                                style="z-index: 1; width: 80px; height: 80px; border-radius: 15px; transform: rotate(-15deg); background-color: rgba(110,32,167,0.1);">
+                                style="z-index: 1; width: 80px; height: 80px; border-radius: 15px; transform: rotate(-15deg); background-color: rgba(30,64,175,0.1);">
                             </div>
 
                             <div class="position-absolute top-0 start-0 translate-middle-y bg-white shadow-sm rounded-pill py-2 px-3 d-flex align-items-center d-none d-lg-flex"
-                                style="z-index: 3; border-left: 4px solid var(--theme-violet);">
-                                <i class="bi bi-mortarboard-fill violet me-2 fs-5"></i>
-                                <span class="fw-bold violet">11+ Success</span>
+                                style="z-index: 3; border-left: 4px solid var(--theme-blue);">
+                                <i class="bi bi-mortarboard-fill blue me-2 fs-5"></i>
+                                <span class="fw-bold gold">11+ Success</span>
                             </div>
                         </div>
                     </div>
@@ -261,16 +261,16 @@ if (session_status() === PHP_SESSION_NONE) {
                             <div class="card-body p-4 p-md-5 position-relative">
                                 <!-- Decorative elements -->
                                 <div class="position-absolute d-none d-lg-block"
-                                    style="top: -15px; right: -15px; width: 120px; height: 120px; background-color: rgba(110,32,167,0.03); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; z-index: 1;">
+                                    style="top: -15px; right: -15px; width: 120px; height: 120px; background-color: rgba(30,64,175,0.03); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; z-index: 1;">
                                 </div>
                                 <div class="position-absolute d-none d-lg-block"
-                                    style="bottom: -25px; left: -25px; width: 150px; height: 150px; background-color: rgba(110,32,167,0.03); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; z-index: 1;">
+                                    style="bottom: -25px; left: -25px; width: 150px; height: 150px; background-color: rgba(30,64,175,0.03); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; z-index: 1;">
                                 </div>
 
                                 <div class="row align-items-center">
                                     <div class="col-lg-7">
                                         <div class="mb-4 p-3 rounded-3"
-                                            style="background-color: rgba(110,32,167,0.03); border-left: 4px solid var(--theme-violet);">
+                                            style="background-color: rgba(30,64,175,0.03); border-left: 4px solid var(--theme-blue);">
                                             <p class="mb-0 text-muted">
                                                 Success at 11 plus English tutoring, offers a complete and top quality
                                                 tutoring service.
@@ -282,7 +282,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                             </p>
                                         </div>
 
-                                        <p class="mb-4 fw-semibold violet">
+                                        <p class="mb-4 fw-semibold blue">
                                             <i class="bi bi-stars me-2"></i>All our teachers are fully DBS checked, and
                                             we provide expert tutoring for:
                                         </p>
@@ -291,9 +291,8 @@ if (session_status() === PHP_SESSION_NONE) {
                                             <li class="d-flex align-items-start mb-4">
                                                 <div class="flex-shrink-0 me-3">
                                                     <i class="bi bi-patch-check-fill fs-4"></i>
-                                                </div>
-                                                <div>
-                                                    <h6 class="fw-bold mb-1 violet">Years 4 & 5</h6>
+                                                </div>                                                <div>
+                                                    <h6 class="fw-bold mb-1 blue">Years 4 & 5</h6>
                                                     <p class="mb-0 text-muted">GL and other 11+ exam boards preparation
                                                     </p>
                                                 </div>
@@ -303,7 +302,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                                     <i class="bi bi-patch-check-fill fs-4"></i>
                                                 </div>
                                                 <div>
-                                                    <h6 class="fw-bold mb-1 violet">Year 6</h6>
+                                                    <h6 class="fw-bold mb-1 blue">Year 6</h6>
                                                     <p class="mb-0 text-muted">SATs & independent school entrance exams
                                                     </p>
                                                 </div>
@@ -315,45 +314,45 @@ if (session_status() === PHP_SESSION_NONE) {
                                         <div
                                             class="position-relative h-100 d-flex align-items-center justify-content-center">
                                             <div class="position-absolute"
-                                                style="width: 200px; height: 200px; background-color: rgba(110,32,167,0.05); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; z-index: 0;">
+                                                style="width: 200px; height: 200px; background-color: rgba(30,64,175,0.05); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; z-index: 0;">
                                             </div>
                                             <div class="card border-0 shadow-sm p-4 position-relative expertise-card"
-                                                style="width: 90%; background-color: #f3e8ff; transform: rotate(2deg); z-index: 2;">
+                                                style="width: 90%; background-color: #eff6ff; transform: rotate(2deg); z-index: 2;">
 
 
                                                 <div
-                                                    class="violet fw-bold mb-3 pb-2 border-bottom d-flex align-items-center">
-                                                    <div class="me-2 d-flex align-items-center justify-content-center bg-violet rounded-circle"
+                                                    class="blue fw-bold mb-3 pb-2 border-bottom d-flex align-items-center">
+                                                    <div class="me-2 d-flex align-items-center justify-content-center bg-blue rounded-circle"
                                                         style="width: 28px; height: 28px;">
-                                                        <i class="bi bi-stars text-white small"></i>
+                                                        <i class="bi bi-stars text-gold small"></i>
                                                     </div>
                                                     Our Expertise
                                                 </div>
                                                 <div class="d-flex align-items-center mb-3">
                                                     <div class="me-3 bg-light rounded-circle d-flex align-items-center justify-content-center"
                                                         style="width: 36px; height: 36px;">
-                                                        <i class="bi bi-book-half text-violet"></i>
+                                                        <i class="bi bi-book-half text-gold"></i>
                                                     </div>
                                                     <span>Comprehensive English Skills</span>
                                                 </div>
                                                 <div class="d-flex align-items-center mb-3">
                                                     <div class="me-3 bg-light rounded-circle d-flex align-items-center justify-content-center"
                                                         style="width: 36px; height: 36px;">
-                                                        <i class="bi bi-puzzle text-violet"></i>
+                                                        <i class="bi bi-puzzle text-gold"></i>
                                                     </div>
                                                     <span>Verbal Reasoning Techniques</span>
                                                 </div>
                                                 <div class="d-flex align-items-center mb-3">
                                                     <div class="me-3 bg-light rounded-circle d-flex align-items-center justify-content-center"
                                                         style="width: 36px; height: 36px;">
-                                                        <i class="bi bi-trophy text-violet"></i>
+                                                        <i class="bi bi-trophy text-gold"></i>
                                                     </div>
                                                     <span>Exam Tips and practice papers</span>
                                                 </div>
                                                 <div class="d-flex align-items-center">
                                                     <div class="me-3 bg-light rounded-circle d-flex align-items-center justify-content-center"
                                                         style="width: 36px; height: 36px;">
-                                                        <i class="bi bi-emoji-smile text-violet"></i>
+                                                        <i class="bi bi-emoji-smile text-gold"></i>
                                                     </div>
                                                     <span>Confidence Building</span>
                                                 </div>
@@ -380,26 +379,26 @@ if (session_status() === PHP_SESSION_NONE) {
                 <!-- Decorative shapes -->
                 <div class="position-relative">
                     <div class="position-absolute d-none d-lg-block"
-                        style="top: 10%; right: 5%; width: 150px; height: 150px; background-color: rgba(110,32,167,0.03); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; z-index: 0;">
+                        style="top: 10%; right: 5%; width: 150px; height: 150px; background-color: rgba(30,64,175,0.03); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; z-index: 0;">
                     </div>
                     <div class="position-absolute d-none d-lg-block"
-                        style="bottom: 10%; left: 5%; width: 120px; height: 120px; background-color: rgba(110,32,167,0.03); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; z-index: 0;">
+                        style="bottom: 10%; left: 5%; width: 120px; height: 120px; background-color: rgba(30,64,175,0.03); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; z-index: 0;">
                     </div>
 
                     <div class="row text-center g-4 justify-content-center">
                         <!-- Year 4 Card -->
                         <div class="col-md-6 col-lg-4">
                             <div class="card shadow-sm border-0"
-                                style="background-color: #f3e8ff; width: 100%; height: 100%; min-height: 350px;">
+                                style="background-color: #eff6ff; width: 100%; height: 100%; min-height: 350px;">
                                 <div class="card-body py-5 px-4 d-flex flex-column align-items-center">
                                     <div class="position-relative">
                                         <div class="age-item-icon mx-auto mb-4 text-danger">
                                             <i class="bi bi-book display-3"></i>
                                         </div>
                                     </div>
-                                    <h3 class="h4 fw-bold violet mb-4">Year 4</h3>
+                                    <h3 class="h4 fw-bold blue mb-4">Year 4</h3>
                                     <div class="mt-auto">
-                                        <a class="btn btn-outline-danger px-4 py-2" href="courses_year4?lan=Year4"
+                                        <a class="btn btn-outline-blue px-4 py-2" href="courses_year4?lan=Year4"
                                             role="button">Apply Now</a>
                                     </div>
                                 </div>
@@ -409,16 +408,16 @@ if (session_status() === PHP_SESSION_NONE) {
                         <!-- Year 5 Card -->
                         <div class="col-md-6 col-lg-4">
                             <div class="card shadow-sm border-0"
-                                style="background-color: #f3e8ff; width: 100%; height: 100%; min-height: 350px;">
+                                style="background-color: #fffbeb; width: 100%; height: 100%; min-height: 350px;">
                                 <div class="card-body py-5 px-4 d-flex flex-column align-items-center">
                                     <div class="position-relative">
                                         <div class="age-item-icon mx-auto mb-4 text-warning">
                                             <i class="bi bi-pencil-square display-3"></i>
                                         </div>
                                     </div>
-                                    <h3 class="h4 fw-bold violet mb-4">Year 5</h3>
+                                    <h3 class="h4 fw-bold blue mb-4">Year 5</h3>
                                     <div class="mt-auto">
-                                        <a class="btn btn-outline-warning px-4 py-2" href="courses_year5?lan=Year5"
+                                        <a class="btn btn-outline-gold px-4 py-2" href="courses_year5?lan=Year5"
                                             role="button">Apply Now</a>
                                     </div>
                                 </div>
@@ -428,16 +427,16 @@ if (session_status() === PHP_SESSION_NONE) {
                         <!-- Year 6 Card -->
                         <div class="col-md-6 col-lg-4">
                             <div class="card shadow-sm border-0"
-                                style="background-color: #f3e8ff; width: 100%; height: 100%; min-height: 350px;">
+                                style="background-color: #f0fdf4; width: 100%; height: 100%; min-height: 350px;">
                                 <div class="card-body py-5 px-4 d-flex flex-column align-items-center">
                                     <div class="position-relative">
                                         <div class="age-item-icon mx-auto mb-4 text-success">
                                             <i class="bi bi-mortarboard-fill display-3"></i>
                                         </div>
                                     </div>
-                                    <h3 class="h4 fw-bold violet mb-4">Year 6</h3>
+                                    <h3 class="h4 fw-bold blue mb-4">Year 6</h3>
                                     <div class="mt-auto">
-                                        <a class="btn btn-outline-success px-4 py-2" href="courses_year6?lan=Year6"
+                                        <a class="btn btn-outline-blue px-4 py-2" href="courses_year6?lan=Year6"
                                             role="button">Apply Now</a>
                                     </div>
                                 </div>
@@ -832,7 +831,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             structured environment. When your child learns with us, they don't just prepare for
                             exams—they unlock their full potential.
                         </p>
-                        <p class="fs-5 fw-bold violet mb-0">
+                        <p class="fs-5 fw-bold blue mb-0">
                             Let's make success happen. Join us today!
                         </p>
                     </div>
@@ -868,7 +867,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             </div>
 
                             <div class="position-absolute d-none d-lg-block"
-                                style="bottom: -15px; right: -15px; z-index: 0; width: 70px; height: 70px; border-radius: 20px; transform: rotate(10deg); background-color: rgba(110,32,167,0.1);">
+                                style="bottom: -15px; right: -15px; z-index: 0; width: 70px; height: 70px; border-radius: 20px; transform: rotate(10deg); background-color: rgba(30,64,175,0.1);">
                             </div>
                         </div>
                     </div>
@@ -876,10 +875,10 @@ if (session_status() === PHP_SESSION_NONE) {
                     <div class="col-lg-6">
                         <div class="card border-0 shadow-sm p-4 p-lg-5 h-100">
                             <div class="card-body p-0">
-                                <h3 class="fw-bold violet mb-4">Start Your Journey With Us !</h3>
+                                <h3 class="fw-bold blue mb-4">Start Your Journey With Us !</h3>
 
                                 <p class="fs-5 mb-4">
-                                    We offer a <strong class="violet">paid trial class</strong> for each student. This
+                                    We offer a <strong class="blue">paid trial class</strong> for each student. This
                                     ensures that your child can:
                                 </p>
 
@@ -907,23 +906,23 @@ if (session_status() === PHP_SESSION_NONE) {
                                     </li>
                                 </ul>
 
-                                <h4 class="h5 fw-bold violet mb-3">What Makes Us Special:</h4>
+                                <h4 class="h5 fw-bold blue mb-3">What Makes Us Special:</h4>
                                 <div class="d-flex flex-wrap mb-4">
                                     <span
                                         class="badge bg-light text-dark border mb-2 me-2 p-2 fs-6 d-flex align-items-center">
-                                        <i class="bi bi-award-fill text-violet me-2"></i> Expert Teachers
+                                        <i class="bi bi-award-fill text-blue me-2"></i> Expert Teachers
                                     </span>
                                     <span
                                         class="badge bg-light text-dark border mb-2 me-2 p-2 fs-6 d-flex align-items-center">
-                                        <i class="bi bi-shield-check text-violet me-2"></i> DBS Checked
+                                        <i class="bi bi-shield-check text-blue me-2"></i> DBS Checked
                                     </span>
                                     <span
                                         class="badge bg-light text-dark border mb-2 me-2 p-2 fs-6 d-flex align-items-center">
-                                        <i class="bi bi-book-half text-violet me-2"></i> Quality Resources
+                                        <i class="bi bi-book-half text-blue me-2"></i> Quality Resources
                                     </span>
                                     <span
                                         class="badge bg-light text-dark border mb-2 me-2 p-2 fs-6 d-flex align-items-center">
-                                        <i class="bi bi-people-fill text-violet me-2"></i> Small Classes
+                                        <i class="bi bi-people-fill text-blue me-2"></i> Small Classes
                                     </span>
                                 </div>
 
@@ -951,9 +950,9 @@ if (session_status() === PHP_SESSION_NONE) {
                     <!-- Guided Teaching -->
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 text-center p-4 shadow-sm border-0 hover-lift"
-                            style="background-color: #f3e8ff;">
+                            style="background-color: #eff6ff;">
                             <div class="mb-3">
-                                <i class="bi bi-person-workspace display-3 text-violet"></i>
+                                <i class="bi bi-person-workspace display-3 text-blue"></i>
                             </div>
                             <h4 class="h5 fw-bold mb-2">Guided Teaching</h4>
                             <p class="text-muted small mb-0">Expert instruction introducing concepts clearly and
@@ -964,9 +963,9 @@ if (session_status() === PHP_SESSION_NONE) {
                     <!-- Learning Resources -->
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 text-center p-4 shadow-sm border-0 hover-lift"
-                            style="background-color: #f3e8ff;">
+                            style="background-color: #f0f9ff;">
                             <div class="mb-3">
-                                <i class="bi bi-journal-richtext display-3 text-info"></i>
+                                <i class="bi bi-journal-richtext display-3 text-blue"></i>
                             </div>
                             <h4 class="h5 fw-bold mb-2">Learning Resources</h4>
                             <p class="text-muted small mb-0">Access to notes, materials, and weekly resources via the
@@ -977,9 +976,9 @@ if (session_status() === PHP_SESSION_NONE) {
                     <!-- Worksheets & Tests -->
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 text-center p-4 shadow-sm border-0 hover-lift"
-                            style="background-color: #f3e8ff;">
+                            style="background-color: #f0fdf4;">
                             <div class="mb-3">
-                                <i class="bi bi-card-checklist display-3 text-success"></i>
+                                <i class="bi bi-card-checklist display-3 text-gold"></i>
                             </div>
                             <h4 class="h5 fw-bold mb-2">Worksheets & Tests</h4>
                             <p class="text-muted small mb-0">Regular practice through worksheets and optional
@@ -1027,27 +1026,27 @@ if (session_status() === PHP_SESSION_NONE) {
                                 </div>
                                 <div class="col-md-6">
                                     <div class="benefit-item d-flex align-items-start mb-4">
-                                        <i class="bi bi-clock-fill violet fs-2 me-3 flex-shrink-0 mt-1"></i>
+                                        <i class="bi bi-clock-fill blue fs-2 me-3 flex-shrink-0 mt-1"></i>
                                         <div>
-                                            <h4 class="h5 fw-bold violet mb-1">Structured Weekly Classes</h4>
+                                            <h4 class="h5 fw-bold blue mb-1">Structured Weekly Classes</h4>
                                             <p class="mb-0 text-muted">1 hour per week - live class with homework and
                                                 progress
                                                 monitoring.</p>
                                         </div>
                                     </div>
                                     <div class="benefit-item d-flex align-items-start mb-4">
-                                        <i class="bi bi-people-fill violet fs-2 me-3 flex-shrink-0 mt-1"></i>
+                                        <i class="bi bi-people-fill blue fs-2 me-3 flex-shrink-0 mt-1"></i>
                                         <div>
-                                            <h4 class="h5 fw-bold violet mb-1">Small Group Sizes</h4>
+                                            <h4 class="h5 fw-bold blue mb-1">Small Group Sizes</h4>
                                             <p class="mb-0 text-muted">Maximum of 8 students per class ensures
                                                 personalised
                                                 attention and interaction.</p>
                                         </div>
                                     </div>
                                     <div class="benefit-item d-flex align-items-start">
-                                        <i class="bi bi-person-video3 violet fs-2 me-3 flex-shrink-0 mt-1"></i>
+                                        <i class="bi bi-person-video3 blue fs-2 me-3 flex-shrink-0 mt-1"></i>
                                         <div>
-                                            <h4 class="h5 fw-bold violet mb-1">Expert Teachers</h4>
+                                            <h4 class="h5 fw-bold blue mb-1">Expert Teachers</h4>
                                             <p class="mb-0 text-muted">Full trained and experienced teachers with up to
                                                 date DBS
                                                 checks.</p>
@@ -1065,27 +1064,27 @@ if (session_status() === PHP_SESSION_NONE) {
                                 </div>
                                 <div class="col-md-6">
                                     <div class="benefit-item d-flex align-items-start mb-4">
-                                        <i class="bi bi-folder-fill violet fs-2 me-3 flex-shrink-0 mt-1"></i>
+                                        <i class="bi bi-folder-fill blue fs-2 me-3 flex-shrink-0 mt-1"></i>
                                         <div>
-                                            <h4 class="h5 fw-bold violet mb-1">Individual Student Portal</h4>
+                                            <h4 class="h5 fw-bold blue mb-1">Individual Student Portal</h4>
                                             <p class="mb-0 text-muted">Access to all weekly learning materials, notes,
                                                 and resources
                                                 online.</p>
                                         </div>
                                     </div>
                                     <div class="benefit-item d-flex align-items-start mb-4">
-                                        <i class="bi bi-house-heart-fill violet fs-2 me-3 flex-shrink-0 mt-1"></i>
+                                        <i class="bi bi-house-heart-fill blue fs-2 me-3 flex-shrink-0 mt-1"></i>
                                         <div>
-                                            <h4 class="h5 fw-bold violet mb-1">Focused homework</h4>
+                                            <h4 class="h5 fw-bold blue mb-1">Focused homework</h4>
                                             <p class="mb-0 text-muted">Targeted homework set and marked after each
                                                 class, to ensure
                                                 students have secured learning.</p>
                                         </div>
                                     </div>
                                     <div class="benefit-item d-flex align-items-start">
-                                        <i class="bi bi-clipboard-check-fill violet fs-2 me-3 flex-shrink-0 mt-1"></i>
+                                        <i class="bi bi-clipboard-check-fill blue fs-2 me-3 flex-shrink-0 mt-1"></i>
                                         <div>
-                                            <h4 class="h5 fw-bold violet mb-1">Optional Assessments</h4>
+                                            <h4 class="h5 fw-bold blue mb-1">Optional Assessments</h4>
                                             <p class="mb-0 text-muted">End-of-term assessments available to track
                                                 progress, with
                                                 materials provided beforehand.</p>
@@ -1102,25 +1101,25 @@ if (session_status() === PHP_SESSION_NONE) {
                             <div class="row align-items-center g-5">
                                 <div class="col-lg-7">
                                     <div class="p-lg-4">
-                                        <h2 class="h3 violet fw-bold mb-4">TOP TIPS FOR PARENTS</h2>
+                                        <h2 class="h3 blue fw-bold mb-4">TOP TIPS FOR PARENTS</h2>
                                         <div class="fs-6 lh-lg mb-4">
-                                            <p><strong class="violet me-2">1.</strong>Struggling to make time and find
+                                            <p><strong class="blue me-2">1.</strong>Struggling to make time and find
                                                 ways to speak
                                                 your <strong class="text-danger">MOTHER TONGUE</strong> with your
                                                 children?</p>
-                                            <p><strong class="violet me-2">2.</strong>Let Success at 11+ English help
+                                            <p><strong class="blue me-2">2.</strong>Let Success at 11+ English help
                                                 you.</p>
-                                            <p><strong class="violet me-2">3.</strong>Get your 10 <strong
+                                            <p><strong class="blue me-2">3.</strong>Get your 10 <strong
                                                     class="text-success">PRACTICAL TIPS</strong> – <strong
-                                                    class="violet">EASY</strong> and <strong
+                                                    class="blue">EASY</strong> and <strong
                                                     class="text-danger">FREE!</strong></p>
-                                            <p><strong class="violet me-2">4.</strong>Watch your Mother Tongue become
+                                            <p><strong class="blue me-2">4.</strong>Watch your Mother Tongue become
                                                 part of your
                                                 everyday vocabulary.</p>
-                                            <p><strong class="violet me-2">5.</strong><strong
+                                            <p><strong class="blue me-2">5.</strong><strong
                                                     class="text-uppercase">FREE
                                                     GUIDE</strong> to help your children and family <strong
-                                                    class="violet">SPEAK</strong> your mother tongue.</p>
+                                                    class="blue">SPEAK</strong> your mother tongue.</p>
                                         </div>
                                         <button type="button"
                                             class="btn btn-danger btn-lg shadow-sm hover-lift mt-3 px-4" id="sendMeBtn">
@@ -1140,9 +1139,7 @@ if (session_status() === PHP_SESSION_NONE) {
     </main>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white pt-5 pb-4">
-        <?php include('footer.php'); ?>
-    </footer>
+    <?php include('footer.php'); ?>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
