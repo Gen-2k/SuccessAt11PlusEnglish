@@ -487,7 +487,6 @@
                                 <li><a href="./index.php"><i class="fas fa-home"></i>Home</a></li>
                                 <li><a href="./About.php"><i class="fas fa-info-circle"></i>About Us</a></li>
                                 <li><a href="./Login.php"><i class="fas fa-sign-in-alt"></i>Login</a></li>
-                                <li><a href="./Enquiry.php"><i class="fas fa-envelope"></i>Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -500,7 +499,6 @@
                                 <li><a href="./courses_year4.php"><i class="fas fa-graduation-cap"></i>Year 4</a></li>
                                 <li><a href="./courses_year5.php"><i class="fas fa-graduation-cap"></i>Year 5</a></li>
                                 <li><a href="./courses_year6.php"><i class="fas fa-graduation-cap"></i>Year 6</a></li>
-                                <li><a href="./tryfreeform.php"><i class="fas fa-gift"></i>Try Free</a></li>
                             </ul>
                         </div>
                     </div>

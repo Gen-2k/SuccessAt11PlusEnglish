@@ -521,10 +521,9 @@ p {
                     </div>
                     <div class="col-lg-7 module-content-col text-center text-lg-start">
                         <h3>COMPREHENSION</h3>
-                        <p>Teaching Skills / Techniques to improve speed and accuracy of answering multiple choice and worded questions.</p>                        <div class="module-buttons mt-auto pt-3">
-                            <!-- Original Links Updated with Proper Parameters -->
+                        <p>Teaching Skills / Techniques to improve speed and accuracy of answering multiple choice and worded questions.</p>
+                        <div class="module-buttons mt-auto pt-3">
                             <a href="<?php echo BASE_URL; ?>applyForm.php?class=year6&module=Comprehension" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
-                            <a href="<?php echo BASE_URL ?>syllabus_juniorteensg" class="btn btn-syllabus"><i class="bi bi-book-fill"></i>Syllabus</a>
                         </div>
                     </div>
                 </div>
@@ -569,8 +568,8 @@ p {
                          <h3>VOCABULARY</h3>
                          <p>Teaching through animated slide shows covering antonyms and synonyms. Students write personal sentences in class with daily reminders to use 2 words per day. Repetition reinforces 10 words weekly.</p>
                          <div class="module-buttons mt-auto pt-3">
-                             <a href="<?php echo BASE_URL; ?>applyForm.php?class=year6&module=English Vocabulary" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
-                             <a href="<?php echo BASE_URL; ?>syllabus_adultsg" class="btn btn-syllabus"><i class="bi bi-book-fill"></i>Syllabus</a>                         </div>
+                               <a href="<?php echo BASE_URL; ?>applyForm.php?class=year6&module=English Vocabulary" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
+                         </div>
                      </div>
                  </div>
              </div>
@@ -586,7 +585,6 @@ p {
                          <p>Comprehensive rotating course covering all 11 Plus English areas. Students experience different modules in rotation, ensuring well-rounded preparation across all subject areas.</p>
                          <div class="module-buttons mt-auto pt-3">
                                <a href="<?php echo BASE_URL; ?>applyForm.php?class=year6&module=Carousel Course" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
-                             <a href="#" class="btn btn-syllabus" onclick="alert('Syllabus covers all modules in rotation')"><i class="bi bi-book-fill"></i>Course Info</a>
                          </div>
                      </div>
                  </div>
@@ -602,8 +600,7 @@ p {
                          <h3>1:1 TUTORING</h3>
                          <p>Personalized one-to-one tutoring sessions tailored to individual student needs. Focused attention on specific areas requiring improvement for maximum progress.</p>
                          <div class="module-buttons mt-auto pt-3">
-                             <a href="<?php echo BASE_URL; ?>applyForm.php?class=year6&module=1:1 Tutoring" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
-                             <a href="#" class="btn btn-syllabus" onclick="alert('Personalized curriculum based on individual needs')"><i class="bi bi-book-fill"></i>Learn More</a>
+                               <a href="<?php echo BASE_URL; ?>applyForm.php?class=year6&module=1:1 Tutoring" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
                          </div>
                      </div>
                  </div>             </div>
