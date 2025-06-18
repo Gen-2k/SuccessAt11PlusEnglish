@@ -1,67 +1,497 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round:wght@400&family=Source+Serif+Pro:wght@400;600;700&display=swap');
 
-.form_bg_container{
-    background-image: url("form_bg.jpg");
-    width: 100%;
+/* ==========================================================================
+   CSS Variables - Aligned with indexStyles.css theme
+   ========================================================================== */
+:root {
+    --theme-blue: #1E40AF;
+    --theme-blue-dark: #1e3a8a;
+    --theme-gold: #F59E0B;
+    --theme-gold-dark: #d97706;
+    --bs-primary: var(--theme-blue);
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: var(--theme-gold);
+    --bs-danger: #dc3545;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-body-font-family: 'Varela Round', sans-serif;
+    --bs-heading-color: #343a40;
+    --border-color: #e2e8f0;
+    --light-bg: #f8fafc;
+    --text-color: #1e293b;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+body {
+    font-family: var(--bs-body-font-family);
+    background-color: var(--light-bg);
     min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 1.6;
 }
-.checkBoxSize{
-    height: 15px;
-    width: 15px;
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Source Serif Pro', serif;
+    color: var(--bs-heading-color);
 }
-.form_container{
-    max-width: 700px;
-    font-family: 'Source Sans Pro', sans-serif;
+
+/* ==========================================================================
+   Form Container & Background
+   ========================================================================== */
+.form_bg_container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%);
+    padding: 2rem 0;
+    position: relative;
 }
-.nextPrevBtn{
-    display: flex;
-    justify-content: flex-end;
+
+.form_bg_container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231E40AF' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    z-index: 1;
 }
-.nextPrevBtn button{
-    background-color: blueviolet;
+
+.form_container {
+    max-width: 800px;
+    font-family: var(--bs-body-font-family);
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ==========================================================================
+   Card & Box Shadow
+   ========================================================================== */
+.box_shad {
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.box_shad::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--theme-blue) 0%, var(--theme-gold) 100%);
+}
+
+.card {
+    padding: 3rem 2.5rem !important;
     border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: transparent;
 }
-.nextPrevBtn .applyBtn{
-    border-radius: 10px;
-    height: auto;
-    width: auto;
-}
-.form_tab{
+
+/* ==========================================================================
+   Form Tabs & Navigation
+   ========================================================================== */
+.form_tab {
     display: none;
-    transition: 1s;
+    transition: all 0.5s ease;
+    padding: 1rem 0;
 }
-.form_tab_active{
-    color: #192a56;
+
+.form_tab_active {
     display: block;
-    animation: changeTab 1s;
+    animation: slideInRight 0.6s ease-out;
 }
-.cursorPointer{
+
+.prevform_tab_active {
+    display: block;
+    animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ==========================================================================
+   Typography & Headings
+   ========================================================================== */
+.page-title {
+    font-family: 'Source Serif Pro', serif;
+    color: var(--theme-blue);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+    padding: 0.5rem 0 1.5rem;
+    position: relative;
+}
+
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--theme-blue) 0%, var(--theme-gold) 100%);
+    border-radius: 2px;
+}
+
+.section-heading {
+    font-family: 'Source Serif Pro', serif;
+    color: var(--theme-blue);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 2rem 0 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid rgba(30, 64, 175, 0.1);
+    position: relative;
+}
+
+.section-heading::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--theme-blue);
+}
+
+.h3.fw-bold {
+    font-family: 'Source Serif Pro', serif;
+    color: var(--theme-blue);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.form_tab p {
+    color: var(--text-color);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.form_tab p.fw-bold {
+    color: var(--bs-heading-color);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Form Controls & Inputs
+   ========================================================================== */
+.form-control {
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+    font-family: var(--bs-body-font-family);
+}
+
+.form-control:focus {
+    border-color: var(--theme-blue);
+    box-shadow: 0 0 0 0.2rem rgba(30, 64, 175, 0.15);
+    outline: none;
+    background-color: #ffffff;
+}
+
+.form-control:hover:not(:focus) {
+    border-color: rgba(30, 64, 175, 0.3);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--bs-heading-color);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.form-select {
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+    font-family: var(--bs-body-font-family);
+}
+
+.form-select:focus {
+    border-color: var(--theme-blue);
+    box-shadow: 0 0 0 0.2rem rgba(30, 64, 175, 0.15);
+}
+
+/* ==========================================================================
+   Checkbox & Radio Styling
+   ========================================================================== */
+.checkBoxSize {
+    width: 18px;
+    height: 18px;
+    margin-right: 0.75rem;
+    accent-color: var(--theme-blue);
     cursor: pointer;
 }
-@keyframes changeTab{
-    from{
-        transform: translateX(100%);
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.75rem;
+    accent-color: var(--theme-blue);
+    cursor: pointer;
+}
+
+.cursorPointer {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.cursorPointer:hover {
+    color: var(--theme-blue);
+}
+
+/* Custom checkbox styling */
+input[type="checkbox"] + label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Button Styles
+   ========================================================================== */
+.nextPrevBtn {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(30, 64, 175, 0.1);
+}
+
+.nextPrevBtn.justify-content-between {
+    justify-content: space-between;
+}
+
+.nextPrevBtn button {
+    background: linear-gradient(135deg, var(--theme-blue) 0%, var(--theme-blue-dark) 100%);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 0.875rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(30, 64, 175, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.nextPrevBtn button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(30, 64, 175, 0.3);
+    background: linear-gradient(135deg, var(--theme-blue-dark) 0%, var(--theme-blue) 100%);
+}
+
+.nextPrevBtn button:active {
+    transform: translateY(0);
+}
+
+.nextPrevBtn button:disabled {
+    background: var(--bs-secondary);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.nextPrevBtn .applyBtn {
+    background: linear-gradient(135deg, var(--theme-gold) 0%, var(--theme-gold-dark) 100%);
+    border-radius: 0.5rem;
+}
+
+.nextPrevBtn .applyBtn:hover {
+    background: linear-gradient(135deg, var(--theme-gold-dark) 0%, var(--theme-gold) 100%);
+    box-shadow: 0 6px 15px rgba(245, 158, 11, 0.3);
+}
+
+/* ==========================================================================
+   Form Validation States
+   ========================================================================== */
+.invalid-feedback {
+    font-size: 0.875rem;
+    color: var(--bs-danger);
+    margin-top: 0.375rem;
+    font-weight: 500;
+}
+
+.form_error input,
+.form_error .form-control {
+    border-color: var(--bs-danger) !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15) !important;
+}
+
+.form_success input,
+.form_success .form-control {
+    border-color: var(--bs-success) !important;
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15) !important;
+}
+
+/* ==========================================================================
+   Loading Overlay
+   ========================================================================== */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.loading img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.loading::after {
+    content: "Processing your application...";
+    color: var(--theme-blue);
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: var(--bs-body-font-family);
+    text-align: center;
+}
+
+/* ==========================================================================
+   Progress Indicator (Optional Enhancement)
+   ========================================================================== */
+.form-progress {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.progress-step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--bs-secondary);
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.progress-step.active {
+    background-color: var(--theme-blue);
+    color: white;
+    transform: scale(1.1);
+}
+
+.progress-step.completed {
+    background-color: var(--bs-success);
+    color: white;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+    .form_bg_container {
+        padding: 1rem 0;
     }
-    to{
-        transform: translateX(0);
+    
+    .form_container {
+        padding: 0 0.5rem;
+    }
+
+    .card {
+        padding: 2rem 1.5rem !important;
+    }
+
+    .page-title {
+        font-size: 1.75rem;
+    }
+
+    .section-heading {
+        font-size: 1.3rem;
+    }
+
+    .nextPrevBtn {
+        flex-direction: column-reverse;
+        gap: 0.75rem;
+    }
+
+    .nextPrevBtn.justify-content-between {
+        flex-direction: column-reverse;
+    }
+
+    .nextPrevBtn button {
+        width: 100%;
+        padding: 1rem 2rem;
     }
 }
 
-.prevform_tab_active{
-    display: block;
-    animation: prevchangeTab 1s;
-}
-@keyframes prevchangeTab{
-    from{
-        transform: translateX(-100%);
+@media (max-width: 576px) {
+    .card {
+        padding: 1.5rem 1rem !important;
     }
-    to{
-        transform: translateX(0);
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .form-control,
+    .form-select {
+        padding: 0.75rem;
+        font-size: 0.95rem;
     }
 }

@@ -82,7 +82,7 @@ try {
         logPaymentEvent('Student account created', ['student_id' => $studentId, 'email' => $studentData['email']]);
         // Insert enrollment record using new schema field names
         $accessStart = date('Y-m-d');
-        $accessEnd = date('Y-m-d', strtotime('+1 year')); // 1 year access
+        $accessEnd = date('Y-m-d', strtotime('+2 years')); // 2 years access
           $insertEnrollment = "INSERT INTO enrollments (student_id, class, module, price, transaction_id, payment_status, access_start, access_end) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
         $stmt2 = mysqli_prepare($connection, $insertEnrollment);
