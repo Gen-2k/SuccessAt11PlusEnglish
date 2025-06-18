@@ -13,111 +13,267 @@ if (!isset($_SESSION)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Success At 11 Plus English" />
     <title>Success At 11 Plus English | Forgot Password</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    
     <style>
-        .lear_img {
-            width: 100%;
+        :root {
+            --theme-blue: #1e40af;
+            --theme-blue-dark: #1e3a8a;
+            --theme-gold: #f59e0b;
+            --theme-gold-dark: #d97706;
+            --body-bg: #f8f9fa;
+            --card-bg: #ffffff;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+            font-family: 'Varela Round', sans-serif;
+            min-height: 100vh;
             display: flex;
-            margin: auto;
+            flex-direction: column;
         }
-
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Source Serif Pro', serif;
         }
-
-        form .input_enter {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            outline: none;
+        
+        .forgot-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 2rem 0;
         }
-
-        form .input_enter:focus {
-            border: 1px solid #1e40af;
+        
+        .forgot-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(30, 64, 175, 0.15);
+            border: 1px solid rgba(30, 64, 175, 0.1);
+            max-width: 900px;
+            margin: 2rem auto;
         }
-
-
-        .header {
-            color: #1e40af;
-
+        
+        .forgot-image {
+            background: linear-gradient(135deg, var(--theme-blue) 0%, var(--theme-blue-dark) 100%);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
         }
-
-        .txt {
-            font-weight: bold;
-            color: black;
+        
+        .forgot-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
         }
-
-        /* login */
-        .box_shad {
-            box-shadow: 3px 3px 20px 10px #e5caf7;
-            margin-top: 10%;
+        
+        .forgot-form {
+            padding: 3rem;
+        }
+        
+        .forgot-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .forgot-header h1 {
+            color: var(--theme-blue);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .forgot-header p {
+            color: #6c757d;
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 0.5rem;
+            display: flex;
             align-items: center;
         }
-
-        /* asasas */
-        .height-100 {
-            height: 100vh
+        
+        .form-label i {
+            margin-right: 0.5rem;
+            color: var(--theme-blue);
+            width: 18px;
         }
-
-        .card {
-            width: 400px;
-            border: none;
-            height: 300px;
-            box-shadow: 0px 5px 20px 0px #d2dae3;
-            z-index: 1;
+        
+        .form-control {
+            padding: 0.875rem 1rem;
+            font-size: 1rem;
+            border-radius: 12px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+            margin-bottom: 1rem;
+        }
+        
+        .form-control:focus {
+            border-color: var(--theme-blue);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+            background-color: #fff;
+        }
+        
+        .otp-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .otp-header h2 {
+            color: var(--theme-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .otp-inputs {
             display: flex;
             justify-content: center;
-            align-items: center
+            gap: 0.5rem;
+            margin: 1.5rem 0;
         }
-
-
-
-        .inputs input {
-            width: 40px;
-            height: 40px;
+        
+        .otp-input {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 1.2rem;
             font-weight: bold;
-            color: green;
-
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            background-color: #f8f9fa;
         }
-
-        input[type=number]::-webkit-inner-spin-button,
-        input[type=number]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            margin: 0
-        }
-
-        .card-2 {
+        
+        .otp-input:focus {
+            border-color: var(--theme-blue);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
             background-color: #fff;
-            padding: 10px;
-            width: 350px;
-            height: 100px;
-            bottom: -50px;
-            left: 20px;
-            position: absolute;
-            border-radius: 5px
         }
-
-        .card-2 .content {
-            margin-top: 50px
-        }
-
-        .card-2 .content a {
-            color: red
-        }
-
-        .form-control:focus {
-            box-shadow: none;
-            border: 2px solid red
-        }
-
-        h6 {
+        
+        .timer {
+            color: #dc3545;
             font-weight: bold;
-            font-size: 30px;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .otp-info {
+            color: #198754;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--theme-blue), var(--theme-blue-dark));
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            border: none;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--theme-blue-dark), var(--theme-blue));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            border: none;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        .alert {
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .password-toggle {
+            position: relative;
+        }
+        
+        .password-toggle-btn {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #6c757d;
+            cursor: pointer;
+            padding: 0;
+            z-index: 10;
+        }
+        
+        .password-toggle-btn:hover {
+            color: var(--theme-blue);
+        }
+        
+        @media (max-width: 768px) {
+            .forgot-card {
+                margin: 1rem;
+                border-radius: 15px;
+            }
+            
+            .forgot-form {
+                padding: 2rem 1.5rem;
+            }
+            
+            .forgot-image {
+                min-height: 300px;
+                padding: 1.5rem;
+            }
+            
+            .forgot-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .otp-inputs {
+                gap: 0.25rem;
+            }
+            
+            .otp-input {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -190,126 +346,136 @@ if (!isset($_SESSION)) {
         }
     }
     ?>
-    <div class="container">
-        <div class="row box_shad d-flex mt-sm-5 mb-sm-5">
-            <div class="col-lg" style="background-color: #fff; padding: 10px">
-                <img src="./assets/images/forgotani.webp" alt="forgot" class="lear_img" />
-            </div>
-            <div class="col-lg" style="background-color: #fff; padding: 10px">
-
-                <?php
-                if (!empty($error_message)) {
-                ?>
-                    <div class="message error_message text-danger fs-5 text-center"><?php echo $error_message; ?></div>
-                <?php
-                }
-                ?>
-                <div class="p-2">
-
-                    <?php
-                    if (!empty($success == 1)) {
-                    ?>
-                        <form action="" method="POST" class="needs-validation" novalidate>
-                            <!-- OTP Enter Start-->
+    <div class="forgot-container">
+        <div class="container">
+            <div class="forgot-card">
+                <div class="row g-0">
+                    <div class="col-lg-6">
+                        <div class="forgot-image">
                             <div class="text-center">
-                                <h6 style=" font-weight: bold;font-size: 25px;color:#1e40af">
-                                    Please enter the One Time Password <br> to verify your account</h6>
-                                <div class="text-danger" id="time">00:00</div>
-                                <div class="text-success"> <span>The OTP has been sent to your</span> <small style="font-weight: bold;">Registered Mail</small> </div>
-                                <div id="otp" class="inputs d-flex mt-2 flex-row justify-content-center mt-2">
-                                    <input class="m-2 text-center form-control rounded" type="text" name="otp1" id="first" maxlength="1" required />
-                                    <input class="m-2 text-center form-control rounded" type="text" name="otp2" id="second" maxlength="1" required />
-                                    <input class="m-2 text-center form-control rounded" type="text" name="otp3" id="third" maxlength="1" required />
-                                    <input class="m-2 text-center form-control rounded" type="text" name="otp4" id="fourth" maxlength="1" required />
-                                    <input class="m-2 text-center form-control rounded" type="text" name="otp5" id="fifth" maxlength="1" required />
-                                    <input class="m-2 text-center form-control rounded" type="text" name="otp6" id="sixth" maxlength="1" required />
-                                </div>
-                                <div class="mt-4"> <input type="submit" name="submit_otp" value="Validate" class="btn btn-lg btn-danger px-4 ">
-                                </div>
+                                <i class="bi bi-shield-lock" style="font-size: 8rem; color: white; opacity: 0.8;"></i>
+                                <h3 style="color: white; margin-top: 1rem;">Secure Password Reset</h3>
+                                <p style="color: rgba(255,255,255,0.8); margin-top: 0.5rem;">We'll help you get back into your account safely</p>
                             </div>
-                            <!-- OTP Enter End -->
-                        </form>
-                    <?php
-                    } else if ($success == 2) {
-                    ?>
-                        <form action="" method="POST" class="needs-validation" oninput='pass1.setCustomValidity(pass1.value != pass.value ? "Passwords do not match." : "")' novalidate>
-                            <!-- New Password Page Start -->
-                            <h1 class="header" style="font-weight: bold;">ENTER NEW PASSWORD</h1>
-                            <label for="pass" class="txt"> NEW PASSWORD</label>
-                            <input type="password" id="pass" name="pass" class="input_enter form-control shadow-none" placeholder="Enter Your New Password" required />
-                            <small class="invalid-feedback">
-                                Please Enter your Password
-                            </small>
-                            <!-- show pwd -->
-                            <input class="form-check-input shadow-none" type="checkbox" id="shoPWD" onclick="showPassword()">
-                            <small><label class="mb-3 ms-0 form-check-label user-select-none" for="shoPWD">
-                                    Show Password
-                                </label></small><br>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="forgot-form">
+                            <?php if (!empty($error_message)) { ?>
+                                <div class="alert alert-<?php echo ($error_message == 'Updated Successfully') ? 'success' : 'danger'; ?>">
+                                    <i class="bi bi-<?php echo ($error_message == 'Updated Successfully') ? 'check-circle' : 'exclamation-triangle'; ?>-fill me-2"></i>
+                                    <?php echo $error_message; ?>
+                                </div>
+                            <?php } ?>
 
-                            <label for="pass1" class="txt"> CONFIRM NEW PASSWORD</label>
-                            <input type="password" id="pass1" name="pass1" class="input_enter form-control shadow-none" placeholder="Enter Your New Password" required />
-                            <small class="invalid-feedback">
-                                Please Enter your Password correctly
-                            </small>
-                            <button type="submit" name="submit_pass" class=" btn btn-lg btn-block" style="
-                                background-color: #1e40af;
-                                color: #fff;
-                                width: 100%;
-                                margin-top: 25px;
-                            ">
-                                <span class="d-flex justify-content-center">CHANGE PASSWORD</span>
-                            </button>
-                            <a href="./Login"><button type="button" class="btn btn-lg btn-block" style="
-                                background-color: #000;
-                                color: #fff;
-                                width: 100%;
-                                margin-top: 25px;
-                            ">
-                                    <span class="d-flex justify-content-center">BACK TO LOGIN</span>
-                                </button></a>
-                            <!-- New Password Page End -->
-                        </form>
-                    <?php
-                    } else if ($success == 0) {
-                    ?>
+                            <?php if ($success == 1) { ?>
+                                <!-- OTP Verification Step -->
+                                <div class="otp-container">
+                                    <div class="otp-header">
+                                        <h2><i class="bi bi-envelope-check me-2"></i>Verify Your Email</h2>
+                                        <p>We've sent a 6-digit code to your registered email address</p>
+                                    </div>
+                                    
+                                    <div class="timer" id="time">05:00</div>
+                                    <div class="otp-info">
+                                        <i class="bi bi-info-circle me-1"></i>
+                                        Check your <strong>inbox</strong> and <strong>spam folder</strong>
+                                    </div>
+                                    
+                                    <form action="" method="POST" class="needs-validation" novalidate>
+                                        <div class="otp-inputs" id="otp">
+                                            <input class="otp-input form-control" type="text" name="otp1" id="first" maxlength="1" required />
+                                            <input class="otp-input form-control" type="text" name="otp2" id="second" maxlength="1" required />
+                                            <input class="otp-input form-control" type="text" name="otp3" id="third" maxlength="1" required />
+                                            <input class="otp-input form-control" type="text" name="otp4" id="fourth" maxlength="1" required />
+                                            <input class="otp-input form-control" type="text" name="otp5" id="fifth" maxlength="1" required />
+                                            <input class="otp-input form-control" type="text" name="otp6" id="sixth" maxlength="1" required />
+                                        </div>
+                                        
+                                        <button type="submit" name="submit_otp" class="btn-primary">
+                                            <i class="bi bi-check-circle me-2"></i>Verify Code
+                                        </button>
+                                    </form>
+                                </div>
+                                
+                            <?php } else if ($success == 2) { ?>
+                                <!-- New Password Step -->
+                                <div class="forgot-header">
+                                    <h1><i class="bi bi-key me-2"></i>Create New Password</h1>
+                                    <p>Choose a strong password for your account</p>
+                                </div>
+                                
+                                <form action="" method="POST" class="needs-validation" oninput='confirmPass.setCustomValidity(confirmPass.value != newPass.value ? "Passwords do not match." : "")' novalidate>
+                                    <div class="mb-3">
+                                        <label for="newPass" class="form-label">
+                                            <i class="bi bi-lock-fill"></i>New Password
+                                        </label>
+                                        <div class="password-toggle">
+                                            <input type="password" id="newPass" name="pass" class="form-control" placeholder="Enter your new password" required />
+                                            <button type="button" class="password-toggle-btn" onclick="togglePassword('newPass', this)">
+                                                <i class="bi bi-eye-slash"></i>
+                                            </button>
+                                        </div>
+                                        <div class="invalid-feedback">Please enter a password</div>
+                                    </div>
 
-                        <!-- Enter Email for OTP Start-->
-                        <h1 class="header" style="font-weight: bold;">CHANGE PASSWORD</h1>
-                        <form action="" method="POST" class="needs-validation" novalidate>
-                            <label for="fname" class="txt"> EMAIL</label>
-                            <input type="email" id="fname" name="email" class="input_enter form-control shadow-none" placeholder="Enter Your Email" required />
-                            <small class="invalid-feedback">
-                                Please Enter your email Id correctly
-                            </small>
-                            <input id="chengePwForm" type="submit" name="submit_email" value="Get OTP" class="btn btn-lg btn-block" style="
-                        background-color: #1e40af;
-                        color: #fff;
-                        width: 100%;
-                        margin-top: 25px;
-                    ">
-                            <a href="./Login"><button type="button" class="btn btn-lg btn-block" style="
-                        background-color: #000;
-                        color: #fff;
-                        width: 100%;
-                        margin-top: 25px;
-                    ">
-                                    <span class="d-flex justify-content-center">BACK TO LOGIN</span>
-                                </button></a>
-                            <!-- Enter Email for OTP End-->
-                        </form>
-                    <?php
-                    }
-                    ?>
+                                    <div class="mb-3">
+                                        <label for="confirmPass" class="form-label">
+                                            <i class="bi bi-lock-fill"></i>Confirm New Password
+                                        </label>
+                                        <input type="password" id="confirmPass" name="pass1" class="form-control" placeholder="Confirm your new password" required />
+                                        <div class="invalid-feedback">Passwords do not match</div>
+                                    </div>
 
+                                    <button type="submit" name="submit_pass" class="btn-primary">
+                                        <i class="bi bi-check-circle me-2"></i>Change Password
+                                    </button>
+                                    
+                                    <a href="./Login" class="btn-secondary">
+                                        <i class="bi bi-arrow-left me-2"></i>Back to Login
+                                    </a>
+                                </form>
+                                
+                            <?php } else { ?>
+                                <!-- Email Entry Step -->
+                                <div class="forgot-header">
+                                    <h1><i class="bi bi-envelope me-2"></i>Reset Password</h1>
+                                    <p>Enter your email address and we'll send you a verification code</p>
+                                </div>
+                                
+                                <form action="" method="POST" class="needs-validation" novalidate>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">
+                                            <i class="bi bi-envelope-fill"></i>Email Address
+                                        </label>
+                                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your registered email" required />
+                                        <div class="invalid-feedback">Please enter a valid email address</div>
+                                    </div>
+
+                                    <button type="submit" name="submit_email" class="btn-primary">
+                                        <i class="bi bi-send me-2"></i>Send Verification Code
+                                    </button>
+                                    
+                                    <a href="./Login" class="btn-secondary">
+                                        <i class="bi bi-arrow-left me-2"></i>Back to Login
+                                    </a>
+                                </form>
+                            <?php } ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <?php include('footer.php') ?>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./formValidation.js"></script>
     <script>
-        const suc = "<?php echo $success ?>"
+        const suc = "<?php echo $success ?>";
         if (suc == 1) {
             OTPInput();
             var fiveMinutes = 60 * 5,
@@ -319,19 +485,34 @@ if (!isset($_SESSION)) {
 
         function OTPInput() {
             const editor = document.getElementById('first');
-            editor.onpaste = pasteOTP;
+            if (editor) {
+                editor.onpaste = pasteOTP;
+            }
 
-            const inputs = document.querySelectorAll('#otp > *[id]');
+            const inputs = document.querySelectorAll('#otp input');
             for (let i = 0; i < inputs.length; i++) {
                 inputs[i].addEventListener('input', function(event) {
                     if (!event.target.value || event.target.value == '') {
-                        if (event.target.previousSibling.previousSibling) {
-                            event.target.previousSibling.previousSibling.focus();
+                        // Move to previous input
+                        const prevInput = inputs[i - 1];
+                        if (prevInput) {
+                            prevInput.focus();
                         }
-
                     } else {
-                        if (event.target.nextSibling.nextSibling) {
-                            event.target.nextSibling.nextSibling.focus();
+                        // Move to next input
+                        const nextInput = inputs[i + 1];
+                        if (nextInput) {
+                            nextInput.focus();
+                        }
+                    }
+                });
+                
+                // Handle backspace
+                inputs[i].addEventListener('keydown', function(event) {
+                    if (event.key === 'Backspace' && !event.target.value) {
+                        const prevInput = inputs[i - 1];
+                        if (prevInput) {
+                            prevInput.focus();
                         }
                     }
                 });
@@ -340,29 +521,34 @@ if (!isset($_SESSION)) {
 
         function pasteOTP(event) {
             event.preventDefault();
-            let elm = event.target;
-            let pasteVal = event.clipboardData.getData('text').split("");
-            if (pasteVal.length > 0) {
-                while (elm) {
-                    elm.value = pasteVal.shift();
-                    elm = elm.nextSibling.nextSibling;
-                }
+            let pasteVal = event.clipboardData.getData('text').replace(/\D/g, '').split("");
+            const inputs = document.querySelectorAll('#otp input');
+            
+            for (let i = 0; i < Math.min(pasteVal.length, inputs.length); i++) {
+                inputs[i].value = pasteVal[i];
             }
+            
+            // Focus on the next empty input or the last input
+            const nextEmptyIndex = Math.min(pasteVal.length, inputs.length - 1);
+            inputs[nextEmptyIndex].focus();
         }
 
-        function showPassword() {
-            const Password = document.getElementById('pass');
-            if (Password.type === 'password') {
-                Password.type = 'text'
+        function togglePassword(inputId, button) {
+            const input = document.getElementById(inputId);
+            const icon = button.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.replace('bi-eye-slash', 'bi-eye');
             } else {
-                Password.type = 'password'
+                input.type = 'password';
+                icon.classList.replace('bi-eye', 'bi-eye-slash');
             }
         }
 
         function startTimer(duration, display) {
-            var timer = duration,
-                minutes, seconds;
-            setInterval(function() {
+            var timer = duration, minutes, seconds;
+            const interval = setInterval(function() {
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
 
@@ -370,14 +556,14 @@ if (!isset($_SESSION)) {
                 seconds = seconds < 10 ? "0" + seconds : seconds;
 
                 display.textContent = minutes + ":" + seconds;
+                
                 if (--timer < 0) {
-                    document.querySelector('#time').innerHTML = "Your OTP is Expired!!!";
+                    clearInterval(interval);
+                    display.innerHTML = '<i class="bi bi-exclamation-triangle me-1"></i>Your OTP has expired!';
+                    display.className = 'alert alert-danger text-center';
                 }
             }, 1000);
         }
-
-        const successVal = <?php echo $success ?>;
-       
     </script>
 </body>
 
