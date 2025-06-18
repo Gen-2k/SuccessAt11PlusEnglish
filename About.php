@@ -12,8 +12,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="indexStyles.css">
     <style>
+    :root {
+        --theme-blue: #1E40AF;
+        --theme-blue-dark: #1e3a8a;
+        --theme-gold: #F59E0B;
+        --theme-gold-dark: #d97706;
+    }
+
     .mission-section {
-        background-color: #f8f5fd;
+        background-color: rgba(30, 64, 175, 0.03);
         border-radius: 0.5rem;
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -27,7 +34,7 @@
     
     .about-image {
         border-radius: 0.5rem;
-        box-shadow: 0 5px 15px rgba(110, 32, 167, 0.2);
+        box-shadow: 0 5px 15px rgba(30, 64, 175, 0.2);
         transition: transform 0.3s ease;
     }
     
@@ -56,7 +63,7 @@
         bottom: -10px;
         width: 50px;
         height: 3px;
-        background-color: var(--theme-violet);
+        background-color: var(--theme-blue);
     }
 
     .about-content p {
@@ -77,7 +84,7 @@
         <div class="mission-section p-4 p-md-5">
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
-                    <h1 class="display-5 fw-bold text-violet mb-4">Our Mission</h1>
+                    <h1 class="display-5 fw-bold blue mb-4">Our Mission</h1>
                     <p class="lead fs-4">
                         "We ignite a love for learning and empower students to reach their full potential. Our expert-led, interactive lessons build confidence and academic success in a safe, nurturing, and inclusive environment."
                     </p>
@@ -91,7 +98,7 @@
         <div class="about-section">
             <div class="row align-items-center">
                 <div class="col-lg-8 order-lg-1 order-2">
-                    <h2 class="section-heading text-violet fw-bold">ABOUT ME</h2>
+                    <h2 class="section-heading blue fw-bold">ABOUT ME</h2>
                     <div class="about-content">
                         <p class="mb-4">
                             I'm Safrina Sidhu Saran, a qualified teacher with over 17 years of experience in Kent schools. Teaching

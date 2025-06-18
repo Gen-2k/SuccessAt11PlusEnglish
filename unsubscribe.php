@@ -32,12 +32,12 @@ if (!isset($_SESSION)) {
         }
 
         form .input_enter:focus {
-            border: 1px solid #6e20a7;
+            border: 1px solid #1e40af;
         }
 
 
         .h4 {
-            color: #6e20a7;
+            color: #1e40af;
 
         }
 
@@ -100,7 +100,7 @@ if (!isset($_SESSION)) {
                             <p class="txt">Hi,</p>
                             <p for="email" class="txt">If you unsubscribe your email <span class="text-secondary">"<?php echo $unsubMail; ?>"</span>, you will no longer receive our newsletter emails.</p>
                             <div class="d-flex justify-content-between">
-                                <button type="submit" name="unsub_submit" class="btn  btn-block" style="background-color: #6e20a7; color: #fff; ">
+                                <button type="submit" name="unsub_submit" class="btn  btn-block" style="background-color: #1e40af; color: #fff; ">
                                     Unsubscribe
                                 </button>
                                 <a href="https://www.successat11plusenglish.com/" class="btn btn-secondary">Cancel</a>

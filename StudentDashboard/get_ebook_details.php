@@ -98,7 +98,7 @@ $html .= '
 .ebook-details { padding: 0.5rem 0 0.5rem 0; }
 .ebook-details h4 {
     font-weight: 700;
-    color: #6e20a7;
+    color: #1e40af;
     margin-bottom: 0.5rem;
     letter-spacing: 0.01em;
     font-size: 1.5rem;
@@ -114,7 +114,7 @@ $html .= '
 .ebook-details .info-group label {
     display: block;
     margin-bottom: 0.25rem;
-    color: #6e20a7;
+    color: #1e40af;
     font-weight: 600;
     font-size: 1.07rem;
 }

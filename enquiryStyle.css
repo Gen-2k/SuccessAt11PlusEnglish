@@ -20,10 +20,10 @@ form .input_enter {
 }
 
 form .input_enter:focus {
-    border: 1px solid #6e20a7;
+    border: 1px solid #1e40af;
 }
 .header {
-    color: #6e20a7;
+    color: #1e40af;
 
 }
 

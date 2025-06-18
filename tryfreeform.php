@@ -18,16 +18,17 @@ session_start();
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     
     <style>
         :root {
-            --theme-violet: #6e20a7;
-            --theme-violet-dark: #5a1a8a;
-            --theme-teal: #20c997;
-            --theme-teal-dark: #19a479;
+            --theme-blue: #1E40AF;
+            --theme-blue-dark: #1e3a8a;
+            --theme-gold: #F59E0B;
+            --theme-gold-dark: #d97706;
             --text-muted: #6c757d;
             --heading-color: #343a40;
             --body-bg: #f8f9fa;
@@ -37,20 +38,20 @@ session_start();
         
         body {
             background-color: var(--body-bg);
-            font-family: 'Lato', sans-serif;
+            font-family: 'Varela Round', sans-serif;
             color: #495057;
             line-height: 1.7;
         }
         
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Source Serif Pro', serif;
             font-weight: 600;
             color: var(--heading-color);
         }
         
         .form-container {
             padding: 3rem 0;
-            background: linear-gradient(135deg, #f9f7ff, #f0f8ff);
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.03), rgba(30, 64, 175, 0.08));
         }
         
         .page-title {
@@ -59,7 +60,7 @@ session_start();
         }
         
         .page-title h1 {
-            color: var(--theme-violet);
+            color: var(--theme-blue);
             font-weight: 700;
             font-size: 2.4rem;
             margin-bottom: 0.5rem;
@@ -75,14 +76,14 @@ session_start();
         .trial-form-card {
             background: var(--card-bg);
             border-radius: 16px;
-            border-top: 5px solid var(--theme-violet);
+            border-top: 5px solid var(--theme-blue);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
             overflow: hidden;
             margin: 1rem auto;
         }
         
         .card-header {
-            background: linear-gradient(135deg, var(--theme-violet), #9541d3);
+            background: linear-gradient(135deg, var(--theme-blue), var(--theme-blue-dark));
             color: white;
             padding: 1.75rem;
             border-bottom: none;
@@ -96,7 +97,7 @@ session_start();
             left: 0;
             right: 0;
             height: 10px;
-            background: linear-gradient(90deg, #6e20a7, #9541d3, #6e20a7);
+            background: linear-gradient(90deg, var(--theme-blue), var(--theme-blue-dark), var(--theme-blue));
             opacity: 0.6;
         }
         
@@ -109,7 +110,7 @@ session_start();
         }
         
         .card-header .accent {
-            color: #ffe84d;
+            color: var(--theme-gold);
             font-weight: 700;
         }
         
@@ -127,7 +128,7 @@ session_start();
         
         .form-label i {
             margin-right: 0.5rem;
-            color: var(--theme-violet);
+            color: var(--theme-blue);
             font-size: 1.1rem;
         }
         
@@ -142,25 +143,25 @@ session_start();
         }
         
         .form-control:focus, .form-select:focus {
-            border-color: var(--theme-violet);
-            box-shadow: 0 0 0 3px rgba(110, 32, 167, 0.15);
+            border-color: var(--theme-blue);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.15);
         }
         
         .form-select {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%236e20a7' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%231E40AF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
         }
         
         .benefits-list {
-            background: linear-gradient(to right, rgba(110, 32, 167, 0.03), rgba(110, 32, 167, 0.08));
+            background: linear-gradient(to right, rgba(30, 64, 175, 0.03), rgba(30, 64, 175, 0.08));
             border-radius: 12px;
             padding: 1.75rem;
             margin-bottom: 2.25rem;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
-            border-left: 4px solid var(--theme-violet);
+            border-left: 4px solid var(--theme-blue);
         }
         
         .benefits-list h3 {
-            color: var(--theme-violet);
+            color: var(--theme-blue);
             font-size: 1.3rem;
             margin-bottom: 1.25rem;
             display: flex;
@@ -170,7 +171,7 @@ session_start();
         .benefits-list h3 i {
             margin-right: 0.75rem;
             font-size: 1.5rem;
-            background: linear-gradient(135deg, var(--theme-violet), #9541d3);
+            background: linear-gradient(135deg, var(--theme-blue), var(--theme-blue-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -195,7 +196,7 @@ session_start();
         }
         
         .btn-apply {
-            background: linear-gradient(135deg, var(--theme-violet), #9541d3);
+            background: linear-gradient(135deg, var(--theme-blue), var(--theme-blue-dark));
             color: #ffffff !important;
             font-weight: 700;
             font-size: 1.15rem;
@@ -210,7 +211,7 @@ session_start();
             justify-content: center;
             letter-spacing: 0.5px;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-            box-shadow: 0 6px 20px rgba(110, 32, 167, 0.35);
+            box-shadow: 0 6px 20px rgba(30, 64, 175, 0.35);
         }
         
         .btn-apply::before {
@@ -231,9 +232,9 @@ session_start();
         }
         
         .btn-apply:hover {
-            background: linear-gradient(135deg, #5a1a8a, var(--theme-violet));
+            background: linear-gradient(135deg, var(--theme-blue-dark), var(--theme-blue));
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(110, 32, 167, 0.5);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.5);
             color: #ffffff !important;
         }
         
@@ -242,7 +243,7 @@ session_start();
             transform: translateY(1px);
             color: #ffffff !important;
             outline: none;
-            box-shadow: 0 4px 15px rgba(110, 32, 167, 0.4);
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.4);
         }
         
         .btn-apply i {
@@ -278,7 +279,7 @@ session_start();
             transform: translateX(-50%);
             background: white;
             padding: 0 1rem;
-            color: var(--theme-violet);
+            color: var(--theme-blue);
             font-weight: 600;
             font-size: 0.9rem;
         }
@@ -394,8 +395,7 @@ if (isset($_SESSION['status']) && isset($_SESSION['status_code'])) {
                                             <option value="Creative Writing">Creative Writing</option>
                                             <option value="SPaG">SPaG (Spelling, Punctuation & Grammar)</option>
                                             <option value="Vocabulary">Vocabulary</option>
-                                            <option value="Verbal Reasoning">Verbal Reasoning</option>
-                                            <option value="English Practice">English Practice & Technique</option>
+                                            <option value="Verbal Reasoning" class="vr-option">Verbal Reasoning</option>
                                         </select>
                                     </div>
                                     
@@ -628,6 +628,31 @@ if (isset($_SESSION['status']) && isset($_SESSION['status_code'])) {
             $(this).removeClass('is-invalid');
             $(this).next('.invalid-feedback').remove();
         });
+        
+        // Handle year group selection to show/hide Verbal Reasoning
+        $('#apfor').on('change', function() {
+            const selectedYear = $(this).val();
+            const vrOption = $('#module option[value="Verbal Reasoning"]');
+            const moduleSelect = $('#module');
+            
+            if (selectedYear === 'Year 6') {
+                // Hide Verbal Reasoning for Year 6
+                vrOption.hide();
+                // If Verbal Reasoning was selected, reset the selection
+                if (moduleSelect.val() === 'Verbal Reasoning') {
+                    moduleSelect.val('');
+                    // Remove validation styling if present
+                    moduleSelect.removeClass('is-valid is-invalid');
+                    moduleSelect.next('.invalid-feedback, .valid-feedback').remove();
+                }
+            } else {
+                // Show Verbal Reasoning for Year 4 and 5
+                vrOption.show();
+            }
+        });
+        
+        // Initialize the module options based on current year selection
+        $('#apfor').trigger('change');
     });
     </script>
 </body>

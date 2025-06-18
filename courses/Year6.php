@@ -32,7 +32,8 @@ $languageOrPageId = 'year6';
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="<?php echo rtrim(BASE_URL, '/'); ?>/assets/images/logonew.png">
@@ -43,31 +44,40 @@ $languageOrPageId = 'year6';
    ========================================================================== */
 
 :root {
-    --theme-violet: #6e20a7;
-    --theme-violet-dark: #5a1a8a;
-    --theme-teal: #20c997;
-    --theme-teal-dark: #19a479;
+    --theme-blue: #1E40AF;
+    --theme-blue-dark: #1e3a8a;
+    --theme-gold: #F59E0B;
+    --theme-gold-dark: #d97706;
+    --bs-primary: var(--theme-blue);
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: var(--theme-gold);
+    --bs-danger: #dc3545;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-body-font-family: 'Varela Round', sans-serif;
+    --bs-heading-color: #343a40;
     --text-muted-light: #6c757d;
     --heading-color: #343a40;
     --body-bg: #f8f9fa;
     --card-bg: #ffffff;
     --card-border: #dee2e6;
     --light-gray-bg: #f1f4f8;
-    --primary-blue: #0d6efd; /* Bootstrap primary */
 }
 
 body {
     background-color: var(--body-bg);
-    font-family: 'Lato', sans-serif;
+    font-family: var(--bs-body-font-family);
     color: #495057;
     font-size: 1rem; /* Base: 16px */
     line-height: 1.7; /* Increased for readability */
 }
 
 h1, h2, h3, h4, h5, h6 {
-     font-family: 'Poppins', sans-serif;
+     font-family: 'Source Serif Pro', serif;
      font-weight: 600;
-     color: var(--heading-color);
+     color: var(--bs-heading-color);
      line-height: 1.4;
 }
 
@@ -77,8 +87,12 @@ p {
 }
 
 /* Utility */
-.violet { color: var(--theme-violet) !important; }
-.text-teal { color: var(--theme-teal) !important; }
+.blue { color: var(--theme-blue) !important; }
+.text-blue { color: var(--theme-blue) !important; }
+.bg-blue { background-color: var(--theme-blue) !important; }
+.gold { color: var(--theme-gold) !important; }
+.text-gold { color: var(--theme-gold) !important; }
+.bg-gold { background-color: var(--theme-gold) !important; }
 
 
 /* ==========================================================================
@@ -95,13 +109,13 @@ p {
     margin-bottom: 3rem;
     text-align: center;
     position: relative;
-    color: var(--theme-violet);
+    color: var(--theme-blue);
 }
 
 .section-heading::after { /* Optional underline */
     content: ''; position: absolute; bottom: -10px; left: 50%;
     transform: translateX(-50%); width: 70px; height: 4px;
-    background-color: var(--theme-violet); border-radius: 2px;
+    background-color: var(--theme-blue); border-radius: 2px;
 }
 
 
@@ -112,7 +126,7 @@ p {
 .pricing-section .card {
     background-color: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-top: 4px solid var(--theme-violet); /* Added top border */
+    border-top: 4px solid var(--theme-blue); /* Added top border */
     border-radius: 0.75rem; /* Slightly more rounded */
     padding: 0; /* Remove padding from card, apply to card-body */
     box-shadow: 0 6px 20px rgba(0,0,0,0.07);
@@ -126,7 +140,7 @@ p {
 
 .pricing-section .card-body h3 { /* Updated selector */
     font-weight: 600;
-    color: var(--theme-violet);
+    color: var(--theme-blue);
     margin-bottom: 1.25rem; /* Adjusted margin */
     /* Removed border-bottom and display: inline-block */
     font-size: 1.05rem; /* Slightly larger price text */
@@ -158,10 +172,10 @@ p {
     display: block; /* Ensure details are below name */
 }
 .pricing-section .price-item .item-price {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Source Serif Pro', serif;
     font-weight: 600;
     font-size: 1.1rem; /* Larger price value */
-    color: var(--theme-violet); 
+    color: var(--theme-blue); 
     white-space: nowrap; /* Prevent price wrapping */
     margin-left: 1rem;
 }
@@ -205,7 +219,7 @@ p {
 }
 
 .module-content-col h3 { /* Module Titles */
-    color: var(--theme-violet);
+    color: var(--theme-blue);
     font-weight: 700;
     font-size: 1.85rem; /* Slightly larger */
     margin-bottom: 1rem;
@@ -239,40 +253,40 @@ p {
 /* Refined Minimalist Outline Button Styles (Increased Specificity & !important) */
 .module-buttons .btn.btn-apply {
     background-color: transparent;
-    border: 1px solid var(--theme-violet) !important;
-    color: var(--theme-violet);
+    border: 1px solid var(--theme-blue) !important;
+    color: var(--theme-blue);
     box-shadow: none;
     transition: all 0.2s ease-in-out;
 }
 .module-buttons .btn.btn-apply:hover {
-    background-color: var(--theme-violet);
-    border-color: var(--theme-violet);
+    background-color: var(--theme-blue);
+    border-color: var(--theme-blue);
     color: white;
     transform: translateY(-1px);
-    box-shadow: 0 2px 5px rgba(110, 32, 167, 0.15);
+    box-shadow: 0 2px 5px rgba(30, 64, 175, 0.15);
 }
 
 .module-buttons .btn.btn-syllabus {
     background-color: transparent;
-    border: 1px solid var(--theme-teal) !important;
-    color: var(--theme-teal);
+    border: 1px solid var(--theme-gold) !important;
+    color: var(--theme-gold);
     box-shadow: none;
     transition: all 0.2s ease-in-out;
 }
 .module-buttons .btn.btn-syllabus:hover {
-    background-color: var(--theme-teal);
-    border-color: var(--theme-teal);
+    background-color: var(--theme-gold);
+    border-color: var(--theme-gold);
     color: white;
     transform: translateY(-1px);
-    box-shadow: 0 2px 5px rgba(32, 201, 151, 0.15);
+    box-shadow: 0 2px 5px rgba(245, 158, 11, 0.15);
 }
 
 /* Set Icon Colors for Default Outline State (Increased Specificity) */
 .module-buttons .btn.btn-apply i {
-    color: var(--theme-violet);
+    color: var(--theme-blue);
 }
 .module-buttons .btn.btn-syllabus i {
-    color: var(--theme-teal);
+    color: var(--theme-gold);
 }
 
 /* Ensure Icon Colors are White on Hover (Increased Specificity) */
@@ -305,7 +319,7 @@ p {
 }
 .notes-card .card-header i {
     margin-right: 0.6rem;
-    color: var(--theme-violet);
+    color: var(--theme-blue);
     font-size: 1.2em;
 }
 
@@ -331,7 +345,7 @@ p {
     position: absolute;
     left: 1.1em; /* Adjusted position */
     top: 0.95em; /* Adjusted position */
-    color: var(--theme-violet);
+    color: var(--theme-blue);
     font-weight: bold;
     font-size: 1em; /* Larger marker */
 }
@@ -420,18 +434,18 @@ p {
 
     <div class="container section-padding">        <header class="text-center mb-5">
             <div class="mb-3">
-                <i class="bi bi-mortarboard-fill display-4 violet"></i>
+                <i class="bi bi-mortarboard-fill display-4 blue"></i>
             </div>
-            <h1 class="display-4 violet mb-3">Year 6 Modules</h1>
+            <h1 class="display-4 blue mb-3">Year 6 Modules</h1>
             <p class="lead text-muted col-lg-9 mx-auto" style="font-size: 1.1rem;">
              Comprehension / Creative Writing / Vocabulary / SPaG 
             </p>
-            <hr class="mx-auto mt-4" style="width: 80px; border-top: 3px solid var(--theme-violet); opacity: 0.5;">
+            <hr class="mx-auto mt-4" style="width: 80px; border-top: 3px solid var(--theme-blue); opacity: 0.5;">
         </header>
 
         <!-- Consolidated Pricing Section -->
         <section id="pricing" class="mb-5 pb-4 pricing-section">
-            <h2 class="section-heading violet">Flexible Pricing Options</h2>
+            <h2 class="section-heading blue">Flexible Pricing Options</h2>
             <div class="card shadow-lg mx-auto" style="max-width: 800px;">
                  <div class="card-body p-4 p-md-5">
                     <!-- All Modules/Options -->
@@ -497,7 +511,7 @@ p {
 
         <!-- Module Details Section (Consistent Layout) -->
         <section class="mb-5 pb-4">
-             <h2 class="section-heading violet">Year 6 Module Details</h2>
+             <h2 class="section-heading blue">Year 6 Module Details</h2>
 
             <!-- Comprehension Module -->
             <div class="module-card" id="comprehension">
@@ -598,7 +612,7 @@ p {
 
         <!-- Important Notes Section -->
         <section class="mb-5 pb-4 notes-section">
-             <h2 class="section-heading violet">Important Notes & Class Rules</h2>
+             <h2 class="section-heading blue">Important Notes & Class Rules</h2>
              <div class="row g-4 justify-content-center">
                 <!-- Photo/Video Card -->
                  <div class="col-lg-6">

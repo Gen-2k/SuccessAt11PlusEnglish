@@ -28,14 +28,15 @@ $_SESSION['form_submitted'] = false;
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --theme-violet: #6e20a7;
-            --theme-violet-dark: #5a1a8a;
-            --theme-teal: #20c997;
-            --theme-teal-dark: #19a479;
+            --theme-blue: #1E40AF;
+            --theme-blue-dark: #1e3a8a;
+            --theme-gold: #F59E0B;
+            --theme-gold-dark: #d97706;
             --text-muted: #6c757d;
             --heading-color: #343a40;
             --body-bg: #f8f9fa;
@@ -45,7 +46,7 @@ $_SESSION['form_submitted'] = false;
         
         body {
             background-color: var(--body-bg);
-            font-family: 'Lato', sans-serif;
+            font-family: 'Varela Round', sans-serif;
             color: #495057;
             line-height: 1.7;
             min-height: 100vh;
@@ -54,21 +55,21 @@ $_SESSION['form_submitted'] = false;
         }
         
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Source Serif Pro', serif;
             font-weight: 600;
             color: var(--heading-color);
         }
         
         .thank-you-container {
             padding: 5rem 0;
-            background: linear-gradient(135deg, #f9f7ff, #f0f8ff);
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.03), rgba(30, 64, 175, 0.08));
             flex: 1;
         }
         
         .thank-you-card {
             background: var(--card-bg);
             border-radius: 16px;
-            border-top: 5px solid var(--theme-violet);
+            border-top: 5px solid var(--theme-blue);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
             overflow: hidden;
             margin: 1rem auto;
@@ -77,7 +78,7 @@ $_SESSION['form_submitted'] = false;
         }
         
         .card-header {
-            background: linear-gradient(135deg, var(--theme-violet), #9541d3);
+            background: linear-gradient(135deg, var(--theme-blue), var(--theme-blue-dark));
             color: white;
             padding: 1.75rem;
             border-bottom: none;
@@ -91,7 +92,7 @@ $_SESSION['form_submitted'] = false;
             left: 0;
             right: 0;
             height: 10px;
-            background: linear-gradient(90deg, #6e20a7, #9541d3, #6e20a7);
+            background: linear-gradient(90deg, var(--theme-blue), var(--theme-blue-dark), var(--theme-blue));
             opacity: 0.6;
         }
         
@@ -109,16 +110,16 @@ $_SESSION['form_submitted'] = false;
         
         .thank-you-icon {
             font-size: 5rem;
-            color: var(--theme-violet);
+            color: var(--theme-blue);
             margin-bottom: 1.5rem;
             display: inline-block;
-            background: linear-gradient(135deg, var(--theme-violet), #9541d3);
+            background: linear-gradient(135deg, var(--theme-blue), var(--theme-blue-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--theme-violet), #9541d3);
+            background: linear-gradient(135deg, var(--theme-blue), var(--theme-blue-dark));
             color: #ffffff !important;
             font-weight: 600;
             padding: 0.75rem 2rem;
@@ -126,13 +127,13 @@ $_SESSION['form_submitted'] = false;
             border: none;
             transition: all 0.3s ease;
             margin-top: 1.5rem;
-            box-shadow: 0 4px 15px rgba(110, 32, 167, 0.3);
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
         }
         
         .btn-primary:hover {
-            background: linear-gradient(135deg, #5a1a8a, var(--theme-violet));
+            background: linear-gradient(135deg, var(--theme-blue-dark), var(--theme-blue));
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(110, 32, 167, 0.4);
+            box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
         }
         
         @media (max-width: 767.98px) {

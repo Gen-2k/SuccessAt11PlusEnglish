@@ -12,7 +12,7 @@
     font-family: 'Roboto', sans-serif;
 }
 .for_pwd{
-    color:  #6E20A7;
+    color:  #1E40AF;
 }
 .for_pwd #e-mail{
     display: block; 
@@ -30,7 +30,7 @@
     height:40px;
     width: 100%;
     font-size: 14px;
-    background-color:#6E20A7;
+    background-color:#1E40AF;
     color: white;
     line-height: 1.3;
 }

@@ -36,12 +36,12 @@ if (!isset($_SESSION)) {
         }
 
         form .input_enter:focus {
-            border: 1px solid #6e20a7;
+            border: 1px solid #1e40af;
         }
 
 
         .header {
-            color: #6e20a7;
+            color: #1e40af;
 
         }
 
@@ -212,7 +212,7 @@ if (!isset($_SESSION)) {
                         <form action="" method="POST" class="needs-validation" novalidate>
                             <!-- OTP Enter Start-->
                             <div class="text-center">
-                                <h6 style=" font-weight: bold;font-size: 25px;color:#6e20a7">
+                                <h6 style=" font-weight: bold;font-size: 25px;color:#1e40af">
                                     Please enter the One Time Password <br> to verify your account</h6>
                                 <div class="text-danger" id="time">00:00</div>
                                 <div class="text-success"> <span>The OTP has been sent to your</span> <small style="font-weight: bold;">Registered Mail</small> </div>
@@ -252,7 +252,7 @@ if (!isset($_SESSION)) {
                                 Please Enter your Password correctly
                             </small>
                             <button type="submit" name="submit_pass" class=" btn btn-lg btn-block" style="
-                                background-color: #6e20a7;
+                                background-color: #1e40af;
                                 color: #fff;
                                 width: 100%;
                                 margin-top: 25px;
@@ -282,7 +282,7 @@ if (!isset($_SESSION)) {
                                 Please Enter your email Id correctly
                             </small>
                             <input id="chengePwForm" type="submit" name="submit_email" value="Get OTP" class="btn btn-lg btn-block" style="
-                        background-color: #6e20a7;
+                        background-color: #1e40af;
                         color: #fff;
                         width: 100%;
                         margin-top: 25px;

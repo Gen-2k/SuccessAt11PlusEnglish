@@ -26,13 +26,15 @@ if (!$successMessage) {
     
     <style>
         :root {
-            --theme-violet: #6e20a7;
-            --theme-teal: #20c997;
+            --theme-blue: #1e40af;
+            --theme-blue-dark: #1e3a8a;
+            --theme-gold: #f59e0b;
+            --theme-gold-dark: #d97706;
             --success-green: #16a34a;
         }
         
         body {
-            background: linear-gradient(135deg, var(--theme-violet) 0%, var(--theme-teal) 100%);
+            background: linear-gradient(135deg, var(--theme-blue) 0%, var(--theme-gold) 100%);
             min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -78,7 +80,7 @@ if (!$successMessage) {
         }
         
         .btn-primary {
-            background: var(--theme-violet);
+            background: var(--theme-blue);
             border: none;
             padding: 0.75rem 2rem;
             border-radius: 0.5rem;
@@ -87,8 +89,8 @@ if (!$successMessage) {
         }
         
         .btn-outline-primary {
-            color: var(--theme-violet);
-            border-color: var(--theme-violet);
+            color: var(--theme-blue);
+            border-color: var(--theme-blue);
             padding: 0.75rem 2rem;
             border-radius: 0.5rem;
             font-weight: 600;
@@ -96,14 +98,14 @@ if (!$successMessage) {
         }
         
         .btn-outline-primary:hover {
-            background: var(--theme-violet);
-            border-color: var(--theme-violet);
+            background: var(--theme-blue);
+            border-color: var(--theme-blue);
         }
         
         .alert-info {
-            background: rgba(110, 32, 167, 0.1);
-            border: 1px solid rgba(110, 32, 167, 0.2);
-            color: var(--theme-violet);
+            background: rgba(30, 64, 175, 0.1);
+            border: 1px solid rgba(30, 64, 175, 0.2);
+            color: var(--theme-blue);
         }
     </style>
 </head>

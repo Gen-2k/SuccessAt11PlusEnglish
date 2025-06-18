@@ -15,8 +15,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #6e20a7;
-            --secondary-color: #4a148c;
+            --theme-blue: #1E40AF;
+            --theme-blue-dark: #1e3a8a;
+            --theme-gold: #F59E0B;
+            --theme-gold-dark: #d97706;
+            --primary-color: var(--theme-blue);
+            --secondary-color: var(--theme-blue-dark);
             --text-color: #333333;
             --light-bg: #f8f9fa;
             --border-color: #e0e0e0;
@@ -34,7 +38,7 @@
         }
 
         .policy-header {
-            background-color: #f8f9fa;
+            background-color: rgba(30, 64, 175, 0.03);
             color: var(--primary-color);
             padding: 3rem 0;
             margin-bottom: 2rem;
