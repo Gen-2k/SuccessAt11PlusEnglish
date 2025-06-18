@@ -1,4 +1,4 @@
-        <!-- Sidebar Navigation -->
+<!-- Sidebar Navigation -->
         <nav class="sidebar" id="sidebar">
             <div class="sidebar-content">                <div class="sidebar-header">
                     <div class="admin-profile">
@@ -49,7 +49,15 @@
                                 <i class="fas fa-book-open"></i>
                                 <span>E-Books</span>
                             </a>
-                        </li>                    </ul>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="newsletter.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'newsletter.php' ? 'active' : ''; ?>">
+                                <i class="fas fa-envelope"></i>
+                                <span>Newsletter</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>

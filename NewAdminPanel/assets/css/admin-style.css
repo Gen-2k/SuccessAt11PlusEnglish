@@ -1178,3 +1178,226 @@ body {
     left: auto !important;
     right: 0 !important;
 }
+
+/* Newsletter Management Styles */
+.newsletter-stats .card {
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 8px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.newsletter-stats .card:hover {
+    transform: translateY(-2px);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px;
+}
+
+.newsletter-subscribers {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.newsletter-subscribers::-webkit-scrollbar {
+    width: 6px;
+}
+
+.newsletter-subscribers::-webkit-scrollbar-track {
+    background: #f8f9fa;
+    border-radius: 3px;
+}
+
+.newsletter-subscribers::-webkit-scrollbar-thumb {
+    background: #dee2e6;
+    border-radius: 3px;
+}
+
+.newsletter-subscribers::-webkit-scrollbar-thumb:hover {
+    background: #adb5bd;
+}
+
+.subscriber-item {
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #f1f3f4 !important;
+}
+
+.subscriber-item:hover {
+    background-color: #f8f9fa;
+}
+
+.subscriber-item:last-child {
+    border-bottom: none !important;
+}
+
+/* Clean statistics cards */
+.bg-light {
+    background-color: #f8f9fa !important;
+    transition: background-color 0.2s ease;
+}
+
+.bg-light:hover {
+    background-color: #e9ecef !important;
+}
+
+/* Newsletter form styling */
+.newsletter-form .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.15);
+}
+
+.newsletter-modal .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.newsletter-modal .modal-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+/* Card consistency */
+.card {
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 4px;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #e9ecef;
+    font-weight: 500;
+}
+
+/* Avatar circles */
+.rounded-circle {
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+/* Empty state styling */
+.text-center .fa-inbox {
+    opacity: 0.6;
+}
+
+/* Button consistency */
+.btn-outline-secondary {
+    border-color: #dee2e6;
+    color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+/* Loading spinner */
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Toast notifications */
+.toast {
+    min-width: 300px;
+    border: 1px solid #e9ecef;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+/* File upload styling */
+.form-control[type="file"] {
+    padding: 0.5rem;
+    border: 2px dashed #dee2e6;
+    border-radius: 0.5rem;
+    background-color: #f8f9fa;
+}
+
+.form-control[type="file"]:focus {
+    border-color: #007bff;
+    background-color: #fff;
+}
+
+.form-text {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+/* Newsletter Header Styling */
+.newsletter-header {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 1.25rem 1.5rem;
+}
+
+.newsletter-header h4 {
+    color: white;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-header .btn-primary {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.newsletter-header .btn-primary:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.newsletter-header .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+
+/* Subscribers header styling */
+.subscribers-header {
+    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 1.25rem 1.5rem;
+}
+
+.subscribers-header h4 {
+    color: white;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.subscribers-header .btn-outline-secondary {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.subscribers-header .btn-outline-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.subscribers-header .btn-outline-secondary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+    color: white;
+}
+
+/* Remove default card header styling for newsletter headers */
+.newsletter-header.card-header,
+.subscribers-header.card-header {
+    background-color: transparent;
+    border-bottom: none;
+}
