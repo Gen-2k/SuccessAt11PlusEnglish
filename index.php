@@ -853,7 +853,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <div class="row align-items-center g-5">
                     <div class="col-lg-6 position-relative">
                         <div class="position-relative">
-                            <img src="./assets/images/success/success kids.png"
+                            <img src="./assets/images/success/image.png"
                                 alt="Student learning online during a trial class"
                                 class="img-fluid rounded-4 shadow-lg try-class-image">
 
@@ -1021,7 +1021,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             <!-- Row 1: Structure -->
                             <div class="row g-5 align-items-center mb-5">
                                 <div class="col-md-6">
-                                    <img src="assets/images/success/image3.png" alt="Happy student showing thumbs up"
+                                    <img src="assets/images/success/image17.png" alt="Happy student showing thumbs up"
                                         class="img-fluid rounded shadow-lg">
                                 </div>
                                 <div class="col-md-6">
@@ -1058,7 +1058,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             <!-- Row 2: Resources & Practice -->
                             <div class="row g-5 align-items-center flex-md-row-reverse">
                                 <div class="col-md-6">
-                                    <img src="assets/images/success/image10.png"
+                                    <img src="assets/images/success/image18.png"
                                         alt="Student accessing online portal resources"
                                         class="img-fluid rounded shadow-lg">
                                 </div>
