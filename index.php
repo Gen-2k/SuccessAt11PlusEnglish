@@ -215,7 +215,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <!-- Image Column -->
                     <div class="col-lg-6 text-center text-lg-end position-relative" style="z-index: 1;">
                         <div class="position-relative">
-                            <img src="./assets/images/success/home.jpeg"
+                            <img src="./assets/images/success/herosection-image.png"
                                 alt="Happy students learning and growing with Success at 11 plus English"
                                 class="img-fluid rounded-4 shadow-lg"
                                 style="width: 90%; max-width: 550px; border: 8px solid white; z-index: 2; position: relative;">
@@ -463,7 +463,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         <div class="class-card shadow-sm hover-lift spag-main">
                             <div class="class-card-ribbon">Years 4-6</div>
                             <div class="card-image"
-                                style="background-image: url('./assets/images/success/groupkids.png');">
+                                style="background-image: url('./assets/images/success/targetmodules.png');">
                                 <div class="card-overlay">
                                     <div class="card-content">
                                         <div class="card-icon"><i class="bi bi-book-half"></i></div>
@@ -524,7 +524,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         <div class="class-card shadow-sm hover-lift late-Teens-main">
                             <div class="class-card-ribbon">All Years</div>
                             <div class="card-image"
-                                style="background-image: url('./assets/images/success/image7.jpeg');">
+                                style="background-image: url('./assets/images/success/intensive.png');">
                                 <div class="card-overlay">
                                     <div class="card-content">
                                         <div class="card-icon"><i class="bi bi-calendar-event-fill"></i></div>
@@ -544,7 +544,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         <div class="class-card shadow-sm hover-lift vocabulary-main">
                             <div class="class-card-ribbon">11+ Prep</div>
                             <div class="card-image"
-                                style="background-image: url('./assets/images/success/image12.png');">
+                                style="background-image: url('./assets/images/success/Verbal Reasoning.png');">
                                 <div class="card-overlay">
                                     <div class="card-content">
                                         <div class="card-icon"><i class="bi bi-search"></i></div>
@@ -853,7 +853,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <div class="row align-items-center g-5">
                     <div class="col-lg-6 position-relative">
                         <div class="position-relative">
-                            <img src="./assets/images/success/image.png"
+                            <img src="./assets/images/success/tryclass.png"
                                 alt="Student learning online during a trial class"
                                 class="img-fluid rounded-4 shadow-lg try-class-image">
 
