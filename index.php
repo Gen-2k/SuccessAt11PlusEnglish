@@ -58,6 +58,106 @@ if (session_status() === PHP_SESSION_NONE) {
             /* Error red */
             color: #fff;
         }
+
+        /* Custom styles for the Ages/Years section */
+        .ages-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ages-section .year-card {
+            transition: transform 0.3s;
+        }
+
+        .ages-section .year-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .ages-section .year-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .ages-section .year-card-4 {
+            background-color: #eff6ff;
+        }
+
+        .ages-section .year-card-5 {
+            background-color: #fffbeb;
+        }
+
+        .ages-section .year-card-6 {
+            background-color: #f0fdf4;
+        }
+
+        .ages-section .btn-apply-now {
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .ages-section .btn-apply-now:hover {
+            transform: translateY(-3px);
+        }
+
+        .ages-section .btn-blue {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .ages-section .btn-gold {
+            background-color: #ffc107;
+            color: #fff;
+        }
+
+        /* Hero Section Enhancements */
+        .hero-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta-group .btn {
+            padding: 12px 24px;
+            font-size: 1.125rem;
+            border-radius: 30px;
+        }
+
+        .hero-cta-main {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .hero-cta-alt {
+            background-color: transparent;
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+
+        .hero-img {
+            border: 8px solid white;
+        }
+
+        .hero-underline {
+            height: 10px;
+            width: 100%;
+            bottom: 5px;
+            left: 0;
+            background-color: rgba(30, 64, 175, 0.25);
+            z-index: -1;
+        }
     </style>
 </head>
 
@@ -125,31 +225,29 @@ if (session_status() === PHP_SESSION_NONE) {
         <!-- Hero Section -->
         <section class="hero-section position-relative overflow-hidden">
             <div class="position-absolute top-0 end-0 d-none d-lg-block"
-                style="z-index: 0; width: 30%; height: 100%; background: radial-gradient(circle, rgba(30,64,175,0.08) 0%, rgba(0,0,0,0) 70%);">
+                style="z-index: 0; width: 30%; height: 100%; background: radial-gradient(circle, rgba(30,64,175,0.10) 0%, rgba(0,0,0,0) 70%);">
             </div>
             <div class="position-absolute bottom-0 start-0 d-none d-lg-block"
-                style="z-index: 0; width: 30%; height: 30%; background: radial-gradient(circle, rgba(30,64,175,0.08) 0%, rgba(0,0,0,0) 70%);">
-            </div>
-
-            <div class="position-absolute d-none d-lg-block"
-                style="top: 15%; right: 10%; z-index: 0; width: 150px; height: 150px; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; background-color: rgba(30,64,175,0.04);">
+                style="z-index: 0; width: 30%; height: 30%; background: radial-gradient(circle, rgba(30,64,175,0.10) 0%, rgba(0,0,0,0) 70%);">
             </div>
             <div class="position-absolute d-none d-lg-block"
-                style="bottom: 10%; left: 5%; z-index: 0; width: 100px; height: 100px; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; background-color: rgba(30,64,175,0.04);">
+                style="top: 15%; right: 10%; z-index: 0; width: 150px; height: 150px; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; background-color: rgba(30,64,175,0.08);">
             </div>
-
+            <div class="position-absolute d-none d-lg-block"
+                style="bottom: 10%; left: 5%; z-index: 0; width: 100px; height: 100px; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; background-color: rgba(30,64,175,0.08);">
+            </div>
             <div class="container py-5">
                 <div class="row gy-5 align-items-center">
                     <!-- Text Column -->
                     <div class="col-lg-6 position-relative" style="z-index: 1;">
-                        <h1 class="display-4 fw-bold mb-3 lh-sm">
+                        <h1 class="display-4 fw-bold mb-3 lh-sm hero-title">
                             The <span class="blue position-relative d-inline-block">Outstanding<span
-                                    class="position-absolute"
-                                    style="height: 8px; width: 100%; bottom: 5px; left: 0; background-color: rgba(30,64,175,0.3); z-index: -1;"></span></span>
+                                    class="position-absolute hero-underline"
+                                    style="height: 10px; width: 100%; bottom: 5px; left: 0; background-color: rgba(30,64,175,0.25); z-index: -1;"></span></span>
                             Experts in<br class="d-none d-sm-block"> ONLINE English & VR Tuition!
                         </h1>
 
-                        <h2 class="h5 blue fw-bold mb-4">
+                        <h2 class="h5 blue fw-bold mb-4 hero-subtitle">
                             Welcome to Success at 11 plus English.
                         </h2>
 
@@ -188,13 +286,13 @@ if (session_status() === PHP_SESSION_NONE) {
                         </div>
 
                         <!-- Call to Action Buttons -->
-                        <div class="d-grid gap-3 d-sm-flex mb-5">
+                        <div class="d-grid gap-3 d-sm-flex mb-5 hero-cta-group">
                             <a href="tryfreeform"
-                                class="btn btn-primary btn-lg px-4 py-3 fw-semibold shadow-sm hover-lift">
+                                class="btn btn-primary btn-lg px-4 py-3 fw-semibold shadow-md hover-lift hero-cta-main">
                                 <i class="bi bi-lightning-charge-fill me-2"></i>Apply for Trial Class
                             </a>
                             <a href="#ages-section"
-                                class="btn btn-outline-blue btn-lg px-4 py-3 fw-semibold shadow-sm hover-lift">
+                                class="btn btn-outline-blue btn-lg px-4 py-3 fw-semibold shadow-md hover-lift hero-cta-alt">
                                 <i class="bi bi-collection me-2"></i>View All Courses
                             </a>
                         </div>
@@ -217,7 +315,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         <div class="position-relative">
                             <img src="./assets/images/success/herosection-image.png"
                                 alt="Happy students learning and growing with Success at 11 plus English"
-                                class="img-fluid rounded-4 shadow-lg"
+                                class="img-fluid rounded-4 shadow-lg hero-img"
                                 style="width: 90%; max-width: 550px; border: 8px solid white; z-index: 2; position: relative;">
 
                             <div class="position-absolute top-0 end-0 translate-middle-y d-none d-lg-block"
@@ -371,7 +469,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <section id="ages-section" class="ages-section py-5 bg-light">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h2 class="head2 fw-bold display-6">AGES / YEARS</h2>
+                    <h2 class="head2 fw-bold display-6">YEARS</h2>
                     <p class="lead" style="color: red; font-weight: bold;">Tailored tutoring for specific year groups.
                     </p>
                 </div>
@@ -388,17 +486,14 @@ if (session_status() === PHP_SESSION_NONE) {
                     <div class="row text-center g-4 justify-content-center">
                         <!-- Year 4 Card -->
                         <div class="col-md-6 col-lg-4">
-                            <div class="card shadow-sm border-0"
-                                style="background-color: #eff6ff; width: 100%; height: 100%; min-height: 350px;">
+                            <div class="year-card card shadow year-card-4 border-0">
                                 <div class="card-body py-5 px-4 d-flex flex-column align-items-center">
-                                    <div class="position-relative">
-                                        <div class="age-item-icon mx-auto mb-4 text-danger">
-                                            <i class="bi bi-book display-3"></i>
-                                        </div>
+                                    <div class="year-badge year-badge-4 mb-4">Year 4</div>
+                                    <div class="age-item-icon mx-auto mb-4 text-danger">
+                                        <i class="bi bi-book display-3"></i>
                                     </div>
-                                    <h3 class="h4 fw-bold blue mb-4">Year 4</h3>
                                     <div class="mt-auto">
-                                        <a class="btn btn-outline-blue px-4 py-2" href="courses_year4?lan=Year4"
+                                        <a class="btn btn-apply-now btn-blue px-4 py-2 fw-bold" href="courses_year4?lan=Year4"
                                             role="button">Apply Now</a>
                                     </div>
                                 </div>
@@ -407,17 +502,14 @@ if (session_status() === PHP_SESSION_NONE) {
 
                         <!-- Year 5 Card -->
                         <div class="col-md-6 col-lg-4">
-                            <div class="card shadow-sm border-0"
-                                style="background-color: #fffbeb; width: 100%; height: 100%; min-height: 350px;">
+                            <div class="year-card card shadow year-card-5 border-0">
                                 <div class="card-body py-5 px-4 d-flex flex-column align-items-center">
-                                    <div class="position-relative">
-                                        <div class="age-item-icon mx-auto mb-4 text-warning">
-                                            <i class="bi bi-pencil-square display-3"></i>
-                                        </div>
+                                    <div class="year-badge year-badge-5 mb-4">Year 5</div>
+                                    <div class="age-item-icon mx-auto mb-4 text-warning">
+                                        <i class="bi bi-pencil-square display-3"></i>
                                     </div>
-                                    <h3 class="h4 fw-bold blue mb-4">Year 5</h3>
                                     <div class="mt-auto">
-                                        <a class="btn btn-outline-gold px-4 py-2" href="courses_year5?lan=Year5"
+                                        <a class="btn btn-apply-now btn-gold px-4 py-2 fw-bold" href="courses_year5?lan=Year5"
                                             role="button">Apply Now</a>
                                     </div>
                                 </div>
@@ -426,17 +518,14 @@ if (session_status() === PHP_SESSION_NONE) {
 
                         <!-- Year 6 Card -->
                         <div class="col-md-6 col-lg-4">
-                            <div class="card shadow-sm border-0"
-                                style="background-color: #f0fdf4; width: 100%; height: 100%; min-height: 350px;">
+                            <div class="year-card card shadow year-card-6 border-0">
                                 <div class="card-body py-5 px-4 d-flex flex-column align-items-center">
-                                    <div class="position-relative">
-                                        <div class="age-item-icon mx-auto mb-4 text-success">
-                                            <i class="bi bi-mortarboard-fill display-3"></i>
-                                        </div>
+                                    <div class="year-badge year-badge-6 mb-4">Year 6</div>
+                                    <div class="age-item-icon mx-auto mb-4 text-success">
+                                        <i class="bi bi-mortarboard-fill display-3"></i>
                                     </div>
-                                    <h3 class="h4 fw-bold blue mb-4">Year 6</h3>
                                     <div class="mt-auto">
-                                        <a class="btn btn-outline-blue px-4 py-2" href="courses_year6?lan=Year6"
+                                        <a class="btn btn-apply-now btn-blue px-4 py-2 fw-bold" href="courses_year6?lan=Year6"
                                             role="button">Apply Now</a>
                                     </div>
                                 </div>
@@ -1508,7 +1597,6 @@ if (session_status() === PHP_SESSION_NONE) {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
                                             <!-- Call to Action -->
                                             <div class="text-center mt-5 pt-4" style="border-top: 3px solid rgba(220, 53, 69, 0.1);">
