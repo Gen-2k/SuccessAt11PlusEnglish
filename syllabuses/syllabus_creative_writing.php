@@ -527,7 +527,6 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
         <div class="header-section">
             <div class="header-content">
                 <h1 class="main-title">Creative Writing</h1>
-                <p class="subtitle">Master the art of storytelling through our comprehensive 8-week program designed for 11 Plus excellence</p>
             </div>
         </div>        <!-- Timeline Container -->
         <div class="timeline-container">
@@ -536,22 +535,22 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Descriptive Writing Section -->
             <div class="section-divider">
                 <div class="section-number">1</div>
-                <div class="section-title">🎨 Descriptive Writing Mastery (Weeks 1-5)</div>
+                <div class="section-title">Descriptive Writing</div>
             </div>
 
             <!-- Week 1 -->
             <div class="week-card">
                 <div class="week-header">
                     <div class="week-number">Week 1</div>
-                    <h3 class="week-title">Foundation & Character Development</h3>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>Master important notes and rules for descriptive writing</li>
-                        <li><strong>PARAGRAPH 1:</strong> Explore themes and establish narrative foundation</li>
-                        <li>Set compelling scenes – location, environment, and atmosphere</li>
-                        <li>Create and describe 3 dynamic characters</li>
-                        <li>Perfect grammar usage – nouns, verbs, adverbs, adjectives, prepositions, fronted adverbials</li>
+                        <li>Important notes/rules</li>
+                        <li>PARAGRAPH 1</li>
+                        <li>Look at themes</li>
+                        <li>Set the scene – location, environment</li>
+                        <li>Choose and describe 3 characters</li>
+                        <li>Grammar – use of nouns, verbs, adverbs, adjectives, prepositions, fronted adverbials</li>
                     </ul>
                 </div>
             </div>
@@ -560,14 +559,13 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <div class="week-card">
                 <div class="week-header">
                     <div class="week-number">Week 2</div>
-                    <h3 class="week-title">Conflict Introduction & Advanced Punctuation</h3>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li><strong>PARAGRAPH 2:</strong> Introduce conflict with clear purpose and direction</li>
-                        <li>Master advanced punctuation techniques</li>
-                        <li>Utilize colons, semicolons, exclamation marks, and speech marks effectively</li>
-                        <li>Implement powerful <strong>SENSORY LANGUAGE</strong> to engage readers</li>
+                        <li>PARAGRAPH 2</li>
+                        <li>Choose a conflict with aim</li>
+                        <li>Use of a wide range of punctuation Colons, semicolon, exclamation marks, speech marks</li>
+                        <li>Using SENSORY LANGUAGE</li>
                     </ul>
                 </div>
             </div>
@@ -576,14 +574,13 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <div class="week-card">
                 <div class="week-header">
                     <div class="week-number">Week 3</div>
-                    <h3 class="week-title">Building Conflict & Literary Mastery</h3>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li><strong>PARAGRAPH 3:</strong> Escalate and develop conflict strategically</li>
-                        <li>Master literary devices – metaphors, similes, oxymorons, hyperbole</li>
-                        <li>Deploy impactful <strong>EMOTIVE LANGUAGE</strong> for maximum effect</li>
-                        <li>Create tension and maintain reader engagement</li>
+                        <li>PARAGRAPH 3</li>
+                        <li>Build conflict</li>
+                        <li>Literary devices- use of Metaphors, similes, oxymorons, hyperbole etc</li>
+                        <li>Using EMOTIVE language</li>
                     </ul>
                 </div>
             </div>
@@ -592,14 +589,13 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <div class="week-card">
                 <div class="week-header">
                     <div class="week-number">Week 4</div>
-                    <h3 class="week-title">Story Development & Event Sequencing</h3>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li><strong>PARAGRAPH 4:</strong> Craft three compelling series of events</li>
-                        <li>Explore various approaches to conflict resolution</li>
-                        <li>Develop three distinct possible outcomes</li>
-                        <li>Master pacing and story progression techniques</li>
+                        <li>Paragraph 4</li>
+                        <li>Three series of events</li>
+                        <li>Looking at conflict resolution</li>
+                        <li>Three outcomes</li>
                     </ul>
                 </div>
             </div>
@@ -608,14 +604,13 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <div class="week-card">
                 <div class="week-header">
                     <div class="week-number">Week 5</div>
-                    <h3 class="week-title">Resolution Mastery & Powerful Endings</h3>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li><strong>Final paragraph:</strong> Achieve satisfying conflict resolution</li>
-                        <li>Master resolution strategies: collaborate, compromise, avoid, accommodate</li>
-                        <li>Create memorable and impactful endings</li>
-                        <li>Polish and refine narrative techniques</li>
+                        <li>Final paragraph</li>
+                        <li>Conflict resolution</li>
+                        <li>Collaborate, compromise, avoid, accommodate</li>
+                        <li>Endings</li>
                     </ul>
                 </div>
             </div>
@@ -623,21 +618,17 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Persuasive Writing Section -->
             <div class="section-divider">
                 <div class="section-number">2</div>
-                <div class="section-title">🎯 Persuasive Writing Excellence (Weeks 6-7)</div>
+                <div class="section-title">Persuasive Writing</div>
             </div>
 
             <!-- Week 6 -->
             <div class="week-card">
                 <div class="week-header">
                     <div class="week-number">Week 6</div>
-                    <h3 class="week-title">Persuasive Writing Fundamentals</h3>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>Master <strong>PERSUASIVE WRITING</strong> examples and core techniques</li>
-                        <li>Understand and implement persuasive language strategies</li>
-                        <li>Identify and target specific audiences effectively</li>
-                        <li>Structure compelling persuasive arguments</li>
+                        <li>PERSUASIVE WRITING – examples and technique</li>
                     </ul>
                 </div>
             </div>
@@ -646,14 +637,10 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <div class="week-card">
                 <div class="week-header">
                     <div class="week-number">Week 7</div>
-                    <h3 class="week-title">Advanced Persuasive Strategies</h3>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>Perfect persuasive writing requirements and advanced tips</li>
-                        <li>Deploy sophisticated persuasive techniques</li>
-                        <li>Master counter-arguments and compelling rebuttals</li>
-                        <li>Create powerful conclusions that drive action</li>
+                        <li>PERSUASIVE WRITING - Checking, understanding requirements and tips</li>
                     </ul>
                 </div>
             </div>
@@ -661,22 +648,17 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Diary Entry Section -->
             <div class="section-divider">
                 <div class="section-number">3</div>
-                <div class="section-title">📔 Diary Entry Mastery (Week 8)</div>
+                <div class="section-title">Diary Entry</div>
             </div>
 
             <!-- Week 8 -->
             <div class="week-card">
                 <div class="week-header">
                     <div class="week-number">Week 8</div>
-                    <h3 class="week-title">Personal Voice & Diary Excellence</h3>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>Master <strong>DIARY ENTRY</strong> technique, method, and requirements</li>
-                        <li>Perfect diary entry format and authentic style</li>
-                        <li>Develop distinctive personal voice and appropriate tone</li>
-                        <li>Master time sequencing and reflective techniques</li>
-                        <li>Express emotions authentically in diary writing</li>
+                        <li>DIARY ENTRY – Technique, method  and requirements of diary entry work.</li>
                     </ul>
                 </div>
             </div>        </div>

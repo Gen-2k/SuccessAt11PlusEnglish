@@ -534,8 +534,7 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
         <!-- Header Section -->
         <div class="header-section">
             <div class="header-content">
-                <h1 class="main-title">SPaG Syllabus</h1>
-                <p class="subtitle">Master Spelling, Punctuation & Grammar through our comprehensive 8-week program designed for 11 Plus excellence</p>
+                <h1 class="main-title">SPaG SYLLABUS</h1>
             </div>
         </div>
 
@@ -546,23 +545,19 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Grammar Section -->
             <div class="section-divider">
                 <div class="section-number">1</div>
-                <div class="section-title">📝 Grammar Fundamentals (Weeks 1-3)</div>
+                <div class="section-title">GRAMMAR</div>
             </div>
 
             <!-- Week 1 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 1</div>
-                    <h3 class="week-title">Word Types & Parts of Speech</h3>
+                    <div class="week-number">WEEK 1</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>Master <strong>NOUNS</strong> and their various types and functions</li>
-                        <li>Perfect <strong>PRONOUNS</strong> usage and proper substitutions</li>
-                        <li>Understand <strong>ADJECTIVES</strong> for enhanced descriptions</li>
-                        <li>Master <strong>ARTICLES</strong> (A, An, The) and their proper applications</li>
-                        <li>Perfect <strong>VERBS</strong> and <strong>MODAL VERBS</strong> for dynamic writing</li>
-                        <li>Utilize <strong>ADVERBS</strong> and <strong>DETERMINERS</strong> effectively</li>
+                        <li>WORDS TYPES – NOUNS, PRONOUNS, ADJECTIVES,</li>
+                        <li>ARTICLES (A, AN, THE), VERBS, MODAL,ADVERBS,</li>
+                        <li>DETERMINERS</li>
                     </ul>
                 </div>
             </div>
@@ -570,16 +565,13 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Week 2 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 2</div>
-                    <h3 class="week-title">Clauses, Phrases & Sentence Structure</h3>
+                    <div class="week-number">WEEK 2</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>Distinguish between <strong>CLAUSES AND PHRASES</strong> with confidence</li>
-                        <li>Master <strong>ADVERBIAL PHRASES</strong> and <strong>FRONTED ADVERBIALS</strong></li>
-                        <li>Perfect <strong>NOUN PHRASES</strong> for sophisticated expression</li>
-                        <li>Practice <strong>MIXED SENTENCE</strong> construction and analysis</li>
-                        <li>Build complex sentence structures with proper grammar</li>
+                        <li>CLAUSES AND PHRASES</li>
+                        <li>ADVERBIAL PHRASES / FRONTED ADVERBIALS</li>
+                        <li>CLAUSES, PHRASES, NOUN PHRASES, MIXED SENTENCE PRACTICE</li>
                     </ul>
                 </div>
             </div>
@@ -587,16 +579,11 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Week 3 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 3</div>
-                    <h3 class="week-title">Conjunctions, Prepositions & Verb Tenses</h3>
+                    <div class="week-number">WEEK 3</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>Master <strong>CONJUNCTIONS AND PREPOSITIONS</strong> for sentence flow</li>
-                        <li>Perfect <strong>VERB TENSES</strong> and maintain consistency</li>
-                        <li>Understand <strong>SAME TENSE</strong> requirements across writing</li>
-                        <li>Perfect <strong>VERBS WITH 'ING'</strong> and their proper usage</li>
-                        <li>Apply advanced grammar rules in practical writing</li>
+                        <li>CONJUNCTIONS AND PREPOSITIONS, VERB TENSES, SAME TENSE, VERBS WITH ‘ING’</li>
                     </ul>
                 </div>
             </div>
@@ -604,21 +591,17 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Punctuation Section -->
             <div class="section-divider">
                 <div class="section-number">2</div>
-                <div class="section-title">🎯 Punctuation Mastery (Weeks 4-5)</div>
+                <div class="section-title">PUNCTUATION</div>
             </div>
 
             <!-- Week 4 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 4</div>
-                    <h3 class="week-title">Essential Punctuation Marks</h3>
+                    <div class="week-number">WEEK 4</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>Perfect <strong>SENTENCE PUNCTUATION</strong> for clarity and flow</li>
-                        <li>Master <strong>COMMAS</strong> in lists, clauses, and complex sentences</li>
-                        <li>Utilize <strong>BRACKETS AND DASHES</strong> for additional information</li>
-                        <li>Apply punctuation rules consistently across all writing types</li>
+                        <li>SENTENCE PUNCTATION, COMMAS, BRACKETS AND DASHES</li>
                     </ul>
                 </div>
             </div>
@@ -626,15 +609,11 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Week 5 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 5</div>
-                    <h3 class="week-title">Advanced Punctuation & Layout</h3>
+                    <div class="week-number">WEEK 5</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>Master <strong>APOSTROPHES</strong> for possession and contractions</li>
-                        <li>Perfect <strong>INVERTED COMMAS</strong> for speech and quotations</li>
-                        <li>Understand <strong>PARAGRAPHS AND LAYOUT</strong> for organized writing</li>
-                        <li>Apply advanced punctuation in formal and creative writing</li>
+                        <li>APOSTROPHES, INVERTED COMMAS, PARAGRAPHS AND LAYOUT</li>
                     </ul>
                 </div>
             </div>
@@ -642,21 +621,17 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Spelling Section -->
             <div class="section-divider">
                 <div class="section-number">3</div>
-                <div class="section-title">📚 Spelling Excellence (Weeks 6-8)</div>
+                <div class="section-title">SPELLING</div>
             </div>
 
             <!-- Week 6 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 6</div>
-                    <h3 class="week-title">Prefixes & Suffixes Mastery</h3>
+                    <div class="week-number">WEEK 6</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>Master common <strong>PREFIXES</strong> and their meanings</li>
-                        <li>Perfect <strong>WORD ENDINGS/SUFFIXES</strong> and spelling rules</li>
-                        <li>Understand root words and word family relationships</li>
-                        <li>Apply prefix and suffix rules to expand vocabulary</li>
+                        <li>PREFIXES , WORD ENDINGS /SUFFIXES</li>
                     </ul>
                 </div>
             </div>
@@ -664,15 +639,11 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Week 7 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 7</div>
-                    <h3 class="week-title">Confusing Words & Common Errors</h3>
+                    <div class="week-number">WEEK 7</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>Master <strong>CONFUSING WORDS</strong> (their/there/they're, to/too/two)</li>
-                        <li>Identify and correct common spelling mistakes</li>
-                        <li>Develop spelling strategies and memory techniques</li>
-                        <li>Perfect proofreading skills for error-free writing</li>
+                        <li>CONFUSING WORDS</li>
                     </ul>
                 </div>
             </div>
@@ -680,21 +651,18 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Week 8 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 8</div>
-                    <h3 class="week-title">Advanced Spelling Concepts & Review</h3>
+                    <div class="week-number">WEEK 8</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>Perfect <strong>PLURALS AND APOSTROPHES</strong> usage</li>
-                        <li>Master <strong>HOMOPHONES</strong> and their correct applications</li>
-                        <li>Understand <strong>CONFUSING WORDS</strong> in context</li>
-                        <li>Navigate <strong>SILENT LETTERS</strong> and spelling patterns</li>
-                        <li>Complete comprehensive <strong>MIXED SPELLING PRACTICE</strong></li>
-                        <li>Review and consolidate all SPaG concepts learned</li>
+                        <li>PLURALS AND APOSTROPHES</li>
+                        <li>HOMOPHONES</li>
+                        <li>CONFUSING WORDS</li>
+                        <li>SILENT LETTERS</li>
+                        <li>MIXED SPELLING PRACTICE</li>
                     </ul>
                 </div>
             </div>
-
         </div>
     </div>
 

@@ -533,8 +533,7 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
         <!-- Header Section -->
         <div class="header-section">
             <div class="header-content">
-                <h1 class="main-title">Verbal Reasoning</h1>
-                <p class="subtitle">Master logical thinking and pattern recognition through our comprehensive 12-week program designed for 11 Plus success</p>
+                <h1 class="main-title">VERBAL REASONING SYLLABUS</h1>
             </div>
         </div>
 
@@ -542,23 +541,16 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
         <div class="timeline-container">
             <div class="timeline-line"></div>
 
-            <!-- Foundation Skills Section -->
-            <div class="section-divider">
-                <div class="section-number">1</div>
-                <div class="section-title">🧠 Foundation Skills (Weeks 1-3)</div>
-            </div>
-
             <!-- Week 1 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 1</div>
-                    <h3 class="week-title">Foundation Skills</h3>
+                    <div class="week-number">WEEK 1</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li><strong>TYPE A - INSERT A LETTER:</strong> Learn to identify missing letters in sequences</li>
-                        <li><strong>TYPE B - ODD WORDS:</strong> Identify words that don't belong in a group</li>
-                        <li><strong>TYPE D - SYNONYMS:</strong> Find words with similar meanings</li>
+                        <li>TYPE A INSERT A LETTER</li>
+                        <li>TYPE B  ODD WORDS</li>
+                        <li>TYPE D SYNONYMS</li>
                     </ul>
                 </div>
             </div>
@@ -566,14 +558,13 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Week 2 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 2</div>
-                    <h3 class="week-title">Word Relationships</h3>
+                    <div class="week-number">WEEK 2</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li><strong>TYPE H - ANTONYMS:</strong> Identify words with opposite meanings</li>
-                        <li><strong>TYPE E - HIDDEN WORDS:</strong> Find words concealed within other words</li>
-                        <li><strong>TYPE F - FIND THE WORD:</strong> Locate specific words using given clues</li>
+                        <li>TYPE H ANTONYMS</li>
+                        <li>TYPE E  HIDDEN WORDS</li>
+                        <li>TYPE F  FIND THE WORD</li>
                     </ul>
                 </div>
             </div>
@@ -581,34 +572,26 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Week 3 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 3</div>
-                    <h3 class="week-title">Codes & Calculations</h3>
+                    <div class="week-number">WEEK 3</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li><strong>TYPE C - ALPHABET CODE:</strong> Decode messages using alphabetical patterns</li>
-                        <li><strong>TYPE J - REARRANGE:</strong> Create new words from given letters</li>
-                        <li><strong>TYPE G - CALCULATING WITH LETTERS:</strong> Mathematical operations with alphabetical values</li>
+                        <li>TYPE C  ALPHABET CODE</li>
+                        <li>TYPE J REARRANGE - MAKE NEW WORDS</li>
+                        <li>TYPE G CALCULATING WITH LETTERS</li>
                     </ul>
                 </div>
-            </div>
-
-            <!-- Mathematical Reasoning Section -->
-            <div class="section-divider">
-                <div class="section-number">2</div>
-                <div class="section-title">🔢 Mathematical Reasoning (Weeks 4-7)</div>
             </div>
 
             <!-- Week 4 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 4</div>
-                    <h3 class="week-title">Mathematical Reasoning</h3>
+                    <div class="week-number">WEEK 4</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li><strong>TYPE I - COMPLETE THE CALCULATION:</strong> Solve mathematical equations with missing elements</li>
-                        <li><strong>TYPE K - NUMBER RELATIONSHIP:</strong> Identify numerical patterns and connections</li>
+                        <li>TYPE I COMPLETE THE CALCULATION</li>
+                        <li>TYPE K NUMBER RELATIONSHIP</li>
                     </ul>
                 </div>
             </div>
@@ -616,13 +599,12 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Week 5 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 5</div>
-                    <h3 class="week-title">Sequences & Sentences</h3>
+                    <div class="week-number">WEEK 5</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li><strong>TYPE L - COMPLETE THE ALPHABET SERIES:</strong> Continue alphabetical sequences</li>
-                        <li><strong>TYPE M - COMPLETE THE SENTENCE:</strong> Fill in missing words to complete sentences logically</li>
+                        <li>TYPE  L COMPLETE THE ALPHABET SERIES</li>
+                        <li>TYPE M COMPLETE THE SENTENCE</li>
                     </ul>
                 </div>
             </div>
@@ -630,13 +612,12 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Week 6 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 6</div>
-                    <h3 class="week-title">Advanced Patterns</h3>
+                    <div class="week-number">WEEK 6</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li><strong>TYPE N - WORD CODE:</strong> Decode messages using complex word patterns</li>
-                        <li><strong>TYPE O - COMPLETE THE PAIRS:</strong> Identify missing elements in paired relationships</li>
+                        <li>TYPE N WORD CODE</li>
+                        <li>TYPE O COMPLETE THE PAIRS</li>
                     </ul>
                 </div>
             </div>
@@ -644,33 +625,25 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Week 7 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 7</div>
-                    <h3 class="week-title">Number Series</h3>
+                    <div class="week-number">WEEK 7</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li><strong>TYPE P - NUMBER SERIES:</strong> Continue numerical sequences and identify patterns</li>
+                        <li>TYPE P NUMBER SERIES</li>
                     </ul>
                 </div>
-            </div>
-
-            <!-- Advanced Word Skills Section -->
-            <div class="section-divider">
-                <div class="section-number">3</div>
-                <div class="section-title">📚 Advanced Word Skills (Weeks 8-10)</div>
             </div>
 
             <!-- Week 8 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 8</div>
-                    <h3 class="week-title">Word Formation</h3>
+                    <div class="week-number">WEEK 8</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li><strong>TYPE Q - FORM A NEW WORD:</strong> Create words using specific letter combinations</li>
-                        <li><strong>TYPE R - CREATE WORD:</strong> Build words following given rules and patterns</li>
-                        <li><strong>TYPE S - SIMILAR MEANING:</strong> Find words with comparable definitions</li>
+                        <li>TYPE Q FORM A NEW WORD</li>
+                        <li>TYPE R CREATE WORD</li>
+                        <li>TYPE S SIMILAR MEANING</li>
                     </ul>
                 </div>
             </div>
@@ -678,12 +651,11 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Week 9 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 9</div>
-                    <h3 class="week-title">Letter Relationships</h3>
+                    <div class="week-number">WEEK 9</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li><strong>TYPE U - LETTER RELATIONSHIP:</strong> Identify connections between letters and letter groups</li>
+                        <li>TYPE U LETTER RELATIONSHIP</li>
                     </ul>
                 </div>
             </div>
@@ -691,34 +663,23 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
             <!-- Week 10 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Week 10</div>
-                    <h3 class="week-title">Reading Comprehension</h3>
+                    <div class="week-number">WEEK 10</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li><strong>TYPE Z - COMPREHENSION:</strong> Answer questions based on reading passages</li>
+                        <li>TYPE Z COMPREHENSION</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Practice & Assessment Section -->
-            <div class="section-divider">
-                <div class="section-number">4</div>
-                <div class="section-title">🎯 Practice & Assessment (Weeks 11-12)</div>
-            </div>
-
-            <!-- Week 11-12 -->
+            <!-- Week 11/12 -->
             <div class="week-card">
                 <div class="week-header">
-                    <div class="week-number">Weeks 11-12</div>
-                    <h3 class="week-title">Mixed Practice & Review</h3>
+                    <div class="week-number">WEEK 11/12</div>
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li><strong>MIXED PRACTICE QUESTIONS:</strong> Comprehensive review covering all question types</li>
-                        <li><strong>EXAM PREPARATION:</strong> Timed practice tests and exam strategies</li>
-                        <li><strong>SPEED & ACCURACY:</strong> Develop timing skills and precision techniques</li>
-                        <li><strong>CONFIDENCE BUILDING:</strong> Final preparation for 11 Plus success</li>
+                        <li>MIXED PRACTICE QUESTIONS</li>
                     </ul>
                 </div>
             </div>
