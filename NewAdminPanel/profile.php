@@ -7,6 +7,19 @@ checkAdminAuth();
 $current_admin = getCurrentAdmin();
 $current_page = 'profile';
 
+// Get current admin data from database
+$conn = getDBConnection();
+$admin_id = $current_admin['id'];
+$stmt = mysqli_prepare($conn, "SELECT id, fname, surname, email, created_at FROM students WHERE id = ? AND role = 'admin'");
+mysqli_stmt_bind_param($stmt, "i", $admin_id);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$admin_data = mysqli_fetch_assoc($result);
+
+if (!$admin_data) {
+    die("Admin not found.");
+}
+
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profile'])) {
     $name = trim($_POST['name']);
@@ -24,12 +37,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profile'])) {
     if (empty($email)) {
         $errors[] = "Email is required";
     }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Invalid email format";
+    }
+    
+    // Check if email already exists (for other users)
+    $stmt = mysqli_prepare($conn, "SELECT id FROM students WHERE email = ? AND id != ?");
+    mysqli_stmt_bind_param($stmt, "si", $email, $admin_id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    if (mysqli_num_rows($result) > 0) {
+        $errors[] = "Email already exists for another user";
+    }
     
     // If changing password
     if (!empty($new_password)) {
         if (empty($current_password)) {
             $errors[] = "Current password is required to change password";
+        } else {
+            // Verify current password
+            $stmt = mysqli_prepare($conn, "SELECT password FROM students WHERE id = ? AND role = 'admin'");
+            mysqli_stmt_bind_param($stmt, "i", $admin_id);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $password_data = mysqli_fetch_assoc($result);
+            
+            if (!$password_data || $password_data['password'] !== $current_password) {
+                $errors[] = "Current password is incorrect";
+            }
         }
+        
         if ($new_password !== $confirm_password) {
             $errors[] = "New passwords do not match";
         }
@@ -39,8 +76,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profile'])) {
     }
     
     if (empty($errors)) {
-        // Update profile logic would go here
-        $success_message = "Profile updated successfully!";
+        // Update profile
+        if (!empty($new_password)) {
+            // Update with new password
+            $stmt = mysqli_prepare($conn, "UPDATE students SET fname = ?, email = ?, password = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ? AND role = 'admin'");
+            mysqli_stmt_bind_param($stmt, "sssi", $name, $email, $new_password, $admin_id);
+        } else {
+            // Update without changing password
+            $stmt = mysqli_prepare($conn, "UPDATE students SET fname = ?, email = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ? AND role = 'admin'");
+            mysqli_stmt_bind_param($stmt, "ssi", $name, $email, $admin_id);
+        }
+        
+        if (mysqli_stmt_execute($stmt)) {
+            // Update session data
+            $_SESSION['fname'] = $name;
+            $_SESSION['email'] = $email;
+            
+            // Refresh admin data
+            $stmt = mysqli_prepare($conn, "SELECT id, fname, surname, email, created_at FROM students WHERE id = ? AND role = 'admin'");
+            mysqli_stmt_bind_param($stmt, "i", $admin_id);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $admin_data = mysqli_fetch_assoc($result);
+            
+            $success_message = "Profile updated successfully!";
+        } else {
+            $errors[] = "Failed to update profile. Please try again.";
+        }
     }
 }
 
@@ -97,14 +159,14 @@ include 'includes/navigation.php';
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Full Name</label>
                                             <input type="text" class="form-control" id="name" name="name" 
-                                                   value="<?php echo htmlspecialchars($current_admin['name'] ?? ''); ?>" required>
+                                                   value="<?php echo htmlspecialchars($admin_data['fname'] ?? ''); ?>" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="email" class="form-label">Email Address</label>
                                             <input type="email" class="form-control" id="email" name="email" 
-                                                   value="<?php echo htmlspecialchars($current_admin['email'] ?? ''); ?>" required>
+                                                   value="<?php echo htmlspecialchars($admin_data['email'] ?? ''); ?>" required>
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +174,7 @@ include 'includes/navigation.php';
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Username</label>
                                     <input type="text" class="form-control" id="username" name="username" 
-                                           value="<?php echo htmlspecialchars($current_admin['username'] ?? ''); ?>" readonly>
+                                           value="<?php echo htmlspecialchars($admin_data['email'] ?? ''); ?>" readonly>
                                     <div class="form-text">Username cannot be changed</div>
                                 </div>
 
@@ -159,15 +221,15 @@ include 'includes/navigation.php';
                         </div>
                         <div class="card-body text-center">
                             <img src="assets/img/admin-avatar.svg" alt="Admin" class="rounded-circle mb-3" width="80" height="80">
-                            <h5><?php echo htmlspecialchars($current_admin['name'] ?? 'Admin'); ?></h5>
+                            <h5><?php echo htmlspecialchars($admin_data['fname'] ?? 'Admin'); ?></h5>
                             <p class="text-muted">Administrator</p>
                             <p class="text-muted">
                                 <i class="fas fa-envelope"></i> 
-                                <?php echo htmlspecialchars($current_admin['email'] ?? 'admin@example.com'); ?>
+                                <?php echo htmlspecialchars($admin_data['email'] ?? 'admin@example.com'); ?>
                             </p>
                             <p class="text-muted">
                                 <i class="fas fa-calendar"></i> 
-                                Member since <?php echo date('M Y', strtotime($current_admin['created_at'] ?? 'now')); ?>
+                                Member since <?php echo date('M Y', strtotime($admin_data['created_at'] ?? 'now')); ?>
                             </p>
                         </div>
                     </div>

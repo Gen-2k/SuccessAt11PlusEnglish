@@ -843,6 +843,10 @@ body {
     background: var(--ebook-color);
 }
 
+.stat-icon.newsletter {
+    background: var(--info-color);
+}
+
 .stat-content h3 {
     font-size: 2.2rem;
     font-weight: var(--font-weight-bold);

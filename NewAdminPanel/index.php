@@ -99,20 +99,21 @@ include 'includes/dashboard_stats.php';
                                 <i class="fas fa-check-circle"></i>
                             </div>
                             <div class="stat-content">
-                            <h3><?php echo $totalAnswers; ?></h3>
-                            <p>Answer Sheets</p>
+                                <h3><?php echo $totalAnswers; ?></h3>
+                                <p>Answer Sheets</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="stat-card">
-                    <div class="stat-card-content">
-                        <div class="stat-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="stat-content">
-                            <h3><?php echo $totalNewsletter; ?></h3>
-                            <p>Newsletter Subscribers</p>
+                    <div class="stat-card">
+                        <div class="stat-card-content">
+                            <div class="stat-icon newsletter">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3><?php echo $totalNewsletter; ?></h3>
+                                <p>Newsletter Subscribers</p>
+                            </div>
                         </div>
                     </div>
                 </div>

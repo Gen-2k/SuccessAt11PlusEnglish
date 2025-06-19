@@ -32,9 +32,11 @@ function checkAdminAuth() {
 function getCurrentAdmin() {
     return [
         'id' => $_SESSION['user_id'] ?? null,
+        'name' => $_SESSION['fname'] ?? 'Admin',
         'username' => $_SESSION['fname'] ?? 'Admin',
         'email' => $_SESSION['email'] ?? null,
-        'role' => $_SESSION['role'] ?? null
+        'role' => $_SESSION['role'] ?? null,
+        'created_at' => $_SESSION['created_at'] ?? null
     ];
 }
 
