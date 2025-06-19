@@ -281,7 +281,7 @@ include 'includes/navigation.php';
                             <table class="table activity-table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>S.No</th>
                                         <th>Title</th>
                                         <th>Description</th>
                                         <th>Class</th>
@@ -291,35 +291,46 @@ include 'includes/navigation.php';
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while($activity = mysqli_fetch_assoc($activityResult)): ?>
-                                    <tr>
-                                        <td><strong><?php echo $activity['id']; ?></strong></td>
-                                        <td>
-                                            <strong><?php echo htmlspecialchars($activity['title']); ?></strong>
-                                        </td>
-                                        <td>
-                                            <small class="text-muted">
-                                                <?php echo htmlspecialchars(substr($activity['description'], 0, 100)) . (strlen($activity['description']) > 100 ? '...' : ''); ?>
-                                            </small>
-                                        </td>
-                                        <td><span class="badge badge-activity"><?php echo htmlspecialchars($activity['class']); ?></span></td>
-                                        <td><span class="badge badge-secondary"><?php echo htmlspecialchars($activity['module']); ?></span></td>
-                                        <td><?php echo date('M d, Y', strtotime($activity['created_at'])); ?></td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn-sm btn-view btn-tooltip" onclick="viewActivity(<?php echo $activity['id']; ?>)" data-tooltip="View Details">
-                                                    <i class="fas fa-eye"></i>
-                                                </button>
-                                                <button class="btn-sm btn-edit btn-tooltip" onclick="editActivity(<?php echo $activity['id']; ?>)" data-tooltip="Edit Activity">
-                                                    <i class="fas fa-edit"></i>
-                                                </button>
-                                                <button class="btn-sm btn-delete btn-tooltip" onclick="deleteActivity(<?php echo $activity['id']; ?>)" data-tooltip="Delete Activity">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <?php endwhile; ?>
+                                    <?php if (mysqli_num_rows($activityResult) > 0): ?>
+    <?php $serial_no = 1; while($activity = mysqli_fetch_assoc($activityResult)): ?>
+    <tr>
+        <td><?php echo $serial_no++; ?></td>
+        <td><strong><?php echo htmlspecialchars($activity['title']); ?></strong></td>
+        <td><small class="text-muted"><?php echo htmlspecialchars(substr($activity['description'], 0, 100)) . (strlen($activity['description']) > 100 ? '...' : ''); ?></small></td>
+        <td><span class="badge badge-activity"><?php echo htmlspecialchars($activity['class']); ?></span></td>
+        <td><span class="badge badge-secondary"><?php echo htmlspecialchars($activity['module']); ?></span></td>
+        <td><?php echo date('M d, Y', strtotime($activity['created_at'])); ?></td>
+        <td>
+            <div class="btn-group">
+                <button class="btn-sm btn-view btn-tooltip" onclick="viewActivity(<?php echo $activity['id']; ?>)" data-tooltip="View Details">
+                    <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn-sm btn-edit btn-tooltip" onclick="editActivity(<?php echo $activity['id']; ?>)" data-tooltip="Edit Activity">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn-sm btn-delete btn-tooltip" onclick="deleteActivity(<?php echo $activity['id']; ?>)" data-tooltip="Delete Activity">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </td>
+    </tr>
+    <?php endwhile; ?>
+<?php else: ?>
+    <tr>
+        <td colspan="7" class="text-center">
+            <div class="empty-state" style="padding: 48px 0; color: #6B7280;">
+                <div class="empty-state-icon" style="font-size: 3.5rem; color: #F59E0B; margin-bottom: 12px;">
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <div class="empty-state-title" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 6px; color:#F59E0B;">No Activities Found</div>
+                <div class="empty-state-text" style="font-size: 1.08rem; margin-bottom: 10px;">There are currently no activities added.<br>Click <b>"Add Activity"</b> to create your first learning activity.</div>
+                <button  style=" background-color: #F59E0B; border:none; border-radius: 8px; color: #fff; padding: 12px 24px; font-size: 1rem ;" data-bs-toggle="modal" data-bs-target="#addActivityModal">
+                    <i class="fas fa-plus"></i> Add Activity
+                </button>
+            </div>
+        </td>
+    </tr>
+<?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -604,7 +615,7 @@ include 'includes/navigation.php';
                 body: formData
             })
             .then(response => response.json())
-            .then(data => {
+            .then data => {
                 if (data.status === 'success') {
                     alert('Success: ' + data.message);
                     location.reload();

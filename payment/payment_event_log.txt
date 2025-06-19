@@ -57,3 +57,10 @@ This file records all payment events, email sending attempts, and errors for deb
 [2025-06-11 08:45:19] Added to newsletter | Context: {"email":"sadasd@khsdsfadj.in"}
 [2025-06-11 08:45:19] Database commit successful | Context: {"student_id":25}
 [2025-06-11 08:45:24] Email sent | Context: {"to":"sadasd@khsdsfadj.in","name":"asdf fsdf","module":"English Vocabulary","class":"year5"}
+[2025-06-19 13:25:58] Stripe session retrieved | Context: {"session_id":"cs_test_a1CvYLgBYx1J92TdmDDvb3Sj3uHVcurmmrGlLGDfJapWxyxc0MH8f2TeCb","payment_status":"paid"}
+[2025-06-19 13:25:58] Payment successful | Context: {"session_id":"cs_test_a1CvYLgBYx1J92TdmDDvb3Sj3uHVcurmmrGlLGDfJapWxyxc0MH8f2TeCb","student_email":"test@example.us","module":"Comprehension","class":"year5","price":115}
+[2025-06-19 13:25:58] Student account created | Context: {"student_id":26,"email":"test@example.us"}
+[2025-06-19 13:25:58] Enrollment created | Context: {"student_id":26,"module":"Comprehension"}
+[2025-06-19 13:25:58] Added to newsletter | Context: {"email":"test@example.us"}
+[2025-06-19 13:25:58] Database commit successful | Context: {"student_id":26}
+[2025-06-19 13:26:02] Email failed to send | Context: {"to":"test@example.us","name":"Test student","module":"Comprehension","class":"year5","error":"SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting"}

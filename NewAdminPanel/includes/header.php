@@ -33,9 +33,12 @@ $current_admin = getCurrentAdmin();
                     <button class="menu-toggle" id="menuToggle">
                         <i class="fas fa-bars"></i>
                     </button>
-                    <div class="logo">
-                        <img src="../assets/logo/success-logo.png" alt="Success At 11 Plus English" height="45">
-                        <span class="logo-text" style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.25rem; margin-left: 10px; color: #222; letter-spacing: 0.5px;">Admin Panel</span>
+                    <div class="logo" style="display: flex; align-items: center; gap: 6px;">
+    <img src="../assets/logo/success-logo.png" alt="Success At 11 Plus English" style="height: 85px; width: auto;  display: block;">
+    <div class="brand-text" style="display: flex; flex-direction: column; justify-content: center; line-height: 1.1;">
+        <span style="font-family: 'Poppins', 'Inter', sans-serif; font-size: 2rem; font-weight: 700; color: #1E40AF; letter-spacing: -0.02em; margin-bottom: 0;">Success At 11 Plus English</span>
+        <span style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; color: #F59E0B; margin-top: 2px; letter-spacing: 0.01em;">Admin Panel</span>
+    </div>
                     </div>
                 </div>
                 <div class="header-right">

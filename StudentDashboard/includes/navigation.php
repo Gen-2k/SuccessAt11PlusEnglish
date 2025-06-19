@@ -29,14 +29,14 @@
                         
                         <li class="nav-item">
                             <a href="activities.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'activities.php' ? 'active' : ''; ?>">
-                                <i class="fas fa-play-circle"></i>
+                                <i class="fas fa-puzzle-piece"></i>
                                 <span>Activities</span>
                             </a>
                         </li>
                         
                         <li class="nav-item">
                             <a href="answers.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'answers.php' ? 'active' : ''; ?>">
-                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-file-alt"></i>
                                 <span>Answer Sheets</span>
                             </a>
                         </li>

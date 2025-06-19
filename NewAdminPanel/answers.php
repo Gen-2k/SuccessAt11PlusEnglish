@@ -274,7 +274,7 @@ include 'includes/navigation.php';
                             <table class="table answer-table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>S.No</th>
                                         <th>Title</th>
                                         <th>Description</th>
                                         <th>Class</th>
@@ -284,34 +284,46 @@ include 'includes/navigation.php';
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while($answer = mysqli_fetch_assoc($answerResult)): ?>
-                                    <tr>
-                                        <td><?php echo $answer['id']; ?></td>
-                                        <td>
-                                            <strong><?php echo htmlspecialchars($answer['title']); ?></strong>
-                                        </td>
-                                        <td>
-                                            <small class="text-muted">
-                                                <?php echo htmlspecialchars(substr($answer['description'], 0, 100)) . (strlen($answer['description']) > 100 ? '...' : ''); ?>
-                                            </small>
-                                        </td>
-                                        <td><span class="badge badge-answer"><?php echo htmlspecialchars($answer['class']); ?></span></td>
-                                        <td><span class="badge bg-secondary"><?php echo htmlspecialchars($answer['module']); ?></span></td>                        <td><?php echo date('M d, Y', strtotime($answer['created_at'])); ?></td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn-sm btn-view btn-tooltip" onclick="viewAnswer(<?php echo $answer['id']; ?>)" data-tooltip="View Details">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                                <button class="btn-sm btn-edit btn-tooltip" onclick="editAnswer(<?php echo $answer['id']; ?>)" data-tooltip="Edit Answer Sheet">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="btn-sm btn-delete btn-tooltip" onclick="deleteAnswer(<?php echo $answer['id']; ?>)" data-tooltip="Delete Answer Sheet">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-                                    </tr>
-                                    <?php endwhile; ?>
+                                    <?php if (mysqli_num_rows($answerResult) > 0): ?>
+                                        <?php $serial_no = 1; while($answer = mysqli_fetch_assoc($answerResult)): ?>
+                                        <tr>
+                                            <td><?php echo $serial_no++; ?></td>
+                                            <td><strong><?php echo htmlspecialchars($answer['title']); ?></strong></td>
+                                            <td><small class="text-muted"><?php echo htmlspecialchars(substr($answer['description'], 0, 100)) . (strlen($answer['description']) > 100 ? '...' : ''); ?></small></td>
+                                            <td><span class="badge badge-answer"><?php echo htmlspecialchars($answer['class']); ?></span></td>
+                                            <td><span class="badge bg-secondary"><?php echo htmlspecialchars($answer['module']); ?></span></td>
+                                            <td><?php echo date('M d, Y', strtotime($answer['created_at'])); ?></td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn-sm btn-view btn-tooltip" onclick="viewAnswer(<?php echo $answer['id']; ?>)" data-tooltip="View Details">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn-sm btn-edit btn-tooltip" onclick="editAnswer(<?php echo $answer['id']; ?>)" data-tooltip="Edit Answer Sheet">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn-sm btn-delete btn-tooltip" onclick="deleteAnswer(<?php echo $answer['id']; ?>)" data-tooltip="Delete Answer Sheet">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <?php endwhile; ?>
+                                    <?php else: ?>
+                                        <tr>
+                                            <td colspan="7" class="text-center">
+                                                <div class="empty-state" style="padding: 48px 0; color: #6B7280;">
+                                                    <div class="empty-state-icon" style="font-size: 3.5rem; color: #10B981; margin-bottom: 12px;">
+                                                        <i class="fas fa-file-alt"></i>
+                                                    </div>
+                                                    <div class="empty-state-title" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 6px; color: #10B981;">No Answer Sheets Found</div>
+                                                    <div class="empty-state-text" style="font-size: 1.08rem; margin-bottom: 10px;">There are currently no answer sheets added.<br>Click <b>"Add Answer Sheet"</b> to upload your first answer sheet.</div>
+                                                    <button  style=" background-color: #10B981; border:none; border-radius: 8px; color: #fff; padding: 12px 24px; font-size: 1rem ;" data-bs-toggle="modal" data-bs-target="#addAnswerModal">
+                                                        <i class="fas fa-plus"></i> Add Answer Sheet
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -536,7 +548,7 @@ include 'includes/navigation.php';
             body: formData
         })
         .then(response => response.json())
-        .then(data => {
+        .then data => {
             if (data.status === 'success') {
                 alert('Success: ' + data.message);
                 location.reload();

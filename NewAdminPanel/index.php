@@ -45,17 +45,6 @@ include 'includes/dashboard_stats.php';
                         </div>
                     </div>
 
-                    <div class="stat-card">
-                        <div class="stat-card-content">
-                            <div class="stat-icon students">
-                                <i class="fas fa-user-check"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3><?php echo $totalActiveStudents; ?></h3>
-                                <p>Active Students</p>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="stat-card">
                         <div class="stat-card-content">

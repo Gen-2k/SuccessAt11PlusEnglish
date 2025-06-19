@@ -176,48 +176,62 @@ include 'includes/navigation.php';
                                 </thead>
                                 <tbody id="studentsTableBody"><?php 
                                     $serial_no = 1;
-                                    while ($student = mysqli_fetch_assoc($students)): ?>
-                                        <tr data-student-id="<?php echo $student['id']; ?>">
-                                            <td><?php echo $serial_no++; ?></td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="student-avatar me-2">
-                                                        <i class="fas fa-user-circle fa-2x text-primary"></i>
+                                    if (mysqli_num_rows($students) > 0):
+                                        while ($student = mysqli_fetch_assoc($students)): ?>
+                                            <tr data-student-id="<?php echo $student['id']; ?>">
+                                                <td><?php echo $serial_no++; ?></td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="student-avatar me-2">
+                                                            <i class="fas fa-user-circle fa-2x text-primary"></i>
+                                                        </div>
+                                                        <div>
+                                                            <strong><?php echo htmlspecialchars($student['student_name'] ?? "No Name"); ?></strong>
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        <strong><?php echo htmlspecialchars($student['student_name'] ?? "No Name"); ?></strong>
+                                                </td>
+                                                <td><?php echo htmlspecialchars($student['email'] ?? ""); ?></td>
+                                                <td><span class="badge bg-info"><?php echo htmlspecialchars($student['class'] ?? "Not Assigned"); ?></span></td>
+                                                <td><span class="badge bg-secondary"><?php echo htmlspecialchars($student['module'] ?? "No Module"); ?></span></td>
+                                                <td><?php echo $student['dob'] ? date('M d, Y', strtotime($student['dob'])) : 'Not Set'; ?></td>
+                                                <td>
+                                                    <small>
+                                                        <?php echo htmlspecialchars($student['parent_firstname'] ?? ""); ?>
+                                                        <?php if(!empty($student['parent_surname'])): ?> 
+                                                            <?php echo htmlspecialchars($student['parent_surname']); ?>
+                                                        <?php endif; ?>
+                                                    </small>
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-<?php echo ($student['status'] ?? "") === 'Active' ? 'success' : (($student['status'] ?? "") === 'Pending' ? 'warning' : 'secondary'); ?>">
+                                                        <?php echo ucfirst($student['status'] ?? "inactive"); ?>
+                                                    </span>
+                                                </td>
+                                                <td><?php echo date('M d, Y', strtotime($student['created_at'])); ?></td>                                            <td>
+                                                    <div class="btn-group">
+                                                        <button class="btn-sm btn-view btn-tooltip" onclick="viewStudent(<?php echo $student['id']; ?>)" data-tooltip="View Details">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                        <button class="btn-sm btn-delete btn-tooltip" onclick="deleteStudent(<?php echo $student['id']; ?>)" data-tooltip="Delete Student">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
                                                     </div>
-                                                </div>
-                                            </td>
-                                            <td><?php echo htmlspecialchars($student['email'] ?? ""); ?></td>
-                                            <td><span class="badge bg-info"><?php echo htmlspecialchars($student['class'] ?? "Not Assigned"); ?></span></td>
-                                            <td><span class="badge bg-secondary"><?php echo htmlspecialchars($student['module'] ?? "No Module"); ?></span></td>
-                                            <td><?php echo $student['dob'] ? date('M d, Y', strtotime($student['dob'])) : 'Not Set'; ?></td>
-                                            <td>
-                                                <small>
-                                                    <?php echo htmlspecialchars($student['parent_firstname'] ?? ""); ?>
-                                                    <?php if(!empty($student['parent_surname'])): ?> 
-                                                        <?php echo htmlspecialchars($student['parent_surname']); ?>
-                                                    <?php endif; ?>
-                                                </small>
-                                            </td>
-                                            <td>
-                                                <span class="badge bg-<?php echo ($student['status'] ?? "") === 'Active' ? 'success' : (($student['status'] ?? "") === 'Pending' ? 'warning' : 'secondary'); ?>">
-                                                    <?php echo ucfirst($student['status'] ?? "inactive"); ?>
-                                                </span>
-                                            </td>
-                                            <td><?php echo date('M d, Y', strtotime($student['created_at'])); ?></td>                                            <td>
-                                                <div class="btn-group">
-                                                    <button class="btn-sm btn-view btn-tooltip" onclick="viewStudent(<?php echo $student['id']; ?>)" data-tooltip="View Details">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                    <button class="btn-sm btn-delete btn-tooltip" onclick="deleteStudent(<?php echo $student['id']; ?>)" data-tooltip="Delete Student">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
+                                                </td>
+                                            </tr>
+                                        <?php endwhile; ?>
+                                    <?php else: ?>
+                                        <tr>
+                                            <td colspan="10" class="text-center">
+                                                <div class="empty-state" style="padding: 48px 0; color: #6B7280;">
+                                                    <div class="empty-state-icon" style="font-size: 3.5rem; color: #1F2937; margin-bottom: 12px;">
+                                                        <i class="fas fa-user-graduate"></i>
+                                                    </div>
+                                                    <div class="empty-state-title" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 6px; color: #1F2937;">No Students Found</div>
+                                                    <div class="empty-state-text" style="font-size: 1.08rem;">There are currently no students in the system.</div>
                                                 </div>
                                             </td>
                                         </tr>
-                                    <?php endwhile; ?>
+                                    <?php endif; ?>
                                 </tbody>
                             </table>                        </div>
                     </div>

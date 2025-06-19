@@ -277,7 +277,7 @@ include 'includes/navigation.php';
                             <table class="table ebook-table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>S.No</th>
                                         <th>Title</th>
                                         <th>Description</th>
                                         <th>Class</th>
@@ -288,47 +288,54 @@ include 'includes/navigation.php';
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while($ebook = mysqli_fetch_assoc($ebookResult)): ?>
-                                    <tr>
-                                        <td><?php echo $ebook['id']; ?></td>
-                                        <td>
-                                            <strong><?php echo htmlspecialchars($ebook['title']); ?></strong>
-                                        </td>
-                                        <td>
-                                            <small class="text-muted">
-                                                <?php echo htmlspecialchars(substr($ebook['description'], 0, 100)) . (strlen($ebook['description']) > 100 ? '...' : ''); ?>
-                                            </small>
-                                        </td>
-                                        <td><span class="badge badge-ebook"><?php echo htmlspecialchars($ebook['class']); ?></span></td>
-                                        <td><span class="badge bg-secondary"><?php echo htmlspecialchars($ebook['module']); ?></span></td>
-                                        <td>
-                                            <?php if($ebook['price'] > 0): ?>
-                                                <span class="text-success">£<?php echo number_format($ebook['price'], 2); ?></span>
-                                            <?php else: ?>
-                                                <span class="text-primary">Free</span>
-                                            <?php endif; ?>
-                                        </td>
-                        <td><?php echo date('M d, Y', strtotime($ebook['created_at'])); ?></td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn-sm btn-view btn-tooltip" onclick="viewEbook(<?php echo $ebook['id']; ?>)" data-tooltip="View Details">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                                <button class="btn-sm btn-edit btn-tooltip" onclick="editEbook(<?php echo $ebook['id']; ?>)" data-tooltip="Edit E-book">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="btn-sm btn-delete btn-tooltip" onclick="deleteEbook(<?php echo $ebook['id']; ?>)" data-tooltip="Delete E-book">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-                                    </tr>
-                                    <?php endwhile; ?>
+                                    <?php if (mysqli_num_rows($ebookResult) > 0): ?>
+                                        <?php $serial_no = 1; while($ebook = mysqli_fetch_assoc($ebookResult)): ?>
+                                        <tr>
+                                            <td><?php echo $serial_no++; ?></td>
+                                            <td><strong><?php echo htmlspecialchars($ebook['title']); ?></strong></td>
+                                            <td><small class="text-muted"><?php echo htmlspecialchars(substr($ebook['description'], 0, 100)) . (strlen($ebook['description']) > 100 ? '...' : ''); ?></small></td>
+                                            <td><span class="badge badge-ebook"><?php echo htmlspecialchars($ebook['class']); ?></span></td>
+                                            <td><span class="badge bg-secondary"><?php echo htmlspecialchars($ebook['module']); ?></span></td>
+                                            <td><?php echo ($ebook['price'] && floatval($ebook['price']) > 0) ? '£' . number_format($ebook['price'], 2) : '<span class="text-primary">Free</span>'; ?></td>
+                                            <td><?php echo date('M d, Y', strtotime($ebook['created_at'])); ?></td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn-sm btn-view btn-tooltip" onclick="viewEbook(<?php echo $ebook['id']; ?>)" data-tooltip="View Details">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn-sm btn-edit btn-tooltip" onclick="editEbook(<?php echo $ebook['id']; ?>)" data-tooltip="Edit E-book">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn-sm btn-delete btn-tooltip" onclick="deleteEbook(<?php echo $ebook['id']; ?>)" data-tooltip="Delete E-book">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <?php endwhile; ?>
+                                    <?php else: ?>
+                                        <tr>
+                                            <td colspan="8" class="text-center">
+                                                <div class="empty-state" style="padding: 48px 0; color: #6B7280;">
+                                                    <div class="empty-state-icon" style="font-size: 3.5rem; color: #6c3fc5; margin-bottom: 12px;">
+                                                        <i class="fas fa-book-open"></i>
+                                                    </div>
+                                                    <div class="empty-state-title" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 6px; color: #6c3fc5;">No E-books Found</div>
+                                                    <div class="empty-state-text" style="font-size: 1.08rem; margin-bottom: 10px;">There are currently no e-books added.<br>Click <b>"Add E-book"</b> to upload your first e-book resource.</div>
+                                                    <button  style=" background-color: #6c3fc5; border:none; border-radius: 8px; color: #fff; padding: 12px 24px; font-size: 1rem ;" data-bs-toggle="modal" data-bs-target="#addEbookModal">
+                                                        <i class="fas fa-plus "></i> Add E-book
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
-                    </div>                </div>
-            </div>        </main>
+                    </div>
+                </div>
+            </div>
+        </main>
 
     <!-- Add E-book Modal -->
     <div class="modal fade" id="addEbookModal" tabindex="-1">

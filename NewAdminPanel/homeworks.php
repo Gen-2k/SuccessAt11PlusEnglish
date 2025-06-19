@@ -283,7 +283,7 @@ include 'includes/navigation.php';
                         <table class="table homework-table">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>S.No</th>
                                     <th>Title</th>
                                     <th>Description</th>
                                     <th>Class</th>
@@ -294,9 +294,9 @@ include 'includes/navigation.php';
                             </thead>
                             <tbody>
                                 <?php if (mysqli_num_rows($homeworkResult) > 0): ?>
-                                    <?php while($homework = mysqli_fetch_assoc($homeworkResult)): ?>
+                                    <?php $serial_no = 1; while($homework = mysqli_fetch_assoc($homeworkResult)): ?>
                                     <tr>
-                                        <td><?php echo $homework['id']; ?></td>
+                                        <td><?php echo $serial_no++; ?></td>
                                         <td>
                                             <strong><?php echo htmlspecialchars($homework['title']); ?></strong>
                                         </td>
@@ -324,7 +324,18 @@ include 'includes/navigation.php';
                                     <?php endwhile; ?>
                                 <?php else: ?>
                                     <tr>
-                                        <td colspan="7" class="text-center">No homework found</td>
+                                        <td colspan="7" class="text-center">
+                                            <div class="empty-state" style="padding: 48px 0; color: #6B7280;">
+                                                <div class="empty-state-icon" style="font-size: 3.5rem; color: #1E40AF; margin-bottom: 12px;">
+                                                    <i class="fas fa-inbox"></i>
+                                                </div>
+                                                <div class="empty-state-title" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 6px; color: #1E40AF;">No Homework Found</div>
+                                                <div class="empty-state-text" style="font-size: 1.08rem; margin-bottom: 10px;">There are currently no homework assignments added.<br>Click <b>"Add Homework"</b> to create your first homework assignment.</div>
+                                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addHomeworkModal">
+                                                    <i class="fas fa-plus"></i> Add Homework
+                                                </button>
+                                            </div>
+                                        </td>
                                     </tr>
                                 <?php endif; ?>
                             </tbody>
@@ -633,7 +644,7 @@ function deleteHomework(id) {
             body: formData
         })
         .then(response => response.json())
-        .then(data => {
+        .then data => {
             if (data.status === 'success') {
                 alert('Success: ' + data.message);
                 location.reload();
