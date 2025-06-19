@@ -1052,7 +1052,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <!-- Learning Resources -->
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 text-center p-4 shadow-sm border-0 hover-lift"
-                            style="background-color: #f0f9ff;">
+                            style="background-color:#eff6ff;">
                             <div class="mb-3">
                                 <i class="bi bi-journal-richtext display-3 text-blue"></i>
                             </div>
@@ -1065,9 +1065,9 @@ if (session_status() === PHP_SESSION_NONE) {
                     <!-- Worksheets & Tests -->
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 text-center p-4 shadow-sm border-0 hover-lift"
-                            style="background-color: #f0fdf4;">
+                            style="background-color: #eff6ff;">
                             <div class="mb-3">
-                                <i class="bi bi-card-checklist display-3 text-gold"></i>
+                                <i class="bi bi-card-checklist display-3 text-blue"></i>
                             </div>
                             <h4 class="h5 fw-bold mb-2">Worksheets & Tests</h4>
                             <p class="text-muted small mb-0">Regular practice through worksheets and optional
