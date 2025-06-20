@@ -348,3 +348,17 @@
 [2025-06-11 09:08:55] PHPMailer [2]: SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-236032fce7esm81853225ad.114 - gsmtp
 
 [2025-06-11 09:08:55] Email sent successfully to: ashuthoshdtp@gmail.com
+[20-Jun-2025 07:16:21 Europe/London] Newsletter subscription attempt started
+[20-Jun-2025 07:16:21 Europe/London] Attempting to insert newsletter subscription: Name=asdasdasd, Email=tewst@example.us
+[20-Jun-2025 07:16:21 Europe/London] Newsletter subscription inserted successfully into database
+[20-Jun-2025 07:16:21 Europe/London] PHP Fatal error:  Uncaught Error: Undefined constant PHPMailer::ENCRYPTION_SMTPS in C:\xampp\htdocs\SuccessAt11PlusEnglish\tipAction.php:156
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\SuccessAt11PlusEnglish\tipAction.php on line 156
+[20-Jun-2025 07:19:05 Europe/London] Newsletter subscription attempt started
+[20-Jun-2025 07:19:05 Europe/London] Attempting to insert newsletter subscription: Name=asdasd, Email=tests@example.us
+[20-Jun-2025 07:19:05 Europe/London] Newsletter subscription inserted successfully into database
+[20-Jun-2025 07:19:05 Europe/London] PHP Deprecated:  Creation of dynamic property PHPMailer::$DKIM_copyHeaderFields is deprecated in C:\xampp\htdocs\SuccessAt11PlusEnglish\tipAction.php on line 165
+[20-Jun-2025 07:19:05 Europe/London] PHP Deprecated:  Function openssl_pkey_free() is deprecated in C:\xampp\htdocs\SuccessAt11PlusEnglish\mail\class.phpmailer.php on line 3822
+[20-Jun-2025 07:19:08 Europe/London] PHP Deprecated:  Function openssl_pkey_free() is deprecated in C:\xampp\htdocs\SuccessAt11PlusEnglish\mail\class.phpmailer.php on line 3822
+[20-Jun-2025 07:19:10 Europe/London] Newsletter subscription completed successfully for: tests@example.us

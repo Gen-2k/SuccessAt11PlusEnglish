@@ -44,121 +44,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 
-    <!-- Minimal inline styles for Toastr overrides -->
-    <style>
-        /* Custom Toastr notification styles */
-        #toast-container>.toast-success {
-            background-color: #26b280;
-            /* Success green */
-            color: #fff;
-        }
-
-        #toast-container>.toast-error {
-            background-color: red;
-            /* Error red */
-            color: #fff;
-        }
-
-        /* Custom styles for the Ages/Years section */
-        .ages-section {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .ages-section .year-card {
-            transition: transform 0.3s;
-        }
-
-        .ages-section .year-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .ages-section .year-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px 15px;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        .ages-section .year-card-4 {
-            background-color: #eff6ff;
-        }
-
-        .ages-section .year-card-5 {
-            background-color: #fffbeb;
-        }
-
-        .ages-section .year-card-6 {
-            background-color: #f0fdf4;
-        }
-
-        .ages-section .btn-apply-now {
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 25px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .ages-section .btn-apply-now:hover {
-            transform: translateY(-3px);
-        }
-
-        .ages-section .btn-blue {
-            background-color: #007bff;
-            color: #fff;
-        }
-
-        .ages-section .btn-gold {
-            background-color: #ffc107;
-            color: #fff;
-        }
-
-        /* Hero Section Enhancements */
-        .hero-title {
-            font-size: 2.5rem;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-        }
-
-        .hero-cta-group .btn {
-            padding: 12px 24px;
-            font-size: 1.125rem;
-            border-radius: 30px;
-        }
-
-        .hero-cta-main {
-            background-color: #007bff;
-            color: #fff;
-        }
-
-        .hero-cta-alt {
-            background-color: transparent;
-            color: #007bff;
-            border: 2px solid #007bff;
-        }
-
-        .hero-img {
-            border: 8px solid white;
-        }
-
-        .hero-underline {
-            height: 10px;
-            width: 100%;
-            bottom: 5px;
-            left: 0;
-            background-color: rgba(30, 64, 175, 0.25);
-            z-index: -1;
-        }
-    </style>
+    <!-- All inline CSS moved to indexStyles.css for maintainability and performance -->
 </head>
 
 <body id="main">
@@ -490,7 +376,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                 <div class="card-body py-5 px-4 d-flex flex-column align-items-center">
                                     <div class="year-badge year-badge-4 mb-4">Year 4</div>
                                     <div class="age-item-icon mx-auto mb-4 text-danger">
-                                        <i class="bi bi-book display-3"></i>
+                                        <i class="bi bi-book  display-3" style="color:#1E40AF;"></i>
                                     </div>
                                     <div class="mt-auto">
                                         <a class="btn btn-apply-now btn-blue px-4 py-2 fw-bold" href="courses_year4?lan=Year4"
@@ -928,6 +814,132 @@ if (session_status() === PHP_SESSION_NONE) {
             </div>
         </section>
 
+
+           <!-- Testimonials Section -->
+        <section class="testimonials-section py-5 bg-white">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="head2 fw-bold display-6">What Parents & Students Say</h2>
+                    <p class="lead" style="color: red; font-weight: bold;">Real feedback from families who trusted us with their 11+ journey.</p>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+                    <!-- Testimonial 1 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                            <div class="mx-auto mb-3">
+                                <div class="rounded-circle bg-light d-flex align-items-center justify-content-center" style="width:70px; height:70px;">
+                                    <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="blockquote mb-3">"The lessons are engaging and my son looks forward to every class. His confidence has soared!"</blockquote>
+                            <figcaption class="blockquote-footer mb-0">
+                                Priya S. <span class="text-muted">(Harrow)</span>
+                            </figcaption>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                            <div class="mx-auto mb-3">
+                                <div class="rounded-circle bg-light d-flex align-items-center justify-content-center" style="width:70px; height:70px;">
+                                    <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="blockquote mb-3">"Fantastic resources and supportive teachers. My daughter passed her 11+ with flying colours!"</blockquote>
+                            <figcaption class="blockquote-footer mb-0">
+                                James T. <span class="text-muted">(Watford)</span>
+                            </figcaption>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                            <div class="mx-auto mb-3">
+                                <div class="rounded-circle bg-light d-flex align-items-center justify-content-center" style="width:70px; height:70px;">
+                                    <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="blockquote mb-3">"The small class sizes meant my child got the attention she needed. Highly recommend!"</blockquote>
+                            <figcaption class="blockquote-footer mb-0">
+                                Aisha M. <span class="text-muted">(Slough)</span>
+                            </figcaption>
+                        </div>
+                    </div>
+                    <!-- Testimonial 4 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                            <div class="mx-auto mb-3">
+                                <div class="rounded-circle bg-light d-flex align-items-center justify-content-center" style="width:70px; height:70px;">
+                                    <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="blockquote mb-3">"We saw a huge improvement in comprehension and vocabulary. The teachers are amazing!"</blockquote>
+                            <figcaption class="blockquote-footer mb-0">
+                                Daniel K. <span class="text-muted">(Reading)</span>
+                            </figcaption>
+                        </div>
+                    </div>
+                    <!-- Testimonial 5 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                            <div class="mx-auto mb-3">
+                                <div class="rounded-circle bg-light d-flex align-items-center justify-content-center" style="width:70px; height:70px;">
+                                    <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="blockquote mb-3">"The online portal made it easy to access homework and resources. Very organised!"</blockquote>
+                            <figcaption class="blockquote-footer mb-0">
+                                Sophie L. <span class="text-muted">(Ealing)</span>
+                            </figcaption>
+                        </div>
+                    </div>
+                    <!-- Testimonial 6 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                            <div class="mx-auto mb-3">
+                                <div class="rounded-circle bg-light d-flex align-items-center justify-content-center" style="width:70px; height:70px;">
+                                    <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="blockquote mb-3">"My son enjoyed the interactive lessons and made real progress. Thank you!"</blockquote>
+                            <figcaption class="blockquote-footer mb-0">
+                                Imran H. <span class="text-muted">(Ilford)</span>
+                            </figcaption>
+                        </div>
+                    </div>
+                    <!-- Testimonial 7 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                            <div class="mx-auto mb-3">
+                                <div class="rounded-circle bg-light d-flex align-items-center justify-content-center" style="width:70px; height:70px;">
+                                    <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="blockquote mb-3">"The teachers are patient and really care about each student’s progress."</blockquote>
+                            <figcaption class="blockquote-footer mb-0">
+                                Rachel P. <span class="text-muted">(Barnet)</span>
+                            </figcaption>
+                        </div>
+                    </div>
+                    <!-- Testimonial 8 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                            <div class="mx-auto mb-3">
+                                <div class="rounded-circle bg-light d-flex align-items-center justify-content-center" style="width:70px; height:70px;">
+                                    <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="blockquote mb-3">"We are so grateful for the support and guidance. My daughter now loves English!"</blockquote>
+                            <figcaption class="blockquote-footer mb-0">
+                                Olivia W. <span class="text-muted">(Wembley)</span>
+                            </figcaption>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Testimonials Section -->
+
         <!-- Try a Class Section -->
         <section class="try-class-section py-5 bg-light">
             <div class="container">
@@ -1075,26 +1087,6 @@ if (session_status() === PHP_SESSION_NONE) {
                         </div>
                     </div>
 
-
-                    <!-- Video Section -->
-                    <!-- <section class="video-section py-5 bg-light"> 
-            <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="head2 fw-bold display-6">Our Classes In Action!</h2>
-                    <p class="lead text-muted">See a glimpse of our engaging learning environment.</p>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-10 col-xl-9">
-                        <div class="video-wrapper shadow-lg rounded overflow-hidden position-relative border" style="padding-bottom: 56.25%; height: 0;">
-                            <video controls class="position-absolute top-0 start-0 w-100 h-100" poster="./assets/images/video_poster.jpg" title="Success at 11 Plus English Class Example">
-                                <source src="assets/videos/videohome.mp4" type="video/mp4">
-                                Your browser does not support the video tag. Please update your browser.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
 
                     <!-- Benefits/Structure Section -->
                     <section class="benefits-structure-section py-5">
@@ -1502,7 +1494,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                                                         <p class="mb-0 lh-lg" style="font-size: 0.95rem;"><span class="fw-semibold">Persuasive writing</span> - such as adverts for holidays, opinion pieces, or even letters (search internet for examples) or even websites selling your favourite products!</p>
                                                                     </div>
                                                                 </div>
-                                                                <div class="mb-0 d-flex align-items-start">
+                                                                <div class="mb-3 d-flex align-items-start">
                                                                     <div class="rounded-circle me-3 flex-shrink-0 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background: linear-gradient(135deg, #dc3545, #b02a37);">
                                                                         <i class="bi bi-list-check text-white" style="font-size: 1.1rem;"></i>
                                                                     </div>
@@ -1616,6 +1608,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         </div>
                     </section>
 
+     
     </main>
 
     <!-- Footer -->
