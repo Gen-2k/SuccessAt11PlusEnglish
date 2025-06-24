@@ -784,6 +784,170 @@ body.popup-open {
     font-size: 0.875rem;
 }
 
+/* ==========================================================================
+   Testimonials Section - Clean & Professional
+   ========================================================================== */
+
+/* Clean Section Background */
+.testimonials-section {
+    position: relative;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+    padding: 4rem 0;
+}
+
+/* Simple Card Design */
+.testimonial-card {
+    background: #ffffff;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Professional Navigation Arrows */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-control-prev {
+    left: -25px;
+}
+
+.carousel-control-next {
+    right: -25px;
+}
+
+.carousel-control-prev div,
+.carousel-control-next div {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-control-prev:hover div,
+.carousel-control-next:hover div {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Fixed Carousel Indicators */
+.carousel-indicators {
+    position: static !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin: 2rem 0 0 0 !important;
+    gap: 0.5rem;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background-color: rgba(30, 64, 175, 0.3) !important;
+    border: none !important;
+    margin: 0 !important;
+    transition: all 0.3s ease;
+    text-indent: 0 !important;
+}
+
+.carousel-indicators [data-bs-target]:hover {
+    background-color: rgba(30, 64, 175, 0.6) !important;
+    transform: scale(1.1);
+}
+
+.carousel-indicators [data-bs-target].active {
+    background-color: var(--theme-blue) !important;
+    transform: scale(1.2);
+}
+
+/* Clean Quote Icon */
+.testimonial-card .bi-quote {
+    opacity: 0.06 !important;
+    transition: opacity 0.3s ease;
+}
+
+.testimonial-card:hover .bi-quote {
+    opacity: 0.1 !important;
+}
+
+/* Professional Avatar */
+.testimonial-card .rounded-circle {
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover .rounded-circle {
+    transform: scale(1.02);
+}
+
+/* Clean Typography */
+.testimonial-card h6 {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.testimonial-card blockquote p {
+    line-height: 1.6;
+    font-size: 0.9rem;
+    color: #374151 !important;
+}
+
+.testimonial-card .small {
+    font-size: 0.8rem !important;
+}
+
+/* Remove Excessive Animations */
+.testimonial-card {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Simplified Background */
+.testimonials-section::before {
+    display: none;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 991.98px) {
+    .testimonials-section {
+        padding: 3rem 0;
+    }
+    
+    .testimonial-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .testimonial-card:hover {
+        transform: translateY(-2px);
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none !important;
+    }
+}
+
+/* Remove Star Rating Styles */
+.testimonial-card .bi-star-fill {
+    display: none;
+}
+
+/* ==========================================================================
+   End Testimonials Section
+   ========================================================================== */
+
 /* =====================
    Toastr Notification Styles (from index.php inline)
    ===================== */

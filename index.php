@@ -811,267 +811,293 @@ if (session_status() === PHP_SESSION_NONE) {
                         </p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </div>        </section>
 
+        <!-- Testimonials Section -->
+        <section class="testimonials-section py-5 position-relative overflow-hidden" style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);">
+            <!-- Background decorative elements -->
+            <div class="position-absolute top-0 start-0 d-none d-lg-block" style="width: 200px; height: 200px; background: radial-gradient(circle, rgba(30,64,175,0.05) 0%, rgba(0,0,0,0) 70%); z-index: 1;"></div>
+            <div class="position-absolute bottom-0 end-0 d-none d-lg-block" style="width: 200px; height: 200px; background: radial-gradient(circle, rgba(245,158,11,0.05) 0%, rgba(0,0,0,0) 70%); z-index: 1;"></div>
+            <div class="position-absolute top-50 start-50 translate-middle d-none d-lg-block" style="width: 300px; height: 300px; background: radial-gradient(circle, rgba(30,64,175,0.02) 0%, rgba(0,0,0,0) 70%); z-index: 1;"></div>
 
-           <!-- Testimonials Section -->
-        <section class="testimonials-section py-5 bg-white position-relative">
-            <div class="container">
+            <div class="container position-relative" style="z-index: 2;">                <!-- Section Header -->
                 <div class="text-center mb-5">
-                    <h2 class="head2 fw-bold display-6">What Parents & Students Say</h2>
-                    <p class="lead" style="color: red; font-weight: bold;">Real feedback from families who trusted us with their 11+ journey.</p>
+                    <div class="position-relative d-inline-block mb-4">
+                        <h2 class="head2 fw-bold display-5 mb-0">What Parents & Students Say</h2>
+                        <div class="position-absolute bottom-0 start-50 translate-middle-x" style="width: 100px; height: 4px; background: linear-gradient(90deg, var(--theme-blue), var(--theme-gold)); border-radius: 2px; margin-top: 1rem;"></div>
+                    </div>
+                    <p class="lead fw-semibold mb-0" style="color: red; font-size: 1.1rem;">Real feedback from families who trusted us with their 11+ journey</p>
                 </div>
-                <div class="position-absolute top-0 start-0 d-none d-lg-block" style="width: 120px; height: 120px; background: radial-gradient(circle, rgba(30,64,175,0.07) 0%, rgba(0,0,0,0) 70%); z-index: 0;"></div>
-                <div class="position-absolute bottom-0 end-0 d-none d-lg-block" style="width: 120px; height: 120px; background: radial-gradient(circle, rgba(245,158,11,0.07) 0%, rgba(0,0,0,0) 70%); z-index: 0;"></div>
-                <div id="testimonialCarousel" class="carousel slide d-none d-lg-block" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row justify-content-center g-4">
-                                <div class="col-lg-4">
-                                    <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                                        <div class="mx-auto mb-3">
-                                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-blue" style="width:70px; height:70px;">
-                                                <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
+
+                <!-- Desktop Carousel -->
+                <div class="position-relative d-none d-lg-block">
+                    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                        <div class="carousel-inner">
+                            <!-- Slide 1 -->
+                            <div class="carousel-item active">
+                                <div class="row g-4 justify-content-center">
+                                    <div class="col-lg-4">
+                                        <div class="testimonial-card h-100 card border-0 shadow-lg p-4 position-relative overflow-hidden" style="border-radius: 1rem; transition: all 0.3s ease;">
+                                            <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 6rem; color: var(--theme-blue); line-height: 1; margin-top: -1rem; margin-right: -1rem;">
+                                                <i class="bi bi-quote"></i>
+                                            </div>
+                                            <div class="position-relative" style="z-index: 2;">
+                                                <div class="d-flex align-items-center mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--theme-blue), var(--theme-blue-dark)); box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);">
+                                                        <i class="bi bi-person-fill text-white" style="font-size: 1.5rem;"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="fw-bold mb-1" style="color: var(--theme-blue);">Mrs C Cheung</h6>
+                                                        <p class="text-muted mb-0 small">Reading</p>
+                                                    </div>
+                                                </div>                                                <blockquote class="mb-0">
+                                                    <p class="mb-0 lh-lg" style="font-size: 0.95rem; color: #495057; font-style: italic;">"We can't thank you enough for how you helped us to hugely improve English while we were with you. It helped immensely her confidence to do creative writing and comprehension grew so quickly. Thank you once again for your effort, going the extra mile to make sure she understands."</p>
+                                                </blockquote>
                                             </div>
                                         </div>
-                                        <blockquote class="blockquote mb-3 position-relative">
-                                            <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                            <span class="fs-5">We can't thank you enough for how you helped us to hugely improve English while we were with you. It helped immensely her confidence to do creative writing and comprehension grew so quickly. Thank you once again for your effort, going the extra mile to make sure she understands.</span>
-                                        </blockquote>
-                                        <figcaption class="blockquote-footer mb-0 fw-semibold">Mrs C Cheung <span class="text-muted">(Reading)</span></figcaption>
                                     </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                                        <div class="mx-auto mb-3">
-                                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-gold" style="width:70px; height:70px;">
-                                                <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
+                                    <div class="col-lg-4">
+                                        <div class="testimonial-card h-100 card border-0 shadow-lg p-4 position-relative overflow-hidden" style="border-radius: 1rem; transition: all 0.3s ease;">
+                                            <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 6rem; color: var(--theme-gold); line-height: 1; margin-top: -1rem; margin-right: -1rem;">
+                                                <i class="bi bi-quote"></i>
+                                            </div>
+                                            <div class="position-relative" style="z-index: 2;">
+                                                <div class="d-flex align-items-center mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--theme-gold), var(--theme-gold-dark)); box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);">
+                                                        <i class="bi bi-person-fill text-white" style="font-size: 1.5rem;"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="fw-bold mb-1" style="color: var(--theme-gold);">Mr J Aujla</h6>
+                                                        <p class="text-muted mb-0 small">Harrow</p>
+                                                    </div>
+                                                </div>                                                <blockquote class="mb-0">
+                                                    <p class="mb-0 lh-lg" style="font-size: 0.95rem; color: #495057; font-style: italic;">"I would definitely recommend these classes to anybody who requires tutoring. You do the best tutoring and make it not a stressful but happy and motivating process! You are amazing!"</p>
+                                                </blockquote>
                                             </div>
                                         </div>
-                                        <blockquote class="blockquote mb-3 position-relative">
-                                            <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                            <span class="fs-5">I would definitely recommend these carousel classes to anybody who requires tutoring. You do the best tutoring and make it not a stressful but happy and motivating process! You are amazing!</span>
-                                        </blockquote>
-                                        <figcaption class="blockquote-footer mb-0 fw-semibold">Mr J Aujla <span class="text-muted">(Harrow)</span></figcaption>
                                     </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                                        <div class="mx-auto mb-3">
-                                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-success" style="width:70px; height:70px;">
-                                                <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
+                                    <div class="col-lg-4">
+                                        <div class="testimonial-card h-100 card border-0 shadow-lg p-4 position-relative overflow-hidden" style="border-radius: 1rem; transition: all 0.3s ease;">
+                                            <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 6rem; color: #198754; line-height: 1; margin-top: -1rem; margin-right: -1rem;">
+                                                <i class="bi bi-quote"></i>
+                                            </div>
+                                            <div class="position-relative" style="z-index: 2;">
+                                                <div class="d-flex align-items-center mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 60px; height: 60px; background: linear-gradient(135deg, #198754, #157347); box-shadow: 0 4px 15px rgba(25, 135, 84, 0.3);">
+                                                        <i class="bi bi-person-fill text-white" style="font-size: 1.5rem;"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="fw-bold mb-1 text-success">Mrs L King</h6>
+                                                        <p class="text-muted mb-0 small">Birmingham</p>
+                                                    </div>
+                                                </div>                                                <blockquote class="mb-0">
+                                                    <p class="mb-0 lh-lg" style="font-size: 0.95rem; color: #495057; font-style: italic;">"Thank you very much for being so gentle and engaging at the same time. I wish I found you before. She is happy and not intimidated, is trying her best to come out of her shell as I can see which is a massive win for us."</p>
+                                                </blockquote>
                                             </div>
                                         </div>
-                                        <blockquote class="blockquote mb-3 position-relative">
-                                            <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                            <span class="fs-5">Thank you very much for being so gentle and engaging at the same time. I wish I found you before. She is happy and not intimidated, is trying her best to come out of her shell as I can see which is a massive win for us. Thank you finally for all your efforts.</span>
-                                        </blockquote>
-                                        <figcaption class="blockquote-footer mb-0 fw-semibold">Mrs L King <span class="text-muted">(Birmingham)</span></figcaption>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row justify-content-center g-4">
-                                <div class="col-lg-4">
-                                    <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                                        <div class="mx-auto mb-3">
-                                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-danger" style="width:70px; height:70px;">
-                                                <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
-                                            </div>
-                                        </div>
-                                        <blockquote class="blockquote mb-3 position-relative">
-                                            <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                            <span class="fs-5">Thanks for all efforts and dedication from you Mam. You have really helped him in English and VR. Your positivity and motivation helped Raghu to boost his confidence. Techniques for Comprehension, way of vocabulary teaching, SPaG is exceptional and kids oriented. You are an amazing English teacher. I hope you and Darsh will be there to support his 11 plus journey till September. Thanks for your amazing team.</span>
-                                        </blockquote>
-                                        <figcaption class="blockquote-footer mb-0 fw-semibold">Mr P Jain <span class="text-muted">(Kent)</span></figcaption>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                                        <div class="mx-auto mb-3">
-                                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-primary" style="width:70px; height:70px;">
-                                                <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
-                                            </div>
-                                        </div>
-                                        <blockquote class="blockquote mb-3 position-relative">
-                                            <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                            <span class="fs-5">But one thing I can say, Taneesh loved your way of teaching and we can see a lot of change in his work. One request from my end, please let us know if you are offering any more courses related to English so that I'll try to register my kids in your sessions.</span>
-                                        </blockquote>
-                                        <figcaption class="blockquote-footer mb-0 fw-semibold">Mrs G Rajapaksha <span class="text-muted">(East London)</span></figcaption>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                                        <div class="mx-auto mb-3">
-                                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-warning" style="width:70px; height:70px;">
-                                                <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
-                                            </div>
-                                        </div>
-                                        <blockquote class="blockquote mb-3 position-relative">
-                                            <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                            <span class="fs-5">It's clear that your dedication, expertise, and personalized teaching methods are making a huge difference. I'm so grateful for the positive influence you've had on her academic growth and language development. Thank you again for all the hard work and care you put into her learning. We couldn't be more thrilled with the results!</span>
-                                        </blockquote>
-                                        <figcaption class="blockquote-footer mb-0 fw-semibold">Mrs S Aslan <span class="text-muted">(Surrey)</span></figcaption>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row justify-content-center g-4">
-                                <div class="col-lg-4">
-                                    <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                                        <div class="mx-auto mb-3">
-                                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-info" style="width:70px; height:70px;">
-                                                <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
+
+                            <!-- Slide 2 -->
+                            <div class="carousel-item">
+                                <div class="row g-4 justify-content-center">
+                                    <div class="col-lg-4">
+                                        <div class="testimonial-card h-100 card border-0 shadow-lg p-4 position-relative overflow-hidden" style="border-radius: 1rem; transition: all 0.3s ease;">
+                                            <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 6rem; color: #dc3545; line-height: 1; margin-top: -1rem; margin-right: -1rem;">
+                                                <i class="bi bi-quote"></i>
+                                            </div>
+                                            <div class="position-relative" style="z-index: 2;">
+                                                <div class="d-flex align-items-center mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 60px; height: 60px; background: linear-gradient(135deg, #dc3545, #b02a37); box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);">
+                                                        <i class="bi bi-person-fill text-white" style="font-size: 1.5rem;"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="fw-bold mb-1 text-danger">Mr P Jain</h6>
+                                                        <p class="text-muted mb-0 small">Kent</p>
+                                                    </div>
+                                                </div>
+                                                <blockquote class="mb-3">
+                                                    <p class="mb-0 lh-lg" style="font-size: 0.95rem; color: #495057; font-style: italic;">"Thanks for all efforts and dedication from you Mam. You have really helped him in English and VR. Your positivity and motivation helped Raghu to boost his confidence. Techniques for Comprehension, way of vocabulary teaching, SPaG is exceptional and kids oriented."</p>                                                </blockquote>
                                             </div>
                                         </div>
-                                        <blockquote class="blockquote mb-3 position-relative">
-                                            <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                            <span class="fs-5">I can't thank you enough for the incredible impact your teaching has had on my daughter. Your approach to Comprehension and SPaG is truly exceptional, and the progress we've seen in just a few months is nothing short of amazing. Not only has her confidence soared, but she's also seamlessly incorporating advanced vocabulary, including passive constructions, into her everyday conversations.</span>
-                                        </blockquote>
-                                        <figcaption class="blockquote-footer mb-0 fw-semibold">Mr A Ademolu <span class="text-muted">(Gloucestershire)</span></figcaption>
                                     </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                                        <div class="mx-auto mb-3">
-                                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-secondary" style="width:70px; height:70px;">
-                                                <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
+                                    <div class="col-lg-4">
+                                        <div class="testimonial-card h-100 card border-0 shadow-lg p-4 position-relative overflow-hidden" style="border-radius: 1rem; transition: all 0.3s ease;">
+                                            <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 6rem; color: var(--theme-blue); line-height: 1; margin-top: -1rem; margin-right: -1rem;">
+                                                <i class="bi bi-quote"></i>
+                                            </div>
+                                            <div class="position-relative" style="z-index: 2;">
+                                                <div class="d-flex align-items-center mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--theme-blue), var(--theme-blue-dark)); box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);">
+                                                        <i class="bi bi-person-fill text-white" style="font-size: 1.5rem;"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="fw-bold mb-1" style="color: var(--theme-blue);">Mrs G Rajapaksha</h6>
+                                                        <p class="text-muted mb-0 small">East London</p>
+                                                    </div>
+                                                </div>
+                                                <blockquote class="mb-0">
+                                                    <p class="mb-0 lh-lg" style="font-size: 0.95rem; color: #495057; font-style: italic;">"But one thing I can say, Taneesh loved your way of teaching and we can see a lot of change in his work. One request from my end, please let us know if you are offering any more courses related to English."</p>
+                                                </blockquote>
                                             </div>
                                         </div>
-                                        <blockquote class="blockquote mb-3 position-relative">
-                                            <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                            <span class="fs-5">She has passed her 11 plus for The Leeds Grammar School at Leeds. We can't thank you enough for how you helped us in the short few weeks we were with you. It helped immensely her confidence to do creative writing and comprehension grew so quickly. Thank you once again for your effort, going the extra mile to make sure she understands. Many thanks.</span>
-                                        </blockquote>
-                                        <figcaption class="blockquote-footer mb-0 fw-semibold">Mrs T James <span class="text-muted">(Leeds)</span></figcaption>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="testimonial-card h-100 card border-0 shadow-lg p-4 position-relative overflow-hidden" style="border-radius: 1rem; transition: all 0.3s ease;">
+                                            <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 6rem; color: #fd7e14; line-height: 1; margin-top: -1rem; margin-right: -1rem;">
+                                                <i class="bi bi-quote"></i>
+                                            </div>
+                                            <div class="position-relative" style="z-index: 2;">
+                                                <div class="d-flex align-items-center mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 60px; height: 60px; background: linear-gradient(135deg, #fd7e14, #e8590c); box-shadow: 0 4px 15px rgba(253, 126, 20, 0.3);">
+                                                        <i class="bi bi-person-fill text-white" style="font-size: 1.5rem;"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="fw-bold mb-1" style="color: #fd7e14;">Mrs S Aslan</h6>
+                                                        <p class="text-muted mb-0 small">Surrey</p>
+                                                    </div>
+                                                </div>
+                                                <blockquote class="mb-3">
+                                                    <p class="mb-0 lh-lg" style="font-size: 0.95rem; color: #495057; font-style: italic;">"It's clear that your dedication, expertise, and personalized teaching methods are making a huge difference. I'm so grateful for the positive influence you've had on her academic growth and language development."</p>                                                </blockquote>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+
+                            <!-- Slide 3 -->
+                            <div class="carousel-item">
+                                <div class="row g-4 justify-content-center">
+                                    <div class="col-lg-4">
+                                        <div class="testimonial-card h-100 card border-0 shadow-lg p-4 position-relative overflow-hidden" style="border-radius: 1rem; transition: all 0.3s ease;">
+                                            <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 6rem; color: #0dcaf0; line-height: 1; margin-top: -1rem; margin-right: -1rem;">
+                                                <i class="bi bi-quote"></i>
+                                            </div>
+                                            <div class="position-relative" style="z-index: 2;">
+                                                <div class="d-flex align-items-center mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 60px; height: 60px; background: linear-gradient(135deg, #0dcaf0, #087990); box-shadow: 0 4px 15px rgba(13, 202, 240, 0.3);">
+                                                        <i class="bi bi-person-fill text-white" style="font-size: 1.5rem;"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="fw-bold mb-1 text-info">Mr A Ademolu</h6>
+                                                        <p class="text-muted mb-0 small">Gloucestershire</p>
+                                                    </div>
+                                                </div>
+                                                <blockquote class="mb-0">
+                                                    <p class="mb-0 lh-lg" style="font-size: 0.95rem; color: #495057; font-style: italic;">"I can't thank you enough for the incredible impact your teaching has had on my daughter. Your approach to Comprehension and SPaG is truly exceptional, and the progress we've seen in just a few months is nothing short of amazing."</p>
+                                                </blockquote>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="testimonial-card h-100 card border-0 shadow-lg p-4 position-relative overflow-hidden" style="border-radius: 1rem; transition: all 0.3s ease;">
+                                            <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 6rem; color: #6c757d; line-height: 1; margin-top: -1rem; margin-right: -1rem;">
+                                                <i class="bi bi-quote"></i>
+                                            </div>
+                                            <div class="position-relative" style="z-index: 2;">
+                                                <div class="d-flex align-items-center mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 60px; height: 60px; background: linear-gradient(135deg, #6c757d, #495057); box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);">
+                                                        <i class="bi bi-person-fill text-white" style="font-size: 1.5rem;"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="fw-bold mb-1 text-secondary">Mrs T James</h6>
+                                                        <p class="text-muted mb-0 small">Leeds</p>
+                                                    </div>
+                                                </div>                                                <blockquote class="mb-0">
+                                                    <p class="mb-0 lh-lg" style="font-size: 0.95rem; color: #495057; font-style: italic;">"She has passed her 11 plus for The Leeds Grammar School at Leeds. We can't thank you enough for how you helped us in the short few weeks we were with you. It helped immensely her confidence to do creative writing."</p>
+                                                </blockquote>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                        </div>
+
+                        <!-- Custom Navigation Arrows -->
+                        <button class="carousel-control-prev position-absolute top-50 start-0 translate-middle-y border-0 bg-transparent" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev" style="width: 50px; height: 50px; margin-left: -25px; z-index: 10;">
+                            <div class="d-flex align-items-center justify-content-center rounded-circle shadow-lg" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--theme-blue), var(--theme-blue-dark)); transition: all 0.3s ease;">
+                                <i class="bi bi-chevron-left text-white" style="font-size: 1.2rem; font-weight: bold;"></i>
+                            </div>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next position-absolute top-50 end-0 translate-middle-y border-0 bg-transparent" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next" style="width: 50px; height: 50px; margin-right: -25px; z-index: 10;">
+                            <div class="d-flex align-items-center justify-content-center rounded-circle shadow-lg" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--theme-gold), var(--theme-gold-dark)); transition: all 0.3s ease;">
+                                <i class="bi bi-chevron-right text-white" style="font-size: 1.2rem; font-weight: bold;"></i>
+                            </div>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+
+                    <!-- Carousel Indicators - Properly Centered -->
+                    <div class="carousel-indicators position-static d-flex justify-content-center mt-4 mb-0">
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
                 </div>
-                <!-- Mobile: stacked cards -->
-                <div class="row row-cols-1 g-4 d-lg-none justify-content-center">
-                    <div class="col">
-                        <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                            <div class="mx-auto mb-3">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center bg-blue" style="width:70px; height:70px;">
-                                    <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
+
+                <!-- Mobile: Stacked Cards -->
+                <div class="d-lg-none">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <div class="testimonial-card card border-0 shadow-lg p-4 position-relative overflow-hidden" style="border-radius: 1rem;">
+                                <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 6rem; color: var(--theme-blue); line-height: 1; margin-top: -1rem; margin-right: -1rem;">
+                                    <i class="bi bi-quote"></i>
+                                </div>
+                                <div class="position-relative" style="z-index: 2;">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--theme-blue), var(--theme-blue-dark)); box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);">
+                                            <i class="bi bi-person-fill text-white" style="font-size: 1.5rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-1" style="color: var(--theme-blue);">Mrs C Cheung</h6>
+                                            <p class="text-muted mb-0 small">Reading</p>
+                                        </div>
+                                    </div>                                    <blockquote class="mb-0">
+                                        <p class="mb-0 lh-lg" style="font-size: 0.95rem; color: #495057; font-style: italic;">"We can't thank you enough for how you helped us to hugely improve English while we were with you. It helped immensely her confidence to do creative writing and comprehension grew so quickly."</p>
+                                    </blockquote>
                                 </div>
                             </div>
-                            <blockquote class="blockquote mb-3 position-relative">
-                                <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                <span class="fs-5">We can't thank you enough for how you helped us to hugely improve English while we were with you. It helped immensely her confidence to do creative writing and comprehension grew so quickly. Thank you once again for your effort, going the extra mile to make sure she understands.</span>
-                            </blockquote>
-                            <figcaption class="blockquote-footer mb-0 fw-semibold">Mrs C Cheung <span class="text-muted">(Reading)</span></figcaption>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                            <div class="mx-auto mb-3">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center bg-gold" style="width:70px; height:70px;">
-                                    <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
+                        <div class="col-12">
+                            <div class="testimonial-card card border-0 shadow-lg p-4 position-relative overflow-hidden" style="border-radius: 1rem;">
+                                <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 6rem; color: var(--theme-gold); line-height: 1; margin-top: -1rem; margin-right: -1rem;">
+                                    <i class="bi bi-quote"></i>
+                                </div>
+                                <div class="position-relative" style="z-index: 2;">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--theme-gold), var(--theme-gold-dark)); box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);">
+                                            <i class="bi bi-person-fill text-white" style="font-size: 1.5rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-1" style="color: var(--theme-gold);">Mr J Aujla</h6>
+                                            <p class="text-muted mb-0 small">Harrow</p>
+                                        </div>
+                                    </div>                                    <blockquote class="mb-0">
+                                        <p class="mb-0 lh-lg" style="font-size: 0.95rem; color: #495057; font-style: italic;">"I would definitely recommend these classes to anybody who requires tutoring. You do the best tutoring and make it not a stressful but happy and motivating process!"</p>
+                                    </blockquote>
                                 </div>
                             </div>
-                            <blockquote class="blockquote mb-3 position-relative">
-                                <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                <span class="fs-5">I would definitely recommend these carousel classes to anybody who requires tutoring. You do the best tutoring and make it not a stressful but happy and motivating process! You are amazing!</span>
-                            </blockquote>
-                            <figcaption class="blockquote-footer mb-0 fw-semibold">Mr J Aujla <span class="text-muted">(Harrow)</span></figcaption>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                            <div class="mx-auto mb-3">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center bg-success" style="width:70px; height:70px;">
-                                    <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
+                        <div class="col-12">
+                            <div class="testimonial-card card border-0 shadow-lg p-4 position-relative overflow-hidden" style="border-radius: 1rem;">
+                                <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 6rem; color: #198754; line-height: 1; margin-top: -1rem; margin-right: -1rem;">
+                                    <i class="bi bi-quote"></i>
+                                </div>
+                                <div class="position-relative" style="z-index: 2;">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 60px; height: 60px; background: linear-gradient(135deg, #198754, #157347); box-shadow: 0 4px 15px rgba(25, 135, 84, 0.3);">
+                                            <i class="bi bi-person-fill text-white" style="font-size: 1.5rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-1 text-success">Mrs L King</h6>
+                                            <p class="text-muted mb-0 small">Birmingham</p>
+                                        </div>
+                                    </div>                                    <blockquote class="mb-0">
+                                        <p class="mb-0 lh-lg" style="font-size: 0.95rem; color: #495057; font-style: italic;">"Thank you very much for being so gentle and engaging at the same time. I wish I found you before. She is happy and not intimidated, is trying her best to come out of her shell."</p>
+                                    </blockquote>
                                 </div>
                             </div>
-                            <blockquote class="blockquote mb-3 position-relative">
-                                <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                <span class="fs-5">Thank you very much for being so gentle and engaging at the same time. I wish I found you before. She is happy and not intimidated, is trying her best to come out of her shell as I can see which is a massive win for us. Thank you finally for all your efforts.</span>
-                            </blockquote>
-                            <figcaption class="blockquote-footer mb-0 fw-semibold">Mrs L King <span class="text-muted">(Birmingham)</span></figcaption>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                            <div class="mx-auto mb-3">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center bg-danger" style="width:70px; height:70px;">
-                                    <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
-                                </div>
-                            </div>
-                            <blockquote class="blockquote mb-3 position-relative">
-                                <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                <span class="fs-5">Thanks for all efforts and dedication from you Mam. You have really helped him in English and VR. Your positivity and motivation helped Raghu to boost his confidence. Techniques for Comprehension, way of vocabulary teaching, SPaG is exceptional and kids oriented. You are an amazing English teacher. I hope you and Darsh will be there to support his 11 plus journey till September. Thanks for your amazing team.</span>
-                            </blockquote>
-                            <figcaption class="blockquote-footer mb-0 fw-semibold">Mr P Jain <span class="text-muted">(Kent)</span></figcaption>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                            <div class="mx-auto mb-3">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center bg-primary" style="width:70px; height:70px;">
-                                    <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
-                                </div>
-                            </div>
-                            <blockquote class="blockquote mb-3 position-relative">
-                                <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                <span class="fs-5">But one thing I can say, Taneesh loved your way of teaching and we can see a lot of change in his work. One request from my end, please let us know if you are offering any more courses related to English so that I'll try to register my kids in your sessions.</span>
-                            </blockquote>
-                            <figcaption class="blockquote-footer mb-0 fw-semibold">Mrs G Rajapaksha <span class="text-muted">(East London)</span></figcaption>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                            <div class="mx-auto mb-3">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center bg-warning" style="width:70px; height:70px;">
-                                    <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
-                                </div>
-                            </div>
-                            <blockquote class="blockquote mb-3 position-relative">
-                                <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                <span class="fs-5">It's clear that your dedication, expertise, and personalized teaching methods are making a huge difference. I'm so grateful for the positive influence you've had on her academic growth and language development. Thank you again for all the hard work and care you put into her learning. We couldn't be more thrilled with the results!</span>
-                            </blockquote>
-                            <figcaption class="blockquote-footer mb-0 fw-semibold">Mrs S Aslan <span class="text-muted">(Surrey)</span></figcaption>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                            <div class="mx-auto mb-3">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center bg-info" style="width:70px; height:70px;">
-                                    <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
-                                </div>
-                            </div>
-                            <blockquote class="blockquote mb-3 position-relative">
-                                <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                <span class="fs-5">I can't thank you enough for the incredible impact your teaching has had on my daughter. Your approach to Comprehension and SPaG is truly exceptional, and the progress we've seen in just a few months is nothing short of amazing. Not only has her confidence soared, but she's also seamlessly incorporating advanced vocabulary, including passive constructions, into her everyday conversations.</span>
-                            </blockquote>
-                            <figcaption class="blockquote-footer mb-0 fw-semibold">Mr A Ademolu <span class="text-muted">(Gloucestershire)</span></figcaption>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 shadow border-0 p-4 text-center testimonial-card">
-                            <div class="mx-auto mb-3">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center bg-secondary" style="width:70px; height:70px;">
-                                    <i class="bi bi-person-circle text-white" style="font-size:2.5rem;"></i>
-                                </div>
-                            </div>
-                            <blockquote class="blockquote mb-3 position-relative">
-                                <i class="bi bi-quote position-absolute top-0 start-0 text-gold" style="font-size:2rem; opacity:0.2; left:-10px; top:-10px;"></i>
-                                <span class="fs-5">She has passed her 11 plus for The Leeds Grammar School at Leeds. We can't thank you enough for how you helped us in the short few weeks we were with you. It helped immensely her confidence to do creative writing and comprehension grew so quickly. Thank you once again for your effort, going the extra mile to make sure she understands. Many thanks.</span>
-                            </blockquote>
-                            <figcaption class="blockquote-footer mb-0 fw-semibold">Mrs T James <span class="text-muted">(Leeds)</span></figcaption>
                         </div>
                     </div>
                 </div>
