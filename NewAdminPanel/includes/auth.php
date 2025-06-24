@@ -28,10 +28,40 @@ function checkAdminAuth() {
     $_SESSION['last_activity'] = time();
 }
 
-// Get current admin info from session
+// Get current admin info from database using session user_id
 function getCurrentAdmin() {
+    global $connection;
+    if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+        return [
+            'id' => null,
+            'name' => 'Admin',
+            'username' => 'Admin',
+            'email' => null,
+            'role' => null,
+            'created_at' => null
+        ];
+    }
+    $admin_id = $_SESSION['user_id'];
+    $stmt = mysqli_prepare($connection, "SELECT id, fname, surname, email, created_at FROM students WHERE id = ? AND role = 'admin' LIMIT 1");
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "i", $admin_id);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $admin = mysqli_fetch_assoc($result);
+        if ($admin) {
+            return [
+                'id' => $admin['id'],
+                'name' => trim(($admin['fname'] ?? '') . ' ' . ($admin['surname'] ?? '')),
+                'username' => $admin['fname'] ?? 'Admin',
+                'email' => $admin['email'] ?? null,
+                'role' => 'admin',
+                'created_at' => $admin['created_at'] ?? null
+            ];
+        }
+    }
+    // fallback
     return [
-        'id' => $_SESSION['user_id'] ?? null,
+        'id' => $_SESSION['user_id'],
         'name' => $_SESSION['fname'] ?? 'Admin',
         'username' => $_SESSION['fname'] ?? 'Admin',
         'email' => $_SESSION['email'] ?? null,

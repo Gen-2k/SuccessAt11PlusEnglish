@@ -44,7 +44,7 @@ $current_admin = getCurrentAdmin();
                 <div class="header-right">
                     <div class="user-menu">
                         <div class="user-info">
-                            <span class="user-name"><?php echo htmlspecialchars($current_admin['username'] ?? 'Admin'); ?></span>
+                            <span class="user-name"><?php echo htmlspecialchars($current_admin['name'] ?? 'Admin'); ?></span>
                             <img src="assets/img/admin-avatar.svg" alt="Admin" class="user-avatar">
                         </div>
                         <div class="dropdown">

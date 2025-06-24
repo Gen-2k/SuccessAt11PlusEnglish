@@ -822,8 +822,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <h2 class="head2 fw-bold display-6">What Parents & Students Say</h2>
                     <p class="lead" style="color: red; font-weight: bold;">Real feedback from families who trusted us with their 11+ journey.</p>
                 </div>
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
-                    <!-- Testimonial 1 -->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
                     <div class="col">
                         <div class="card h-100 shadow-sm border-0 p-4 text-center">
                             <div class="mx-auto mb-3">
@@ -831,13 +830,10 @@ if (session_status() === PHP_SESSION_NONE) {
                                     <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
                                 </div>
                             </div>
-                            <blockquote class="blockquote mb-3">"The lessons are engaging and my son looks forward to every class. His confidence has soared!"</blockquote>
-                            <figcaption class="blockquote-footer mb-0">
-                                Priya S. <span class="text-muted">(Harrow)</span>
-                            </figcaption>
+                            <blockquote class="blockquote mb-3">We can't thank you enough for how you helped us to hugely improve English while we were with you. It helped immensely her confidence to do creative writing and comprehension grew so quickly. Thank you once again for your effort, going the extra mile to make sure she understands.</blockquote>
+                            <figcaption class="blockquote-footer mb-0">Mrs C Cheung <span class="text-muted">(Reading)</span></figcaption>
                         </div>
                     </div>
-                    <!-- Testimonial 2 -->
                     <div class="col">
                         <div class="card h-100 shadow-sm border-0 p-4 text-center">
                             <div class="mx-auto mb-3">
@@ -845,13 +841,10 @@ if (session_status() === PHP_SESSION_NONE) {
                                     <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
                                 </div>
                             </div>
-                            <blockquote class="blockquote mb-3">"Fantastic resources and supportive teachers. My daughter passed her 11+ with flying colours!"</blockquote>
-                            <figcaption class="blockquote-footer mb-0">
-                                James T. <span class="text-muted">(Watford)</span>
-                            </figcaption>
+                            <blockquote class="blockquote mb-3">I would definitely recommend these carousel classes to anybody who requires tutoring. You do the best tutoring and make it not a stressful but happy and motivating process! You are amazing!</blockquote>
+                            <figcaption class="blockquote-footer mb-0">Mr J Aujla <span class="text-muted">(Harrow)</span></figcaption>
                         </div>
                     </div>
-                    <!-- Testimonial 3 -->
                     <div class="col">
                         <div class="card h-100 shadow-sm border-0 p-4 text-center">
                             <div class="mx-auto mb-3">
@@ -859,13 +852,10 @@ if (session_status() === PHP_SESSION_NONE) {
                                     <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
                                 </div>
                             </div>
-                            <blockquote class="blockquote mb-3">"The small class sizes meant my child got the attention she needed. Highly recommend!"</blockquote>
-                            <figcaption class="blockquote-footer mb-0">
-                                Aisha M. <span class="text-muted">(Slough)</span>
-                            </figcaption>
+                            <blockquote class="blockquote mb-3">Thank you very much for being so gentle and engaging at the same time. I wish I found you before. She is happy and not intimidated, is trying her best to come out of her shell as I can see which is a massive win for us. Thank you finally for all your efforts.</blockquote>
+                            <figcaption class="blockquote-footer mb-0">Mrs L King <span class="text-muted">(Birmingham)</span></figcaption>
                         </div>
                     </div>
-                    <!-- Testimonial 4 -->
                     <div class="col">
                         <div class="card h-100 shadow-sm border-0 p-4 text-center">
                             <div class="mx-auto mb-3">
@@ -873,13 +863,10 @@ if (session_status() === PHP_SESSION_NONE) {
                                     <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
                                 </div>
                             </div>
-                            <blockquote class="blockquote mb-3">"We saw a huge improvement in comprehension and vocabulary. The teachers are amazing!"</blockquote>
-                            <figcaption class="blockquote-footer mb-0">
-                                Daniel K. <span class="text-muted">(Reading)</span>
-                            </figcaption>
+                            <blockquote class="blockquote mb-3">Thanks for all efforts and dedication from you Mam. You have really helped him in English and VR. Your positivity and motivation helped Raghu to boost his confidence. Techniques for Comprehension, way of vocabulary teaching, SPaG is exceptional and kids oriented. You are an amazing English teacher. I hope you and Darsh will be there to support his 11 plus journey till September. Thanks for your amazing team.</blockquote>
+                            <figcaption class="blockquote-footer mb-0">Mr P Jain <span class="text-muted">(Kent)</span></figcaption>
                         </div>
                     </div>
-                    <!-- Testimonial 5 -->
                     <div class="col">
                         <div class="card h-100 shadow-sm border-0 p-4 text-center">
                             <div class="mx-auto mb-3">
@@ -887,13 +874,10 @@ if (session_status() === PHP_SESSION_NONE) {
                                     <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
                                 </div>
                             </div>
-                            <blockquote class="blockquote mb-3">"The online portal made it easy to access homework and resources. Very organised!"</blockquote>
-                            <figcaption class="blockquote-footer mb-0">
-                                Sophie L. <span class="text-muted">(Ealing)</span>
-                            </figcaption>
+                            <blockquote class="blockquote mb-3">But one thing I can say, Taneesh loved your way of teaching and we can see a lot of change in his work. One request from my end, please let us know if you are offering any more courses related to English so that I'll try to register my kids in your sessions.</blockquote>
+                            <figcaption class="blockquote-footer mb-0">Mrs G Rajapaksha <span class="text-muted">(East London)</span></figcaption>
                         </div>
                     </div>
-                    <!-- Testimonial 6 -->
                     <div class="col">
                         <div class="card h-100 shadow-sm border-0 p-4 text-center">
                             <div class="mx-auto mb-3">
@@ -901,13 +885,10 @@ if (session_status() === PHP_SESSION_NONE) {
                                     <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
                                 </div>
                             </div>
-                            <blockquote class="blockquote mb-3">"My son enjoyed the interactive lessons and made real progress. Thank you!"</blockquote>
-                            <figcaption class="blockquote-footer mb-0">
-                                Imran H. <span class="text-muted">(Ilford)</span>
-                            </figcaption>
+                            <blockquote class="blockquote mb-3">It's clear that your dedication, expertise, and personalized teaching methods are making a huge difference. I'm so grateful for the positive influence you've had on her academic growth and language development. Thank you again for all the hard work and care you put into her learning. We couldn't be more thrilled with the results!</blockquote>
+                            <figcaption class="blockquote-footer mb-0">Mrs S Aslan <span class="text-muted">(Surrey)</span></figcaption>
                         </div>
                     </div>
-                    <!-- Testimonial 7 -->
                     <div class="col">
                         <div class="card h-100 shadow-sm border-0 p-4 text-center">
                             <div class="mx-auto mb-3">
@@ -915,13 +896,10 @@ if (session_status() === PHP_SESSION_NONE) {
                                     <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
                                 </div>
                             </div>
-                            <blockquote class="blockquote mb-3">"The teachers are patient and really care about each student’s progress."</blockquote>
-                            <figcaption class="blockquote-footer mb-0">
-                                Rachel P. <span class="text-muted">(Barnet)</span>
-                            </figcaption>
+                            <blockquote class="blockquote mb-3">I can't thank you enough for the incredible impact your teaching has had on my daughter. Your approach to Comprehension and SPaG is truly exceptional, and the progress we've seen in just a few months is nothing short of amazing. Not only has her confidence soared, but she's also seamlessly incorporating advanced vocabulary, including passive constructions, into her everyday conversations.</blockquote>
+                            <figcaption class="blockquote-footer mb-0">Mr A Ademolu <span class="text-muted">(Gloucestershire)</span></figcaption>
                         </div>
                     </div>
-                    <!-- Testimonial 8 -->
                     <div class="col">
                         <div class="card h-100 shadow-sm border-0 p-4 text-center">
                             <div class="mx-auto mb-3">
@@ -929,10 +907,8 @@ if (session_status() === PHP_SESSION_NONE) {
                                     <i class="bi bi-person-circle text-secondary" style="font-size:2.5rem;"></i>
                                 </div>
                             </div>
-                            <blockquote class="blockquote mb-3">"We are so grateful for the support and guidance. My daughter now loves English!"</blockquote>
-                            <figcaption class="blockquote-footer mb-0">
-                                Olivia W. <span class="text-muted">(Wembley)</span>
-                            </figcaption>
+                            <blockquote class="blockquote mb-3">She has passed her 11 plus for The Leeds Grammar School at Leeds. We can't thank you enough for how you helped us in the short few weeks we were with you. It helped immensely her confidence to do creative writing and comprehension grew so quickly. Thank you once again for your effort, going the extra mile to make sure she understands. Many thanks.</blockquote>
+                            <figcaption class="blockquote-footer mb-0">Mrs T James <span class="text-muted">(Leeds)</span></figcaption>
                         </div>
                     </div>
                 </div>
@@ -1311,7 +1287,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                 <!-- Vocabulary Tips -->
                                 <div class="col-lg-4">
                                     <div class="card shadow-lg border-0 h-100 overflow-hidden">
-                                        <div class="card-header position-relative" style="background: linear-gradient(135deg, var(--theme-gold), #d97706); padding: 1.75rem 1.5rem;">
+                                        <div class="card-header position-relative" style="background: linear-gradient(135deg, #d97706); padding: 1.75rem 1.5rem;">
                                             <div class="position-absolute top-0 end-0" style="font-size: 5rem; line-height: 1; margin-top: -1rem; margin-right: -0.5rem; color: rgba(255, 255, 255, 0.15);">
                                                 <i class="bi bi-alphabet"></i>
                                             </div>
@@ -1620,308 +1596,7 @@ if (session_status() === PHP_SESSION_NONE) {
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Custom Page Script -->
-    <script>
-        // DOM ready execution
-        document.addEventListener('DOMContentLoaded', function () {
-            // Our Classes Popup Logic
-            const classTriggers = {
-                'spag-main': '.spag',
-                'creative-writing-main': '.creative-writing',
-                'comprehension-main': '.comprehension',
-                'vocabulary-main': '.vocabulary',
-                'late-Teens-main': '.Late-teens'
-            };
-
-            const closeButtons = document.querySelectorAll('.ourClassContainer .btn-close');
-
-            // Add event listeners to trigger elements
-            for (const triggerClass in classTriggers) {
-                const triggerElement = document.querySelector('.' + triggerClass);
-                const targetPopupSelector = classTriggers[triggerClass];
-                const targetPopup = document.querySelector(targetPopupSelector);
-
-                if (triggerElement && targetPopup) {
-                    triggerElement.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        targetPopup.classList.add('active');
-                        document.body.classList.add('popup-open');
-                        targetPopup.querySelector('.btn-close').focus();
-                    });
-                }
-            }
-
-            // Add event listeners to close buttons
-            closeButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const popup = button.closest('.ourClassContainer');
-                    if (popup) {
-                        popup.classList.remove('active');
-                        document.body.classList.remove('popup-open');
-                    }
-                });
-            });
-
-            // Close popups on Escape key press
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') {
-                    document.querySelectorAll('.ourClassContainer').forEach(popup => {
-                        if (popup.classList.contains('active')) {
-                            popup.classList.remove('active');
-                            document.body.classList.remove('popup-open');
-                        }
-                    });
-                    const newsLetterPopup = document.querySelector('.newsLetterContainer');
-                    if (newsLetterPopup && newsLetterPopup.classList.contains('active')) {
-                        newsLetterPopup.classList.remove('active');
-                        document.body.classList.remove('popup-open');
-                    }
-                }
-            });
-
-            // Newsletter Popup Logic
-            const sendBtn = document.getElementById('sendMeBtn');
-            const newsLetterContainer = document.querySelector('.newsLetterContainer');
-            const newsCloseBtn = newsLetterContainer.querySelector('.btn-close');
-
-            if (sendBtn && newsLetterContainer && newsCloseBtn) {
-                sendBtn.addEventListener('click', () => {
-                    newsLetterContainer.classList.add('active');
-                    document.body.classList.add('popup-open');
-                    newsLetterContainer.querySelector('#n_name').focus();
-                });
-
-                newsCloseBtn.addEventListener('click', () => {
-                    newsLetterContainer.classList.remove('active');
-                    document.body.classList.remove('popup-open');
-                });
-
-                newsLetterContainer.addEventListener('click', (event) => {
-                    if (event.target === newsLetterContainer) {
-                        newsLetterContainer.classList.remove('active');
-                        document.body.classList.remove('popup-open');
-                    }
-                });
-            }
-
-            // Also close popups when clicking outside the content
-            document.querySelectorAll('.ourClassContainer').forEach(container => {
-                container.addEventListener('click', (e) => {
-                    if (e.target === container) {
-                        container.classList.remove('active');
-                        document.body.classList.remove('popup-open');
-                    }
-                });
-            });
-
-            // Newsletter Form AJAX Submission
-            if (typeof jQuery !== 'undefined') {
-                $(document).ready(function () {
-                    function handleEmailValidation(isValid, message, $emailField, $errorSpan) {
-                        const $parentDiv = $emailField.parent();
-                        if (!isValid) {
-                            $emailField.addClass('is-invalid').removeClass('is-valid');
-                            $parentDiv.addClass("form_error");
-                            $errorSpan.text(message).css('color', 'red');
-                            $emailField.val('');
-                            toastr.warning(message);
-                        } else {
-                            $emailField.removeClass('is-invalid').addClass('is-valid');
-                            $parentDiv.removeClass("form_error");
-                            if ($errorSpan.text() !== "We will not share your email with anyone.") {
-                                $errorSpan.text("We will not share your email with anyone.").css('color', '');
-                            }
-                        }
-                    }
-
-                    $(document).on('blur', '#n_email', function () {
-                        var valmail = $(this).val().trim();
-                        var $emailField = $(this);
-                        var $errorSpan = $emailField.siblings("span");
-
-                        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                        if (valmail === '') {
-                            $emailField.removeClass('is-invalid is-valid');
-                            $errorSpan.text("We will not share your email with anyone.").css('color', '');
-                            return;
-                        } else if (!emailRegex.test(valmail)) {
-                            handleEmailValidation(false, "Please enter a valid email address.", $emailField, $errorSpan);
-                            return;
-                        }
-
-                        $.ajax({
-                            url: "tipAction.php",
-                            method: "POST",
-                            data: { check_email: valmail },
-                            dataType: "json",
-                            success: function (rep) {
-                                if (rep.status === "exists") {
-                                    handleEmailValidation(false, rep.message, $emailField, $errorSpan);
-                                } else if (rep.status === "valid") {
-                                    handleEmailValidation(true, "", $emailField, $errorSpan);
-                                } else {
-                                    handleEmailValidation(true, "", $emailField, $errorSpan);
-                                }
-                            },
-                            error: function (jqXHR, textStatus, errorThrown) {
-                                console.error("AJAX error checking email:", textStatus, errorThrown);
-                                $emailField.removeClass('is-invalid is-valid');
-                                $errorSpan.text("Could not verify email. Please try again.").css('color', 'orange');
-                            }
-                        });
-                    });
-
-                    $(document).on('submit', '#newsPop', function (e) {
-                        e.preventDefault();
-
-                        var $form = $(this);
-                        var name = $("#n_name").val().trim();
-                        var email = $("#n_email").val().trim();
-                        var isChecked = $('#privacyCheck').is(':checked');
-                        var $submitButton = $form.find('.subscribeBtn');
-                        var isValid = true;
-
-                        $form.find('.form-control').removeClass('is-invalid is-valid');
-                        $form.find('.form-check-input').removeClass('is-invalid');
-                        $form.find('span').text('').css('color', '');
-
-                        if (name === '') {
-                            $("#n_name").addClass('is-invalid');
-                            isValid = false;
-                        } else {
-                            $("#n_name").addClass('is-valid');
-                        }
-
-                        if (email === '') {
-                            $("#n_email").addClass('is-invalid');
-                            $("#n_email").siblings('span').text('Email is required.').css('color', 'red');
-                            isValid = false;
-                        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                            $("#n_email").addClass('is-invalid');
-                            $("#n_email").siblings('span').text('Please enter a valid email address.').css('color', 'red');
-                            isValid = false;
-                        } else {
-                            $("#n_email").addClass('is-valid');
-                            $("#n_email").siblings('span').text("We will not share your email with anyone.").css('color', '');
-                        }
-
-                        if (!isChecked) {
-                            toastr.error('Please check the privacy policy box.');
-                            return;
-                        }
-
-                        $submitButton.prop('disabled', true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Subscribing...');
-
-                        $.ajax({
-                            type: "POST",
-                            url: "tipAction.php",
-                            data: {
-                                n_name: name,
-                                n_email: email,
-                                action: 'newsletter'
-                            },
-                            dataType: "json",
-                            success: function (response) {
-                                console.log("Subscription response:", response);
-                                if (response.status === 'success') {
-                                    $form[0].reset();
-                                    $form.find('.form-control').removeClass('is-valid is-invalid');
-                                    $form.find('.form-check-input').removeClass('is-invalid');
-                                    if (newsLetterContainer) {
-                                        newsLetterContainer.classList.remove('active');
-                                        document.body.classList.remove('popup-open');
-                                    }
-                                    toastr.success(response.message || 'Successfully subscribed!', { timeOut: 5000 });
-                                } else {
-                                    toastr.error(response.message || 'Subscription failed. Please try again.');
-                                    if (response.field === 'email') {
-                                        $('#n_email').addClass('is-invalid').removeClass('is-valid');
-                                        $('#n_email').siblings('span').text(response.message).css('color', 'red');
-                                    }
-                                }
-                            },
-                            error: function (jqXHR, textStatus, errorThrown) {
-                                console.error("AJAX subscription error:", textStatus, errorThrown);
-                                toastr.error('An error occurred during subscription. Please try again later.');
-                            },
-                            complete: function () {
-                                $submitButton.prop('disabled', false).text('SUBSCRIBE');
-                            }
-                        });
-                    });
-                });
-            } else {
-                console.error("jQuery is not loaded. Newsletter form submission might not work.");
-            }
-
-            // Initialize Bootstrap components if needed
-            const CarouselElements = document.querySelectorAll('.Carousel');
-            if (CarouselElements.length > 0 && typeof bootstrap !== 'undefined') {
-                CarouselElements.forEach(element => {
-                    new bootstrap.Carousel(element, {
-                        interval: 8000,
-                        ride: 'Carousel'
-                    });
-                });
-            }
-        });
-    </script>
-
-    <!-- Additional script for class card clicks and scroll indicator -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Define popup mapping
-            const classTriggers = {
-                'spag-main': '.spag',
-                'creative-writing-main': '.creative-writing',
-                'comprehension-main': '.comprehension',
-                'vocabulary-main': '.vocabulary',
-                'late-Teens-main': '.Late-teens'
-            };
-
-            // Make entire class cards clickable
-            document.querySelectorAll('.class-card').forEach(card => {
-                card.addEventListener('click', function () {
-                    // Find which class matches this card
-                    for (const triggerClass in classTriggers) {
-                        if (this.classList.contains(triggerClass)) {
-                            const popup = document.querySelector(classTriggers[triggerClass]);
-                            if (popup) {
-                                popup.classList.add('active');
-                                document.body.classList.add('popup-open');
-                                popup.querySelector('.btn-close').focus();
-                            }
-                            break;
-                        }
-                    }
-                });
-            });
-
-            // Scroll indicator functionality
-            const scrollIndicator = document.getElementById('scrollIndicator');
-            if (scrollIndicator) {
-                // Smooth scroll to the next section when indicator is clicked
-                scrollIndicator.addEventListener('click', function () {
-                    const nextSection = document.querySelector('.hero-section').nextElementSibling;
-                    if (nextSection) {
-                        nextSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-
-                // Hide scroll indicator when user scrolls down
-                window.addEventListener('scroll', function () {
-                    if (window.scrollY > 100) {
-                        scrollIndicator.style.opacity = '0';
-                        scrollIndicator.style.transition = 'opacity 0.3s ease';
-                    } else {
-                        scrollIndicator.style.opacity = '1';
-                    }
-                });
-            }
-        });
-    </script>
-
+    <script src="assets/js/index.js"></script>
 </body>
 
 </html>

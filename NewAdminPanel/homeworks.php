@@ -583,7 +583,7 @@ document.getElementById('editHomeworkForm').addEventListener('submit', function(
         body: formData
     })
     .then(response => response.json())
-    .then(data => {
+    .then((data) => {
         if (data.status === 'success') {
             alert('Success: ' + data.message);
             location.reload();
@@ -644,7 +644,7 @@ function deleteHomework(id) {
             body: formData
         })
         .then(response => response.json())
-        .then data => {
+        .then (data => {
             if (data.status === 'success') {
                 alert('Success: ' + data.message);
                 location.reload();

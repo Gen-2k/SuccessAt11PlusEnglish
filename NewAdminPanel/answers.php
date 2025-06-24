@@ -548,7 +548,7 @@ include 'includes/navigation.php';
             body: formData
         })
         .then(response => response.json())
-        .then data => {
+        .then((data) => {
             if (data.status === 'success') {
                 alert('Success: ' + data.message);
                 location.reload();

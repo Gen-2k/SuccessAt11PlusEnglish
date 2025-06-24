@@ -464,10 +464,10 @@
                             Empowering students to achieve excellence in their 11 Plus English examinations through expert tutoring, comprehensive learning resources, and personalized support.
                         </p>
                         <div class="social-links">
-                            <a href="https://www.facebook.com/SuccessAt11PlusEnglish" class="social-link" aria-label="Facebook">
+                            <a href="https://www.facebook.com/share/19RVmRXYL6/?mibextid=wwXIfr" class="social-link" aria-label="Facebook">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="https://linkedin.com/in/safrina-saran-2071a8141" class="social-link" aria-label="LinkedIn">
+                            <!-- <a href="https://linkedin.com/in/safrina-saran-2071a8141" class="social-link" aria-label="LinkedIn">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                             <a href="https://www.instagram.com/smile_4_kids_indian_languages/" class="social-link" aria-label="Instagram">
@@ -475,7 +475,7 @@
                             </a>
                             <a href="https://www.google.com/search?q=smile+4+kids" class="social-link" aria-label="Google">
                                 <i class="fab fa-google"></i>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
 
