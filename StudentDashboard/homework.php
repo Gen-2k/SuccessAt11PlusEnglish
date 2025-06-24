@@ -78,11 +78,11 @@ $homework_resources = getStudentResources($student_id, 'homework');
                     <i class="fas fa-book-open"></i>
                 </div>
                 <h3 class="empty-state-title">No Homework Available</h3>
-                <p class="empty-state-text">
+                <!-- <p class="empty-state-text">
                     You don't have access to any homework assignments yet. Check back later or contact your instructor for more information.
                 </p>                <a href="index.php" class="btn btn-homework">
                     <i class="fas fa-arrow-left"></i> Back to Dashboard
-                </a>
+                </a> -->
             </div>
             <?php endif; ?>
         </div>

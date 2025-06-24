@@ -79,12 +79,12 @@ $answers_resources = getStudentResources($student_id, 'answers');
                     <i class="fas fa-file-alt"></i>
                 </div>
                 <h3 class="empty-state-title">No Answer Sheets Available</h3>
-                <p class="empty-state-text">
+                <!-- <p class="empty-state-text">
                     You don't have access to any answer sheets yet. Check back later or contact your instructor for more information.
                 </p>
                 <a href="index.php" class="btn btn-answers">
                     <i class="fas fa-arrow-left"></i> Back to Dashboard
-                </a>
+                </a> -->
             </div>
             <?php endif; ?>
         </div>

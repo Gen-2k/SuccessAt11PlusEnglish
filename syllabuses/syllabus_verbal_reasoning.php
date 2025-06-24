@@ -548,9 +548,9 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>TYPE A INSERT A LETTER</li>
-                        <li>TYPE B  ODD WORDS</li>
-                        <li>TYPE D SYNONYMS</li>
+                        <li>TYPE A-INSERT A LETTER</li>
+                        <li>TYPE B-ODD WORDS</li>
+                        <li>TYPE D-SYNONYMS</li>
                     </ul>
                 </div>
             </div>
@@ -562,9 +562,9 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>TYPE H ANTONYMS</li>
-                        <li>TYPE E  HIDDEN WORDS</li>
-                        <li>TYPE F  FIND THE WORD</li>
+                        <li>TYPE H-ANTONYMS</li>
+                        <li>TYPE E-HIDDEN WORDS</li>
+                        <li>TYPE F-FIND THE WORD</li>
                     </ul>
                 </div>
             </div>
@@ -576,9 +576,9 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>TYPE C  ALPHABET CODE</li>
-                        <li>TYPE J REARRANGE - MAKE NEW WORDS</li>
-                        <li>TYPE G CALCULATING WITH LETTERS</li>
+                        <li>TYPE C-ALPHABET CODE</li>
+                        <li>TYPE J-REARRANGE - MAKE NEW WORDS</li>
+                        <li>TYPE G-CALCULATING WITH LETTERS</li>
                     </ul>
                 </div>
             </div>
@@ -590,8 +590,8 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>TYPE I COMPLETE THE CALCULATION</li>
-                        <li>TYPE K NUMBER RELATIONSHIP</li>
+                        <li>TYPE I-COMPLETE THE CALCULATION</li>
+                        <li>TYPE K-NUMBER RELATIONSHIP</li>
                     </ul>
                 </div>
             </div>
@@ -603,8 +603,8 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>TYPE  L COMPLETE THE ALPHABET SERIES</li>
-                        <li>TYPE M COMPLETE THE SENTENCE</li>
+                        <li>TYPE L-COMPLETE THE ALPHABET SERIES</li>
+                        <li>TYPE M-COMPLETE THE SENTENCE</li>
                     </ul>
                 </div>
             </div>
@@ -616,8 +616,8 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>TYPE N WORD CODE</li>
-                        <li>TYPE O COMPLETE THE PAIRS</li>
+                        <li>TYPE N-WORD CODE</li>
+                        <li>TYPE O-COMPLETE THE PAIRS</li>
                     </ul>
                 </div>
             </div>
@@ -629,7 +629,7 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>TYPE P NUMBER SERIES</li>
+                        <li>TYPE P-NUMBER SERIES</li>
                     </ul>
                 </div>
             </div>
@@ -641,9 +641,9 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>TYPE Q FORM A NEW WORD</li>
-                        <li>TYPE R CREATE WORD</li>
-                        <li>TYPE S SIMILAR MEANING</li>
+                        <li>TYPE Q-FORM A NEW WORD</li>
+                        <li>TYPE R-CREATE WORD</li>
+                        <li>TYPE S-SIMILAR MEANING</li>
                     </ul>
                 </div>
             </div>
@@ -655,7 +655,7 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>TYPE U LETTER RELATIONSHIP</li>
+                        <li>TYPE U-Letter RELATIONSHIP</li>
                     </ul>
                 </div>
             </div>
@@ -667,7 +667,7 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>TYPE Z COMPREHENSION</li>
+                        <li>TYPE Z-COMPREHENSION</li>
                     </ul>
                 </div>
             </div>

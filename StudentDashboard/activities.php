@@ -79,12 +79,12 @@ $activities_resources = getStudentResources($student_id, 'activities');
                     <i class="fas fa-puzzle-piece"></i>
                 </div>
                 <h3 class="empty-state-title">No Activities Available</h3>
-                <p class="empty-state-text">
+                <!-- <p class="empty-state-text">
                     You don't have access to any learning activities yet. Check back later or contact your instructor for more information.
                 </p>
                 <a href="index.php" class="btn btn-activities">
                     <i class="fas fa-arrow-left"></i> Back to Dashboard
-                </a>
+                </a> -->
             </div>
             <?php endif; ?>
         </div>

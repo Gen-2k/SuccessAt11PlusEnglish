@@ -165,10 +165,11 @@ $available_ebooks = getAvailableEbooks($student_id);
                 <div class="empty-state-icon">
                     <i class="fas fa-book-open"></i>
                 </div>
-                <h3 class="empty-state-title">No E-Books Available</h3>                <p class="empty-state-text">
+                <h3 class="empty-state-title">No E-Books Available</h3>               
+                 <!-- <p class="empty-state-text">
                     E-books are only available for modules you're enrolled in. Purchase a module first to access its e-books.
                 </p>
-                <a href="index.php" class="btn btn-ebooks">View Available Modules</a>
+                <a href="index.php" class="btn btn-ebooks">View Available Modules</a> -->
             </div>
             <?php endif; ?>
         </div>

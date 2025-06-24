@@ -429,15 +429,13 @@ p {
 
 <body>
 
-    <!-- Optional: Include Standard Navbar -->
-    <!-- <?php // include rtrim(BASE_URL, '/') . '/navbar.php'; // Adjust path as needed ?> -->
-
-    <div class="container section-padding">        <header class="text-center mb-5">
+    <div class="container-fluid px-4 section-padding" style="max-width: 90vw;">
+        <header class="text-center mb-5">
             <div class="mb-3">
                 <i class="bi bi-mortarboard-fill display-4 blue"></i>
             </div>
             <h1 class="display-4 blue mb-3">Year 6 Modules</h1>
-            <p class="lead text-muted col-lg-9 mx-auto" style="font-size: 1.1rem;">
+            <p class="lead text-dark col-lg-9 mx-auto" style="font-size: 1.1rem;">
              Comprehension / Creative Writing / Vocabulary / SPaG 
             </p>
             <hr class="mx-auto mt-4" style="width: 80px; border-top: 3px solid var(--theme-blue); opacity: 0.5;">
@@ -448,10 +446,9 @@ p {
             <h2 class="section-heading blue">Flexible Pricing Options</h2>
             <div class="card shadow-lg mx-auto" style="max-width: 800px;">
                  <div class="card-body p-4 p-md-5">
-                    <!-- All Modules/Options -->
-                    <div class="mb-4"> <!-- Single container for all items -->
-                        <h3 class="mb-4"><i class="bi bi-grid-1x2-fill me-2"></i>Modules & Tuition</h3> <!-- Updated heading -->
-                        <p class="text-muted mb-3 small">Choose from dedicated modules or flexible tuition options.</p> <!-- Updated description -->
+                    <div class="mb-4">
+                        <h3 class="mb-4"><i class="bi bi-grid-1x2-fill me-2"></i>Modules & Tuition</h3>
+                        <p class="text-dark mb-3 small">Choose from dedicated modules or flexible tuition options.</p>
                         <div class="price-list">
                             <!-- Block Modules Items -->
                             <div class="price-item">
@@ -521,7 +518,7 @@ p {
                     </div>
                     <div class="col-lg-7 module-content-col text-center text-lg-start">
                         <h3>COMPREHENSION</h3>
-                        <p>Teaching Skills / Techniques to improve speed and accuracy of answering multiple choice and worded questions.</p>
+                        <p class="text-dark fs-5">Teaching Skills / Techniques to improve speed and accuracy of answering multiple choice and worded questions.</p>
                         <div class="module-buttons mt-auto pt-3">
                             <a href="<?php echo BASE_URL; ?>applyForm.php?class=year6&module=Comprehension" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
                         </div>
@@ -535,7 +532,7 @@ p {
                      </div>
                      <div class="col-lg-7 module-content-col text-center text-lg-start">
                         <h3>CREATIVE WRITING</h3>
-                        <p>Comprehensive 8-week program covering descriptive writing, persuasive writing, and diary entries. Each class includes detailed notes and weekly marked assignments with personalized feedback.</p>
+                        <p class="text-dark fs-5">Comprehensive 8-week program covering descriptive writing, persuasive writing, and diary entries. Each class includes detailed notes and weekly marked assignments with personalized feedback.</p>
                         <div class="module-buttons mt-auto pt-3">
                              <a href="<?php echo BASE_URL; ?>applyForm.php?class=year6&module=Creative Writing" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
                              <a href="<?php echo BASE_URL; ?>syllabus_creative_writing.php" class="btn btn-syllabus"><i class="bi bi-book-fill"></i>Syllabus</a>
@@ -552,7 +549,7 @@ p {
                      </div>
                     <div class="col-lg-7 module-content-col text-center text-lg-start">
                         <h3>SPaG</h3>
-                        <p>Spelling, Punctuation and Grammar - complete syllabus with guided tests and revision.</p>                        <div class="module-buttons mt-auto pt-3">
+                        <p class="text-dark fs-5">Spelling, Punctuation and Grammar - complete syllabus with guided tests and revision.</p>                        <div class="module-buttons mt-auto pt-3">
                               <!-- Original Links Updated with Proper Parameters -->                             <a href="<?php echo BASE_URL; ?>applyForm.php?class=year6&module=SPaG" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
                              <a href="<?php echo BASE_URL; ?>syllabus_spag.php" class="btn btn-syllabus"><i class="bi bi-book-fill"></i>Syllabus</a>
                          </div>
@@ -566,7 +563,7 @@ p {
                      </div>
                      <div class="col-lg-7 module-content-col text-center text-lg-start">
                          <h3>VOCABULARY</h3>
-                         <p>Teaching through animated slide shows covering antonyms and synonyms. Students write personal sentences in class with daily reminders to use 2 words per day. Repetition reinforces 10 words weekly.</p>
+                         <p class="text-dark fs-5">Teaching through animated slide shows covering antonyms and synonyms. Students write personal sentences in class with daily reminders to use 2 words per day. Repetition reinforces 10 words weekly.</p>
                          <div class="module-buttons mt-auto pt-3">
                                <a href="<?php echo BASE_URL; ?>applyForm.php?class=year6&module=English Vocabulary" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
                          </div>
@@ -582,7 +579,7 @@ p {
                      </div>
                      <div class="col-lg-7 module-content-col text-center text-lg-start">
                          <h3>CAROUSEL COURSE</h3>
-                         <p>Comprehensive rotating course covering all 11 Plus English areas. Students experience different modules in rotation, ensuring well-rounded preparation across all subject areas.</p>
+                         <p class="text-dark fs-5">Comprehensive rotating course covering all 11 Plus English areas. Students experience different modules in rotation, ensuring well-rounded preparation across all subject areas.</p>
                          <div class="module-buttons mt-auto pt-3">
                                <a href="<?php echo BASE_URL; ?>applyForm.php?class=year6&module=Carousel Course" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
                          </div>
@@ -598,7 +595,7 @@ p {
                      </div>
                      <div class="col-lg-7 module-content-col text-center text-lg-start">
                          <h3>1:1 TUTORING</h3>
-                         <p>Personalized one-to-one tutoring sessions tailored to individual student needs. Focused attention on specific areas requiring improvement for maximum progress.</p>
+                         <p class="text-dark fs-5">Personalized one-to-one tutoring sessions tailored to individual student needs. Focused attention on specific areas requiring improvement for maximum progress.</p>
                          <div class="module-buttons mt-auto pt-3">
                                <a href="<?php echo BASE_URL; ?>applyForm.php?class=year6&module=1:1 Tutoring" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
                          </div>

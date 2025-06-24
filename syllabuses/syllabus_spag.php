@@ -555,8 +555,8 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>WORDS TYPES – NOUNS, PRONOUNS, ADJECTIVES,</li>
-                        <li>ARTICLES (A, AN, THE), VERBS, MODAL,ADVERBS,</li>
+                        <li>WORDS TYPES – NOUNS, PRONOUNS, ADJECTIVES</li>
+                        <li>ARTICLES (A, AN, THE), VERBS, MODAL,ADVERBS</li>
                         <li>DETERMINERS</li>
                     </ul>
                 </div>

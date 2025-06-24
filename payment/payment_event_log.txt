@@ -71,3 +71,10 @@ This file records all payment events, email sending attempts, and errors for deb
 [2025-06-24 07:43:01] Added to newsletter | Context: {"email":"sagosmsr@gmail.com"}
 [2025-06-24 07:43:01] Database commit successful | Context: {"student_id":2}
 [2025-06-24 07:43:05] Email failed to send | Context: {"to":"sagosmsr@gmail.com","name":"sample user","module":"Carousel Course","class":"year5","error":"SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting"}
+[2025-06-24 11:06:40] Stripe session retrieved | Context: {"session_id":"cs_test_a18qVBO4KEXaXgoKay1ibQwRwXiMlMqpK5adgUzaoFIqyuFSSe37VsOC5b","payment_status":"paid"}
+[2025-06-24 11:06:40] Payment successful | Context: {"session_id":"cs_test_a18qVBO4KEXaXgoKay1ibQwRwXiMlMqpK5adgUzaoFIqyuFSSe37VsOC5b","student_email":"test@gmail.com","module":"Creative Writing","class":"year4","price":165}
+[2025-06-24 11:06:40] Student account created | Context: {"student_id":3,"email":"test@gmail.com"}
+[2025-06-24 11:06:40] Enrollment created | Context: {"student_id":3,"module":"Creative Writing"}
+[2025-06-24 11:06:40] Added to newsletter | Context: {"email":"test@gmail.com"}
+[2025-06-24 11:06:40] Database commit successful | Context: {"student_id":3}
+[2025-06-24 11:06:44] Email failed to send | Context: {"to":"test@gmail.com","name":"test user","module":"Creative Writing","class":"year4","error":"SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting"}

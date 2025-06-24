@@ -564,7 +564,7 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
                     <ul class="learning-objectives">
                         <li>PARAGRAPH 2</li>
                         <li>Choose a conflict with aim</li>
-                        <li>Use of a wide range of punctuation Colons, semicolon, exclamation marks, speech marks</li>
+                        <li>Use of a wide range of punctuation, colons, semicolons, exclamation marks, speech marks</li>
                         <li>Using SENSORY LANGUAGE</li>
                     </ul>
                 </div>

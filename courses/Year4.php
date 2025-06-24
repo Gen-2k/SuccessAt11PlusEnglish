@@ -392,13 +392,13 @@ p {
 
 <body>
 
-    <div class="container section-padding">
+    <div class="container-fluid px-4 section-padding" style="max-width: 90vw;">
         <header class="text-center mb-5">
             <div class="mb-3">
                 <i class="bi bi-book display-4 blue"></i>
             </div>
             <h1 class="display-4 blue mb-3">Year 4 Modules</h1>
-            <p class="lead text-muted col-lg-9 mx-auto" style="font-size: 1.1rem;">
+            <p class="lead text-dark col-lg-9 mx-auto" style="font-size: 1.1rem;">
                 Comprehension / Creative Writing / Vocabulary / SPaG / VR
             </p>
             <hr class="mx-auto mt-4" style="width: 80px; border-top: 3px solid var(--theme-blue); opacity: 0.5;">
@@ -410,7 +410,7 @@ p {
                  <div class="card-body p-4 p-md-5">
                     <div class="mb-4">
                         <h3 class="mb-4"><i class="bi bi-grid-1x2-fill me-2"></i>Modules & Tuition</h3>
-                        <p class="text-muted mb-3 small">Choose from dedicated modules or flexible tuition options.</p>
+                        <p class="text-dark mb-3 small">Choose from dedicated modules or flexible tuition options.</p>
                         <div class="price-list">
                             <div class="price-item">
                                 <div>
@@ -482,7 +482,7 @@ p {
                     </div> 
                     <div class="col-lg-7 module-content-col text-center text-lg-start">
                         <h3>COMPREHENSION</h3>
-                        <p>Teaching skills and techniques to improve speed and accuracy of answering multiple choice and worded questions. Develop critical reading skills essential for 11 Plus success.</p>
+                        <p class="text-dark fs-5">Teaching skills and techniques to improve speed and accuracy of answering multiple choice and worded questions. Develop critical reading skills essential for 11 Plus success.</p>
                         <div class="module-buttons mt-auto pt-3">
                             <a href="<?php echo BASE_URL; ?>applyForm.php?class=year4&module=Comprehension" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
                         </div>
@@ -495,7 +495,7 @@ p {
                      </div>
                      <div class="col-lg-7 module-content-col text-center text-lg-start">
                         <h3>CREATIVE WRITING</h3>
-                        <p>Comprehensive 8-week program covering descriptive writing, persuasive writing, and diary entries. Each class includes detailed notes and weekly marked assignments with personalized feedback.</p>
+                        <p class="text-dark fs-5">Comprehensive 8-week program covering descriptive writing, persuasive writing, and diary entries. Each class includes detailed notes and weekly marked assignments with personalized feedback.</p>
                         <div class="module-buttons mt-auto pt-3">
                               <a href="<?php echo BASE_URL; ?>applyForm.php?class=year4&module=Creative Writing" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
                              <a href="<?php echo BASE_URL; ?>syllabus_creative_writing.php" class="btn btn-syllabus"><i class="bi bi-book-fill"></i>Syllabus</a>
@@ -511,7 +511,7 @@ p {
             </div>
                     <div class="col-lg-7 module-content-col text-center text-lg-start">
                         <h3>SPaG </h3>
-                        <p>Spelling, Punctuation and Grammar - complete syllabus with guided tests and revision.</p>                        <div class="module-buttons mt-auto pt-3">                              <a href="<?php echo BASE_URL; ?>applyForm.php?class=year4&module=SPaG" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
+                        <p class="text-dark fs-5">Spelling, Punctuation and Grammar - complete syllabus with guided tests and revision.</p>                        <div class="module-buttons mt-auto pt-3">                              <a href="<?php echo BASE_URL; ?>applyForm.php?class=year4&module=SPaG" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
                              <a href="<?php echo BASE_URL; ?>syllabus_spag.php" class="btn btn-syllabus"><i class="bi bi-book-fill"></i>Syllabus</a>
             </div>
         </div>
@@ -523,7 +523,7 @@ p {
                      </div>
                      <div class="col-lg-7 module-content-col text-center text-lg-start">
                          <h3>VOCABULARY</h3>
-                         <p>Teaching through animated slide shows covering antonyms and synonyms. Students write personal sentences in class with daily reminders to use 2 words per day. Repetition reinforces 10 words weekly.</p>
+                         <p class="text-dark fs-5">Teaching through animated slide shows covering antonyms and synonyms. Students write personal sentences in class with daily reminders to use 2 words per day. Repetition reinforces 10 words weekly.</p>
                          <div class="module-buttons mt-auto pt-3">
                                <a href="<?php echo BASE_URL; ?>applyForm.php?class=year4&module=English Vocabulary" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
                          </div>
@@ -538,7 +538,7 @@ p {
                      </div>
                      <div class="col-lg-7 module-content-col text-center text-lg-start">
                          <h3>VERBAL REASONING</h3>
-                         <p>Comprehensive verbal reasoning training covering all question types. Develop logical thinking skills and pattern recognition essential for 11 Plus verbal reasoning success.</p>
+                         <p class="text-dark fs-5">Comprehensive verbal reasoning training covering all question types. Develop logical thinking skills and pattern recognition essential for 11 Plus verbal reasoning success.</p>
                          <div class="module-buttons mt-auto pt-3">
                                <a href="<?php echo BASE_URL; ?>applyForm.php?class=year4&module=Verbal Reasoning" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
                              <a href="<?php echo BASE_URL; ?>syllabus_verbal_reasoning.php" class="btn btn-syllabus"><i class="bi bi-book-fill"></i>Syllabus</a>
@@ -554,7 +554,7 @@ p {
                      </div>
                      <div class="col-lg-7 module-content-col text-center text-lg-start">
                          <h3>CAROUSEL COURSE</h3>
-                         <p>Comprehensive rotating course covering all 11 Plus English areas. Students experience different modules in rotation, ensuring well-rounded preparation across all subject areas.</p>
+                         <p class="text-dark fs-5">Comprehensive rotating course covering all 11 Plus English areas. Students experience different modules in rotation, ensuring well-rounded preparation across all subject areas.</p>
                          <div class="module-buttons mt-auto pt-3">
                                <a href="<?php echo BASE_URL; ?>applyForm.php?class=year4&module=Carousel Course" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
                          </div>
@@ -570,7 +570,7 @@ p {
                      </div>
                      <div class="col-lg-7 module-content-col text-center text-lg-start">
                          <h3>1:1 TUTORING</h3>
-                         <p>Personalized one-to-one tutoring sessions tailored to individual student needs. Focused attention on specific areas requiring improvement for maximum progress.</p>
+                         <p class="text-dark fs-5">Personalized one-to-one tutoring sessions tailored to individual student needs. Focused attention on specific areas requiring improvement for maximum progress.</p>
                          <div class="module-buttons mt-auto pt-3">
                                <a href="<?php echo BASE_URL; ?>applyForm.php?class=year4&module=1:1 Tutoring" class="btn btn-apply"><i class="bi bi-check-circle-fill"></i>Apply Now</a>
                          </div>
