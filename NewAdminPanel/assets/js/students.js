@@ -515,52 +515,47 @@ function viewStudent(id) {
 }
 
 function deleteStudent(id) {
-    if (confirm('Are you sure you want to delete this student? This action cannot be undone.')) {
-        fetch('', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: 'action=delete&id=' + id
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Refresh the student list
-                if (window.studentManager) {
-                    window.studentManager.performSearch();
+    swal({
+        title: 'Are you sure?',
+        text: 'Are you sure you want to delete this student? This action cannot be undone.',
+        icon: 'warning',
+        buttons: [true, 'Delete'],
+        dangerMode: true,
+    }).then((willDelete) => {
+        if (willDelete) {
+            fetch('', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'action=delete&id=' + id
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Refresh the student list
+                    if (window.studentManager) {
+                        window.studentManager.performSearch();
+                    } else {
+                        location.reload();
+                    }
+                    swal({
+                        title: 'Deleted!',
+                        text: data.message,
+                        icon: 'success',
+                        timer: 1800,
+                        buttons: false
+                    });
                 } else {
-                    location.reload();
+                    swal('Error', data.message, 'error');
                 }
-                
-                // Show success message
-                const alertDiv = document.createElement('div');
-                alertDiv.className = 'alert alert-success alert-dismissible fade show';
-                alertDiv.innerHTML = `
-                    <i class="fas fa-check-circle"></i> ${data.message}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                `;
-                
-                const container = document.querySelector('.container-fluid');
-                if (container) {
-                    container.insertBefore(alertDiv, container.firstChild);
-                    
-                    // Auto-dismiss after 3 seconds
-                    setTimeout(() => {
-                        if (alertDiv.parentNode) {
-                            alertDiv.remove();
-                        }
-                    }, 3000);
-                }
-            } else {
-                alert('Error: ' + data.message);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('An error occurred while deleting the student');
-        });
-    }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                swal('Error', 'An error occurred while deleting the student', 'error');
+            });
+        }
+    });
 }
 
 // Initialize when DOM is loaded

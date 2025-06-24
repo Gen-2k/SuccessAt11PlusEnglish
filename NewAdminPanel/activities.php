@@ -531,15 +531,22 @@ include 'includes/navigation.php';
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                alert('Success: ' + data.message);
-                location.reload();
+                swal({
+                    title: 'Success!',
+                    text: data.message,
+                    icon: 'success',
+                    timer: 1800,
+                    buttons: false
+                }).then(() => {
+                    location.reload();
+                });
             } else {
-                alert('Error: ' + data.message);
+                swal('Error', data.message, 'error');
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('An error occurred while adding activity');
+            swal('Error', 'An error occurred while adding activity', 'error');
         });
     });
 
@@ -557,15 +564,22 @@ include 'includes/navigation.php';
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                alert('Success: ' + data.message);
-                location.reload();
+                swal({
+                    title: 'Success!',
+                    text: data.message,
+                    icon: 'success',
+                    timer: 1800,
+                    buttons: false
+                }).then(() => {
+                    location.reload();
+                });
             } else {
-                alert('Error: ' + data.message);
+                swal('Error', data.message, 'error');
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('An error occurred while updating activity');
+            swal('Error', 'An error occurred while updating activity', 'error');
         });
     });
 
@@ -594,39 +608,54 @@ include 'includes/navigation.php';
                 
                 new bootstrap.Modal(document.getElementById('editActivityModal')).show();
             } else {
-                alert('Error: ' + data.message);
+                swal('Error', data.message, 'error');
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('An error occurred while loading activity data');
+            swal('Error', 'An error occurred while loading activity data', 'error');
         });
     }
 
     // Delete activity function
     function deleteActivity(id) {
-        if (confirm('Are you sure you want to delete this activity? This action cannot be undone.')) {
-            const formData = new FormData();
-            formData.append('action', 'delete_activity');
-            formData.append('id', id);
-            
-            fetch('activities.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then((data) => {
-                if (data.status === 'success') {
-                    alert('Success: ' + data.message);
-                    location.reload();
-                } else {
-                    alert('Error: ' + data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred while deleting activity');            });
-        }
+        swal({
+            title: 'Are you sure?',
+            text: 'Are you sure you want to delete this activity? This action cannot be undone.',
+            icon: 'warning',
+            buttons: [true, 'Delete'],
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                const formData = new FormData();
+                formData.append('action', 'delete_activity');
+                formData.append('id', id);
+                fetch('activities.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then((data) => {
+                    if (data.status === 'success') {
+                        swal({
+                            title: 'Deleted!',
+                            text: data.message,
+                            icon: 'success',
+                            timer: 1800,
+                            buttons: false
+                        }).then(() => {
+                            location.reload();
+                        });
+                    } else {
+                        swal('Error', data.message, 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    swal('Error', 'An error occurred while deleting activity', 'error');
+                });
+            }
+        });
     }
 
     // View activity function
@@ -679,12 +708,12 @@ include 'includes/navigation.php';
                 // Show the modal
                 new bootstrap.Modal(document.getElementById('viewActivityModal')).show();
             } else {
-                alert('Error: ' + data.message);
+                swal('Error', data.message, 'error');
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('An error occurred while loading activity details');
+            swal('Error', 'An error occurred while loading activity details', 'error');
         });
     }
 

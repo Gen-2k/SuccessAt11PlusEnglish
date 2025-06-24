@@ -539,7 +539,7 @@ document.getElementById('addHomeworkForm').addEventListener('submit', function(e
     const classVal = form.querySelector('[name="class"]').value.trim();
     const moduleVal = form.querySelector('[name="module"]').value.trim();
     if (!title || !classVal || !moduleVal) {
-        alert('Please fill in all required fields (Title, Class, Module).');
+        swal('Missing Fields', 'Please fill in all required fields (Title, Class, Module).', 'warning');
         return;
     }
     const formData = new FormData(form);
@@ -557,17 +557,24 @@ document.getElementById('addHomeworkForm').addEventListener('submit', function(e
         submitBtn.disabled = false;
         submitBtn.innerHTML = origHtml;
         if (data.status === 'success') {
-            alert('Success: ' + data.message);
-            location.reload();
+            swal({
+                title: 'Success!',
+                text: data.message,
+                icon: 'success',
+                timer: 1800,
+                buttons: false
+            }).then(() => {
+                location.reload();
+            });
         } else {
-            alert('Error: ' + (data.message || 'Failed to add homework. Please try again.'));
+            swal('Error', data.message, 'error');
         }
     })
     .catch(error => {
         submitBtn.disabled = false;
         submitBtn.innerHTML = origHtml;
-        alert('A network or server error occurred while adding homework. Please try again.');
         console.error('Error:', error);
+        swal('Error', 'An error occurred while adding homework', 'error');
     });
 });
 
@@ -585,15 +592,22 @@ document.getElementById('editHomeworkForm').addEventListener('submit', function(
     .then(response => response.json())
     .then((data) => {
         if (data.status === 'success') {
-            alert('Success: ' + data.message);
-            location.reload();
+            swal({
+                title: 'Success!',
+                text: data.message,
+                icon: 'success',
+                timer: 1800,
+                buttons: false
+            }).then(() => {
+                location.reload();
+            });
         } else {
-            alert('Error: ' + data.message);
+            swal('Error', data.message, 'error');
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('An error occurred while updating homework');
+        swal('Error', 'An error occurred while updating homework', 'error');
     });
 });
 
@@ -634,29 +648,43 @@ function editHomework(id) {
 
 // Delete homework function
 function deleteHomework(id) {
-    if (confirm('Are you sure you want to delete this homework? This action cannot be undone.')) {
-        const formData = new FormData();
-        formData.append('action', 'delete_homework');
-        formData.append('id', id);
-        
-        fetch('homeworks.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then (data => {
-            if (data.status === 'success') {
-                alert('Success: ' + data.message);
-                location.reload();
-            } else {
-                alert('Error: ' + data.message);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('An error occurred while deleting homework');
-        });
-    }
+    swal({
+        title: 'Are you sure?',
+        text: 'Are you sure you want to delete this homework? This action cannot be undone.',
+        icon: 'warning',
+        buttons: [true, 'Delete'],
+        dangerMode: true,
+    }).then((willDelete) => {
+        if (willDelete) {
+            const formData = new FormData();
+            formData.append('action', 'delete_homework');
+            formData.append('id', id);
+            fetch('homeworks.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    swal({
+                        title: 'Deleted!',
+                        text: data.message,
+                        icon: 'success',
+                        timer: 1800,
+                        buttons: false
+                    }).then(() => {
+                        location.reload();
+                    });
+                } else {
+                    swal('Error', data.message, 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                swal('Error', 'An error occurred while deleting homework', 'error');
+            });
+        }
+    });
 }
 
 // View homework function

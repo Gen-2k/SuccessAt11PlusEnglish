@@ -524,15 +524,22 @@ include 'includes/navigation.php';
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                alert('Success: ' + data.message);
-                location.reload();
+                swal({
+                    title: 'Success!',
+                    text: data.message,
+                    icon: 'success',
+                    timer: 1800,
+                    buttons: false
+                }).then(() => {
+                    location.reload();
+                });
             } else {
-                alert('Error: ' + data.message);
+                swal('Error', data.message, 'error');
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('An error occurred while adding answer sheet');
+            swal('Error', 'An error occurred while adding answer sheet', 'error');
         });
     });
 
@@ -550,15 +557,22 @@ include 'includes/navigation.php';
         .then(response => response.json())
         .then((data) => {
             if (data.status === 'success') {
-                alert('Success: ' + data.message);
-                location.reload();
+                swal({
+                    title: 'Success!',
+                    text: data.message,
+                    icon: 'success',
+                    timer: 1800,
+                    buttons: false
+                }).then(() => {
+                    location.reload();
+                });
             } else {
-                alert('Error: ' + data.message);
+                swal('Error', data.message, 'error');
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('An error occurred while updating answer sheet');
+            swal('Error', 'An error occurred while updating answer sheet', 'error');
         });
     });
 
@@ -599,29 +613,44 @@ include 'includes/navigation.php';
 
     // Delete answer function
     function deleteAnswer(id) {
-        if (confirm('Are you sure you want to delete this answer sheet? This action cannot be undone.')) {
-            const formData = new FormData();
-            formData.append('action', 'delete_answer');
-            formData.append('id', id);
-            
-            fetch('answers.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    alert('Success: ' + data.message);
-                    location.reload();
-                } else {
-                    alert('Error: ' + data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred while deleting answer sheet');
-            });
-        }    }
+        swal({
+            title: 'Are you sure?',
+            text: 'Are you sure you want to delete this answer sheet? This action cannot be undone.',
+            icon: 'warning',
+            buttons: [true, 'Delete'],
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                const formData = new FormData();
+                formData.append('action', 'delete_answer');
+                formData.append('id', id);
+                fetch('answers.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        swal({
+                            title: 'Deleted!',
+                            text: data.message,
+                            icon: 'success',
+                            timer: 1800,
+                            buttons: false
+                        }).then(() => {
+                            location.reload();
+                        });
+                    } else {
+                        swal('Error', data.message, 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    swal('Error', 'An error occurred while deleting answer sheet', 'error');
+                });
+            }
+        });
+    }
 
     // View answer function
     function viewAnswer(id) {
