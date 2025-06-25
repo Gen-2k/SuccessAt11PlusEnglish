@@ -310,19 +310,29 @@ if (isset($_POST['action']) && $_POST['action'] == 'newsletter') {
         if (!class_exists('PHPMailer')) {
             throw new Exception('PHPMailer class not found after autoload');
         }
+        $mailConfig = require __DIR__ . '/mail/mail_config.php';
         $mail = new PHPMailer();
-        $mail->isHTML(true);
+        $mail->isHTML($mailConfig['is_html']);
         // --- SMTP Settings (Domain SMTP) ---
         $mail->isSMTP();
-        $mail->Host = 'mail.elevenplusenglish.co.uk';
+        $mail->Host = $mailConfig['host'];
         $mail->SMTPAuth = true;
-        $mail->Username   = 'success@elevenplusenglish.co.uk';
-        $mail->Password   = 'Monday@123'; // Replace securely
-        $mail->SMTPSecure = 'ssl';
-        $mail->Port = 465;
+        $mail->Username   = $mailConfig['username'];
+        $mail->Password   = $mailConfig['password'];
+        $mail->SMTPSecure = $mailConfig['smtp_secure'];
+        $mail->Port = $mailConfig['port'];
         // --- Sender Info ---
-        $mail->setFrom('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
-        $mail->addReplyTo('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
+        $mail->setFrom($mailConfig['from_email'], $mailConfig['from_name']);
+        $mail->addReplyTo($mailConfig['reply_to_email'], $mailConfig['reply_to_name']);
+        // DKIM settings (commented out for now)
+        // if (isset($mailConfig['dkim_domain'])) {
+        //     $mail->DKIM_domain = $mailConfig['dkim_domain'];
+        //     $mail->DKIM_private = $mailConfig['dkim_private'];
+        //     $mail->DKIM_selector = $mailConfig['dkim_selector'];
+        //     $mail->DKIM_passphrase = $mailConfig['dkim_passphrase'];
+        //     $mail->DKIM_identity = $mailConfig['dkim_identity'];
+        //     $mail->DKIM_copyHeaderFields = $mailConfig['dkim_copyHeaderFields'];
+        // }
         // --- Send Email to User ---
         $emailData = generateTipContent($tip_type, $name, $email);
         $mail->addAddress($email, $name);

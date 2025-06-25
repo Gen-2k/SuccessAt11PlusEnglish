@@ -133,21 +133,31 @@ function sendEbookPurchaseConfirmationEmail($student_data, $ebook_data, $transac
         require_once __DIR__ . '/../mail/PHPMailerAutoload.php';
         require_once __DIR__ . '/../mail/class.phpmailer.php';
         require_once __DIR__ . '/../mail/class.smtp.php';
-
+        $mailConfig = require __DIR__ . '/../mail/mail_config.php';
         $mail = new PHPMailer();
         $mail->isSMTP();
-        // Production SMTP settings
-        $mail->Host = 'mail.elevenplusenglish.co.uk';
+        $mail->Host = $mailConfig['host'];
         $mail->SMTPAuth = true;
-        $mail->Port = 465;
-        $mail->Username = 'success@elevenplusenglish.co.uk';
-        $mail->Password = 'Monday@123';
-        $mail->SMTPSecure = 'ssl';
-        $mail->setFrom('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
+        $mail->Port = $mailConfig['port'];
+        $mail->Username = $mailConfig['username'];
+        $mail->Password = $mailConfig['password'];
+        $mail->SMTPSecure = $mailConfig['smtp_secure'];
+        $mail->setFrom($mailConfig['from_email'], $mailConfig['from_name']);
         $mail->addAddress($student_data['email'], $student_data['fname'] . ' ' . $student_data['surname']);
-        $mail->addReplyTo('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
-        $mail->isHTML(true);
+        $mail->addReplyTo($mailConfig['reply_to_email'], $mailConfig['reply_to_name']);
+        $mail->isHTML($mailConfig['is_html']);
+        $mail->CharSet = $mailConfig['charset'];
         $mail->Subject = 'E-Book Purchase Confirmation & Invoice - Success At 11 Plus English';
+        
+        // DKIM settings (commented out for now)
+        // if (isset($mailConfig['dkim_domain'])) {
+        //     $mail->DKIM_domain = $mailConfig['dkim_domain'];
+        //     $mail->DKIM_private = $mailConfig['dkim_private'];
+        //     $mail->DKIM_selector = $mailConfig['dkim_selector'];
+        //     $mail->DKIM_passphrase = $mailConfig['dkim_passphrase'];
+        //     $mail->DKIM_identity = $mailConfig['dkim_identity'];
+        //     $mail->DKIM_copyHeaderFields = $mailConfig['dkim_copyHeaderFields'];
+        // }
         $purchaseDate = date('F j, Y');
         $emailBody = '
         <html>

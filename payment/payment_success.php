@@ -157,19 +157,30 @@ function sendCredentialsEmail($studentData, $moduleName, $class) {
     require_once __DIR__ . '/../mail/PHPMailerAutoload.php';
     require_once __DIR__ . '/../mail/class.phpmailer.php';
     require_once __DIR__ . '/../mail/class.smtp.php';
+    $mailConfig = require __DIR__ . '/../mail/mail_config.php';
     $mail = new PHPMailer;
     $mail->isSMTP();
-    $mail->Host = 'mail.elevenplusenglish.co.uk';
+    $mail->Host = $mailConfig['host'];
     $mail->SMTPAuth = true;
-    $mail->Username = 'success@elevenplusenglish.co.uk';
-    $mail->Password = 'Monday@123'; // Replace securely in production
-    $mail->SMTPSecure = 'ssl';
-    $mail->Port = 465;
-    $mail->setFrom('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
+    $mail->Username = $mailConfig['username'];
+    $mail->Password = $mailConfig['password'];
+    $mail->SMTPSecure = $mailConfig['smtp_secure'];
+    $mail->Port = $mailConfig['port'];
+    $mail->setFrom($mailConfig['from_email'], $mailConfig['from_name']);
     $mail->addAddress($studentData['email'], $studentData['fname'] . ' ' . $studentData['surname']);
-    $mail->addReplyTo('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
-    $mail->isHTML(true);
+    $mail->addReplyTo($mailConfig['reply_to_email'], $mailConfig['reply_to_name']);
+    $mail->isHTML($mailConfig['is_html']);
+    $mail->CharSet = $mailConfig['charset'];
     $mail->Subject = 'Welcome to Success At 11 Plus English - Your Login Credentials & Invoice';
+    // DKIM settings (commented out for now)
+    // if (isset($mailConfig['dkim_domain'])) {
+    //     $mail->DKIM_domain = $mailConfig['dkim_domain'];
+    //     $mail->DKIM_private = $mailConfig['dkim_private'];
+    //     $mail->DKIM_selector = $mailConfig['dkim_selector'];
+    //     $mail->DKIM_passphrase = $mailConfig['dkim_passphrase'];
+    //     $mail->DKIM_identity = $mailConfig['dkim_identity'];
+    //     $mail->DKIM_copyHeaderFields = $mailConfig['dkim_copyHeaderFields'];
+    // }
     $paymentDate = isset($session->created) ? date('F j, Y', $session->created) : date('F j, Y');
     $mailBody = '
     <html>

@@ -119,6 +119,9 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
     require './mail/class.phpmailer.php';
     require './mail/class.smtp.php';
 
+    // Load mail config
+    $mailConfig = require __DIR__ . '/mail/mail_config.php';
+
     $adminMailSuccess = false;
     $userMailSuccess = false;
     $adminMailError = '';
@@ -129,18 +132,28 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
     // =============================
     if (isset($_POST["eqTry"])) {
         try {
-            $autoResponse = new PHPMailer;
+            // User auto-response
+            $autoResponse = new PHPMailer();
             $autoResponse->isSMTP();
-            $autoResponse->Host       = 'mail.elevenplusenglish.co.uk';
+            $autoResponse->Host       = $mailConfig['host'];
             $autoResponse->SMTPAuth   = true;
-            $autoResponse->Username   = 'success@elevenplusenglish.co.uk';
-            $autoResponse->Password   = 'Monday@123';
-            $autoResponse->SMTPSecure = 'ssl';
-            $autoResponse->Port       = 465;
-            $autoResponse->setFrom('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
-            $autoResponse->addAddress($enqMail, $enqName);
-            $autoResponse->addReplyTo('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
-            $autoResponse->isHTML(true);
+            $autoResponse->Username   = $mailConfig['username'];
+            $autoResponse->Password   = $mailConfig['password'];
+            $autoResponse->SMTPSecure = $mailConfig['smtp_secure'];
+            $autoResponse->Port       = $mailConfig['port'];
+            $autoResponse->setFrom($mailConfig['from_email'], $mailConfig['from_name']);
+            $autoResponse->addReplyTo($mailConfig['reply_to_email'], $mailConfig['reply_to_name']);
+            $autoResponse->isHTML($mailConfig['is_html']);
+            $autoResponse->CharSet = $mailConfig['charset'];
+            // DKIM settings (commented out for now)
+            // if (isset($mailConfig['dkim_domain'])) {
+            //     $autoResponse->DKIM_domain = $mailConfig['dkim_domain'];
+            //     $autoResponse->DKIM_private = $mailConfig['dkim_private'];
+            //     $autoResponse->DKIM_selector = $mailConfig['dkim_selector'];
+            //     $autoResponse->DKIM_passphrase = $mailConfig['dkim_passphrase'];
+            //     $autoResponse->DKIM_identity = $mailConfig['dkim_identity'];
+            //     $autoResponse->DKIM_copyHeaderFields = $mailConfig['dkim_copyHeaderFields'];
+            // }
             $autoResponse->Subject = 'We Received Your Trial Class Application';
             $autoResponse->Body = '
             <html>
@@ -173,22 +186,27 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
     // 2. Send Admin Notification (always attempt)
     // =============================
     try {
-        $mail = new PHPMailer;
-        $mail->SMTPDebug = 2;
-        $mail->Debugoutput = function($str, $level) {
-            log_error("PHPMailer [$level]: $str");
-        };
+        $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host       = 'mail.elevenplusenglish.co.uk';
+        $mail->Host       = $mailConfig['host'];
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'success@elevenplusenglish.co.uk';
-        $mail->Password   = 'Monday@123';
-        $mail->SMTPSecure = 'ssl';
-        $mail->Port       = 465;
-        $mail->setFrom('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
-        $mail->addAddress('sfs662001@yahoo.com', 'Safrina Saran');
-        $mail->addReplyTo('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
-        $mail->isHTML(true);
+        $mail->Username   = $mailConfig['username'];
+        $mail->Password   = $mailConfig['password'];
+        $mail->SMTPSecure = $mailConfig['smtp_secure'];
+        $mail->Port       = $mailConfig['port'];
+        $mail->setFrom($mailConfig['from_email'], $mailConfig['from_name']);
+        $mail->addReplyTo($mailConfig['reply_to_email'], $mailConfig['reply_to_name']);
+        $mail->isHTML($mailConfig['is_html']);
+        $mail->CharSet = $mailConfig['charset'];
+        // DKIM settings (commented out for now)
+        // if (isset($mailConfig['dkim_domain'])) {
+        //     $mail->DKIM_domain = $mailConfig['dkim_domain'];
+        //     $mail->DKIM_private = $mailConfig['dkim_private'];
+        //     $mail->DKIM_selector = $mailConfig['dkim_selector'];
+        //     $mail->DKIM_passphrase = $mailConfig['dkim_passphrase'];
+        //     $mail->DKIM_identity = $mailConfig['dkim_identity'];
+        //     $mail->DKIM_copyHeaderFields = $mailConfig['dkim_copyHeaderFields'];
+        // }
         if (isset($_POST["eqFTC"])) {
             $mail->Subject = 'Enquiry for TRY a Free Class ENQUIRY';
         } else {

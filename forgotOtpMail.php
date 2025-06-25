@@ -38,29 +38,34 @@
 </body>
 </html>';
 
-		$mail = new PHPMailer();
-		$mail->isSMTP();
-		$mail->SMTPDebug = 0;
-		$mail->Host = 'mail.elevenplusenglish.co.uk';
-		$mail->SMTPAuth = true;
-		$mail->Username = 'success@elevenplusenglish.co.uk';
-		$mail->Password = 'Monday@123';
-		$mail->SMTPSecure = 'ssl';
-		$mail->Port = 465;
-		$mail->SetFrom('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
-		$mail->addReplyTo('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
-		$mail->AddAddress($otpEmail);
-		$mail->isHTML(true);
-		$mail->Subject = 'OTP for Success At 11 Plus English';
-		$mail->MsgHTML($message_body);
+		// Load common mail config
+        $mailConfig = require __DIR__ . '/mail/mail_config.php';
 
-        // DKIM settings for elevenplusenglish.co.uk
-        // $mail->DKIM_domain = 'elevenplusenglish.co.uk';
-        // $mail->DKIM_private = './mail/dkim_private.pem';
-        // $mail->DKIM_selector = 'default';
-        // $mail->DKIM_passphrase = '';
-        // $mail->DKIM_identity = $mail->From;
-        // $mail->DKIM_copyHeaderFields = false;
+        $mail = new PHPMailer();
+        $mail->isSMTP();
+        $mail->SMTPDebug = 0;
+        $mail->Host = $mailConfig['host'];
+        $mail->SMTPAuth = true;
+        $mail->Username = $mailConfig['username'];
+        $mail->Password = $mailConfig['password'];
+        $mail->SMTPSecure = $mailConfig['smtp_secure'];
+        $mail->Port = $mailConfig['port'];
+        $mail->SetFrom($mailConfig['from_email'], $mailConfig['from_name']);
+        $mail->addReplyTo($mailConfig['reply_to_email'], $mailConfig['reply_to_name']);
+        $mail->AddAddress($otpEmail);
+        $mail->isHTML(true);
+        $mail->Subject = 'OTP for Success At 11 Plus English';
+        $mail->MsgHTML($message_body);
+
+        // DKIM settings (commented out for now)
+        // if (isset($mailConfig['dkim_domain'])) {
+        //     $mail->DKIM_domain = $mailConfig['dkim_domain'];
+        //     $mail->DKIM_private = $mailConfig['dkim_private'];
+        //     $mail->DKIM_selector = $mailConfig['dkim_selector'];
+        //     $mail->DKIM_passphrase = $mailConfig['dkim_passphrase'];
+        //     $mail->DKIM_identity = $mailConfig['dkim_identity'];
+        //     $mail->DKIM_copyHeaderFields = $mailConfig['dkim_copyHeaderFields'];
+        // }
 
 		
 		$result = $mail->Send();

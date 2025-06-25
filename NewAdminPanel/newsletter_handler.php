@@ -137,24 +137,21 @@ function createMailer() {
     $phpmailerPath = '../mail/PHPMailerAutoload.php';
     $phpmailerClass = '../mail/class.phpmailer.php';
     $smtpClass = '../mail/class.smtp.php';
-    
+    $mailConfig = require __DIR__ . '/../mail/mail_config.php';
     if (!file_exists($phpmailerPath) || !file_exists($phpmailerClass) || !file_exists($smtpClass)) {
         return ['success' => false, 'message' => 'Email system not properly configured. Please contact administrator.'];
     }
-    
     require_once $phpmailerPath;
     require_once $phpmailerClass;
     require_once $smtpClass;
-    
     $mail = new PHPMailer;
-    // Production SMTP configuration
     $mail->isSMTP();
-    $mail->Host = 'mail.elevenplusenglish.co.uk';
+    $mail->Host = $mailConfig['host'];
     $mail->SMTPAuth = true;
-    $mail->Port = 465;
-    $mail->Username = 'success@elevenplusenglish.co.uk';
-    $mail->Password = 'Monday@123';
-    $mail->SMTPSecure = 'ssl';
+    $mail->Port = $mailConfig['port'];
+    $mail->Username = $mailConfig['username'];
+    $mail->Password = $mailConfig['password'];
+    $mail->SMTPSecure = $mailConfig['smtp_secure'];
     $mail->SMTPKeepAlive = true; // Keep connection alive for multiple emails
     $mail->SMTPOptions = array(
         'ssl' => array(
@@ -164,12 +161,21 @@ function createMailer() {
         )
     );
     // Performance optimizations
-    $mail->CharSet = 'UTF-8';
+    $mail->CharSet = $mailConfig['charset'];
     $mail->Encoding = 'base64';
-    $mail->isHTML(true);
+    $mail->isHTML($mailConfig['is_html']);
     // Set sender and reply-to for all newsletters
-    $mail->setFrom('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
-    $mail->addReplyTo('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
+    $mail->setFrom($mailConfig['from_email'], $mailConfig['from_name']);
+    $mail->addReplyTo($mailConfig['reply_to_email'], $mailConfig['reply_to_name']);
+    // DKIM settings (commented out for now)
+    // if (isset($mailConfig['dkim_domain'])) {
+    //     $mail->DKIM_domain = $mailConfig['dkim_domain'];
+    //     $mail->DKIM_private = $mailConfig['dkim_private'];
+    //     $mail->DKIM_selector = $mailConfig['dkim_selector'];
+    //     $mail->DKIM_passphrase = $mailConfig['dkim_passphrase'];
+    //     $mail->DKIM_identity = $mailConfig['dkim_identity'];
+    //     $mail->DKIM_copyHeaderFields = $mailConfig['dkim_copyHeaderFields'];
+    // }
     return ['success' => true, 'mailer' => $mail];
 }
 
