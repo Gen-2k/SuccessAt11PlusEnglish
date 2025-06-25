@@ -960,3 +960,13 @@ body.popup-open {
     color: #fff;
 }
 
+
+#toast-container>.toast-info {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+#toast-container>.toast-warning {
+    background-color: #ffc107;
+    color: #fff;
+}

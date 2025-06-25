@@ -47,36 +47,33 @@ if (session_status() === PHP_SESSION_NONE) {
     <!-- All inline CSS moved to indexStyles.css for maintainability and performance -->
 </head>
 
-<body id="main">    <!-- Newsletter Popup -->
+<body id="main">    <!-- Newsletter Popup - Single Form Only -->
     <div class="newsLetterContainer align-items-center justify-content-center">
-        <div class="card p-4 p-md-5 position-relative newsLetterCard">
-            <button type="button" class="btn-close closeButton position-absolute top-0 end-0 mt-2 me-2"
-                aria-label="Close"></button>
-            <h3 class="card-title blue fw-bold mb-4 fs-2">Get Your <br>FREE TOP 10 TIPS</h3>
-            <form action="" id="newsPop" method="POST">
-                <div class="mb-4">
-                    <label for="n_name" class="form-label visually-hidden">Name</label>
-                    <input class="form-control shadow-none fs-5 py-3" type="text" name="n_name" id="n_name" placeholder="Name"
-                        required>
-                    <span></span>
-                </div>
-                <div class="mb-4">
-                    <label for="n_email" class="form-label visually-hidden">Email</label>
-                    <input class="form-control shadow-none eMail fs-5 py-3" type="email" name="n_email" id="n_email"
-                        placeholder="Email" required>
-                    <span class="form-text fs-6 text-dark">We will not share your email with anyone.</span>
-                </div>
-                <div class="mb-4 form-check checkBoxCon">
-                    <input type="checkbox" class="form-check-input shadow-none" id="privacyCheck" required>
-                    <label for="privacyCheck" class="form-check-label fs-6 text-dark">Yes I understand that you will use the
-                            information
-                            provided via this form to be in touch and to send the freebie, and also to keep me updated
-                            with your newsletters.
+        <div class="card p-4 p-md-5 position-relative newsLetterCard" style="max-width: 420px; width: 100%;">
+            <button type="button" class="btn-close closeButton position-absolute top-0 end-0 mt-2 me-2" aria-label="Close"></button>
+            <div id="formScreen">
+                <h3 class="card-title blue fw-bold mb-2 text-center" id="formTitle">Get Your FREE Tips</h3>
+                <p class="text-muted mb-4 text-center" id="formDescription">Enter your details below to receive your free tips.</p>
+                <form action="" id="newsPop" method="POST">
+                    <input type="hidden" name="tip_type" id="tipType" value="">
+                    <div class="mb-4">
+                        <label for="n_name" class="form-label visually-hidden">Name</label>
+                        <input class="form-control shadow-none fs-5 py-3" type="text" name="n_name" id="n_name" placeholder="Name" required>
+                        <span></span>
+                    </div>
+                    <div class="mb-4">
+                        <label for="n_email" class="form-label visually-hidden">Email</label>
+                        <input class="form-control shadow-none eMail fs-5 py-3" type="email" name="n_email" id="n_email" placeholder="Email" required>
+                        <span class="form-text fs-6 text-dark">We will not share your email with anyone.</span>
+                    </div>
+                    <div class="mb-4 form-check checkBoxCon">
+                        <input type="checkbox" class="form-check-input shadow-none" id="privacyCheck" required>
+                        <label for="privacyCheck" class="form-check-label fs-6 text-dark">Yes I understand that you will use the information provided via this form to be in touch and to send the freebie, and also to keep me updated with your newsletters.
                             <a href="Privacy-policy">Privacy Policy</a></label>
-                </div>
-                <button type="submit" class="btn btn-danger w-100 shadow-none subscribeBtn mt-4 fs-5 py-3 fw-semibold"
-                    name="n_submit">SUBSCRIBE</button>
-            </form>
+                    </div>
+                    <button type="submit" class="btn btn-danger w-100 shadow-none subscribeBtn  fs-5  fw-semibold " name="n_submit">GET MY FREE TIPS</button>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -1146,8 +1143,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                     <span
                                         class="badge bg-light text-dark border mb-2 me-2 p-2 fs-6 d-flex align-items-center">
                                         <i class="bi bi-book-half text-blue me-2"></i> Quality Resources
-                                    </span>
-                                    <span
+                                    </span                                    <span
                                         class="badge bg-light text-dark border mb-2 me-2 p-2 fs-6 d-flex align-items-center">
                                         <i class="bi bi-people-fill text-blue me-2"></i> Small Classes
                                     </span>
@@ -1298,13 +1294,46 @@ if (session_status() === PHP_SESSION_NONE) {
                     </section>                                            <!-- Call to Action -->
                                             <div class="text-center mt-5 pt-4" style="border-top: 3px solid rgba(220, 53, 69, 0.1);">
                                                 <div class="mb-4 p-4 rounded-4" style="background: linear-gradient(135deg, rgba(220, 53, 69, 0.08), rgba(220, 53, 69, 0.05)); border: 2px solid rgba(220, 53, 69, 0.2);">
-                                                    <p class="mb-2 fw-bold text-danger fs-4">I hope you found these tips valuable.</p>
-                                                    <p class="mb-2 lh-lg text-dark fs-5">Our classes use all of the tips and techniques above, plus many more!</p>
-                                                    <p class="mb-0 fw-semibold text-dark fs-5" style="color: var(--theme-blue);">Join our online classes, all year round, to improve your child's English skills for life, not just 11 plus!</p>
+                                                    <p class="mb-2 fw-bold text-danger fs-4">Ready to boost your child's 11+ success?</p>
+                                                    <p class="mb-2 lh-lg text-dark fs-5">Our classes use proven strategies and expert techniques to build confidence and skills!</p>
+                                                    <p class="mb-0 fw-semibold text-dark fs-5" style="color: var(--theme-blue);">Get your FREE expert tips below and join our online classes to improve your child's English skills for life!</p>
                                                 </div>
-                                                <button type="button" class="btn btn-danger btn-lg shadow-lg hover-lift px-5 py-3" id="sendMeBtn" style="font-size: 1.1rem; font-weight: 600; letter-spacing: 0.5px; border-radius: 50px; box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3) !important;">
-                                                    <i class="bi bi-envelope-fill me-3 fs-5"></i> GET YOUR FREE TOP 10 TIPS
-                                                </button>
+                                                
+                                                <!-- Two Choice Buttons -->
+                                                <div class="row g-3 justify-content-center mb-4">
+                                                    <div class="col-lg-5">
+                                                        <button type="button" class="btn btn-primary btn-lg shadow-lg hover-lift w-100 p-4 h-auto text-start" style="font-size: 1rem; font-weight: 600; letter-spacing: 0.5px; border-radius: 15px; box-shadow: 0 8px 25px rgba(13, 110, 253, 0.3) !important;">
+                                                            <div class="d-flex align-items-start">
+                                                                <div class="flex-shrink-0 me-3">
+                                                                    <i class="bi bi-search fs-2 text-white"></i>
+                                                                </div>
+                                                                <div class="flex-grow-1 text-start">
+                                                                    <h6 class="fw-bold mb-2 text-white">FREE Comprehension & Creative Writing Tips</h6>
+                                                                    <p class="mb-0 text-white-50 small">Expert strategies for 11+ exam success</p>
+                                                                </div>
+                                                            </div>
+                                                        </button>
+                                                    </div>
+                                                    
+                                                    <div class="col-lg-5">
+                                                        <button type="button" class="btn btn-danger btn-lg shadow-lg hover-lift w-100 p-4 h-auto text-start reading-tips-btn" style="font-size: 1rem; font-weight: 600; letter-spacing: 0.5px; border-radius: 15px; box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3) !important;">
+                                                            <div class="d-flex align-items-start">
+                                                                <div class="flex-shrink-0 me-3">
+                                                                    <i class="bi bi-heart-fill fs-2 text-white"></i>
+                                                                </div>
+                                                                <div class="flex-grow-1 text-start">
+                                                                    <h6 class="fw-bold mb-2 text-white">FREE Reading Tips for Parents</h6>
+                                                                    <p class="mb-0 text-white-50 small">Help your child love reading</p>
+                                                                </div>
+                                                            </div>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                
+                                                <p class="text-muted mb-0 small">
+                                                    <i class="bi bi-shield-check me-2"></i>
+                                                    Choose your preferred tips above • Instant email delivery • No spam guarantee
+                                                </p>
                                             </div>
                                         </div>
                                     </div>

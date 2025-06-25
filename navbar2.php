@@ -64,7 +64,7 @@
                 background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 30%, #f1f5f9 70%, #fef7ed 100%);
                 border-bottom: 3px solid var(--accent-gold);
                 box-shadow: var(--shadow-md);
-                padding: 1.2rem 0;
+                /* padding: 1.2rem 0; */
                 position: sticky;
                 top: 0;
                 z-index: 1000;
@@ -75,20 +75,23 @@
             .logo-header.scrolled {
                 background: linear-gradient(135deg, #f1f5f9 0%, #dbeafe 40%, #f8fafc 60%, #fef3c7 100%);
                 border-bottom: 3px solid var(--accent-gold);
-                padding: 0.8rem 0;
+                /* padding: 0.8rem 0; */
                 box-shadow: var(--shadow-xl);
             }            /* Logo Styling - Improved Readability */
             .navbar-brand {
                 display: flex;
                 align-items: center;
                 text-decoration: none;
-                padding: 0.5rem 0;
+                /* padding: 0.5rem 0; */
             }
 
             .navbar-brand img {
-                height: 100px;
+                height: 120px;
                 width: auto;
                 filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+                /* background: #fff;
+                border-radius: 12px;
+                padding: 4px; */
             }
 
             .brand-text {
@@ -530,10 +533,11 @@
         <nav class="logo-header navbar navbar-expand-lg">
             <div class="container-fluid">                <!-- Logo -->
                 <a href="./index" class="navbar-brand"> 
-                    <img src="./assets/logo/success-logo.png" alt="Success At 11 Plus English logo" class="img-fluid">
+                    <img src="./assets/logo/success logo2.png" alt="Success At 11 Plus English logo" class="img-fluid" >
                     <div class="brand-text">
-                        <span class="main-text">Success At 11 Plus</span>
-                        <span class="sub-text">English</span>
+                        <span class="main-text">Success At 11 Plus <span style="color: var(--accent-gold);">English</span></span>
+
+                     
                     </div>
                 </a>
                 
