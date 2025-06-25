@@ -301,7 +301,7 @@ if (!isset($_SESSION)) {
             $mail_status = sendOTP($otpEmail, $otp);
                 
             if ($mail_status == 1) {
-                $insertOtp = "INSERT INTO otp_expiry(email,otp,is_expired) VALUES ('$otpEmail','$otp', 0)";
+                $insertOtp = "INSERT INTO otp(email, otp_code, is_expired) VALUES ('$otpEmail', '$otp', 0)";
                 $result = mysqli_query($connection, $insertOtp);
                 if ($result) {
                     $success = 1;
@@ -324,7 +324,7 @@ if (!isset($_SESSION)) {
         $otp6 = $_POST["otp6"];
         $otp = $otp1 . $otp2 . $otp3 . $otp4 . $otp5 . $otp6;
         if ($_SESSION['session_otp'] == $otp && ($timestamp - $_SESSION['time']) < 300) {
-            $updateOtp = "UPDATE otp_expiry SET is_expired = 1 WHERE otp = '$otp'";
+            $updateOtp = "UPDATE otp SET is_expired = 1 WHERE otp_code = '$otp'";
             $result = mysqli_query($connection, $updateOtp);
             $success = 2;
         } else {

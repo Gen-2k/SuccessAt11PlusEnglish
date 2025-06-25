@@ -112,40 +112,88 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
 
     log_error("Processing form data: Name=$enqName, Email=$enqMail, Phone=$enqPhone, Apply=$enqApply, Module=$enqModule");
 
-    try {
-        require './mail/PHPMailerAutoload.php';
+    // -------------------------------------------------------------------------
+    // EMAIL NOTIFICATION: Admin & User Auto-Response (Robust, Always Attempt User Email)
+    // -------------------------------------------------------------------------
+    require './mail/PHPMailerAutoload.php';
     require './mail/class.phpmailer.php';
     require './mail/class.smtp.php';
 
-    $mail = new PHPMailer;
+    $adminMailSuccess = false;
+    $userMailSuccess = false;
+    $adminMailError = '';
+    $userMailError = '';
 
-        $mail->SMTPDebug = 2; // Increase debugging level for troubleshooting
+    // =============================
+    // 1. Send Auto-Response to User (always attempt)
+    // =============================
+    if (isset($_POST["eqTry"])) {
+        try {
+            $autoResponse = new PHPMailer;
+            $autoResponse->isSMTP();
+            $autoResponse->Host       = 'mail.elevenplusenglish.co.uk';
+            $autoResponse->SMTPAuth   = true;
+            $autoResponse->Username   = 'success@elevenplusenglish.co.uk';
+            $autoResponse->Password   = 'Monday@123';
+            $autoResponse->SMTPSecure = 'ssl';
+            $autoResponse->Port       = 465;
+            $autoResponse->setFrom('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
+            $autoResponse->addAddress($enqMail, $enqName);
+            $autoResponse->addReplyTo('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
+            $autoResponse->isHTML(true);
+            $autoResponse->Subject = 'We Received Your Trial Class Application';
+            $autoResponse->Body = '
+            <html>
+            <body style="font-family: Arial, sans-serif; line-height: 1.6;">
+                <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+                    <h2 style="color: #6e20a7; border-bottom: 2px solid #eee; padding-bottom: 10px;">Thank You For Your Application</h2>
+                    <p>Dear ' . htmlspecialchars($enqName) . ',</p>
+                    <p>Thank you for applying for a trial class with Success at 11 Plus English. We\'ve received your application and one of our team members will contact you within the next 24 hours to arrange your session.</p>
+                    <p>If you have any questions in the meantime, feel free to reply to this email or call us.</p>
+                    <p>We look forward to meeting you!</p>
+                    <p>Warm regards,<br>Success at 11 Plus English Team</p>
+                </div>
+            </body>
+            </html>';
+            $autoResponse->AltBody = 'Thank you for applying for a trial class with Success at 11 Plus English. We\'ve received your application and one of our team members will contact you within the next 24 hours to arrange your session.';
+            if ($autoResponse->send()) {
+                $userMailSuccess = true;
+                log_error('Auto-response email sent to user: ' . $enqMail);
+            } else {
+                $userMailError = $autoResponse->ErrorInfo;
+                log_error('Auto-response could not be sent: ' . $userMailError);
+            }
+        } catch (Exception $e) {
+            $userMailError = $e->getMessage();
+            log_error('Auto-response exception: ' . $userMailError);
+        }
+    }
+
+    // =============================
+    // 2. Send Admin Notification (always attempt)
+    // =============================
+    try {
+        $mail = new PHPMailer;
+        $mail->SMTPDebug = 2;
         $mail->Debugoutput = function($str, $level) {
             log_error("PHPMailer [$level]: $str");
         };
-        
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';
+        $mail->Host       = 'mail.elevenplusenglish.co.uk';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'Safrina@smile4kids.co.uk';
-        $mail->Password   = 'teoiljmskiwvamwh';
+        $mail->Username   = 'success@elevenplusenglish.co.uk';
+        $mail->Password   = 'Monday@123';
         $mail->SMTPSecure = 'ssl';
         $mail->Port       = 465;
-
-    $mail->setFrom('Safrina@smile4kids.co.uk', ' Success at 11 plus English');
-    $mail->addAddress('sfs662001@yahoo.com', 'Safrina Saran');
-    $mail->addReplyTo('Safrina@smile4kids.co.uk', ' Success at 11 plus English');
-    
+        $mail->setFrom('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
+        $mail->addAddress('sfs662001@yahoo.com', 'Safrina Saran');
+        $mail->addReplyTo('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
         $mail->isHTML(true);
-        
-        // Determine subject based on form type
         if (isset($_POST["eqFTC"])) {
             $mail->Subject = 'Enquiry for TRY a Free Class ENQUIRY';
         } else {
             $mail->Subject = 'Trial Class Application';
         }
-        
-        // Create more detailed HTML email body with all form fields
         $mail->Body = '
         <html>
         <body style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -161,75 +209,39 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
             </div>
         </body>
         </html>';
-        
         $mail->AltBody = 'Name: ' . $enqName . "\n" .
                         'Phone: ' . $enqPhone . "\n" .
                         'Email: ' . $enqMail . "\n" .
                         'Year Group: ' . $enqApply . "\n" .
                         (!empty($enqModule) ? 'Module Interest: ' . $enqModule . "\n" : '') .
                         (!empty($enqMsg) ? 'Message: ' . $enqMsg : '');
-        
-        // DKIM setup
-                $mail->DKIM_domain = 'smile4kids.co.uk';
-                $mail->DKIM_private = './mail/dkim_private.pem';
-                $mail->DKIM_selector = 'default';
-                $mail->DKIM_passphrase = '';
-                $mail->DKIM_identity = $mail->From;
-                $mail->DKIM_copyHeaderFields = false;
-        
-    if (!$mail->send()) {
-            log_error('Email could not be sent. Mailer Error: ' . $mail->ErrorInfo);
-            outputResponse('error', 'There was a problem sending your application. Please try again or contact us directly.', $redirectUrl);
-    } else {
-            // Log successful submission details
-            log_error('Email sent successfully to: ' . $enqMail);
-            
-            // Send an auto-response to the user if this is a trial class form
-            if(isset($_POST["eqTry"])) {
-                try {
-                    $autoResponse = new PHPMailer;
-                    $autoResponse->isSMTP();
-                    $autoResponse->Host       = 'smtp.gmail.com';
-                    $autoResponse->SMTPAuth   = true;
-                    $autoResponse->Username   = 'Safrina@smile4kids.co.uk';
-                    $autoResponse->Password   = 'teoiljmskiwvamwh';
-                    $autoResponse->SMTPSecure = 'ssl';
-                    $autoResponse->Port       = 465;
-                    
-                    $autoResponse->setFrom('Safrina@smile4kids.co.uk', ' Success at 11 plus English');
-                    $autoResponse->addAddress($enqMail, $enqName);
-                    $autoResponse->isHTML(true);
-                    $autoResponse->Subject = 'We Received Your Trial Class Application';
-                    $autoResponse->Body = '
-                    <html>
-                    <body style="font-family: Arial, sans-serif; line-height: 1.6;">
-                        <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-                            <h2 style="color: #6e20a7; border-bottom: 2px solid #eee; padding-bottom: 10px;">Thank You For Your Application</h2>
-                            <p>Dear ' . htmlspecialchars($enqName) . ',</p>
-                            <p>Thank you for applying for a trial class with Success at 11 Plus English. We\'ve received your application and one of our team members will contact you within the next 24 hours to arrange your session.</p>
-                            <p>If you have any questions in the meantime, feel free to reply to this email or call us.</p>
-                            <p>We look forward to meeting you!</p>
-                            <p>Warm regards,<br>Success at 11 Plus English Team</p>
-                        </div>
-                    </body>
-                    </html>';
-                    
-                    $autoResponse->AltBody = 'Thank you for applying for a trial class with Success at 11 Plus English. We\'ve received your application and one of our team members will contact you within the next 24 hours to arrange your session.';
-                    
-                    $autoResponse->send();
-                    log_error('Auto-response email sent to user: ' . $enqMail);
-                } catch (Exception $e) {
-                    log_error('Auto-response could not be sent: ' . $e->getMessage());
-                    // Don't fail the whole process if auto-response fails
-                }
-            }
-            
-            outputResponse('success', 'Your application has been submitted successfully! We will contact you shortly.', $redirectUrl);
+        if ($mail->send()) {
+            $adminMailSuccess = true;
+            log_error('Admin notification email sent.');
+        } else {
+            $adminMailError = $mail->ErrorInfo;
+            log_error('Admin notification email failed: ' . $adminMailError);
         }
-        
     } catch (Exception $e) {
-        log_error('Exception caught: ' . $e->getMessage());
-        outputResponse('error', 'There was a problem with your application. Please try again.', $redirectUrl);
+        $adminMailError = $e->getMessage();
+        log_error('Admin notification exception: ' . $adminMailError);
+    }
+
+    // =============================
+    // 3. Output Response (show user mail status if trial form)
+    // =============================
+    if (isset($_POST["eqTry"])) {
+        if ($userMailSuccess) {
+            outputResponse('success', 'Your application has been submitted successfully! We will contact you shortly. (Confirmation email sent)', $redirectUrl);
+        } else {
+            outputResponse('success', 'Your application has been submitted! However, we could not send a confirmation email to your address. Please check your details or contact us if needed.', $redirectUrl);
+        }
+    } else {
+        if ($adminMailSuccess) {
+            outputResponse('success', 'Your application has been submitted successfully! We will contact you shortly.', $redirectUrl);
+        } else {
+            outputResponse('error', 'There was a problem sending your application. Please try again or contact us directly.', $redirectUrl);
+        }
     }
 } else {
     // No form data submitted

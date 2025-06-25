@@ -136,64 +136,129 @@ function sendEbookPurchaseConfirmationEmail($student_data, $ebook_data, $transac
 
         $mail = new PHPMailer();
         $mail->isSMTP();
-        // Mailtrap SMTP settings for testing (matching module purchase configuration)
-        $mail->Host = 'sandbox.smtp.mailtrap.io';
+        // Production SMTP settings
+        $mail->Host = 'mail.elevenplusenglish.co.uk';
         $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '49c99e63f1b312'; // <-- Replace with your Mailtrap username
-        $mail->Password = 'a8f396dbd198bb'; // <-- Replace with your Mailtrap password
-        $mail->setFrom('test@successat11plusenglish.com', 'Success At 11 Plus English (Test)');
-          // Student email
+        $mail->Port = 465;
+        $mail->Username = 'success@elevenplusenglish.co.uk';
+        $mail->Password = 'Monday@123';
+        $mail->SMTPSecure = 'ssl';
+        $mail->setFrom('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
         $mail->addAddress($student_data['email'], $student_data['fname'] . ' ' . $student_data['surname']);
-        $mail->addReplyTo('test@successat11plusenglish.com', 'Success At 11 Plus English (Test)');
-        
+        $mail->addReplyTo('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
         $mail->isHTML(true);
-        $mail->Subject = 'E-Book Purchase Confirmation - Success At 11 Plus English';
-        
+        $mail->Subject = 'E-Book Purchase Confirmation & Invoice - Success At 11 Plus English';
+        $purchaseDate = date('F j, Y');
         $emailBody = '
         <html>
-        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-            <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
-                <h2 style="color: #4CAF50; text-align: center;">E-Book Purchase Confirmation</h2>
-                
-                <p>Dear ' . htmlspecialchars($student_data['fname'] . ' ' . $student_data['surname']) . ',</p>
-                
-                <p>Thank you for your e-book purchase! Here are the details:</p>
-                
-                <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin: 20px 0;">
-                    <h3 style="margin-top: 0; color: #333;">Purchase Details</h3>
-                    <p><strong>E-Book Title:</strong> ' . htmlspecialchars($ebook_data['title']) . '</p>
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>E-Book Purchase Confirmation</title>
+        <style>
+            body { background: linear-gradient(135deg, #1e40af 0%, #f59e0b 100%); margin: 0; padding: 0; font-family: Segoe UI, Arial, sans-serif; }
+            .email-container { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 1rem; box-shadow: 0 8px 32px rgba(30,64,175,0.10); overflow: hidden; }
+            .header { background: #16a34a; color: #fff; padding: 2.5rem 2rem 1.5rem; text-align: center; }
+            .header-flex { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+            .header-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 80px;
+                height: 80px;
+                background: rgba(255,255,255,0.18);
+                border-radius: 50%;
+                margin-bottom: 1.2rem;
+            }
+            .header-icon svg {
+                width: 2.5rem;
+                height: 2.5rem;
+                color: #fff;
+                display: block;
+            }
+            .header-title {
+                font-size: 1.7rem;
+                font-weight: 700;
+                margin-bottom: 0.3rem;
+            }
+            .header-success {
+                font-size: 1.15rem;
+                font-weight: 500;
+                opacity: 0.95;
+                margin-bottom: 0;
+            }
+            .body { padding: 2.5rem 2rem; color: #222; }
+            .details { background: #f8fafc; border-radius: 0.7rem; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
+            .invoice { background: #f3f4f6; border-radius: 0.7rem; padding: 1.2rem 1.5rem; margin: 1.5rem 0; border: 1px solid #e5e7eb; }
+            .invoice h3 { color: #1e40af; margin-top: 0; }
+            .invoice-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+            .invoice-table th, .invoice-table td { padding: 0.5rem 0.7rem; text-align: left; border-bottom: 1px solid #e5e7eb; }
+            .invoice-table th { background: #f8fafc; color: #1e40af; font-weight: 600; }
+            .invoice-table td:last-child, .invoice-table th:last-child { text-align: right; }
+            .cta-btn { display: inline-block; background: #1e40af; color: #fff; text-decoration: none; padding: 0.8rem 2rem; border-radius: 0.5rem; font-weight: 600; margin-top: 1.5rem; }
+            .footer { text-align: center; color: #888; font-size: 0.95rem; padding: 1.5rem 2rem 2rem; }
+            .footer a { color: #1e40af; text-decoration: none; }
+            @media (max-width: 600px) { .email-container, .body, .footer { padding: 1rem !important; } }
+        </style>
+        </head>
+        <body>
+        <div class="email-container">
+            <div class="header">
+                <div class="header-flex">
+                    <div class="header-icon">
+                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Success">
+                            <circle cx="16" cy="16" r="16" fill="#16a34a"/>
+                            <path d="M10 17.5L15 22L22 12" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="header-title">E-Book Purchase Confirmation</div>
+                    <div class="header-success">Payment Successful</div>
+                </div>
+            </div>
+            <div class="body">
+                <p style="font-size:1.1rem;">Dear <strong>' . htmlspecialchars($student_data['fname'] . ' ' . $student_data['surname']) . '</strong>,</p>
+                <p>Thank you for your e-book purchase! Here are your details:</p>
+                <div class="details">
+                    <h3 style="color:#1e40af;margin-top:0;">E-Book Details</h3>
+                    <p><strong>Title:</strong> ' . htmlspecialchars($ebook_data['title']) . '</p>
                     <p><strong>Class:</strong> ' . htmlspecialchars(ucfirst(str_replace('year', 'Year ', $ebook_data['class']))) . '</p>
                     <p><strong>Module:</strong> ' . htmlspecialchars($ebook_data['module']) . '</p>
-                    <p><strong>Price:</strong> £' . number_format($ebook_data['price'], 2) . '</p>
-                    <p><strong>Transaction ID:</strong> ' . htmlspecialchars($transaction_id) . '</p>
-                    <p><strong>Purchase Date:</strong> ' . date('F j, Y') . '</p>
                 </div>
-                
+                <div class="invoice">
+                    <h3>Invoice</h3>
+                    <table class="invoice-table">
+                        <tr><th>Description</th><th>Amount</th></tr>
+                        <tr><td>' . htmlspecialchars($ebook_data['title']) . ' (' . htmlspecialchars($ebook_data['module']) . ')</td><td>£' . number_format($ebook_data['price'], 2) . '</td></tr>
+                        <tr><td style="font-weight:600;">Total Paid</td><td style="font-weight:600;">£' . number_format($ebook_data['price'], 2) . '</td></tr>
+                    </table>
+                    <p style="margin:0.7rem 0 0 0;"><strong>Transaction ID:</strong> ' . htmlspecialchars($transaction_id) . '</p>
+                    <p style="margin:0;"><strong>Purchase Date:</strong> ' . htmlspecialchars($purchaseDate) . '</p>
+                </div>
                 <p>You can now access your e-book by logging into your student dashboard and visiting the E-Books section.</p>
-                  <div style="text-align: center; margin: 30px 0;">
-                    <a href="https://successat11plusenglish.com/StudentDashboard/ebooks.php" 
-                       style="background: #4CAF50; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; display: inline-block;">
+                <div style="text-align: center; margin: 30px 0;">
+                    <a href="https://elevenplusenglish.co.uk/StudentDashboard/ebooks.php" 
+                       style="background: #1e40af; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; display: inline-block;">
                         Access My E-Books
                     </a>
                 </div>
-                
                 <p>If you have any questions or need assistance, please don\'t hesitate to contact us.</p>
-                  <p>Best regards,<br>
+                <p>Best regards,<br>
                 <strong>The Success At 11 Plus English Team</strong><br>
-                <a href="https://successat11plusenglish.com">successat11plusenglish.com</a></p>
+                <a href="https://elevenplusenglish.co.uk">elevenplusenglish.co.uk</a></p>
             </div>
+            <div class="footer">
+                <p>Need help? Contact us at <a href="mailto:success@elevenplusenglish.co.uk">success@elevenplusenglish.co.uk</a></p>
+                <p style="margin-top:1.2rem;">&copy; ' . date('Y') . ' Success At 11 Plus English</p>
+            </div>
+        </div>
         </body>
         </html>';
-        
         $mail->Body = $emailBody;
-        
         if ($mail->send()) {
             logEbookPaymentEvent('Confirmation email sent', ['email' => $student_data['email']]);
         } else {
             logEbookPaymentEvent('Failed to send confirmation email', ['error' => $mail->ErrorInfo]);
         }
-        
     } catch (Exception $e) {
         logEbookPaymentEvent('Email sending failed', ['error' => $e->getMessage()]);
     }

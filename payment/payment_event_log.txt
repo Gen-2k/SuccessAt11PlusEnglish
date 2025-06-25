@@ -78,3 +78,31 @@ This file records all payment events, email sending attempts, and errors for deb
 [2025-06-24 11:06:40] Added to newsletter | Context: {"email":"test@gmail.com"}
 [2025-06-24 11:06:40] Database commit successful | Context: {"student_id":3}
 [2025-06-24 11:06:44] Email failed to send | Context: {"to":"test@gmail.com","name":"test user","module":"Creative Writing","class":"year4","error":"SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting"}
+[2025-06-25 12:14:56] Stripe session retrieved | Context: {"session_id":"cs_test_a1dlLOTWFoOa3ouV4VfnDtY0LLCEzQuNjJVznYyBY1p2ptliOB6xFuTnTn","payment_status":"paid"}
+[2025-06-25 12:14:56] Payment successful | Context: {"session_id":"cs_test_a1dlLOTWFoOa3ouV4VfnDtY0LLCEzQuNjJVznYyBY1p2ptliOB6xFuTnTn","student_email":"sagosmsr@gmail.com","module":"Creative Writing","class":"year4","price":165}
+[2025-06-25 12:14:56] Student account created | Context: {"student_id":4,"email":"sagosmsr@gmail.com"}
+[2025-06-25 12:14:56] Enrollment created | Context: {"student_id":4,"module":"Creative Writing"}
+[2025-06-25 12:14:56] Already subscribed to newsletter | Context: {"email":"sagosmsr@gmail.com"}
+[2025-06-25 12:14:56] Database commit successful | Context: {"student_id":4}
+[2025-06-25 12:15:00] Email sent | Context: {"to":"sagosmsr@gmail.com","name":"Jon Doe","module":"Creative Writing","class":"year4"}
+[2025-06-25 12:24:40] Stripe session retrieved | Context: {"session_id":"cs_test_a1lY7kopdDkYaBa0N81XcA3AfEc8EdNbhfyaD5hxun7d4mXjQdrrQ5PFId","payment_status":"paid"}
+[2025-06-25 12:24:40] Payment successful | Context: {"session_id":"cs_test_a1lY7kopdDkYaBa0N81XcA3AfEc8EdNbhfyaD5hxun7d4mXjQdrrQ5PFId","student_email":"sagosmsr@gmail.com","module":"Creative Writing","class":"year4","price":165}
+[2025-06-25 12:24:40] Student account created | Context: {"student_id":5,"email":"sagosmsr@gmail.com"}
+[2025-06-25 12:24:40] Enrollment created | Context: {"student_id":5,"module":"Creative Writing"}
+[2025-06-25 12:24:40] Already subscribed to newsletter | Context: {"email":"sagosmsr@gmail.com"}
+[2025-06-25 12:24:40] Database commit successful | Context: {"student_id":5}
+[2025-06-25 12:24:43] Email sent | Context: {"to":"sagosmsr@gmail.com","name":"Jon Doe","module":"Creative Writing","class":"year4"}
+[2025-06-25 12:34:36] Stripe session retrieved | Context: {"session_id":"cs_test_a1rIRKg37i2hgF9prgHR4Imwfxes467to2C7u7R0YIGej0rTiHMvBuwT7p","payment_status":"paid"}
+[2025-06-25 12:34:36] Payment successful | Context: {"session_id":"cs_test_a1rIRKg37i2hgF9prgHR4Imwfxes467to2C7u7R0YIGej0rTiHMvBuwT7p","student_email":"sagosmsr@gmail.com","module":"SPaG","class":"year4","price":125}
+[2025-06-25 12:34:36] Student account created | Context: {"student_id":6,"email":"sagosmsr@gmail.com"}
+[2025-06-25 12:34:36] Enrollment created | Context: {"student_id":6,"module":"SPaG"}
+[2025-06-25 12:34:36] Already subscribed to newsletter | Context: {"email":"sagosmsr@gmail.com"}
+[2025-06-25 12:34:36] Database commit successful | Context: {"student_id":6}
+[2025-06-25 12:34:39] Email sent | Context: {"to":"sagosmsr@gmail.com","name":"Jon Doe","module":"SPaG","class":"year4"}
+[2025-06-25 12:43:57] Stripe session retrieved | Context: {"session_id":"cs_test_a18XmR7mcwUVw9Gw41lCeFHR8f2gSk9ZXH7bMeBYC55s4hrCRMCoOjzxYf","payment_status":"paid"}
+[2025-06-25 12:43:57] Payment successful | Context: {"session_id":"cs_test_a18XmR7mcwUVw9Gw41lCeFHR8f2gSk9ZXH7bMeBYC55s4hrCRMCoOjzxYf","student_email":"sagosmsr@gmail.com","module":"Creative Writing","class":"year4","price":165}
+[2025-06-25 12:43:57] Student account created | Context: {"student_id":7,"email":"sagosmsr@gmail.com"}
+[2025-06-25 12:43:57] Enrollment created | Context: {"student_id":7,"module":"Creative Writing"}
+[2025-06-25 12:43:57] Already subscribed to newsletter | Context: {"email":"sagosmsr@gmail.com"}
+[2025-06-25 12:43:57] Database commit successful | Context: {"student_id":7}
+[2025-06-25 12:44:07] Email sent | Context: {"to":"sagosmsr@gmail.com","name":"Jon Doe","module":"Creative Writing","class":"year4"}

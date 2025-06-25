@@ -356,11 +356,13 @@ if (isset($_SESSION['status']) && isset($_SESSION['status_code'])) {
                             </div> -->
 
                 <form action="./enqcode.php" method="POST" id="trial-form" class="needs-validation" novalidate>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <label for="fname" class="form-label"><i class="bi bi-person-fill"></i>Full Name</label>
-                                        <input type="text" id="fname" name="eqName" class="form-control" placeholder="Enter your full name" required>
-                                    </div>
+                    <!-- Hidden field to ensure eqTry is always set for trial applications -->
+                    <input type="hidden" name="eqTry" value="1">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="fname" class="form-label"><i class="bi bi-person-fill"></i>Full Name</label>
+                            <input type="text" id="fname" name="eqName" class="form-control" placeholder="Enter your full name" required>
+                        </div>
                                     
                                     <div class="col-md-6">
                                         <label for="email" class="form-label"><i class="bi bi-envelope-fill"></i>Email Address</label>

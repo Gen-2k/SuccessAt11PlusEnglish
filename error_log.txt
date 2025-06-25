@@ -1,0 +1,650 @@
+[2025-06-25 12:41:36] Form submission received - POST data: Array
+(
+    [eqName] => sadasd
+    [eqMail] => sagosmsr@gmail.com
+    [eqPhone] => 989465132031
+    [eqApply] => Year 5
+    [eqModule] => Creative Writing
+    [eqMsg] => asdasdsadsd
+)
+
+[2025-06-25 12:41:36] Is AJAX request: Yes
+[2025-06-25 12:41:36] Form submission detected - processing now
+[2025-06-25 12:41:36] Processing form data: Name=sadasd, Email=sagosmsr@gmail.com, Phone=989465132031, Apply=Year 5, Module=Creative Writing
+[2025-06-25 12:41:39] PHPMailer [2]: SERVER -> CLIENT: 220-164.29.205.92.host.secureserver.net ESMTP Exim 4.98.2 #2 Wed, 25 Jun 2025 10:41:39 +0000 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+
+[2025-06-25 12:41:39] PHPMailer [1]: CLIENT -> SERVER: EHLO localhost
+
+[2025-06-25 12:41:39] PHPMailer [2]: SERVER -> CLIENT: 250-164.29.205.92.host.secureserver.net Hello localhost [103.163.248.188]
+250-SIZE 52428800
+250-LIMITS MAILMAX=1000 RCPTMAX=50000
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+
+[2025-06-25 12:41:39] PHPMailer [1]: CLIENT -> SERVER: AUTH LOGIN
+
+[2025-06-25 12:41:39] PHPMailer [2]: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+[2025-06-25 12:41:39] PHPMailer [1]: CLIENT -> SERVER: c3VjY2Vzc0BlbGV2ZW5wbHVzZW5nbGlzaC5jby51aw==
+
+[2025-06-25 12:41:39] PHPMailer [2]: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+[2025-06-25 12:41:39] PHPMailer [1]: CLIENT -> SERVER: TW9uZGF5QDEyMw==
+
+[2025-06-25 12:41:39] PHPMailer [2]: SERVER -> CLIENT: 235 Authentication succeeded
+
+[2025-06-25 12:41:39] PHPMailer [1]: CLIENT -> SERVER: MAIL FROM:<success@elevenplusenglish.co.uk>
+
+[2025-06-25 12:41:39] PHPMailer [2]: SERVER -> CLIENT: 250 OK
+
+[2025-06-25 12:41:39] PHPMailer [1]: CLIENT -> SERVER: RCPT TO:<sfs662001@yahoo.com>
+
+[2025-06-25 12:41:40] PHPMailer [2]: SERVER -> CLIENT: 250 Accepted
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: DATA
+
+[2025-06-25 12:41:40] PHPMailer [2]: SERVER -> CLIENT: 354 Enter message, ending with "." on a line by itself
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: Date: Wed, 25 Jun 2025 12:41:36 +0200
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: To: Safrina Saran <sfs662001@yahoo.com>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: From: Success At 11 Plus English <success@elevenplusenglish.co.uk>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: Reply-To: Success At 11 Plus English <success@elevenplusenglish.co.uk>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: Subject: Trial Class Application
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: Message-ID: <3ed23c08ec03598643e0cc309a2a7784@localhost>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: X-Mailer: PHPMailer 5.2.28 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: Content-Type: multipart/alternative;
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 	boundary="b1_3ed23c08ec03598643e0cc309a2a7784"
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; l=1324; s=default;
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 	t=1750848096; c=relaxed/simple;
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 	h=From:To:Date:Subject;
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 	d=smile4kids.co.uk; i=success@elevenplusenglish.co.uk;
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 	z=From:=20Success=20At=2011=20Plus=20English=20<success@elevenplusenglish.co.uk>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 	|To:=20Safrina=20Saran=20<sfs662001@yahoo.com>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 	|Date:=20Wed,=2025=20Jun=202025=2012:41:36=20+0200
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 	|Subject:=20Trial=20Class=20Application;
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 	bh=fIKfZWrO/r/E5diXMKpx2tSLzHoMNoDfCOPSmesZbHk=;
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 	b=cb5Bib3NbJvzoo+rg0nlBZWwYYMJGXfVLSYzrqdQmdLcQ7+56MkdbX1yBhzMTqOpAPJzzwgD56g7Ywv1ZXuxGXeShSQIeG88aYRw4nJ2Hi1tKDT521iYo9FnBiUKYavIOC2kzk2qrtONrk1ZNhIrRZxggO8Dsk0XAPZUHHj4xPXERGjFpKHtIpTAJHz5Kq297/TcXuJxYg3YiAOUc9wAThdG4dvktLnJqcIjhB1nq/r8PRGZt5GXmKFkTHQLvXxyRGyArOlJwmAvkEYOW9gco/Ry0vTOf6xXtbSom773gnMNx33mc/1ageK00d8UKxMULiZBvPs/F+Rss2BuNRKeAg==
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: This is a multi-part message in MIME format.
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: --b1_3ed23c08ec03598643e0cc309a2a7784
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: Name: sadasd
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: Phone: 989465132031
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: Email: sagosmsr@gmail.com
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: Year Group: Year 5
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: Module Interest: Creative Writing
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: Message: asdasdsadsd
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: --b1_3ed23c08ec03598643e0cc309a2a7784
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER:         <html>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER:         <body style="font-family: Arial, sans-serif; line-height: 1.6;">
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER:             <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER:                 <h2 style="color: #6e20a7; border-bottom: 2px solid #eee; padding-bottom: 10px;">New Enquiry Received</h2>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Name:</strong> sadasd</p>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Phone:</strong> 989465132031</p>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Email:</strong> sagosmsr@gmail.com</p>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Year Group:</strong> Year 5</p>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Module Interest:</strong> Creative Writing</p>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Message:</strong> asdasdsadsd</p>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER:                 <p style="font-size: 12px; color: #777; margin-top: 30px;">This message was sent from the Success at 11 Plus English website.</p>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER:             </div>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER:         </body>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER:         </html>
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: --b1_3ed23c08ec03598643e0cc309a2a7784--
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: .
+
+[2025-06-25 12:41:40] PHPMailer [2]: SERVER -> CLIENT: 250 OK id=1uUNZU-00000000VNz-3K2x
+
+[2025-06-25 12:41:40] PHPMailer [1]: CLIENT -> SERVER: QUIT
+
+[2025-06-25 12:41:40] PHPMailer [2]: SERVER -> CLIENT: 221 164.29.205.92.host.secureserver.net closing connection
+
+[2025-06-25 12:41:40] Email sent successfully to: sagosmsr@gmail.com
+[2025-06-25 12:48:23] Form submission received - POST data: Array
+(
+    [eqName] => sadasd
+    [eqMail] => sagosmsr@gmail.com
+    [eqPhone] => 98456413223
+    [eqApply] => Year 5
+    [eqModule] => Creative Writing
+    [eqMsg] => asdasdadadds
+)
+
+[2025-06-25 12:48:23] Is AJAX request: Yes
+[2025-06-25 12:48:23] Form submission detected - processing now
+[2025-06-25 12:48:23] Processing form data: Name=sadasd, Email=sagosmsr@gmail.com, Phone=98456413223, Apply=Year 5, Module=Creative Writing
+[2025-06-25 12:48:24] PHPMailer [2]: SERVER -> CLIENT: 220-164.29.205.92.host.secureserver.net ESMTP Exim 4.98.2 #2 Wed, 25 Jun 2025 10:48:25 +0000 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+
+[2025-06-25 12:48:24] PHPMailer [1]: CLIENT -> SERVER: EHLO localhost
+
+[2025-06-25 12:48:25] PHPMailer [2]: SERVER -> CLIENT: 250-164.29.205.92.host.secureserver.net Hello localhost [103.163.248.188]
+250-SIZE 52428800
+250-LIMITS MAILMAX=1000 RCPTMAX=50000
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+
+[2025-06-25 12:48:25] PHPMailer [1]: CLIENT -> SERVER: AUTH LOGIN
+
+[2025-06-25 12:48:25] PHPMailer [2]: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+[2025-06-25 12:48:25] PHPMailer [1]: CLIENT -> SERVER: c3VjY2Vzc0BlbGV2ZW5wbHVzZW5nbGlzaC5jby51aw==
+
+[2025-06-25 12:48:25] PHPMailer [2]: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+[2025-06-25 12:48:25] PHPMailer [1]: CLIENT -> SERVER: TW9uZGF5QDEyMw==
+
+[2025-06-25 12:48:25] PHPMailer [2]: SERVER -> CLIENT: 235 Authentication succeeded
+
+[2025-06-25 12:48:25] PHPMailer [1]: CLIENT -> SERVER: MAIL FROM:<success@elevenplusenglish.co.uk>
+
+[2025-06-25 12:48:25] PHPMailer [2]: SERVER -> CLIENT: 250 OK
+
+[2025-06-25 12:48:25] PHPMailer [1]: CLIENT -> SERVER: RCPT TO:<sfs662001@yahoo.com>
+
+[2025-06-25 12:48:25] PHPMailer [2]: SERVER -> CLIENT: 250 Accepted
+
+[2025-06-25 12:48:25] PHPMailer [1]: CLIENT -> SERVER: DATA
+
+[2025-06-25 12:48:26] PHPMailer [2]: SERVER -> CLIENT: 354 Enter message, ending with "." on a line by itself
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: Date: Wed, 25 Jun 2025 12:48:23 +0200
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: To: Safrina Saran <sfs662001@yahoo.com>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: From: Success At 11 Plus English <success@elevenplusenglish.co.uk>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: Reply-To: Success At 11 Plus English <success@elevenplusenglish.co.uk>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: Subject: Trial Class Application
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: Message-ID: <9413d2d6a53f7a63961962dfb260e4f1@localhost>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: X-Mailer: PHPMailer 5.2.28 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: Content-Type: multipart/alternative;
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: 	boundary="b1_9413d2d6a53f7a63961962dfb260e4f1"
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: This is a multi-part message in MIME format.
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: --b1_9413d2d6a53f7a63961962dfb260e4f1
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: Name: sadasd
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: Phone: 98456413223
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: Email: sagosmsr@gmail.com
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: Year Group: Year 5
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: Module Interest: Creative Writing
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: Message: asdasdadadds
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: --b1_9413d2d6a53f7a63961962dfb260e4f1
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER:         <html>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER:         <body style="font-family: Arial, sans-serif; line-height: 1.6;">
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER:             <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER:                 <h2 style="color: #6e20a7; border-bottom: 2px solid #eee; padding-bottom: 10px;">New Enquiry Received</h2>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Name:</strong> sadasd</p>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Phone:</strong> 98456413223</p>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Email:</strong> sagosmsr@gmail.com</p>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Year Group:</strong> Year 5</p>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Module Interest:</strong> Creative Writing</p>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Message:</strong> asdasdadadds</p>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER:                 <p style="font-size: 12px; color: #777; margin-top: 30px;">This message was sent from the Success at 11 Plus English website.</p>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER:             </div>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER:         </body>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER:         </html>
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: --b1_9413d2d6a53f7a63961962dfb260e4f1--
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: .
+
+[2025-06-25 12:48:26] PHPMailer [2]: SERVER -> CLIENT: 250 OK id=1uUNg2-00000000VVU-2itu
+
+[2025-06-25 12:48:26] PHPMailer [1]: CLIENT -> SERVER: QUIT
+
+[2025-06-25 12:48:26] PHPMailer [2]: SERVER -> CLIENT: 221 164.29.205.92.host.secureserver.net closing connection
+
+[2025-06-25 12:48:26] Email sent successfully to: sagosmsr@gmail.com
+[2025-06-25 12:57:12] Form submission received - POST data: Array
+(
+    [eqName] => Jon Stewart Doe
+    [eqMail] => sagosmsr@gmail.com
+    [eqPhone] => 6019521325
+    [eqApply] => Year 4
+    [eqModule] => Comprehension
+    [eqMsg] => asdasd
+)
+
+[2025-06-25 12:57:12] Is AJAX request: Yes
+[2025-06-25 12:57:12] Form submission detected - processing now
+[2025-06-25 12:57:12] Processing form data: Name=Jon Stewart Doe, Email=sagosmsr@gmail.com, Phone=6019521325, Apply=Year 4, Module=Comprehension
+[2025-06-25 12:57:52] PHPMailer [2]: SERVER -> CLIENT: 220-164.29.205.92.host.secureserver.net ESMTP Exim 4.98.2 #2 Wed, 25 Jun 2025 10:57:52 +0000 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+
+[2025-06-25 12:57:52] PHPMailer [1]: CLIENT -> SERVER: EHLO localhost
+
+[2025-06-25 12:57:53] PHPMailer [2]: SERVER -> CLIENT: 250-164.29.205.92.host.secureserver.net Hello localhost [103.163.248.188]
+250-SIZE 52428800
+250-LIMITS MAILMAX=1000 RCPTMAX=50000
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+
+[2025-06-25 12:57:53] PHPMailer [1]: CLIENT -> SERVER: AUTH LOGIN
+
+[2025-06-25 12:57:53] PHPMailer [2]: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+[2025-06-25 12:57:53] PHPMailer [1]: CLIENT -> SERVER: c3VjY2Vzc0BlbGV2ZW5wbHVzZW5nbGlzaC5jby51aw==
+
+[2025-06-25 12:57:53] PHPMailer [2]: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+[2025-06-25 12:57:53] PHPMailer [1]: CLIENT -> SERVER: TW9uZGF5QDEyMw==
+
+[2025-06-25 12:57:53] PHPMailer [2]: SERVER -> CLIENT: 235 Authentication succeeded
+
+[2025-06-25 12:57:53] PHPMailer [1]: CLIENT -> SERVER: MAIL FROM:<success@elevenplusenglish.co.uk>
+
+[2025-06-25 12:57:54] PHPMailer [2]: SERVER -> CLIENT: 250 OK
+
+[2025-06-25 12:57:54] PHPMailer [1]: CLIENT -> SERVER: RCPT TO:<sfs662001@yahoo.com>
+
+[2025-06-25 12:58:04] PHPMailer [2]: SERVER -> CLIENT: 250 Accepted
+
+[2025-06-25 12:58:04] PHPMailer [1]: CLIENT -> SERVER: DATA
+
+[2025-06-25 12:58:05] PHPMailer [2]: SERVER -> CLIENT: 354 Enter message, ending with "." on a line by itself
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: Date: Wed, 25 Jun 2025 12:57:12 +0200
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: To: Safrina Saran <sfs662001@yahoo.com>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: From: Success At 11 Plus English <success@elevenplusenglish.co.uk>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: Reply-To: Success At 11 Plus English <success@elevenplusenglish.co.uk>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: Subject: Trial Class Application
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: Message-ID: <afcf46bfbef1bcfd760191da0352cad0@localhost>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: X-Mailer: PHPMailer 5.2.28 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: Content-Type: multipart/alternative;
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: 	boundary="b1_afcf46bfbef1bcfd760191da0352cad0"
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: This is a multi-part message in MIME format.
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: --b1_afcf46bfbef1bcfd760191da0352cad0
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: Name: Jon Stewart Doe
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: Phone: 6019521325
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: Email: sagosmsr@gmail.com
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: Year Group: Year 4
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: Module Interest: Comprehension
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: Message: asdasd
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: --b1_afcf46bfbef1bcfd760191da0352cad0
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER:         <html>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER:         <body style="font-family: Arial, sans-serif; line-height: 1.6;">
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER:             <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER:                 <h2 style="color: #6e20a7; border-bottom: 2px solid #eee; padding-bottom: 10px;">New Enquiry Received</h2>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Name:</strong> Jon Stewart Doe</p>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Phone:</strong> 6019521325</p>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Email:</strong> sagosmsr@gmail.com</p>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Year Group:</strong> Year 4</p>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Module Interest:</strong> Comprehension</p>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Message:</strong> asdasd</p>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER:                 <p style="font-size: 12px; color: #777; margin-top: 30px;">This message was sent from the Success at 11 Plus English website.</p>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER:             </div>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER:         </body>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER:         </html>
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: --b1_afcf46bfbef1bcfd760191da0352cad0--
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: .
+
+[2025-06-25 12:58:05] PHPMailer [2]: SERVER -> CLIENT: 250 OK id=1uUNpN-00000000Vj9-1QYd
+
+[2025-06-25 12:58:05] PHPMailer [1]: CLIENT -> SERVER: QUIT
+
+[2025-06-25 12:58:05] PHPMailer [2]: SERVER -> CLIENT: 221 164.29.205.92.host.secureserver.net closing connection
+
+[2025-06-25 12:58:05] Admin notification email sent.
+[2025-06-25 13:02:14] Form submission received - POST data: Array
+(
+    [eqTry] => 1
+    [eqName] => Jon Stewart Doe
+    [eqMail] => sagosmsr@gmail.com
+    [eqPhone] => 6019521325
+    [eqApply] => Year 4
+    [eqModule] => Creative Writing
+    [eqMsg] => dfdsfsfsfsdf
+)
+
+[2025-06-25 13:02:14] Is AJAX request: Yes
+[2025-06-25 13:02:14] Form submission detected - processing now
+[2025-06-25 13:02:14] Processing form data: Name=Jon Stewart Doe, Email=sagosmsr@gmail.com, Phone=6019521325, Apply=Year 4, Module=Creative Writing
+[2025-06-25 13:02:17] Auto-response email sent to user: sagosmsr@gmail.com
+[2025-06-25 13:02:17] PHPMailer [2]: SERVER -> CLIENT: 220-164.29.205.92.host.secureserver.net ESMTP Exim 4.98.2 #2 Wed, 25 Jun 2025 11:02:18 +0000 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+
+[2025-06-25 13:02:17] PHPMailer [1]: CLIENT -> SERVER: EHLO localhost
+
+[2025-06-25 13:02:18] PHPMailer [2]: SERVER -> CLIENT: 250-164.29.205.92.host.secureserver.net Hello localhost [103.163.248.188]
+250-SIZE 52428800
+250-LIMITS MAILMAX=1000 RCPTMAX=50000
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+
+[2025-06-25 13:02:18] PHPMailer [1]: CLIENT -> SERVER: AUTH LOGIN
+
+[2025-06-25 13:02:18] PHPMailer [2]: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+[2025-06-25 13:02:18] PHPMailer [1]: CLIENT -> SERVER: c3VjY2Vzc0BlbGV2ZW5wbHVzZW5nbGlzaC5jby51aw==
+
+[2025-06-25 13:02:18] PHPMailer [2]: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+[2025-06-25 13:02:18] PHPMailer [1]: CLIENT -> SERVER: TW9uZGF5QDEyMw==
+
+[2025-06-25 13:02:18] PHPMailer [2]: SERVER -> CLIENT: 235 Authentication succeeded
+
+[2025-06-25 13:02:18] PHPMailer [1]: CLIENT -> SERVER: MAIL FROM:<success@elevenplusenglish.co.uk>
+
+[2025-06-25 13:02:18] PHPMailer [2]: SERVER -> CLIENT: 250 OK
+
+[2025-06-25 13:02:18] PHPMailer [1]: CLIENT -> SERVER: RCPT TO:<sfs662001@yahoo.com>
+
+[2025-06-25 13:02:18] PHPMailer [2]: SERVER -> CLIENT: 250 Accepted
+
+[2025-06-25 13:02:18] PHPMailer [1]: CLIENT -> SERVER: DATA
+
+[2025-06-25 13:02:19] PHPMailer [2]: SERVER -> CLIENT: 354 Enter message, ending with "." on a line by itself
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: Date: Wed, 25 Jun 2025 13:02:17 +0200
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: To: Safrina Saran <sfs662001@yahoo.com>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: From: Success At 11 Plus English <success@elevenplusenglish.co.uk>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: Reply-To: Success At 11 Plus English <success@elevenplusenglish.co.uk>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: Subject: Trial Class Application
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: Message-ID: <cdb6b764d6821763f5b6a75bdbb86f02@localhost>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: X-Mailer: PHPMailer 5.2.28 (https://github.com/PHPMailer/PHPMailer)
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: MIME-Version: 1.0
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: Content-Type: multipart/alternative;
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: 	boundary="b1_cdb6b764d6821763f5b6a75bdbb86f02"
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: This is a multi-part message in MIME format.
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: --b1_cdb6b764d6821763f5b6a75bdbb86f02
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: Name: Jon Stewart Doe
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: Phone: 6019521325
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: Email: sagosmsr@gmail.com
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: Year Group: Year 4
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: Module Interest: Creative Writing
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: Message: dfdsfsfsfsdf
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: --b1_cdb6b764d6821763f5b6a75bdbb86f02
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER:         <html>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER:         <body style="font-family: Arial, sans-serif; line-height: 1.6;">
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER:             <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER:                 <h2 style="color: #6e20a7; border-bottom: 2px solid #eee; padding-bottom: 10px;">New Enquiry Received</h2>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Name:</strong> Jon Stewart Doe</p>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Phone:</strong> 6019521325</p>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Email:</strong> sagosmsr@gmail.com</p>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Year Group:</strong> Year 4</p>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Module Interest:</strong> Creative Writing</p>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER:                 <p><strong>Message:</strong> dfdsfsfsfsdf</p>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER:                 <p style="font-size: 12px; color: #777; margin-top: 30px;">This message was sent from the Success at 11 Plus English website.</p>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER:             </div>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER:         </body>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER:         </html>
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: --b1_cdb6b764d6821763f5b6a75bdbb86f02--
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: 
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: .
+
+[2025-06-25 13:02:19] PHPMailer [2]: SERVER -> CLIENT: 250 OK id=1uUNtT-00000000Vq0-2bmf
+
+[2025-06-25 13:02:19] PHPMailer [1]: CLIENT -> SERVER: QUIT
+
+[2025-06-25 13:02:19] PHPMailer [2]: SERVER -> CLIENT: 221 164.29.205.92.host.secureserver.net closing connection
+
+[2025-06-25 13:02:19] Admin notification email sent.

@@ -147,14 +147,14 @@ function createMailer() {
     require_once $smtpClass;
     
     $mail = new PHPMailer;
-    
-    // Optimized SMTP configuration
+    // Production SMTP configuration
     $mail->isSMTP();
-    $mail->Host = 'sandbox.smtp.mailtrap.io';
+    $mail->Host = 'mail.elevenplusenglish.co.uk';
     $mail->SMTPAuth = true;
-    $mail->Port = 2525;
-    $mail->Username = '49c99e63f1b312';
-    $mail->Password = 'a8f396dbd198bb';
+    $mail->Port = 465;
+    $mail->Username = 'success@elevenplusenglish.co.uk';
+    $mail->Password = 'Monday@123';
+    $mail->SMTPSecure = 'ssl';
     $mail->SMTPKeepAlive = true; // Keep connection alive for multiple emails
     $mail->SMTPOptions = array(
         'ssl' => array(
@@ -163,12 +163,13 @@ function createMailer() {
             'allow_self_signed' => true
         )
     );
-    
     // Performance optimizations
     $mail->CharSet = 'UTF-8';
     $mail->Encoding = 'base64';
     $mail->isHTML(true);
-    
+    // Set sender and reply-to for all newsletters
+    $mail->setFrom('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
+    $mail->addReplyTo('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
     return ['success' => true, 'mailer' => $mail];
 }
 
@@ -270,8 +271,8 @@ try {
     </body>
     </html>';
       // Set common email properties
-    $mail->setFrom('test@successat11plusenglish.com', 'Success At 11 Plus English');
-    $mail->addReplyTo('test@successat11plusenglish.com', 'Success At 11 Plus English');
+    $mail->setFrom('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
+    $mail->addReplyTo('success@elevenplusenglish.co.uk', 'Success At 11 Plus English');
     $mail->Subject = 'Newsletter: ' . $title;
     
     $sentCount = 0;
