@@ -1144,6 +1144,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                         class="badge bg-light text-dark border mb-2 me-2 p-2 fs-6 d-flex align-items-center">
                                         <i class="bi bi-book-half text-blue me-2"></i> Quality Resources
                                     </span                                    <span
+
                                         class="badge bg-light text-dark border mb-2 me-2 p-2 fs-6 d-flex align-items-center">
                                         <i class="bi bi-people-fill text-blue me-2"></i> Small Classes
                                     </span>
@@ -1330,10 +1331,10 @@ if (session_status() === PHP_SESSION_NONE) {
                                                     </div>
                                                 </div>
                                                 
-                                                <p class="text-muted mb-0 small">
+                                                <!-- <p class="text-muted mb-0 small">
                                                     <i class="bi bi-shield-check me-2"></i>
                                                     Choose your preferred tips above • Instant email delivery • No spam guarantee
-                                                </p>
+                                                </p> -->
                                             </div>
                                         </div>
                                     </div>
@@ -1342,8 +1343,23 @@ if (session_status() === PHP_SESSION_NONE) {
                         </div>
                     </section>
 
-     
-    </main>
+    <!-- Join Us on Facebook Section -->
+    <section class="join-facebook-section py-5" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-top: 3px solid #F59E0B; border-bottom: 3px solid #1E40AF;">
+        <div class="container text-center">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <div class="mb-3">
+                    <a href="https://www.facebook.com/share/19RVmRXYL6/?mibextid=wwXIfr" target="_blank" rel="noopener" class="d-inline-flex align-items-center justify-content-center" style="background: #fff; border-radius: 50%; width: 70px; height: 70px; box-shadow: 0 4px 16px rgba(30,64,175,0.10); border: 2px solid #F59E0B; transition: box-shadow 0.3s;">
+                        <i class="fab fa-facebook-f" style="font-size: 2.2rem; color: #1E40AF;"></i>
+                    </a>
+                </div>
+                <h3 class="fw-bold mb-2" style="color: #1E40AF; letter-spacing: 1px;">Join Us on Facebook</h3>
+                <p class="mb-3 fs-5 text-muted" style="max-width: 500px; margin: 0 auto;">Become part of our supportive community! Get updates, tips, and connect with other parents and students. Click below to follow us for the latest news and resources.</p>
+                <a href="https://www.facebook.com/share/19RVmRXYL6/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn btn-primary btn-lg px-4 shadow" style="background: #1E40AF; border: none; font-weight: 600; border-radius: 30px; letter-spacing: 0.5px;">
+                    <i class="fab fa-facebook-f me-2"></i>Follow on Facebook
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <?php include('footer.php'); ?>

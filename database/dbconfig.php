@@ -13,7 +13,6 @@ if (!$connection) {
 // Global site constants
 if (!defined('BASE_URL')) define('BASE_URL', 'http://localhost/SuccessAt11PlusEnglish/');
 if (!defined('SITE_NAME')) define('SITE_NAME', 'Success At 11 Plus English');
-if (!defined('ADMIN_EMAIL')) define('ADMIN_EMAIL', 'admin@successat11plusenglish.com');
 // Global session timeout (4 hours)
 if (!defined('SESSION_TIMEOUT')) define('SESSION_TIMEOUT', 14400);
 if (!defined('MAX_FILE_SIZE')) define('MAX_FILE_SIZE', 50 * 1024 * 1024); // 50MB default

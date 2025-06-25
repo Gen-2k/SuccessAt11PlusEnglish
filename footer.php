@@ -87,16 +87,14 @@
             transition: var(--transition);
         }
 
-        .footer-logo:hover img {
-            filter: drop-shadow(0 6px 16px rgba(30, 64, 175, 0.4));
-            transform: scale(1.02);
-        }
-
         .footer-brand-text {
             margin-left: 1.5rem;
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
             line-height: 1.1;
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            letter-spacing: -0.02em;
         }
 
         .footer-brand-text .main-text {
@@ -453,21 +451,21 @@
                 <div class="row">
                     <!-- Logo & Brand -->
                     <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="footer-logo">
-                            <img src="./assets/logo/success-logo.png" alt="Success At 11 Plus English logo">
-                            <div class="footer-brand-text">
-                                <span class="main-text">Success At 11 Plus</span>
-                                <span class="sub-text">English</span>
+                        <div class="footer-logo" style="display: flex; align-items: center; margin-bottom: 2rem; gap: 1.2rem;">
+                            <img src="./assets/logo/success logo2.png" alt="Success At 11 Plus English logo" class="img-fluid" style="height: 70px; width: auto;">
+                            <div class="footer-brand-text" style="display: flex; flex-direction: column; justify-content: center;">
+                                <span style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.7rem; color: #1E40AF; line-height: 1.1; letter-spacing: 0.01em;">Success At 11 Plus</span>
+                                <span style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.7rem; color: #F59E0B; line-height: 1.1; margin-top: -2px; letter-spacing: 0.01em;">English</span>
                             </div>
                         </div>
                         <p class="footer-description">
                             Empowering students to achieve excellence in their 11 Plus English examinations through expert tutoring, comprehensive learning resources, and personalized support.
                         </p>
-                        <div class="social-links">
+                        <!-- <div class="social-links">
                             <a href="https://www.facebook.com/share/19RVmRXYL6/?mibextid=wwXIfr" class="social-link" aria-label="Facebook">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <!-- <a href="https://linkedin.com/in/safrina-saran-2071a8141" class="social-link" aria-label="LinkedIn">
+                            <a href="https://linkedin.com/in/safrina-saran-2071a8141" class="social-link" aria-label="LinkedIn">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                             <a href="https://www.instagram.com/smile_4_kids_indian_languages/" class="social-link" aria-label="Instagram">
@@ -475,8 +473,8 @@
                             </a>
                             <a href="https://www.google.com/search?q=smile+4+kids" class="social-link" aria-label="Google">
                                 <i class="fab fa-google"></i>
-                            </a> -->
-                        </div>
+                            </a>
+                        </div> -->
                     </div>
 
                     <!-- Quick Links -->
