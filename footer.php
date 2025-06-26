@@ -442,6 +442,60 @@
                 font-size: 1.1rem;
             }
         }
+
+        /* Newsletter Footer Card */
+        .newsletter-footer-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-footer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30, 64, 175, 0.05), transparent);
+            transition: var(--transition);
+        }
+
+        .newsletter-footer-card:hover::before {
+            left: 100%;
+        }
+
+        .newsletter-footer-card button:hover {
+            background: linear-gradient(135deg, #1E3A8A, #1E40AF) !important;
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 12px 35px -5px rgba(30, 64, 175, 0.5) !important;
+        }
+
+        /* Mobile responsiveness for newsletter card */
+        @media (max-width: 768px) {
+            .newsletter-footer-card {
+                padding: 2rem 1.5rem !important;
+                margin: 0 1rem;
+            }
+            
+            .newsletter-footer-card h3 {
+                font-size: 1.5rem !important;
+            }
+            
+            .newsletter-footer-card p {
+                font-size: 1rem !important;
+            }
+            
+            .newsletter-footer-card .newsletter-icon div {
+                width: 60px !important;
+                height: 60px !important;
+            }
+            
+            .newsletter-footer-card .newsletter-icon i {
+                font-size: 1.5rem !important;
+            }
+        }
+
+        /* Mobile Responsiveness */
     </style>
 
 <footer class="main-footer">
@@ -511,6 +565,30 @@
                                 <li><a href="./Safeguarding.php"><i class="fas fa-user-shield"></i>Safeguarding</a></li>
                                 <li><a href="./Remoteteaching.php"><i class="fas fa-laptop"></i>Remote Teaching</a></li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Newsletter Subscription Section -->
+                <div class="row justify-content-center mt-4 pt-3" style="border-top: 1px solid #E5E7EB;">
+                    <div class="col-lg-10 col-xl-9">
+                        <div class="newsletter-footer-card text-center p-3 p-md-4" style="background: rgba(30, 64, 175, 0.02); border: 1px solid #DBEAFE; border-radius: 12px;">
+                            <div class="d-flex align-items-center justify-content-center flex-wrap gap-3">
+                                <div class="newsletter-icon">
+                                    <div style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #1E40AF, #3B82F6); border-radius: 50%;">
+                                        <i class="fas fa-envelope" style="font-size: 1.2rem; color: white;"></i>
+                                    </div>
+                                </div>
+                                <div class="newsletter-content flex-grow-1">
+                                    <h4 class="fw-bold mb-1" style="color: #1E40AF; font-family: 'Poppins', sans-serif; font-size: 1.3rem;">Stay Updated</h4>
+                                    <p class="mb-0" style="color: #4B5563; font-size: 0.95rem;">Get expert tips and updates delivered to your inbox</p>
+                                </div>
+                                <div class="newsletter-action">
+                                    <button type="button" class="btn btn-primary" id="openNewsletterPopupBtn" style="padding: 0.6rem 1.5rem; font-weight: 600; border-radius: 8px; font-size: 0.95rem;">
+                                        <i class="fas fa-paper-plane me-1"></i>Subscribe
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

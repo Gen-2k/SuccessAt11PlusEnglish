@@ -1,9 +1,9 @@
-// index.js - extracted from index.php
+// index.js - Refactored and Corrected
 
-// DOM ready execution
-(function () {
-    document.addEventListener('DOMContentLoaded', function () {
-        // Our Classes Popup Logic
+(function ($) {
+    // Use jQuery's DOM ready for consistency since it's a dependency
+    $(function () {
+        // --- Our Classes Popup Logic ---
         const classTriggers = {
             'spag-main': '.spag',
             'creative-writing-main': '.creative-writing',
@@ -12,284 +12,196 @@
             'late-Teens-main': '.Late-teens'
         };
 
-        // Add event listeners to trigger elements
-        Object.keys(classTriggers).forEach(triggerClass => {
-            const triggerElement = document.querySelector('.' + triggerClass);
-            const targetPopupSelector = classTriggers[triggerClass];
-            const targetPopup = document.querySelector(targetPopupSelector);
-            if (triggerElement && targetPopup) {
-                triggerElement.addEventListener('click', e => {
-                    e.preventDefault();
-                    targetPopup.classList.add('active');
-                    document.body.classList.add('popup-open');
-                    const closeBtn = targetPopup.querySelector('.btn-close');
-                    if (closeBtn) closeBtn.focus();
-                });
+        // REFACTOR: More efficient click handler for class cards
+        $('.class-card').on('click', function (e) {
+            e.preventDefault();
+            const card = $(this);
+            // Find the matching trigger class from our map
+            for (const triggerClass in classTriggers) {
+                if (card.hasClass(triggerClass)) {
+                    const popupSelector = classTriggers[triggerClass];
+                    const $popup = $(popupSelector);
+                    if ($popup.length) {
+                        $popup.addClass('active');
+                        $('body').addClass('popup-open');
+                        $popup.find('.btn-close').trigger('focus');
+                    }
+                    break; // Exit loop once a match is found
+                }
             }
         });
 
-        // Add event listeners to close buttons
-        document.querySelectorAll('.ourClassContainer .btn-close').forEach(button => {
-            button.addEventListener('click', () => {
-                const popup = button.closest('.ourClassContainer');
-                if (popup) {
-                    popup.classList.remove('active');
-                    document.body.classList.remove('popup-open');
-                }
-            });
+        // Add event listeners to close buttons for "Our Classes" popups
+        $('.ourClassContainer .btn-close').on('click', function () {
+            $(this).closest('.ourClassContainer').removeClass('active');
+            // Check if any other popups are open before removing the body class
+            if ($('.ourClassContainer.active, .newsLetterContainer.active').length === 0) {
+                $('body').removeClass('popup-open');
+            }
         });
 
-        // Close popups on Escape key press
-        document.addEventListener('keydown', event => {
+
+        // --- Newsletter Popup Logic ---
+        const $newsLetterContainer = $('.newsLetterContainer');
+        const $formTitle = $('#formTitle');
+        const $formDescription = $('#formDescription');
+        const $tipTypeInput = $('#tipType');
+        const $newsForm = $('#newsPop');
+
+        const DEFAULT_FORM_TITLE = 'Subscribe to our Newsletter';
+        const DEFAULT_FORM_DESCRIPTION = 'Enter your details below to subscribe to our newsletter and receive updates.';
+
+        function openNewsletterPopup(type = '') {
+            if (!$newsLetterContainer.length) return;
+
+            // Reset form state every time it opens
+            $newsForm[0].reset();
+            $newsForm.find('.form-control').removeClass('is-valid is-invalid');
+            $newsForm.find('span').text('').css('color', '');
+            $newsForm.find('button[type="submit"]').prop('disabled', false);
+
+            // Configure popup content based on type
+            if (type === 'comprehension_creative_writing') {
+                $formTitle.text('Get Your FREE Comprehension & Creative Writing Tips');
+                $formDescription.text('Expert strategies for 11+ exam success. Enter your details below to receive your tips.');
+                $tipTypeInput.val('comprehension_creative_writing');
+                $newsForm.find('button[type="submit"]').text('GET MY FREE TIPS');
+            } else if (type === 'reading_tips') {
+                $formTitle.text('Get Your FREE Reading Tips for Parents');
+                $formDescription.text('A guide to help your child love reading. Enter your details below to receive your tips.');
+                $tipTypeInput.val('reading_tips');
+                $newsForm.find('button[type="submit"]').text('GET MY FREE TIPS');
+            } else {
+                $formTitle.text(DEFAULT_FORM_TITLE);
+                $formDescription.text(DEFAULT_FORM_DESCRIPTION);
+                $tipTypeInput.val('');
+                $newsForm.find('button[type="submit"]').text('Subscribe');
+            }
+
+            $newsLetterContainer.addClass('active');
+            $('body').addClass('popup-open');
+            setTimeout(() => $('#n_name').trigger('focus'), 100);
+        }
+
+        // --- Event Listeners for Opening/Closing Popups ---
+        $('#sendMeBtn').on('click', () => openNewsletterPopup('comprehension_creative_writing'));
+        $('.reading-tips-btn').on('click', () => openNewsletterPopup('reading_tips'));
+        $('#openNewsletterPopupBtn').on('click', () => openNewsletterPopup());
+
+        // Close newsletter popup via close button or backdrop click
+        $newsLetterContainer.on('click', function (event) {
+            if (event.target === this || $(event.target).hasClass('btn-close')) {
+                $newsLetterContainer.removeClass('active');
+                if ($('.ourClassContainer.active').length === 0) {
+                    $('body').removeClass('popup-open');
+                }
+            }
+        });
+        
+        // CONSOLIDATED: Single 'Escape' key listener for all popups
+        $(document).on('keydown', function (event) {
             if (event.key === 'Escape') {
-                document.querySelectorAll('.ourClassContainer.active, .newsLetterContainer.active').forEach(popup => {
-                    popup.classList.remove('active');
-                });
-                document.body.classList.remove('popup-open');
+                $('.ourClassContainer.active, .newsLetterContainer.active').removeClass('active');
+                $('body').removeClass('popup-open');
             }
         });
 
-        // Newsletter Popup Logic
-        const sendBtn = document.getElementById('sendMeBtn');
-        const readingTipsMainBtn = document.querySelector('.reading-tips-btn');
-        const newsLetterContainer = document.querySelector('.newsLetterContainer');
-        const newsCloseBtn = newsLetterContainer ? newsLetterContainer.querySelector('.btn-close') : null;
-        const formTitle = document.getElementById('formTitle');
-        const formDescription = document.getElementById('formDescription');
-        const tipTypeInput = document.getElementById('tipType');
+        // --- Newsletter Form AJAX Submission ---
+        $newsForm.on('submit', function (e) {
+            e.preventDefault();
+            const $form = $(this);
+            const name = $('#n_name').val().trim();
+            const email = $('#n_email').val().trim();
+            const $submitButton = $form.find('button[type="submit"]');
+            
+            // Basic client-side validation
+            let isValid = true;
+            $form.find('.form-control').removeClass('is-invalid is-valid');
+            $form.find('span').text('').css('color', '');
 
-        function openNewsletterPopup(type) {
-            if (!newsLetterContainer) return;
-            newsLetterContainer.classList.add('active');
-            document.body.classList.add('popup-open');
-            if (formTitle && formDescription && tipTypeInput) {
-                if (type === 'comprehension_creative_writing') {
-                    formTitle.textContent = 'Get Your FREE Comprehension & Creative Writing Tips';
-                    formDescription.textContent = 'Expert strategies for 11+ exam success. Enter your details below to receive your tips.';
-                    tipTypeInput.value = 'comprehension_creative_writing';
-                } else if (type === 'reading_tips') {
-                    formTitle.textContent = 'Get Your FREE Reading Tips for Parents';
-                    formDescription.textContent = 'A guide to help your child love reading. Enter your details below to receive your tips.';
-                    tipTypeInput.value = 'reading_tips';
-                }
+            if (name === '') {
+                $('#n_name').addClass('is-invalid');
+                isValid = false;
+            } else {
+                $('#n_name').addClass('is-valid');
             }
-            setTimeout(() => {
-                const nameInput = document.getElementById('n_name');
-                if (nameInput) nameInput.focus();
-            }, 100);
-        }
 
-        if (sendBtn) {
-            sendBtn.addEventListener('click', () => openNewsletterPopup('comprehension_creative_writing'));
-        }
-        if (readingTipsMainBtn) {
-            readingTipsMainBtn.addEventListener('click', () => openNewsletterPopup('reading_tips'));
-        }
-        if (newsCloseBtn) {
-            newsCloseBtn.addEventListener('click', () => {
-                newsLetterContainer.classList.remove('active');
-                document.body.classList.remove('popup-open');
-            });
-        }
-        if (newsLetterContainer) {
-            newsLetterContainer.addEventListener('click', event => {
-                if (event.target === newsLetterContainer) {
-                    newsLetterContainer.classList.remove('active');
-                    document.body.classList.remove('popup-open');
-                }
-            });
-        }
+            if (email === '') {
+                $('#n_email').addClass('is-invalid').siblings('span').text('Email is required.').css('color', 'red');
+                isValid = false;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                $('#n_email').addClass('is-invalid').siblings('span').text('Please enter a valid email address.').css('color', 'red');
+                isValid = false;
+            } else {
+                $('#n_email').addClass('is-valid').siblings('span').text('We will not share your email with anyone.').css('color', '');
+            }
 
-        // Also close popups when clicking outside the content
-        document.querySelectorAll('.ourClassContainer').forEach(container => {
-            container.addEventListener('click', e => {
-                if (e.target === container) {
-                    container.classList.remove('active');
-                    document.body.classList.remove('popup-open');
+            if (!isValid) return;
+
+            $submitButton.prop('disabled', true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Subscribing...');
+
+            $.ajax({
+                type: 'POST',
+                url: 'tipAction.php',
+                data: $form.serialize() + '&action=newsletter', // Use serialize for simplicity
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status === 'success') {
+                        $newsLetterContainer.removeClass('active');
+                        $('body').removeClass('popup-open');
+                        if (typeof toastr !== 'undefined') {
+                            toastr.success(response.message || 'Successfully subscribed!', { timeOut: 5000 });
+                        }
+                    } else {
+                        // FIX: Keep the modal open on error to show field-specific messages
+                        if (typeof toastr !== 'undefined') {
+                            toastr.error(response.message || 'Subscription failed. Please try again.');
+                        }
+                        if (response.field === 'email') {
+                            $('#n_email').addClass('is-invalid').removeClass('is-valid');
+                            $('#n_email').siblings('span').text(response.message).css('color', 'red');
+                        }
+                    }
+                },
+                error: function () {
+                    if (typeof toastr !== 'undefined') {
+                        toastr.error('An error occurred. Please try again later.');
+                    }
+                },
+                complete: function () {
+                    // Re-enable button and restore text
+                    const buttonText = $tipTypeInput.val() ? 'GET MY FREE TIPS' : 'Subscribe';
+                    $submitButton.prop('disabled', false).text(buttonText);
                 }
             });
         });
 
-        // Newsletter Form AJAX Submission
-        if (typeof jQuery !== 'undefined') {
-            $(document).ready(function () {
-                function handleEmailValidation(isValid, message, $emailField, $errorSpan) {
-                    const $parentDiv = $emailField.parent();
-                    if (!isValid) {
-                        $emailField.addClass('is-invalid').removeClass('is-valid');
-                        $parentDiv.addClass('form_error');
-                        $errorSpan.text(message).css('color', 'red');
-                        $emailField.val('');
-                        if (typeof toastr !== 'undefined') toastr.warning(message);
-                    } else {
-                        $emailField.removeClass('is-invalid').addClass('is-valid');
-                        $parentDiv.removeClass('form_error');
-                        if ($errorSpan.text() !== 'We will not share your email with anyone.') {
-                            $errorSpan.text('We will not share your email with anyone.').css('color', '');
-                        }
-                    }
-                }
+        // --- Component Initializations ---
 
-                $(document).on('blur', '#n_email', function () {
-                    var valmail = $(this).val().trim();
-                    var $emailField = $(this);
-                    var $errorSpan = $emailField.siblings('span');
-                    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (valmail === '') {
-                        $emailField.removeClass('is-invalid is-valid');
-                        $errorSpan.text('We will not share your email with anyone.').css('color', '');
-                        return;
-                    } else if (!emailRegex.test(valmail)) {
-                        handleEmailValidation(false, 'Please enter a valid email address.', $emailField, $errorSpan);
-                        return;
-                    }
-                    $.ajax({
-                        url: 'tipAction.php',
-                        method: 'POST',
-                        data: { check_email: valmail },
-                        dataType: 'json',
-                        success: function (rep) {
-                            if (rep.status === 'exists') {
-                                handleEmailValidation(true, 'Already Subscribed, Thank You.', $emailField, $errorSpan);
-                            } else if (rep.status === 'valid') {
-                                handleEmailValidation(true, '', $emailField, $errorSpan);
-                            } else {
-                                handleEmailValidation(true, '', $emailField, $errorSpan);
-                            }
-                        },
-                        error: function () {
-                            $emailField.removeClass('is-invalid is-valid');
-                            $errorSpan.text('Could not verify email. Please try again.').css('color', 'orange');
-                        }
-                    });
-                });
-
-                $(document).on('submit', '#newsPop', function (e) {
-                    e.preventDefault();
-                    var $form = $(this);
-                    var name = $('#n_name').val().trim();
-                    var email = $('#n_email').val().trim();
-                    var tipType = $('#tipType').val().trim();
-                    var isChecked = $('#privacyCheck').is(':checked');
-                    var $submitButton = $form.find('.subscribeBtn');
-                    var isValid = true;
-                    $form.find('.form-control').removeClass('is-invalid is-valid');
-                    $form.find('.form-check-input').removeClass('is-invalid');
-                    $form.find('span').text('').css('color', '');
-                    if (name === '') {
-                        $('#n_name').addClass('is-invalid');
-                        isValid = false;
-                    } else {
-                        $('#n_name').addClass('is-valid');
-                    }
-                    if (email === '') {
-                        $('#n_email').addClass('is-invalid');
-                        $('#n_email').siblings('span').text('Email is required.').css('color', 'red');
-                        isValid = false;
-                    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                        $('#n_email').addClass('is-invalid');
-                        $('#n_email').siblings('span').text('Please enter a valid email address.').css('color', 'red');
-                        isValid = false;
-                    } else {
-                        $('#n_email').addClass('is-valid');
-                        $('#n_email').siblings('span').text('We will not share your email with anyone.').css('color', '');
-                    }
-                    if (!isChecked) {
-                        if (typeof toastr !== 'undefined') toastr.error('Please check the privacy policy box.');
-                        return;
-                    }
-                    if (!isValid) {
-                        return;
-                    }
-                    $submitButton.prop('disabled', true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Subscribing...');
-                    $.ajax({
-                        type: 'POST',
-                        url: 'tipAction.php',
-                        data: {
-                            n_name: name,
-                            n_email: email,
-                            tip_type: tipType,
-                            action: 'newsletter'
-                        },
-                        dataType: 'json',
-                        success: function (response) {
-                            $form[0].reset();
-                            $form.find('.form-control').removeClass('is-valid is-invalid');
-                            $form.find('.form-check-input').removeClass('is-invalid');
-                            $form.find('span').text('').css('color', '');
-                            if (newsLetterContainer) {
-                                newsLetterContainer.classList.remove('active');
-                                document.body.classList.remove('popup-open');
-                            }
-                            if (response.status === 'success') {
-                                if (typeof toastr !== 'undefined') toastr.success(response.message || 'Successfully subscribed!', { timeOut: 5000 });
-                            } else {
-                                if (typeof toastr !== 'undefined') toastr.error(response.message || 'Subscription failed. Please try again.');
-                                if (response.field === 'email') {
-                                    $('#n_email').addClass('is-invalid').removeClass('is-valid');
-                                    $('#n_email').siblings('span').text(response.message).css('color', 'red');
-                                }
-                            }
-                        },
-                        error: function () {
-                            if (typeof toastr !== 'undefined') toastr.error('An error occurred during subscription. Please try again later.');
-                        },
-                        complete: function () {
-                            $submitButton.prop('disabled', false).text('GET MY FREE TIPS');
-                        }
-                    });
-                });
-            });
-        } else {
-            console.error('jQuery is not loaded. Newsletter form submission might not work.');
-        }
-
-        // Initialize Bootstrap components if needed
-        const CarouselElements = document.querySelectorAll('.Carousel');
-        if (CarouselElements.length > 0 && typeof bootstrap !== 'undefined') {
-            CarouselElements.forEach(element => {
-                new bootstrap.Carousel(element, {
-                    interval: 8000,
-                    ride: 'Carousel'
-                });
+        // FIX: Corrected Bootstrap Carousel initialization
+        const $carouselElement = $('.carousel'); // Lowercase 'c'
+        if ($carouselElement.length && typeof bootstrap !== 'undefined') {
+            new bootstrap.Carousel($carouselElement[0], {
+                interval: 5000, // interval should be a number
+                ride: 'carousel'  // Lowercase 'c'
             });
         }
-
-        // Make entire class cards clickable
-        document.querySelectorAll('.class-card').forEach(card => {
-            card.addEventListener('click', function () {
-                for (const triggerClass in classTriggers) {
-                    if (this.classList.contains(triggerClass)) {
-                        const popup = document.querySelector(classTriggers[triggerClass]);
-                        if (popup) {
-                            popup.classList.add('active');
-                            document.body.classList.add('popup-open');
-                            const closeBtn = popup.querySelector('.btn-close');
-                            if (closeBtn) closeBtn.focus();
-                        }
-                        break;
-                    }
-                }
-            });
-        });
 
         // Scroll indicator functionality
-        const scrollIndicator = document.getElementById('scrollIndicator');
-        if (scrollIndicator) {
-            scrollIndicator.addEventListener('click', function () {
-                const nextSection = document.querySelector('.hero-section')?.nextElementSibling;
-                if (nextSection) {
-                    nextSection.scrollIntoView({ behavior: 'smooth' });
+        const scrollIndicator = $('#scrollIndicator');
+        if (scrollIndicator.length) {
+            scrollIndicator.on('click', function () {
+                const nextSection = $('.hero-section').next();
+                if (nextSection.length) {
+                    $('html, body').animate({
+                        scrollTop: nextSection.offset().top
+                    }, 'smooth');
                 }
             });
-            window.addEventListener('scroll', function () {
-                if (window.scrollY > 100) {
-                    scrollIndicator.style.opacity = '0';
-                    scrollIndicator.style.transition = 'opacity 0.3s ease';
-                } else {
-                    scrollIndicator.style.opacity = '1';
-                }
+
+            $(window).on('scroll', function () {
+                scrollIndicator.css('opacity', $(window).scrollTop() > 100 ? '0' : '1');
             });
         }
     });
-})();
+})(jQuery);

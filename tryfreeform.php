@@ -520,31 +520,31 @@ if (isset($_SESSION['status']) && isset($_SESSION['status_code'])) {
                 error: function(xhr, status, error) {
                     console.error('Error:', status, error);
                     console.error('Response text:', xhr.responseText);
-                    
+
                     // Reset the button
                     submitBtn.html(originalBtnText);
                     submitBtn.prop('disabled', false);
-                    
-                    // Try to parse the response
+
+                    // Determine error message
                     let errorMessage = 'There was a problem submitting your application. Please try again or contact us directly.';
-                    try {
-                        const response = JSON.parse(xhr.responseText);
-                        if (response && response.message) {
-                            errorMessage = response.message;
-                        }
-                    } catch (e) {
-                        // If there's an issue with parsing, try to extract error from the raw response
-                        if (xhr.responseText && xhr.responseText.includes('error')) {
-                            errorMessage = 'Server error: ' + xhr.responseText.substring(0, 100) + '...';
-                        }
+                    // Check if the response is JSON and contains a message
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        errorMessage = xhr.responseJSON.message;
+                    } else {
+                        // Fallback for non-JSON responses or unexpected server errors
+                        // Avoid showing raw server errors to the user
+                        errorMessage = 'A server error occurred. Please try again or contact us directly.';
                     }
-                    
-                    // Show a generic error
+
+                    // Remove any existing alerts before showing the new one
+                    $('.alert').remove();
+
+                    // Show the error
                     $('<div class="alert alert-danger mb-4">' +
                         '<i class="bi bi-exclamation-triangle-fill me-2"></i>' +
                         errorMessage +
                         '</div>').insertBefore('#trial-form button[type="submit"]');
-                        
+
                     // Scroll to error
                     $('html, body').animate({
                         scrollTop: $('.alert-danger').offset().top - 100
@@ -609,21 +609,6 @@ if (isset($_SESSION['status']) && isset($_SESSION['status_code'])) {
                 return true;
             }
         }
-        
-        // Add check before submit button is enabled
-        $('#trial-form input[required], #trial-form select[required]').on('change input blur', function() {
-            let allValid = true;
-            
-            // Check all required fields
-            $('#trial-form input[required], #trial-form select[required]').each(function() {
-                if (!validateField($(this))) {
-                    allValid = false;
-                }
-            });
-            
-            // Enable/disable submit button based on validation
-            $('#trial-form button[type="submit"]').prop('disabled', !allValid);
-        });
         
         // Clear validation on focus
         $('#trial-form input, #trial-form select, #trial-form textarea').on('focus', function() {

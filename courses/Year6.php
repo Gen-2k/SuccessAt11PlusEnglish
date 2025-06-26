@@ -514,7 +514,7 @@ p {
             <div class="module-card" id="comprehension">
                 <div class="row g-4 align-items-stretch"> <!-- Added g-4 for gutters -->
                     <div class="col-lg-5 module-image-col">
-                        <img src="assets/images/success/img13.jfif" alt="Student improving reading comprehension" />
+                        <img src="assets/images/success/img13.png" alt="Student improving reading comprehension" />
                     </div>
                     <div class="col-lg-7 module-content-col text-center text-lg-start">
                         <h3>COMPREHENSION</h3>
