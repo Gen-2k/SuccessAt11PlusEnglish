@@ -234,46 +234,57 @@ try {
     
     // Prepare email content template
     $htmlTemplate = '
-    <html>
-    <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
-        <div style="padding: 20px;">
-            <div style="text-align: center; margin-bottom: 30px;">
-                <h1 style="color: #6e20a7; margin: 0;">Success At 11 Plus English</h1>
-                <p style="color: #666; margin: 5px 0;">Newsletter</p>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Success At 11 Plus English Newsletter</title>
+      <style>
+        body { margin:0; padding:0; background:#f7f7f7; }
+        .wrapper { width:100%; table-layout:fixed; background:#f7f7f7; padding:30px 0; }
+        .main { background:#ffffff; width:100%; max-width:650px; margin:0 auto; border-radius:8px; overflow:hidden; }
+        .header { background: linear-gradient(90deg, #1E40AF 0%, #F59E0B 100%); padding:24px; text-align:center; }
+        .header h1 { margin:0; font-family:\'Source Serif Pro\', serif; font-size:1.8rem; color:#ffffff; }
+        .header p { margin:8px 0 0; font-family:Varela Round, sans-serif; font-size:1rem; color:#e0e0e0; }
+        .content { padding:28px; font-family:Varela Round, sans-serif; color:#212529; line-height:1.6; }
+        .box { background:#f8f9fa; border-left:4px solid #F59E0B; padding:16px 20px; margin:20px 0; border-radius:4px; }
+        .footer { background:#ffffff; text-align:center; padding:16px; font-size:12px; color:#888888; }
+        .footer a { color:#1E40AF; text-decoration:none; }
+        @media(max-width:600px) { .content{padding:20px;} .header h1{font-size:1.5rem;} }
+      </style>
+    </head>
+    <body>
+      <div class="wrapper">
+        <div class="main">
+          <div class="header">
+            <h1>Success At 11 Plus English</h1>
+            <p>Newsletter Update</p>
+          </div>
+          <div class="content">
+            <p>Dear {SUBSCRIBER_NAME},</p>
+            <div class="box">
+              <h2 style="color:#1E40AF; font-family:\'Source Serif Pro\', serif; font-size:1.25rem; margin:0 0 12px 0;">' . htmlspecialchars($title) . '</h2>
+              <div style="font-size:16px; line-height:1.6; color:#212529;">' . nl2br(htmlspecialchars($message)) . '</div>
             </div>
-            
-            <div style="background: linear-gradient(135deg, #6e20a7 0%, #8b5fbf 100%); color: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <h2 style="margin: 0 0 15px 0; font-size: 24px;">' . htmlspecialchars($title) . '</h2>
-                <div style="font-size: 16px; line-height: 1.6;">
-                    ' . nl2br(htmlspecialchars($message)) . '
-                </div>
-            </div>
-            
             ' . $attachmentInfo . '
-            
-            <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <p style="margin: 0; color: #555;">
-                    <strong>Dear {SUBSCRIBER_NAME},</strong>
-                </p>
-                <p style="color: #555; margin: 15px 0 0 0;">
-                    Thank you for being part of our learning community. We hope this newsletter helps you on your 11 Plus preparation journey!
-                </p>
-            </div>
-            
-            <div style="margin-top: 30px; padding: 20px; border-top: 2px solid #6e20a7; text-align: center;">
-                <p style="margin: 0; color: #6e20a7; font-weight: bold;">Best regards,</p>
-                <p style="margin: 5px 0; color: #666;">The Success At 11 Plus English Team</p>
-                <p style="margin: 15px 0 5px 0;">
-                    <a href="mailto:info@successat11plusenglish.com" style="color: #6e20a7; text-decoration: none;">
-                        📧 info@successat11plusenglish.com
-                    </a>
-                </p>
-                <p style="margin: 15px 0 0 0; font-size: 12px;">
-                    <a href="' . (defined('BASE_URL') ? BASE_URL : 'http://localhost/SuccessAt11PlusEnglish/') . 'unsubscribe.php?email={SUBSCRIBER_EMAIL_ENCODED}" 
-                       style="color: #999; text-decoration: underline;">Unsubscribe from newsletters</a>
-                </p>
-            </div>
+            <p style="margin-top:24px;">Thank you for being part of our learning community. We hope this newsletter helps you on your 11 Plus preparation journey!</p>
+            <p>
+              <table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr>
+                  <td align="center" bgcolor="#1E40AF" style="border-radius:4px;">
+                    <a href="https://elevenplusenglish.co.uk/" target="_blank" style="font-family:Varela Round, sans-serif; font-size:16px; color:#ffffff; text-decoration:none; padding:12px 24px; display:inline-block; font-weight:600;">Join Our Online Class</a>
+                  </td>
+                </tr>
+              </table>
+            </p>
+          </div>
+          <div class="footer">
+            &copy; ' . date('Y') . ' Success at 11 Plus English. All rights reserved.<br>
+            <a href="' . (defined('BASE_URL') ? BASE_URL : 'http://localhost/SuccessAt11PlusEnglish/') . 'unsubscribe.php?email={SUBSCRIBER_EMAIL_ENCODED}">Unsubscribe from newsletters</a>
+          </div>
         </div>
+      </div>
     </body>
     </html>';
       // Set common email properties

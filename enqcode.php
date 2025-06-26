@@ -156,16 +156,53 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
             // }
             $autoResponse->Subject = 'We Received Your Trial Class Application';
             $autoResponse->Body = '
-            <html>
-            <body style="font-family: Arial, sans-serif; line-height: 1.6;">
-                <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-                    <h2 style="color: #6e20a7; border-bottom: 2px solid #eee; padding-bottom: 10px;">Thank You For Your Application</h2>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Trial Class Application Received</title>
+              <style>
+                body { margin:0; padding:0; background:#f7f7f7; }
+                .wrapper { width:100%; table-layout:fixed; background:#f7f7f7; padding:30px 0; }
+                .main { background:#ffffff; width:100%; max-width:650px; margin:0 auto; border-radius:8px; overflow:hidden; }
+                .header { background: linear-gradient(90deg, #1E40AF 0%, #F59E0B 100%); padding:24px; text-align:center; }
+                .header h1 { margin:0; font-family:\'Source Serif Pro\', serif; font-size:1.8rem; color:#ffffff; }
+                .header p { margin:8px 0 0; font-family:Varela Round, sans-serif; font-size:1rem; color:#e0e0e0; }
+                .content { padding:28px; font-family:Varela Round, sans-serif; color:#212529; line-height:1.6; }
+                .footer { background:#ffffff; text-align:center; padding:16px; font-size:12px; color:#888888; }
+                .footer a { color:#1E40AF; text-decoration:none; }
+                @media(max-width:600px) { .content{padding:20px;} .header h1{font-size:1.5rem;} }
+              </style>
+            </head>
+            <body>
+              <div class="wrapper">
+                <div class="main">
+                  <div class="header">
+                    <h1>Thank You For Your Application</h1>
+                    <p>Trial Class Request Received</p>
+                  </div>
+                  <div class="content">
                     <p>Dear ' . htmlspecialchars($enqName) . ',</p>
-                    <p>Thank you for applying for a trial class with Success at 11 Plus English. We\'ve received your application and one of our team members will contact you within the next 24 hours to arrange your session.</p>
+                    <p>Thank you for applying for a trial class with <strong>Success at 11 Plus English</strong>. We have received your application and one of our team members will contact you within the next 24 hours to arrange your session.</p>
                     <p>If you have any questions in the meantime, feel free to reply to this email or call us.</p>
                     <p>We look forward to meeting you!</p>
-                    <p>Warm regards,<br>Success at 11 Plus English Team</p>
+                    <p>
+                      <table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
+                        <tr>
+                          <td align="center" bgcolor="#1E40AF" style="border-radius:4px;">
+                            <a href="https://elevenplusenglish.co.uk/" target="_blank" style="font-family:Varela Round, sans-serif; font-size:16px; color:#ffffff; text-decoration:none; padding:12px 24px; display:inline-block; font-weight:600;">Explore Our Courses</a>
+                          </td>
+                        </tr>
+                      </table>
+                    </p>
+                  </div>
+                  <div class="footer">
+                    &copy; ' . date('Y') . ' Success at 11 Plus English. All rights reserved.<br>
+                    <a href="https://elevenplusenglish.co.uk/unsubscribe.php?unsub_email=' . base64_encode($enqMail) . '">Unsubscribe</a>
+                  </div>
                 </div>
+              </div>
             </body>
             </html>';
             $autoResponse->AltBody = 'Thank you for applying for a trial class with Success at 11 Plus English. We\'ve received your application and one of our team members will contact you within the next 24 hours to arrange your session.';
@@ -213,18 +250,50 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
             $mail->Subject = 'Trial Class Application';
         }
         $mail->Body = '
-        <html>
-        <body style="font-family: Arial, sans-serif; line-height: 1.6;">
-            <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-                <h2 style="color: #6e20a7; border-bottom: 2px solid #eee; padding-bottom: 10px;">New Enquiry Received</h2>
-                <p><strong>Name:</strong> ' . htmlspecialchars($enqName) . '</p>
-                <p><strong>Phone:</strong> ' . htmlspecialchars($enqPhone) . '</p>
-                <p><strong>Email:</strong> ' . htmlspecialchars($enqMail) . '</p>
-                <p><strong>Year Group:</strong> ' . htmlspecialchars($enqApply) . '</p>
-                ' . (!empty($enqModule) ? '<p><strong>Module Interest:</strong> ' . htmlspecialchars($enqModule) . '</p>' : '') . '
-                ' . (!empty($enqMsg) ? '<p><strong>Message:</strong> ' . nl2br(htmlspecialchars($enqMsg)) . '</p>' : '') . '
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>New Enquiry Received</title>
+          <style>
+            body { margin:0; padding:0; background:#f7f7f7; }
+            .wrapper { width:100%; table-layout:fixed; background:#f7f7f7; padding:30px 0; }
+            .main { background:#ffffff; width:100%; max-width:650px; margin:0 auto; border-radius:8px; overflow:hidden; }
+            .header { background: linear-gradient(90deg, #1E40AF 0%, #F59E0B 100%); padding:24px; text-align:center; }
+            .header h1 { margin:0; font-family:\'Source Serif Pro\', serif; font-size:1.8rem; color:#ffffff; }
+            .header p { margin:8px 0 0; font-family:Varela Round, sans-serif; font-size:1rem; color:#e0e0e0; }
+            .content { padding:28px; font-family:Varela Round, sans-serif; color:#212529; line-height:1.6; }
+            .box { background:#f8f9fa; border-left:4px solid #F59E0B; padding:16px 20px; margin:20px 0; border-radius:4px; }
+            .footer { background:#ffffff; text-align:center; padding:16px; font-size:12px; color:#888888; }
+            .footer a { color:#1E40AF; text-decoration:none; }
+            @media(max-width:600px) { .content{padding:20px;} .header h1{font-size:1.5rem;} }
+          </style>
+        </head>
+        <body>
+          <div class="wrapper">
+            <div class="main">
+              <div class="header">
+                <h1>New Enquiry Received</h1>
+                <p>Trial Class or Free Class Request</p>
+              </div>
+              <div class="content">
+                <div class="box">
+                  <p><strong>Name:</strong> ' . htmlspecialchars($enqName) . '</p>
+                  <p><strong>Phone:</strong> ' . htmlspecialchars($enqPhone) . '</p>
+                  <p><strong>Email:</strong> ' . htmlspecialchars($enqMail) . '</p>
+                  <p><strong>Year Group:</strong> ' . htmlspecialchars($enqApply) . '</p>
+                  ' . (!empty($enqModule) ? '<p><strong>Module Interest:</strong> ' . htmlspecialchars($enqModule) . '</p>' : '') . '
+                  ' . (!empty($enqMsg) ? '<p><strong>Message:</strong> ' . nl2br(htmlspecialchars($enqMsg)) . '</p>' : '') . '
+                </div>
                 <p style="font-size: 12px; color: #777; margin-top: 30px;">This message was sent from the Success at 11 Plus English website.</p>
+              </div>
+              <div class="footer">
+                &copy; ' . date('Y') . ' Success at 11 Plus English. All rights reserved.<br>
+                <a href="mailto:' . htmlspecialchars($enqMail) . '">Reply to Enquirer</a>
+              </div>
             </div>
+          </div>
         </body>
         </html>';
         $mail->AltBody = 'Name: ' . $enqName . "\n" .

@@ -172,85 +172,78 @@ function sendCredentialsEmail($studentData, $moduleName, $class) {
     $mail->isHTML($mailConfig['is_html']);
     $mail->CharSet = $mailConfig['charset'];
     $mail->Subject = 'Welcome to Success At 11 Plus English - Your Login Credentials & Invoice';
-    // DKIM settings (commented out for now)
-    // if (isset($mailConfig['dkim_domain'])) {
-    //     $mail->DKIM_domain = $mailConfig['dkim_domain'];
-    //     $mail->DKIM_private = $mailConfig['dkim_private'];
-    //     $mail->DKIM_selector = $mailConfig['dkim_selector'];
-    //     $mail->DKIM_passphrase = $mailConfig['dkim_passphrase'];
-    //     $mail->DKIM_identity = $mailConfig['dkim_identity'];
-    //     $mail->DKIM_copyHeaderFields = $mailConfig['dkim_copyHeaderFields'];
-    // }
     $paymentDate = isset($session->created) ? date('F j, Y', $session->created) : date('F j, Y');
-    $mailBody = '
-    <html>
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Success At 11 Plus English</title>
-    <style>
-        body { background: linear-gradient(135deg, #1e40af 0%, #f59e0b 100%); margin: 0; padding: 0; font-family: Segoe UI, Arial, sans-serif; }
-        .email-container { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 1rem; box-shadow: 0 8px 32px rgba(30,64,175,0.10); overflow: hidden; }
-        .header { background: #16a34a; color: #fff; padding: 2.5rem 2rem 1.5rem; text-align: center; }
-        .header-icon { width: 70px; height: 70px; background: rgba(255,255,255,0.18); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; font-size: 2.5rem; }
-        .body { padding: 2.5rem 2rem; color: #222; }
-        .details { background: #f8fafc; border-radius: 0.7rem; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
-        .credentials { background: #e8f5e8; border-radius: 0.7rem; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
-        .invoice { background: #f3f4f6; border-radius: 0.7rem; padding: 1.2rem 1.5rem; margin: 1.5rem 0; border: 1px solid #e5e7eb; }
-        .invoice h3 { color: #1e40af; margin-top: 0; }
-        .invoice-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-        .invoice-table th, .invoice-table td { padding: 0.5rem 0.7rem; text-align: left; border-bottom: 1px solid #e5e7eb; }
-        .invoice-table th { background: #f8fafc; color: #1e40af; font-weight: 600; }
-        .invoice-table td:last-child, .invoice-table th:last-child { text-align: right; }
-        .cta-btn { display: inline-block; background: #1e40af; color: #fff; text-decoration: none; padding: 0.8rem 2rem; border-radius: 0.5rem; font-weight: 600; margin-top: 1.5rem; }
-        .footer { text-align: center; color: #888; font-size: 0.95rem; padding: 1.5rem 2rem 2rem; }
-        .footer a { color: #1e40af; text-decoration: none; }
-        @media (max-width: 600px) { .email-container, .body, .footer { padding: 1rem !important; } }
-    </style>
-    </head>
-    <body>
-    <div class="email-container">
-        <div class="header">
-            <div class="header-icon">✔️</div>
-            <h2 style="margin:0 0 0.5rem 0;">Welcome to Success At 11 Plus English!</h2>
-            <div style="font-size:1.1rem;opacity:0.95;">Payment Successful</div>
+    $mailBody = '<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Success At 11 Plus English</title>
+  <style>
+    body { margin:0; padding:0; background:#f7f7f7; }
+    .wrapper { width:100%; table-layout:fixed; background:#f7f7f7; padding:30px 0; }
+    .main { background:#ffffff; width:100%; max-width:650px; margin:0 auto; border-radius:8px; overflow:hidden; }
+    .header { background: linear-gradient(90deg, #1E40AF 0%, #F59E0B 100%); padding:24px; text-align:center; }
+    .header h1 { margin:0; font-family:\'Source Serif Pro\', serif; font-size:1.8rem; color:#ffffff; }
+    .header p { margin:8px 0 0; font-family:Varela Round, sans-serif; font-size:1rem; color:#e0e0e0; }
+    .content { padding:28px; font-family:Varela Round, sans-serif; color:#212529; line-height:1.6; }
+    .box { background:#f8f9fa; border-left:4px solid #F59E0B; padding:16px 20px; margin:20px 0; border-radius:4px; }
+    .credentials { background:#e8f5e8; border-radius:4px; padding:16px 20px; margin:20px 0; }
+    .invoice { background:#f3f4f6; border-radius:4px; padding:16px 20px; margin:20px 0; border:1px solid #e5e7eb; }
+    .invoice-table { width:100%; border-collapse:collapse; margin-top:1rem; }
+    .invoice-table th, .invoice-table td { padding:0.5rem 0.7rem; text-align:left; border-bottom:1px solid #e5e7eb; }
+    .invoice-table th { background:#f8fafc; color:#1e40af; font-weight:600; }
+    .invoice-table td:last-child, .invoice-table th:last-child { text-align:right; }
+    .cta-btn { display:inline-block; background:#1e40af; color:#fff; text-decoration:none; padding:12px 28px; border-radius:4px; font-weight:600; margin-top:1.5rem; }
+    .footer { background:#ffffff; text-align:center; padding:16px; font-size:12px; color:#888888; }
+    .footer a { color:#1E40AF; text-decoration:none; }
+    @media(max-width:600px) { .content{padding:20px;} .header h1{font-size:1.5rem;} }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="main">
+      <div class="header">
+        <h1>Payment Successful</h1>
+        <p>Welcome to Success at 11 Plus English!</p>
+      </div>
+      <div class="content">
+        <p style="font-size:1.1rem;">Dear <strong>' . htmlspecialchars($studentData['fname'] . ' ' . $studentData['surname']) . '</strong>,</p>
+        <p>Thank you for your purchase! Your payment has been processed and your account is now active.</p>
+        <div class="box">
+          <h3 style="color:#1e40af;margin-top:0;">Purchase Details</h3>
+          <p><strong>Module:</strong> ' . htmlspecialchars($moduleName) . '</p>
+          <p><strong>Year Group:</strong> ' . htmlspecialchars($class) . '</p>
+          <p><strong>Student:</strong> ' . htmlspecialchars($studentData['fname'] . ' ' . $studentData['surname']) . '</p>
         </div>
-        <div class="body">
-            <p style="font-size:1.1rem;">Dear <strong>' . htmlspecialchars($studentData['fname'] . ' ' . $studentData['surname']) . '</strong>,</p>
-            <p>Thank you for your purchase! Your payment has been processed and your account is now active.</p>
-            <div class="details">
-                <h3 style="color:#1e40af;margin-top:0;">Purchase Details</h3>
-                <p><strong>Module:</strong> ' . htmlspecialchars($moduleName) . '</p>
-                <p><strong>Year Group:</strong> ' . htmlspecialchars($class) . '</p>
-                <p><strong>Student:</strong> ' . htmlspecialchars($studentData['fname'] . ' ' . $studentData['surname']) . '</p>
-            </div>
-            <div class="credentials">
-                <h3 style="color:#16a34a;margin-top:0;">Your Login Credentials</h3>
-                <p><strong>Email:</strong> ' . htmlspecialchars($studentData['email']) . '</p>
-                <p><strong>Password:</strong> ' . htmlspecialchars($studentData['password']) . '</p>
-                <p><strong>Login URL:</strong> <a href="' . BASE_URL . 'Login.php" style="color:#1e40af;">' . BASE_URL . 'Login.php</a></p>
-            </div>
-            <div class="invoice">
-                <h3>Invoice</h3>
-                <table class="invoice-table">
-                    <tr><th>Description</th><th>Amount</th></tr>
-                    <tr><td>' . htmlspecialchars($moduleName) . ' (' . htmlspecialchars($class) . ')</td><td>£' . number_format($modulePrice, 2) . '</td></tr>
-                    <tr><td style="font-weight:600;">Total Paid</td><td style="font-weight:600;">£' . number_format($modulePrice, 2) . '</td></tr>
-                </table>
-                <p style="margin:0.7rem 0 0 0;"><strong>Transaction ID:</strong> ' . htmlspecialchars($sessionId) . '</p>
-                <p style="margin:0;"><strong>Payment Date:</strong> ' . htmlspecialchars($paymentDate) . '</p>
-            </div>
-            <p style="margin-top:2rem;"><strong>Important:</strong> Please keep these credentials safe and change your password after your first login for security.</p>
-            <a href="' . BASE_URL . 'Login.php" class="cta-btn">Login Now</a>
+        <div class="credentials">
+          <h3 style="color:#16a34a;margin-top:0;">Your Login Credentials</h3>
+          <p><strong>Email:</strong> ' . htmlspecialchars($studentData['email']) . '</p>
+          <p><strong>Password:</strong> ' . htmlspecialchars($studentData['password']) . '</p>
+          <p><strong>Login URL:</strong> <a href="' . BASE_URL . 'Login.php" style="color:#1e40af;">' . BASE_URL . 'Login.php</a></p>
         </div>
-        <div class="footer">
-            <p>Need help? Contact us at <a href="mailto:success@elevenplusenglish.co.uk">success@elevenplusenglish.co.uk</a></p>
-            <p>Visit <a href="https://elevenplusenglish.co.uk">elevenplusenglish.co.uk</a></p>
-            <p style="margin-top:1.2rem;">&copy; ' . date('Y') . ' Success At 11 Plus English</p>
+        <div class="invoice">
+          <h3>Invoice</h3>
+          <table class="invoice-table">
+            <tr><th>Description</th><th>Amount</th></tr>
+            <tr><td>' . htmlspecialchars($moduleName) . ' (' . htmlspecialchars($class) . ')</td><td>£' . number_format($modulePrice, 2) . '</td></tr>
+            <tr><td style="font-weight:600;">Total Paid</td><td style="font-weight:600;">£' . number_format($modulePrice, 2) . '</td></tr>
+          </table>
+          <p style="margin:0.7rem 0 0 0;"><strong>Transaction ID:</strong> ' . htmlspecialchars($sessionId) . '</p>
+          <p style="margin:0;"><strong>Payment Date:</strong> ' . htmlspecialchars($paymentDate) . '</p>
         </div>
+        <p style="margin-top:2rem;"><strong>Important:</strong> Please keep these credentials safe and change your password after your first login for security.</p>
+        <a href="' . BASE_URL . 'Login.php" class="cta-btn">Login Now</a>
+      </div>
+      <div class="footer">
+        <p>Need help? Contact us at <a href="mailto:success@elevenplusenglish.co.uk">success@elevenplusenglish.co.uk</a></p>
+        <p>Visit <a href="https://elevenplusenglish.co.uk">elevenplusenglish.co.uk</a></p>
+        <p style="margin-top:1.2rem;">&copy; ' . date('Y') . ' Success At 11 Plus English. All rights reserved.</p>
+      </div>
     </div>
-    </body>
-    </html>';
+  </div>
+</body>
+</html>';
     $mail->Body = $mailBody;
     $mail->AltBody = strip_tags($mailBody);
     $context = [

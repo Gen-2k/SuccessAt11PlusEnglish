@@ -1,0 +1,23 @@
+[26-Jun-2025 12:24:19 Europe/London] Newsletter subscription attempt started
+[26-Jun-2025 12:24:26 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[26-Jun-2025 12:48:07 Europe/London] Newsletter subscription attempt started
+[26-Jun-2025 12:48:10 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[26-Jun-2025 12:48:16 Europe/London] Newsletter subscription attempt started
+[26-Jun-2025 12:48:19 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[26-Jun-2025 12:56:07 Europe/London] Newsletter subscription attempt started
+[26-Jun-2025 12:56:21 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[26-Jun-2025 12:58:21 Europe/London] Newsletter subscription attempt started
+[26-Jun-2025 12:58:24 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[26-Jun-2025 13:12:40 Europe/London] Newsletter subscription attempt started
+[26-Jun-2025 13:12:47 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[26-Jun-2025 13:18:22 Europe/London] Newsletter subscription attempt started
+[26-Jun-2025 13:18:28 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[26-Jun-2025 13:25:11 Europe/London] Newsletter subscription attempt started
+[26-Jun-2025 13:25:15 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[26-Jun-2025 13:25:34 Europe/London] Newsletter subscription attempt started
+[26-Jun-2025 13:25:39 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[26-Jun-2025 13:32:07 Europe/London] Newsletter subscription attempt started
+[26-Jun-2025 13:32:07 Europe/London] Attempting to insert newsletter subscription: Name=sparky, Email=sagosmsr@gmail.com
+[26-Jun-2025 13:32:10 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[26-Jun-2025 13:32:27 Europe/London] Newsletter subscription attempt started
+[26-Jun-2025 13:32:30 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com

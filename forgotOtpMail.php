@@ -4,7 +4,7 @@
         require './mail/class.phpmailer.php';
         require './mail/class.smtp.php';
  
-		// Modern, branded HTML template for OTP email
+		// Unified, branded HTML template for OTP email (matches latest blue/gold design)
 		$message_body = '<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,27 +12,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OTP for Success At 11 Plus English</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #f7f7fb; margin: 0; padding: 0; }
-    .container { background: #fff; max-width: 480px; margin: 40px auto; border-radius: 8px; box-shadow: 0 2px 8px #e0e0e0; padding: 32px 24px; }
-    .logo { text-align: center; margin-bottom: 24px; }
-    .otp-box { background: #f0f4ff; color: #1a237e; font-size: 2rem; font-weight: bold; letter-spacing: 6px; padding: 18px 0; border-radius: 6px; text-align: center; margin: 24px 0; }
-    .footer { color: #888; font-size: 0.95rem; text-align: center; margin-top: 32px; }
-    .brand { color: #1a237e; font-weight: bold; }
+    body { margin:0; padding:0; background:#f7f7f7; }
+    .wrapper { width:100%; table-layout:fixed; background:#f7f7f7; padding:30px 0; }
+    .main { background:#ffffff; width:100%; max-width:480px; margin:0 auto; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px #e0e0e0; }
+    .header { background: linear-gradient(90deg, #1E40AF 0%, #F59E0B 100%); padding:24px; text-align:center; }
+    .header h1 { margin:0; font-family:\'Source Serif Pro\', serif; font-size:1.5rem; color:#ffffff; }
+    .header p { margin:8px 0 0; font-family:Varela Round, sans-serif; font-size:1rem; color:#e0e0e0; }
+    .content { padding:28px; font-family:Varela Round, sans-serif; color:#212529; line-height:1.6; }
+    .otp-box { background:#f0f4ff; color:#1E40AF; font-size:2rem; font-weight:bold; letter-spacing:6px; padding:18px 0; border-radius:6px; text-align:center; margin:24px 0; }
+    .footer { background:#ffffff; text-align:center; padding:16px; font-size:12px; color:#888888; }
+    .footer a { color:#1E40AF; text-decoration:none; }
+    @media(max-width:600px) { .content{padding:20px;} .header h1{font-size:1.2rem;} }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">
-      <img src="https://elevenplusenglish.co.uk/assets/images/logonew.png" alt="Success At 11 Plus English" style="max-width: 180px;">
-    </div>
-    <h2 style="color:#1a237e;">Your One Time Password (OTP)</h2>
-    <p>Dear User,</p>
-    <p>Use the following OTP to reset your password for <span class="brand">Success At 11 Plus English</span>:</p>
-    <div class="otp-box">' . htmlspecialchars($otp) . '</div>
-    <p>This OTP is valid for a limited time. If you did not request a password reset, please ignore this email.</p>
-    <div class="footer">
-      &copy; ' . date('Y') . ' Success At 11 Plus English. All rights reserved.<br>
-      <a href="https://elevenplusenglish.co.uk" style="color:#1a237e;text-decoration:none;">www.elevenplusenglish.co.uk</a>
+  <div class="wrapper">
+    <div class="main">
+      <div class="header">
+        <h1>Password Reset OTP</h1>
+        <p>Success at 11 Plus English</p>
+      </div>
+      <div class="content">
+        <p>Dear User,</p>
+        <p>Use the following OTP to reset your password for <strong>Success at 11 Plus English</strong>:</p>
+        <div class="otp-box">' . htmlspecialchars($otp) . '</div>
+        <p>This OTP is valid for a limited time. If you did not request a password reset, please ignore this email.</p>
+        <table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center" style="margin:24px auto 0;">
+          <tr>
+            <td align="center" bgcolor="#1E40AF" style="border-radius:4px;">
+              <a href="https://elevenplusenglish.co.uk/Login.php" target="_blank" style="font-family:Varela Round, sans-serif; font-size:16px; color:#ffffff; text-decoration:none; padding:12px 24px; display:inline-block; font-weight:600;">Reset Password</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="footer">
+        &copy; ' . date('Y') . ' Success at 11 Plus English. All rights reserved.<br>
+        <a href="https://elevenplusenglish.co.uk">www.elevenplusenglish.co.uk</a>
+      </div>
     </div>
   </div>
 </body>
