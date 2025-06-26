@@ -271,7 +271,7 @@
                         <div class="policy-section">
                             <h5 class="policy-section-title">j. Data Protection</h5>
                             <p>At SUCCESS AT 11 PLUS ENGLISH, we take the privacy of our students, who may be children or young people and their Parents very seriously.</p>
-                            <p>We collect and process personal data strictly in accordance with our privacy policy which can be accessed at <a href="https://succeed11plus.co.uk/privacy/" target="_blank">https://succeed11plus.co.uk/privacy/</a></p>
+                            <p>We collect and process personal data strictly in accordance with our privacy policy which can be accessed at <a href="https://elevenplusenglish.co.uk/Privacy-policy.php" target="_blank">https://elevenplusenglish.co.uk/privacy/</a></p>
                             <p>Categories of Personal Data we collect- The categories of Personal Data we collect include without limitation:</p>
                             <ol>
                                 <li>Names of students</li>

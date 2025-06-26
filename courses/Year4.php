@@ -478,7 +478,7 @@ p {
              <h2 class="section-heading blue">Year 4 Module Details</h2>            <div class="module-card" id="comprehension">
                 <div class="row g-4 align-items-stretch">
                     <div class="col-lg-5 module-image-col">
-                        <img src="assets/images/success/img13" alt="Comprehension skills" />
+                        <img src="assets/images/success/img13.jfif" alt="Comprehension skills" />
                     </div> 
                     <div class="col-lg-7 module-content-col text-center text-lg-start">
                         <h3>COMPREHENSION</h3>
@@ -507,7 +507,7 @@ p {
             <div class="module-card" id="spag">
                  <div class="row g-4 align-items-stretch">
                      <div class="col-lg-5 module-image-col">
-                          <img src="assets/images/success/img15" alt="Learning SPaG" />
+                          <img src="assets/images/success/img15.png" alt="Learning SPaG" />
             </div>
                     <div class="col-lg-7 module-content-col text-center text-lg-start">
                         <h3>SPaG </h3>

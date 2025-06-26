@@ -532,7 +532,7 @@
     <body>
         <nav class="logo-header navbar navbar-expand-lg">
             <div class="container-fluid">                <!-- Logo -->
-                <a href="./index" class="navbar-brand"> 
+                <a href="./index.php" class="navbar-brand"> 
                     <img src="./assets/logo/success logo2.png" alt="Success At 11 Plus English logo" class="img-fluid" >
                     <div class="brand-text">
                         <span class="main-text">Success At 11 Plus <span style="color: var(--accent-gold);">English</span></span>
@@ -561,13 +561,13 @@
                                     Classes
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="classesDropdown">
-                                    <li><a class="dropdown-item" href="courses_year4?lan=<?php echo "Year 4" ?>">
+                                    <li><a class="dropdown-item" href="courses_year4.php?lan=<?php echo urlencode('Year 4'); ?>">
                                         <i class="fa-solid fa-graduation-cap me-2"></i>Year 4
                                     </a></li>
-                                    <li><a class="dropdown-item" href="courses_year5?lan=<?php echo "Year 5" ?>">
+                                    <li><a class="dropdown-item" href="courses_year5.php?lan=<?php echo urlencode('Year 5'); ?>">
                                         <i class="fa-solid fa-graduation-cap me-2"></i>Year 5
                                     </a></li>
-                                    <li><a class="dropdown-item" href="courses_year6?lan=<?php echo "Year 6" ?>">
+                                    <li><a class="dropdown-item" href="courses_year6.php?lan=<?php echo urlencode('Year 6'); ?>">
                                         <i class="fa-solid fa-graduation-cap me-2"></i>Year 6
                                     </a></li>
                                 </ul>
@@ -579,16 +579,16 @@
                                     Policies
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="policiesDropdown">
-                                    <li><a class="dropdown-item" href="Remoteteaching">
+                                    <li><a class="dropdown-item" href="Remoteteaching.php">
                                         <i class="fa-solid fa-shield-halved me-2"></i>Remote Teaching Policy
                                     </a></li>
-                                    <li><a class="dropdown-item" href="Privacy-policy">
+                                    <li><a class="dropdown-item" href="Privacy-policy.php">
                                         <i class="fa-solid fa-user-shield me-2"></i>Privacy Policy
                                     </a></li>
-                                    <li><a class="dropdown-item" href="TermsAndCondition">
+                                    <li><a class="dropdown-item" href="TermsAndCondition.php">
                                         <i class="fa-solid fa-file-contract me-2"></i>Terms and Conditions
                                     </a></li>
-                                    <li><a class="dropdown-item" href="Safeguarding">
+                                    <li><a class="dropdown-item" href="Safeguarding.php">
                                         <i class="fa-solid fa-heart me-2"></i>Safeguarding Policy
                                     </a></li>
                                 </ul>
@@ -596,15 +596,13 @@
                             
                             <!-- About -->
                             <li class="nav-item">
-                                <a class="nav-link" href="About">About</a>
+                                <a class="nav-link" href="About.php">About</a>
                             </li>
-                            
-                            <!-- Sign In Button -->
                             <li class="nav-item">
-                                <a href="Login" class="signin-btn">
-                                    <i class="fa-solid fa-user me-2"></i>Sign In
-                                </a>
-                            </li>
+    <a href="Login.php" class="signin-btn">
+        <i class="fa-solid fa-user me-2"></i>Sign In
+    </a>
+</li>
                         </ul>
                     </div>
                 </div>

@@ -6,4 +6,6 @@ unset($_SESSION["name"]);
 unset($_SESSION['gender']);
 unset($_SESSION['logged_in']);
 session_destroy();
-header("Location:Login");
+header("Location: Login.php");
+exit();
+?>

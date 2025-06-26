@@ -168,7 +168,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
                         <!-- Call to Action Buttons -->
                         <div class="d-grid gap-3 d-sm-flex mb-5 hero-cta-group">
-                            <a href="tryfreeform"
+                            <a href="tryfreeform.php"
                                 class="btn btn-primary btn-lg px-4 py-3 fw-semibold shadow-md hover-lift hero-cta-main">
                                 <i class="bi bi-lightning-charge-fill me-2"></i>Apply for Trial Class
                             </a>
@@ -369,7 +369,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                         <i class="bi bi-book  display-3" style="color:#1E40AF;"></i>
                                     </div>
                                     <div class="mt-auto">
-                                        <a class="btn btn-apply-now btn-blue px-4 py-2 fw-bold" href="courses_year4?lan=Year4"
+                                        <a class="btn btn-apply-now btn-blue px-4 py-2 fw-bold" href="courses_year4.php?lan=Year4"
                                             role="button">Apply Now</a>
                                     </div>
                                 </div>
@@ -385,7 +385,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                         <i class="bi bi-pencil-square display-3"></i>
                                     </div>
                                     <div class="mt-auto">
-                                        <a class="btn btn-apply-now btn-gold px-4 py-2 fw-bold" href="courses_year5?lan=Year5"
+                                        <a class="btn btn-apply-now btn-gold px-4 py-2 fw-bold" href="courses_year5.php?lan=Year5"
                                             role="button">Apply Now</a>
                                     </div>
                                 </div>
@@ -401,7 +401,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                         <i class="bi bi-mortarboard-fill display-3"></i>
                                     </div>
                                     <div class="mt-auto">
-                                        <a class="btn btn-apply-now btn-blue px-4 py-2 fw-bold" href="courses_year6?lan=Year6"
+                                        <a class="btn btn-apply-now btn-blue px-4 py-2 fw-bold" href="courses_year6.php?lan=Year6"
                                             role="button">Apply Now</a>
                                     </div>
                                 </div>
@@ -1150,7 +1150,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                     </span>
                                 </div>
 
-                                <a class="btn btn-primary btn-lg shadow hover-lift w-100" href="tryfreeform"
+                                <a class="btn btn-primary btn-lg shadow hover-lift w-100" href="tryfreeform.php"
                                     role="button">
                                     <i class="bi bi-arrow-right-circle-fill me-2"></i>Apply for Trial Class
                                 </a>

@@ -1,9 +1,9 @@
 <?php
 // Database and global site configuration
 $server_name = "localhost";
-$db_username = "root";
-$db_password = "";
-$db_name = "successat11plus";
+$db_username = "elevenplus_success";
+$db_password = "Monday@123";
+$db_name = "elevenplus_successat11plus";
 
 $connection = mysqli_connect($server_name, $db_username, $db_password, $db_name);
 if (!$connection) {
