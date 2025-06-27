@@ -24,6 +24,9 @@ if (isset($_POST['action'])) {
         case 'get_activity':
             getActivity();
             break;
+        case 'get_file_size':
+            getActivityFileSize();
+            break;
     }
     exit();
 }
@@ -196,6 +199,25 @@ function getActivity() {
     }
 }
 
+function getActivityFileSize() {
+    global $conn;
+    $id = intval($_POST['id']);
+    $query = "SELECT file_path FROM resources WHERE id = $id AND resource_type = 'activities'";
+    $result = mysqli_query($conn, $query);
+    if ($row = mysqli_fetch_assoc($result)) {
+        $filePath = $row['file_path'];
+        if ($filePath) {
+            $fullPath = dirname(__DIR__) . DIRECTORY_SEPARATOR . str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $filePath);
+            if (file_exists($fullPath)) {
+                $size = filesize($fullPath);
+                echo json_encode(['status' => 'success', 'size' => $size]);
+                return;
+            }
+        }
+    }
+    echo json_encode(['status' => 'error', 'size' => null]);
+}
+
 // Include header and navigation
 include 'includes/header.php';
 include 'includes/navigation.php';
@@ -340,17 +362,17 @@ include 'includes/navigation.php';
     <!-- Add Activity Modal -->
     <div class="modal fade" id="addActivityModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add Activity</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-content" style="border-radius: 16px; border: 1px solid #fef3c7; background: #fff;">
+                <div class="modal-header" style="background: linear-gradient(90deg, #F59E0B 0%, #FDE68A 100%); color: #fff; border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 1.25rem 1.5rem;">
+                    <h5 class="modal-title" style="font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-plus me-2"></i>Add Activity</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <form id="addActivityForm" enctype="multipart/form-data">
-                    <div class="modal-body">
+                    <div class="modal-body" style="background: #fff; padding: 1.5rem 1.5rem 1.25rem 1.5rem;">
                         <div class="row g-3">
                             <div class="col-md-12">
                                 <label class="form-label">Title *</label>
-                                <input type="text" class="form-control" name="title" required>
+                                <input type="text" class="form-control" name="title" required placeholder="Enter activity title">
                             </div>
                             <div class="col-md-12">
                                 <label class="form-label">Description</label>
@@ -382,9 +404,9 @@ include 'includes/navigation.php';
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" style="background: #fef9c3; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; padding: 1rem 1.5rem;">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Add Activity</button>
+                        <button type="submit" class="btn btn-warning" style="background: #F59E0B; border: none; color: #fff;">Add Activity</button>
                     </div>
                 </form>
             </div>
@@ -394,13 +416,13 @@ include 'includes/navigation.php';
     <!-- Edit Activity Modal -->
     <div class="modal fade" id="editActivityModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Edit Activity</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-content" style="border-radius: 16px; border: 1px solid #fef3c7; background: #fff;">
+                <div class="modal-header" style="background: linear-gradient(90deg, #F59E0B 0%, #FDE68A 100%); color: #fff; border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 1.25rem 1.5rem;">
+                    <h5 class="modal-title" style="font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-edit me-2"></i>Edit Activity</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <form id="editActivityForm">
-                    <div class="modal-body">
+                    <div class="modal-body" style="background: #fff; padding: 1.5rem 1.5rem 1.25rem 1.5rem;">
                         <input type="hidden" name="id" id="editActivityId">
                         <div class="row g-3">
                             <div class="col-md-12">
@@ -432,9 +454,9 @@ include 'includes/navigation.php';
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" style="background: #fef9c3; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; padding: 1rem 1.5rem;">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Update Activity</button>
+                        <button type="submit" class="btn btn-warning" style="background: #F59E0B; border: none; color: #fff;">Update Activity</button>
                     </div>
                 </form>
             </div>
@@ -443,12 +465,12 @@ include 'includes/navigation.php';
     <!-- View Activity Modal -->
     <div class="modal fade" id="viewActivityModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Activity Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-content" style="border-radius: 16px; border: 1px solid #fef3c7; background: #fff;">
+                <div class="modal-header" style="background: linear-gradient(90deg, #F59E0B 0%, #FDE68A 100%); color: #fff; border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 1.25rem 1.5rem;">
+                    <h5 class="modal-title" style="font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-puzzle-piece"></i>Activity Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="background: #fff; padding: 1.5rem 1.5rem 1.25rem 1.5rem;">
                     <div class="row g-3">
                         <div class="col-md-12">
                             <label class="form-label fw-bold">Title</label>
@@ -476,7 +498,7 @@ include 'includes/navigation.php';
                         </div>
                         <div class="col-md-12" id="viewActivityFileSection" style="display: none;">
                             <label class="form-label fw-bold">File Information</label>
-                            <div class="card">
+                            <div class="card" style="border-radius: 12px; border: 1px solid #fde68a; background: #fffde7;">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -487,10 +509,10 @@ include 'includes/navigation.php';
                                         </div>
                                     </div>
                                     <div class="mt-3">
-                                        <button class="btn btn-primary me-2" onclick="viewActivityFile()" id="viewFileBtn">
+                                        <button class="btn btn-primary me-2" onclick="viewActivityFile()" id="viewFileBtn" style="border-radius: 8px; background: #F59E0B; border: none; color: #fff;">
                                             <i class="fas fa-eye"></i> View File
                                         </button>
-                                        <button class="btn btn-success" onclick="downloadActivityFile()" id="downloadFileBtn">
+                                        <button class="btn btn-success" onclick="downloadActivityFile()" id="downloadFileBtn" style="border-radius: 8px; background: #FDE68A; border: none; color: #7C4700;">
                                             <i class="fas fa-download"></i> Download File
                                         </button>
                                     </div>
@@ -498,13 +520,13 @@ include 'includes/navigation.php';
                             </div>
                         </div>
                         <div class="col-md-12" id="viewActivityNoFile" style="display: none;">
-                            <div class="alert alert-info">
+                            <div class="alert alert-info" style="border-radius: 8px; background: #fef9c3; color: #7C4700;">
                                 <i class="fas fa-info-circle"></i> No file attached to this activity.
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="background: #fef9c3; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; padding: 1rem 1.5rem;">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -531,22 +553,22 @@ include 'includes/navigation.php';
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                swal({
+                Swal.fire({
                     title: 'Success!',
                     text: data.message,
                     icon: 'success',
                     timer: 1800,
-                    buttons: false
+                    showConfirmButton: false
                 }).then(() => {
                     location.reload();
                 });
             } else {
-                swal('Error', data.message, 'error');
+                Swal.fire({title: 'Error', text: data.message, icon: 'error'});
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            swal('Error', 'An error occurred while adding activity', 'error');
+            Swal.fire({title: 'Error', text: 'An error occurred while adding activity', icon: 'error'});
         });
     });
 
@@ -564,22 +586,22 @@ include 'includes/navigation.php';
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                swal({
+                Swal.fire({
                     title: 'Success!',
                     text: data.message,
                     icon: 'success',
                     timer: 1800,
-                    buttons: false
+                    showConfirmButton: false
                 }).then(() => {
                     location.reload();
                 });
             } else {
-                swal('Error', data.message, 'error');
+                Swal.fire({title: 'Error', text: data.message, icon: 'error'});
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            swal('Error', 'An error occurred while updating activity', 'error');
+            Swal.fire({title: 'Error', text: 'An error occurred while updating activity', icon: 'error'});
         });
     });
 
@@ -608,25 +630,27 @@ include 'includes/navigation.php';
                 
                 new bootstrap.Modal(document.getElementById('editActivityModal')).show();
             } else {
-                swal('Error', data.message, 'error');
+                Swal.fire({title: 'Error', text: data.message, icon: 'error'});
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            swal('Error', 'An error occurred while loading activity data', 'error');
+            Swal.fire({title: 'Error', text: 'An error occurred while loading activity data', icon: 'error'});
         });
     }
 
     // Delete activity function
     function deleteActivity(id) {
-        swal({
+        Swal.fire({
             title: 'Are you sure?',
             text: 'Are you sure you want to delete this activity? This action cannot be undone.',
             icon: 'warning',
-            buttons: [true, 'Delete'],
-            dangerMode: true,
-        }).then((willDelete) => {
-            if (willDelete) {
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+            cancelButtonText: 'Cancel',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
                 const formData = new FormData();
                 formData.append('action', 'delete_activity');
                 formData.append('id', id);
@@ -637,22 +661,22 @@ include 'includes/navigation.php';
                 .then(response => response.json())
                 .then((data) => {
                     if (data.status === 'success') {
-                        swal({
+                        Swal.fire({
                             title: 'Deleted!',
                             text: data.message,
                             icon: 'success',
                             timer: 1800,
-                            buttons: false
+                            showConfirmButton: false
                         }).then(() => {
                             location.reload();
                         });
                     } else {
-                        swal('Error', data.message, 'error');
+                        Swal.fire({title: 'Error', text: data.message, icon: 'error'});
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    swal('Error', 'An error occurred while deleting activity', 'error');
+                    Swal.fire({title: 'Error', text: 'An error occurred while deleting activity', icon: 'error'});
                 });
             }
         });
@@ -691,12 +715,10 @@ include 'includes/navigation.php';
                     document.getElementById('viewActivityFileSection').style.display = 'block';
                     document.getElementById('viewActivityNoFile').style.display = 'none';
                     document.getElementById('viewActivityFileName').textContent = activity.file_name;
-                    
-                    // Calculate and display file size
-                    calculateFileSize('../' + activity.file_path).then(size => {
+                    // Get and display file size via AJAX
+                    getActivityFileSizeAjax(activity.id).then(size => {
                         document.getElementById('viewActivityFileSize').textContent = size;
                     });
-                    
                     // Store file path for download/view functions
                     document.getElementById('viewFileBtn').setAttribute('data-file-path', activity.file_path);
                     document.getElementById('downloadFileBtn').setAttribute('data-file-path', activity.file_path);
@@ -708,12 +730,12 @@ include 'includes/navigation.php';
                 // Show the modal
                 new bootstrap.Modal(document.getElementById('viewActivityModal')).show();
             } else {
-                swal('Error', data.message, 'error');
+                Swal.fire({title: 'Error', text: data.message, icon: 'error'});
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            swal('Error', 'An error occurred while loading activity details', 'error');
+            Swal.fire({title: 'Error', text: 'An error occurred while loading activity details', icon: 'error'});
         });
     }
 
@@ -733,13 +755,16 @@ include 'includes/navigation.php';
         }
     }
 
-    // Function to calculate file size
-    async function calculateFileSize(filePath) {
-        try {
-            const response = await fetch(filePath, { method: 'HEAD' });
-            const size = response.headers.get('content-length');
-            if (size) {
-                const sizeInBytes = parseInt(size);
+    // Function to get activity file size via AJAX
+    function getActivityFileSizeAjax(activityId) {
+        return fetch('activities.php', {
+            method: 'POST',
+            body: (() => { const fd = new FormData(); fd.append('action', 'get_file_size'); fd.append('id', activityId); return fd; })()
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success' && data.size !== null) {
+                const sizeInBytes = parseInt(data.size);
                 if (sizeInBytes < 1024) {
                     return sizeInBytes + ' B';
                 } else if (sizeInBytes < 1024 * 1024) {
@@ -749,9 +774,8 @@ include 'includes/navigation.php';
                 }
             }
             return 'Unknown';
-        } catch (error) {
-            return 'Unknown';
-        }
+        })
+        .catch(() => 'Unknown');
     }
 
     // Update module dropdown based on selected class in Add/Edit modals
@@ -781,50 +805,87 @@ include 'includes/navigation.php';
             'English Vocabulary',
             'Verbal Reasoning',
             'Carousel Course',
-            '1:1 Tutoring',
-        ]
+            '1:1 Tutoring',    ],
     };
 
-    function updateModuleDropdown(formType) {
-        let classSelect, moduleSelect;
-        if (formType === 'add') {
-            classSelect = document.getElementById('addActivityClass');
-            moduleSelect = document.getElementById('addActivityModule');
-        } else {
-            classSelect = document.getElementById('editActivityClass');
-            moduleSelect = document.getElementById('editActivityModule');
-        }
+    function updateModuleDropdown(action) {
+        const classSelect = action === 'add' ? document.getElementById('addActivityClass') : document.getElementById('editActivityClass');
+        const moduleSelect = action === 'add' ? document.getElementById('addActivityModule') : document.getElementById('editActivityModule');
         
         const selectedClass = classSelect.value;
-        let modules = [];
-        
-        if (selectedClass && availableModules[selectedClass]) {
-            modules = availableModules[selectedClass];
-        } else {
-            // Show all modules if no class selected
-            modules = [...new Set(Object.values(availableModules).flat())];
-        }
         
         // Clear existing options
         moduleSelect.innerHTML = '<option value="">Select Module</option>';
         
-        // Add new options
-        modules.forEach(function(module) {
-            const option = document.createElement('option');
-            option.value = module;
-            option.textContent = module;
-            moduleSelect.appendChild(option);
-        });
+        if (selectedClass && availableModules[selectedClass]) {
+            // Populate module dropdown based on selected class
+            availableModules[selectedClass].forEach(module => {
+                const option = document.createElement('option');
+                option.value = module;
+                option.textContent = module;
+                moduleSelect.appendChild(option);
+            });
+        }
     }
-
-    // Set module dropdown on modal show (for edit)
-    document.getElementById('editActivityModal').addEventListener('show.bs.modal', function () {
-        updateModuleDropdown('edit');
-    });
-
-    // Initialize module dropdown on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        updateModuleDropdown('add');    });
     </script>
 
-<?php include 'includes/footer.php'; ?>
+    <!-- SweetAlert2 CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+    <script>
+    // Custom Swal alert for delete confirmation
+    function confirmDelete(activityId) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'This action cannot be undone.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Proceed with deletion
+                const formData = new FormData();
+                formData.append('action', 'delete_activity');
+                formData.append('id', activityId);
+                
+                fetch('activities.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        Swal.fire(
+                            'Deleted!',
+                            data.message,
+                            'success'
+                        ).then(() => {
+                            location.reload();
+                        });
+                    } else {
+                        Swal.fire(
+                            'Error!',
+                            data.message,
+                            'error'
+                        );
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    Swal.fire(
+                        'Error!',
+                        'An error occurred while deleting the activity.',
+                        'error'
+                    );
+                });
+            }
+        });
+    }
+    </script>
+
+
+

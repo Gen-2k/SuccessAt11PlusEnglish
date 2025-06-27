@@ -24,6 +24,9 @@ if (isset($_POST['action'])) {
         case 'get_ebook':
             getEbook();
             break;
+        case 'get_file_size':
+            getFileSize();
+            break;
     }
     exit();
 }
@@ -202,6 +205,26 @@ function getEbook() {
         echo json_encode(['status' => 'error', 'message' => 'E-book not found']);
     }
 }
+
+function getFileSize() {
+    global $conn;
+    $id = intval($_POST['id']);
+    $query = "SELECT file_path FROM ebooks WHERE id = $id";
+    $result = mysqli_query($conn, $query);
+    if ($row = mysqli_fetch_assoc($result)) {
+        $filePath = $row['file_path'];
+        if ($filePath) {
+            $fullPath = dirname(__DIR__) . DIRECTORY_SEPARATOR . str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $filePath);
+            if (file_exists($fullPath)) {
+                $size = filesize($fullPath);
+                echo json_encode(['status' => 'success', 'size' => $size]);
+                return;
+            }
+        }
+    }
+    echo json_encode(['status' => 'error', 'size' => null]);
+}
+
 // Include header and navigation
 include 'includes/header.php';
 include 'includes/navigation.php';
@@ -340,22 +363,23 @@ include 'includes/navigation.php';
     <!-- Add E-book Modal -->
     <div class="modal fade" id="addEbookModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add E-book</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-content" style="border-radius: 16px; border: 1px solid #ede9fe;">
+                <div class="modal-header" style="background: linear-gradient(90deg, #6D28D9 0%, #A78BFA 100%); color: #fff; border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 1.25rem 1.5rem;">
+                    <h5 class="modal-title" style="font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-plus me-2"></i>Add E-book</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <form id="addEbookForm" enctype="multipart/form-data">
-                    <div class="modal-body">
+                    <div class="modal-body" style="background: #f8f9fa; padding: 1.5rem 1.5rem 1.25rem 1.5rem;">
                         <div class="row g-3">
                             <div class="col-md-12">
                                 <label class="form-label">Title *</label>
-                                <input type="text" class="form-control" name="title" required>
+                                <input type="text" class="form-control" name="title" required placeholder="Enter e-book title">
                             </div>
                             <div class="col-md-12">
                                 <label class="form-label">Description</label>
                                 <textarea class="form-control" name="description" rows="3" placeholder="Book description and content overview"></textarea>
-                            </div>                            <div class="col-md-6">
+                            </div>
+                            <div class="col-md-6">
                                 <label class="form-label">Class *</label>
                                 <select class="form-select" name="class" id="addEbookClass" required onchange="updateModuleDropdown('add')">
                                     <option value="">Select Class</option>
@@ -389,9 +413,9 @@ include 'includes/navigation.php';
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" style="background: #f4f6fb; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; padding: 1rem 1.5rem;">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Add E-book</button>
+                        <button type="submit" class="btn btn-primary" style="background: #6D28D9; border: none;">Add E-book</button>
                     </div>
                 </form>
             </div>
@@ -401,13 +425,13 @@ include 'includes/navigation.php';
     <!-- Edit E-book Modal -->
     <div class="modal fade" id="editEbookModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Edit E-book</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-content" style="border-radius: 16px; border: 1px solid #ede9fe;">
+                <div class="modal-header" style="background: linear-gradient(90deg, #6D28D9 0%, #A78BFA 100%); color: #fff; border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 1.25rem 1.5rem;">
+                    <h5 class="modal-title" style="font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-edit me-2"></i>Edit E-book</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <form id="editEbookForm">
-                    <div class="modal-body">
+                    <div class="modal-body" style="background: #f8f9fa; padding: 1.5rem 1.5rem 1.25rem 1.5rem;">
                         <input type="hidden" name="id" id="editEbookId">
                         <div class="row g-3">
                             <div class="col-md-12">
@@ -417,7 +441,8 @@ include 'includes/navigation.php';
                             <div class="col-md-12">
                                 <label class="form-label">Description</label>
                                 <textarea class="form-control" name="description" id="editEbookDescription" rows="3"></textarea>
-                            </div>                            <div class="col-md-6">
+                            </div>
+                            <div class="col-md-6">
                                 <label class="form-label">Class *</label>
                                 <select class="form-select" name="class" id="editEbookClass" required onchange="updateModuleDropdown('edit')">
                                     <option value="">Select Class</option>
@@ -443,10 +468,11 @@ include 'includes/navigation.php';
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" style="background: #f4f6fb; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; padding: 1rem 1.5rem;">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Update E-book</button>
-                    </div>                </form>
+                        <button type="submit" class="btn btn-primary" style="background: #6D28D9; border: none;">Update E-book</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -454,12 +480,12 @@ include 'includes/navigation.php';
     <!-- View E-book Modal -->
     <div class="modal fade" id="viewEbookModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">E-book Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-content" style="border-radius: 16px; border: 1px solid #ede9fe;">
+                <div class="modal-header" style="background: linear-gradient(90deg, #6D28D9 0%, #A78BFA 100%); color: #fff; border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 1.25rem 1.5rem;">
+                    <h5 class="modal-title" style="font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-book-open me-2"></i>E-book Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="background: #f8f9fa; padding: 1.5rem 1.5rem 1.25rem 1.5rem;">
                     <div class="row g-3">
                         <div class="col-md-12">
                             <label class="form-label fw-bold">Title</label>
@@ -519,7 +545,7 @@ include 'includes/navigation.php';
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="background: #f4f6fb; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; padding: 1rem 1.5rem;">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -765,12 +791,12 @@ include 'includes/navigation.php';
                     document.getElementById('viewEbookFileSection').style.display = 'block';
                     document.getElementById('viewEbookNoFile').style.display = 'none';
                     document.getElementById('viewEbookFileName').textContent = ebook.file_name;
-                    
-                    // Calculate and display file size
-                    calculateFileSize('../' + ebook.file_path).then(size => {
+
+                    // Get and display file size via AJAX
+                    getFileSizeAjax(ebook.id).then(size => {
                         document.getElementById('viewEbookFileSize').textContent = size;
                     });
-                    
+
                     // Store file path for download/view functions
                     document.getElementById('viewEbookFileBtn').setAttribute('data-file-path', ebook.file_path);
                     document.getElementById('downloadEbookFileBtn').setAttribute('data-file-path', ebook.file_path);
@@ -807,13 +833,16 @@ include 'includes/navigation.php';
         }
     }
 
-    // Function to calculate file size
-    async function calculateFileSize(filePath) {
-        try {
-            const response = await fetch(filePath, { method: 'HEAD' });
-            const size = response.headers.get('content-length');
-            if (size) {
-                const sizeInBytes = parseInt(size);
+    // Function to get file size via AJAX
+    function getFileSizeAjax(ebookId) {
+        return fetch('ebooks.php', {
+            method: 'POST',
+            body: (() => { const fd = new FormData(); fd.append('action', 'get_file_size'); fd.append('id', ebookId); return fd; })()
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success' && data.size !== null) {
+                const sizeInBytes = parseInt(data.size);
                 if (sizeInBytes < 1024) {
                     return sizeInBytes + ' B';
                 } else if (sizeInBytes < 1024 * 1024) {
@@ -823,9 +852,9 @@ include 'includes/navigation.php';
                 }
             }
             return 'Unknown';
-        } catch (error) {
-            return 'Unknown';
-        }    }
+        })
+        .catch(() => 'Unknown');
+    }
     </script>
 
 <?php include 'includes/footer.php'; ?>

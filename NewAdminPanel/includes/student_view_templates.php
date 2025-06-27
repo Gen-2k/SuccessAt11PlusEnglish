@@ -1,17 +1,14 @@
 <!-- Student View Modal Template - Enhanced -->
 <div class="modal fade" id="studentViewModal" tabindex="-1">
     <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">
-                    <i class="fas fa-user-graduate"></i>
-                    Complete Student Profile
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content" style="border-radius: 16px; border: 1px solid #dbeafe; background: #fff;">
+            <div class="modal-header" style="background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%); color: #fff; border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 1.25rem 1.5rem;">
+                <h5 class="modal-title" style="font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-user-graduate me-2"></i>Complete Student Profile</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body p-0">
+            <div class="modal-body p-0" style="background: #fff; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px;">
                 <!-- Navigation Tabs -->
-                <ul class="nav nav-tabs mb-0" id="studentViewTabs" role="tablist">
+                <ul class="nav nav-tabs mb-0" id="studentViewTabs" role="tablist" style="border-top-left-radius: 16px; border-top-right-radius: 16px;">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="personal-tab" data-bs-toggle="tab" data-bs-target="#personal" type="button" role="tab">
                             <i class="fas fa-user"></i> Personal & Course
@@ -32,8 +29,9 @@
                             <i class="fas fa-file-contract"></i> Terms & Conditions
                         </button>
                     </li>
-                </ul>                <!-- Tab Content -->
-                <div class="tab-content" id="studentViewTabContent">
+                </ul>
+                <!-- Tab Content -->
+                <div class="tab-content" id="studentViewTabContent" style="padding: 1.5rem;">
                     <!-- Personal & Course Details Tab -->
                     <div class="tab-pane fade show active" id="personal" role="tabpanel">
                         <div class="card shadow-sm border-0">
@@ -201,7 +199,7 @@
                     </div>                    <!-- Enrollment Details Tab -->
                     <div class="tab-pane fade" id="enrollment" role="tabpanel">
                         <div class="card shadow-sm border-0">
-        <div class="card-header bg-blue text-white">
+        <div class="card-header bg-success text-white">
             <h5 class="card-title mb-0">
                 <i class="fas fa-graduation-cap me-2"></i>Enrollment History & Course Details
             </h5>
@@ -252,7 +250,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" style="background: #dbeafe; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; padding: 1rem 1.5rem;">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>

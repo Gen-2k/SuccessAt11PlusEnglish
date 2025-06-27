@@ -24,6 +24,9 @@ if (isset($_POST['action'])) {
         case 'get_answer':
             getAnswer();
             break;
+        case 'get_file_size':
+            getAnswerFileSize();
+            break;
     }
     exit();
 }
@@ -199,6 +202,26 @@ function getAnswer() {
         echo json_encode(['status' => 'error', 'message' => 'Answer sheet not found']);
     }
 }
+
+function getAnswerFileSize() {
+    global $conn;
+    $id = intval($_POST['id']);
+    $query = "SELECT file_path FROM resources WHERE id = $id AND resource_type = 'answers'";
+    $result = mysqli_query($conn, $query);
+    if ($row = mysqli_fetch_assoc($result)) {
+        $filePath = $row['file_path'];
+        if ($filePath) {
+            $fullPath = dirname(__DIR__) . DIRECTORY_SEPARATOR . str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $filePath);
+            if (file_exists($fullPath)) {
+                $size = filesize($fullPath);
+                echo json_encode(['status' => 'success', 'size' => $size]);
+                return;
+            }
+        }
+    }
+    echo json_encode(['status' => 'error', 'size' => null]);
+}
+
 // Include header and navigation
 include 'includes/header.php';
 include 'includes/navigation.php';
@@ -333,17 +356,17 @@ include 'includes/navigation.php';
     <!-- Add Answer Modal -->
     <div class="modal fade" id="addAnswerModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add Answer Sheet</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-content" style="border-radius: 16px; border: 1px solid #d1fae5; background: #fff;">
+                <div class="modal-header" style="background: linear-gradient(90deg, #10B981 0%, #6EE7B7 100%); color: #fff; border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 1.25rem 1.5rem;">
+                    <h5 class="modal-title" style="font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-plus me-2"></i>Add Answer Sheet</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <form id="addAnswerForm" enctype="multipart/form-data">
-                    <div class="modal-body">
+                    <div class="modal-body" style="background: #fff; padding: 1.5rem 1.5rem 1.25rem 1.5rem;">
                         <div class="row g-3">
                             <div class="col-md-12">
                                 <label class="form-label">Title *</label>
-                                <input type="text" class="form-control" name="title" required placeholder="e.g., Mathematics Chapter 1 Answers">
+                                <input type="text" class="form-control" name="title" required placeholder="Enter answer sheet title">
                             </div>
                             <div class="col-md-12">
                                 <label class="form-label">Description</label>
@@ -375,9 +398,9 @@ include 'includes/navigation.php';
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" style="background: #d1fae5; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; padding: 1rem 1.5rem;">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Add Answer Sheet</button>
+                        <button type="submit" class="btn btn-success" style="background: #10B981; border: none; color: #fff;">Add Answer Sheet</button>
                     </div>
                 </form>
             </div>
@@ -387,13 +410,13 @@ include 'includes/navigation.php';
     <!-- Edit Answer Modal -->
     <div class="modal fade" id="editAnswerModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Edit Answer Sheet</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-content" style="border-radius: 16px; border: 1px solid #d1fae5; background: #fff;">
+                <div class="modal-header" style="background: linear-gradient(90deg, #10B981 0%, #6EE7B7 100%); color: #fff; border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 1.25rem 1.5rem;">
+                    <h5 class="modal-title" style="font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-edit me-2"></i>Edit Answer Sheet</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <form id="editAnswerForm">
-                    <div class="modal-body">
+                    <div class="modal-body" style="background: #fff; padding: 1.5rem 1.5rem 1.25rem 1.5rem;">
                         <input type="hidden" name="id" id="editAnswerId">
                         <div class="row g-3">
                             <div class="col-md-12">
@@ -425,9 +448,9 @@ include 'includes/navigation.php';
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" style="background: #d1fae5; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; padding: 1rem 1.5rem;">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Update Answer Sheet</button>                    </div>
+                        <button type="submit" class="btn btn-success" style="background: #10B981; border: none; color: #fff;">Update Answer Sheet</button>                    </div>
                 </form>
             </div>
         </div>
@@ -436,12 +459,12 @@ include 'includes/navigation.php';
     <!-- View Answer Modal -->
     <div class="modal fade" id="viewAnswerModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Answer Sheet Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-content" style="border-radius: 16px; border: 1px solid #d1fae5; background: #fff;">
+                <div class="modal-header" style="background: linear-gradient(90deg, #10B981 0%, #6EE7B7 100%); color: #fff; border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 1.25rem 1.5rem;">
+                    <h5 class="modal-title" style="font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-file-alt me-2"></i>Answer Sheet Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="background: #fff; padding: 1.5rem 1.5rem 1.25rem 1.5rem;">
                     <div class="row g-3">
                         <div class="col-md-12">
                             <label class="form-label fw-bold">Title</label>
@@ -469,7 +492,7 @@ include 'includes/navigation.php';
                         </div>
                         <div class="col-md-12" id="viewAnswerFileSection" style="display: none;">
                             <label class="form-label fw-bold">File Information</label>
-                            <div class="card">
+                            <div class="card" style="border-radius: 12px; border: 1px solid #6EE7B7; background: #f0fdfa;">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -480,10 +503,10 @@ include 'includes/navigation.php';
                                         </div>
                                     </div>
                                     <div class="mt-3">
-                                        <button class="btn btn-primary me-2" onclick="viewAnswerFile()" id="viewAnswerFileBtn">
+                                        <button class="btn btn-success me-2" onclick="viewAnswerFile()" id="viewAnswerFileBtn" style="border-radius: 8px; background: #10B981; border: none; color: #fff;">
                                             <i class="fas fa-eye"></i> View File
                                         </button>
-                                        <button class="btn btn-success" onclick="downloadAnswerFile()" id="downloadAnswerFileBtn">
+                                        <button class="btn btn-info" onclick="downloadAnswerFile()" id="downloadAnswerFileBtn" style="border-radius: 8px; background: #6EE7B7; border: none; color: #065F46;">
                                             <i class="fas fa-download"></i> Download File
                                         </button>
                                     </div>
@@ -491,13 +514,13 @@ include 'includes/navigation.php';
                             </div>
                         </div>
                         <div class="col-md-12" id="viewAnswerNoFile" style="display: none;">
-                            <div class="alert alert-info">
+                            <div class="alert alert-info" style="border-radius: 8px; background: #d1fae5; color: #065F46;">
                                 <i class="fas fa-info-circle"></i> No file attached to this answer sheet.
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="background: #d1fae5; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; padding: 1rem 1.5rem;">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -671,7 +694,8 @@ include 'includes/navigation.php';
                 document.getElementById('viewAnswerTitle').textContent = answer.title;
                 document.getElementById('viewAnswerDescription').textContent = answer.description || 'No description provided';
                 document.getElementById('viewAnswerClass').textContent = answer.class;
-                document.getElementById('viewAnswerModule').textContent = answer.module;                document.getElementById('viewAnswerCreated').textContent = new Date(answer.created_at).toLocaleDateString();
+                document.getElementById('viewAnswerModule').textContent = answer.module;
+                document.getElementById('viewAnswerCreated').textContent = new Date(answer.created_at).toLocaleDateString();
                 
                 // Handle updated_at - show creation date if never updated
                 if (answer.updated_at && answer.updated_at !== answer.created_at) {
@@ -685,12 +709,10 @@ include 'includes/navigation.php';
                     document.getElementById('viewAnswerFileSection').style.display = 'block';
                     document.getElementById('viewAnswerNoFile').style.display = 'none';
                     document.getElementById('viewAnswerFileName').textContent = answer.file_name;
-                    
-                    // Calculate and display file size
-                    calculateFileSize('../' + answer.file_path).then(size => {
+                    // Get and display file size via AJAX
+                    getAnswerFileSizeAjax(answer.id).then(size => {
                         document.getElementById('viewAnswerFileSize').textContent = size;
                     });
-                    
                     // Store file path for download/view functions
                     document.getElementById('viewAnswerFileBtn').setAttribute('data-file-path', answer.file_path);
                     document.getElementById('downloadAnswerFileBtn').setAttribute('data-file-path', answer.file_path);
@@ -711,29 +733,16 @@ include 'includes/navigation.php';
         });
     }
 
-    // Function to view answer file
-    function viewAnswerFile() {
-        const filePath = document.getElementById('viewAnswerFileBtn').getAttribute('data-file-path');
-        if (filePath) {
-            window.open('../download.php?file=' + encodeURIComponent(filePath) + '&type=answers&action=view', '_blank');
-        }
-    }
-
-    // Function to download answer file
-    function downloadAnswerFile() {
-        const filePath = document.getElementById('downloadAnswerFileBtn').getAttribute('data-file-path');
-        if (filePath) {
-            window.location.href = '../download.php?file=' + encodeURIComponent(filePath) + '&type=answers&action=download';
-        }
-    }
-
-    // Function to calculate file size
-    async function calculateFileSize(filePath) {
-        try {
-            const response = await fetch(filePath, { method: 'HEAD' });
-            const size = response.headers.get('content-length');
-            if (size) {
-                const sizeInBytes = parseInt(size);
+    // Function to get answer file size via AJAX
+    function getAnswerFileSizeAjax(answerId) {
+        return fetch('answers.php', {
+            method: 'POST',
+            body: (() => { const fd = new FormData(); fd.append('action', 'get_file_size'); fd.append('id', answerId); return fd; })()
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success' && data.size !== null) {
+                const sizeInBytes = parseInt(data.size);
                 if (sizeInBytes < 1024) {
                     return sizeInBytes + ' B';
                 } else if (sizeInBytes < 1024 * 1024) {
@@ -743,9 +752,8 @@ include 'includes/navigation.php';
                 }
             }
             return 'Unknown';
-        } catch (error) {
-            return 'Unknown';
-        }
+        })
+        .catch(() => 'Unknown');
     }
 
     // Available modules for each class
@@ -797,6 +805,22 @@ include 'includes/navigation.php';
     // Initialize module dropdown on page load
     document.addEventListener('DOMContentLoaded', function() {
         updateModuleDropdown('add');    });
+
+    // Function to view answer file
+    function viewAnswerFile() {
+        const filePath = document.getElementById('viewAnswerFileBtn').getAttribute('data-file-path');
+        if (filePath) {
+            window.open('../download.php?file=' + encodeURIComponent(filePath) + '&type=answers&action=view', '_blank');
+        }
+    }
+
+    // Function to download answer file
+    function downloadAnswerFile() {
+        const filePath = document.getElementById('downloadAnswerFileBtn').getAttribute('data-file-path');
+        if (filePath) {
+            window.location.href = '../download.php?file=' + encodeURIComponent(filePath) + '&type=answers&action=download';
+        }
+    }
     </script>
 
 <?php include 'includes/footer.php'; ?>

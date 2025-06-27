@@ -1,5 +1,1 @@
-[2025-06-26 14:13:59] Stripe session retrieved | Context: {"session_id":"cs_test_a12L3eMxlpHhRF5s1FY1FjxN3wKFEeD8LnXUUExatH66xdXwIqeSR3qrEu","payment_status":"paid"}
-[2025-06-26 14:13:59] Processing ebook payment | Context: {"session_id":"cs_test_a12L3eMxlpHhRF5s1FY1FjxN3wKFEeD8LnXUUExatH66xdXwIqeSR3qrEu","student_email":"sagosmsr@gmail.com","ebook_title":"sdada","price":"5.00"}
-[2025-06-26 14:13:59] Ebook purchase created | Context: {"student_id":"8","ebook":"sdada","purchase_id":1}
-[2025-06-26 14:13:59] Transaction completed successfully | Context: {"session_id":"cs_test_a12L3eMxlpHhRF5s1FY1FjxN3wKFEeD8LnXUUExatH66xdXwIqeSR3qrEu"}
-[2025-06-26 14:14:02] Confirmation email sent | Context: {"email":"sagosmsr@gmail.com"}
+\

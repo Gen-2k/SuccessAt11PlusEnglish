@@ -24,6 +24,9 @@ if (isset($_POST['action'])) {
         case 'get_homework':
             getHomework();
             break;
+        case 'get_file_size':
+            getHomeworkFileSize();
+            break;
     }
     exit();
 }
@@ -195,6 +198,26 @@ function getHomework() {
         echo json_encode(['status' => 'error', 'message' => 'Homework not found']);
     }
 }
+
+function getHomeworkFileSize() {
+    global $conn;
+    $id = intval($_POST['id']);
+    $query = "SELECT file_path FROM resources WHERE id = $id AND resource_type = 'homework'";
+    $result = mysqli_query($conn, $query);
+    if ($row = mysqli_fetch_assoc($result)) {
+        $filePath = $row['file_path'];
+        if ($filePath) {
+            $fullPath = dirname(__DIR__) . DIRECTORY_SEPARATOR . str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $filePath);
+            if (file_exists($fullPath)) {
+                $size = filesize($fullPath);
+                echo json_encode(['status' => 'success', 'size' => $size]);
+                return;
+            }
+        }
+    }
+    echo json_encode(['status' => 'error', 'size' => null]);
+}
+
 // Include header and navigation
 include 'includes/header.php';
 include 'includes/navigation.php';
@@ -350,24 +373,25 @@ include 'includes/navigation.php';
 <!-- Add Homework Modal -->
 <div class="modal fade" id="addHomeworkModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Add Homework</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <div class="modal-content" style="border-radius: 16px; border: 1px solid #dbeafe;">
+            <div class="modal-header" style="background: linear-gradient(90deg, #1E40AF 0%, #60A5FA 100%); color: #fff; border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 1.25rem 1.5rem;">
+                <h5 class="modal-title" style="font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-plus me-2"></i>Add Homework</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <form id="addHomeworkForm" enctype="multipart/form-data">
-                <div class="modal-body">
+                <div class="modal-body" style="background: #f1f5f9; padding: 1.5rem 1.5rem 1.25rem 1.5rem;">
                     <div class="row g-3">
                         <div class="col-md-12">
                             <label class="form-label">Title *</label>
-                            <input type="text" class="form-control" name="title" required>
+                            <input type="text" class="form-control" name="title" required placeholder="Enter homework title">
                         </div>
                         <div class="col-md-12">
                             <label class="form-label">Description</label>
                             <textarea class="form-control" name="description" rows="3" placeholder="Homework instructions and details"></textarea>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Class *</label>                            <select class="form-select" name="class" id="addHomeworkClass" required onchange="updateModuleDropdown('add')">
+                            <label class="form-label">Class *</label>
+                            <select class="form-select" name="class" id="addHomeworkClass" required onchange="updateModuleDropdown('add')">
                                 <option value="">Select Class</option>
                                 <option value="year4">Year 4</option>
                                 <option value="year5">Year 5</option>
@@ -394,9 +418,9 @@ include 'includes/navigation.php';
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="background: #e0e7ef; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; padding: 1rem 1.5rem;">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Add Homework</button>
+                    <button type="submit" class="btn btn-primary" style="background: #1E40AF; border: none;">Add Homework</button>
                 </div>
             </form>
         </div>
@@ -406,13 +430,13 @@ include 'includes/navigation.php';
 <!-- Edit Homework Modal -->
 <div class="modal fade" id="editHomeworkModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Edit Homework</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <div class="modal-content" style="border-radius: 16px; border: 1px solid #dbeafe;">
+            <div class="modal-header" style="background: linear-gradient(90deg, #1E40AF 0%, #60A5FA 100%); color: #fff; border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 1.25rem 1.5rem;">
+                <h5 class="modal-title" style="font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-edit me-2"></i>Edit Homework</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <form id="editHomeworkForm">
-                <div class="modal-body">
+                <div class="modal-body" style="background: #f1f5f9; padding: 1.5rem 1.5rem 1.25rem 1.5rem;">
                     <input type="hidden" name="id" id="editHomeworkId">
                     <div class="row g-3">
                         <div class="col-md-12">
@@ -424,7 +448,8 @@ include 'includes/navigation.php';
                             <textarea class="form-control" name="description" id="editHomeworkDescription" rows="3"></textarea>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Class *</label>                            <select class="form-select" name="class" id="editHomeworkClass" required onchange="updateModuleDropdown('edit')">
+                            <label class="form-label">Class *</label>
+                            <select class="form-select" name="class" id="editHomeworkClass" required onchange="updateModuleDropdown('edit')">
                                 <option value="">Select Class</option>
                                 <option value="year4">Year 4</option>
                                 <option value="year5">Year 5</option>
@@ -444,9 +469,10 @@ include 'includes/navigation.php';
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="background: #e0e7ef; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; padding: 1rem 1.5rem;">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Update Homework</button>                </div>
+                    <button type="submit" class="btn btn-primary" style="background: #1E40AF; border: none;">Update Homework</button>
+                </div>
             </form>
         </div>
     </div>
@@ -455,12 +481,12 @@ include 'includes/navigation.php';
 <!-- View Homework Modal -->
 <div class="modal fade" id="viewHomeworkModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Homework Details</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <div class="modal-content" style="border-radius: 16px; border: 1px solid #dbeafe;">
+            <div class="modal-header" style="background: linear-gradient(90deg, #1E40AF 0%, #60A5FA 100%); color: #fff; border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 1.25rem 1.5rem;">
+                <h5 class="modal-title" style="font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-book me-2"></i>Homework Details</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="background: #f1f5f9; padding: 1.5rem 1.5rem 1.25rem 1.5rem;">
                 <div class="row g-3">
                     <div class="col-md-12">
                         <label class="form-label fw-bold">Title</label>
@@ -488,7 +514,7 @@ include 'includes/navigation.php';
                     </div>
                     <div class="col-md-12" id="viewHomeworkFileSection" style="display: none;">
                         <label class="form-label fw-bold">File Information</label>
-                        <div class="card">
+                        <div class="card" style="border-radius: 12px; border: 1px solid #dbeafe;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -499,7 +525,7 @@ include 'includes/navigation.php';
                                     </div>
                                 </div>
                                 <div class="mt-3">
-                                    <button class="btn btn-primary me-2" onclick="viewHomeworkFile()" id="viewHomeworkFileBtn">
+                                    <button class="btn btn-primary me-2" style="background: #1E40AF; border: none;" onclick="viewHomeworkFile()" id="viewHomeworkFileBtn">
                                         <i class="fas fa-eye"></i> View File
                                     </button>
                                     <button class="btn btn-success" onclick="downloadHomeworkFile()" id="downloadHomeworkFileBtn">
@@ -516,7 +542,7 @@ include 'includes/navigation.php';
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" style="background: #e0e7ef; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; padding: 1rem 1.5rem;">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
@@ -720,12 +746,10 @@ function viewHomework(id) {
                 document.getElementById('viewHomeworkFileSection').style.display = 'block';
                 document.getElementById('viewHomeworkNoFile').style.display = 'none';
                 document.getElementById('viewHomeworkFileName').textContent = homework.file_name;
-                
-                // Calculate and display file size
-                calculateFileSize('../' + homework.file_path).then(size => {
+                // Get and display file size via AJAX
+                getHomeworkFileSizeAjax(homework.id).then(size => {
                     document.getElementById('viewHomeworkFileSize').textContent = size;
                 });
-                
                 // Store file path for download/view functions
                 document.getElementById('viewHomeworkFileBtn').setAttribute('data-file-path', homework.file_path);
                 document.getElementById('downloadHomeworkFileBtn').setAttribute('data-file-path', homework.file_path);
@@ -762,13 +786,16 @@ function downloadHomeworkFile() {
     }
 }
 
-// Function to calculate file size
-async function calculateFileSize(filePath) {
-    try {
-        const response = await fetch(filePath, { method: 'HEAD' });
-        const size = response.headers.get('content-length');
-        if (size) {
-            const sizeInBytes = parseInt(size);
+// Function to get homework file size via AJAX
+function getHomeworkFileSizeAjax(homeworkId) {
+    return fetch('homeworks.php', {
+        method: 'POST',
+        body: (() => { const fd = new FormData(); fd.append('action', 'get_file_size'); fd.append('id', homeworkId); return fd; })()
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success' && data.size !== null) {
+            const sizeInBytes = parseInt(data.size);
             if (sizeInBytes < 1024) {
                 return sizeInBytes + ' B';
             } else if (sizeInBytes < 1024 * 1024) {
@@ -778,9 +805,8 @@ async function calculateFileSize(filePath) {
             }
         }
         return 'Unknown';
-    } catch (error) {
-        return 'Unknown';
-    }
+    })
+    .catch(() => 'Unknown');
 }
 
 // Update module dropdown based on selected class in Add/Edit modals
