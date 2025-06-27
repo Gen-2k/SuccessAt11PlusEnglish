@@ -183,8 +183,11 @@ function deleteEbook() {
     
     if (mysqli_query($conn, $query)) {
         // Delete file if exists
-        if ($fileData && $fileData['file_path'] && file_exists('../uploads/' . $fileData['file_path'])) {
-            unlink('../uploads/' . $fileData['file_path']);
+        if ($fileData && $fileData['file_path']) {
+            $fullPath = '../' . $fileData['file_path'];
+            if (file_exists($fullPath)) {
+                unlink($fullPath);
+            }
         }
         echo json_encode(['status' => 'success', 'message' => 'E-book deleted successfully']);
     } else {
