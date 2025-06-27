@@ -536,7 +536,7 @@ p {
              <div class="module-card" id="verbal-reasoning">
                   <div class="row g-4 align-items-stretch">
                      <div class="col-lg-5 module-image-col">
-                           <img src="assets/images/success/verbal-reasoning.png" alt="Verbal reasoning practice" />
+                           <img src="assets/images/success/FocusedYoungGirl.png" alt="Focused Young Girl" />
                      </div>
                      <div class="col-lg-7 module-content-col text-center text-lg-start">
                          <h3>VERBAL REASONING</h3>

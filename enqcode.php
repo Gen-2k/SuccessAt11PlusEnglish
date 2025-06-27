@@ -135,9 +135,12 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
     // =============================
     if (isset($_POST["eqTry"])) {
         try {
+            log_error("Attempting to send auto-response email to: " . $enqMail);
+            
             // User auto-response
             $autoResponse = new PHPMailer();
             $autoResponse->isSMTP();
+            $autoResponse->SMTPDebug = 0; // 0 = off, 1 = client messages, 2 = client and server messages
             $autoResponse->Host       = $mailConfig['host'];
             $autoResponse->SMTPAuth   = true;
             $autoResponse->Username   = $mailConfig['username'];
@@ -146,8 +149,11 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
             $autoResponse->Port       = $mailConfig['port'];
             $autoResponse->setFrom($mailConfig['from_email'], $mailConfig['from_name']);
             $autoResponse->addReplyTo($mailConfig['reply_to_email'], $mailConfig['reply_to_name']);
+            $autoResponse->addAddress($enqMail, $enqName); // Send to the user who submitted the form
             $autoResponse->isHTML($mailConfig['is_html']);
             $autoResponse->CharSet = $mailConfig['charset'];
+            
+            log_error("PHPMailer configured for auto-response. Recipients: " . $enqMail);
             // DKIM settings (commented out for now)
             // if (isset($mailConfig['dkim_domain'])) {
             //     $autoResponse->DKIM_domain = $mailConfig['dkim_domain'];
@@ -166,13 +172,13 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Trial Class Application Received</title>
               <style>
-                body { margin:0; padding:0; background:#f7f7f7; }
+                body { margin:0; padding:0; background:#f7f7f7; font-family: Arial, sans-serif; }
                 .wrapper { width:100%; table-layout:fixed; background:#f7f7f7; padding:30px 0; }
                 .main { background:#ffffff; width:100%; max-width:650px; margin:0 auto; border-radius:8px; overflow:hidden; }
                 .header { background: linear-gradient(90deg, #1E40AF 0%, #F59E0B 100%); padding:24px; text-align:center; }
-                .header h1 { margin:0; font-family:\'Source Serif Pro\', serif; font-size:1.8rem; color:#ffffff; }
-                .header p { margin:8px 0 0; font-family:Varela Round, sans-serif; font-size:1rem; color:#e0e0e0; }
-                .content { padding:28px; font-family:Varela Round, sans-serif; color:#212529; line-height:1.6; }
+                .header h1 { margin:0; font-family:\'Arial\', sans-serif; font-size:1.8rem; color:#ffffff; }
+                .header p { margin:8px 0 0; font-family:Arial, sans-serif; font-size:1rem; color:#e0e0e0; }
+                .content { padding:28px; font-family:Arial, sans-serif; color:#212529; line-height:1.6; }
                 .footer { background:#ffffff; text-align:center; padding:16px; font-size:12px; color:#888888; }
                 .footer a { color:#1E40AF; text-decoration:none; }
                 @media(max-width:600px) { .content{padding:20px;} .header h1{font-size:1.5rem;} }
@@ -187,25 +193,25 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
                   </div>
                   <div class="content">
                     <p>Dear ' . htmlspecialchars($enqName) . ',</p>
-                    <p>Thank you for applying for a trial class with <strong>Success at 11 Plus English</strong>. We have received your application and one of our team members will contact you within the next 24 hours to arrange your session.</p>
-                    <p>If you have any questions in the meantime, feel free to reply to this email or call us.</p>
-                    <p>We look forward to meeting you!</p>
-                    <p>
-                      <table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
-                        <tr>
-                          <td align="center" bgcolor="#1E40AF" style="border-radius:4px;">
-                            <a href="https://elevenplusenglish.co.uk/" target="_blank" style="font-family:Varela Round, sans-serif; font-size:16px; color:#ffffff; text-decoration:none; padding:12px 24px; display:inline-block; font-weight:600;">Explore Our Courses</a>
-                          </td>
-                        </tr>
-                      </table>
-                    </p>
+                    <p>Thank you for your interest in Success at 11 Plus English. Your trial class application has been received.</p>
+                    <p><strong>Your Application Details:</strong></p>
+                    <ul style="padding-left:18px;">
+                        <li><strong>Name:</strong> ' . htmlspecialchars($enqName) . '</li>
+                        <li><strong>Email:</strong> ' . htmlspecialchars($enqMail) . '</li>
+                        <li><strong>Phone:</strong> ' . htmlspecialchars($enqPhone) . '</li>
+                        <li><strong>Year Group:</strong> ' . htmlspecialchars($enqApply) . '</li>
+                        ' . (!empty($enqModule) ? '<li><strong>Module Interest:</strong> ' . htmlspecialchars($enqModule) . '</li>' : '') . '
+                        ' . (!empty($enqMsg) ? '<li><strong>Message:</strong> ' . nl2br(htmlspecialchars($enqMsg)) . '</li>' : '') . '
+                    </ul>
+                    <p>We will be in touch with further details soon.</p>
+                    <p>If you have any questions, feel free to reply to this email.</p>
                   </div>
                   ' . generateUnsubscribeFooter($enqMail) . '
                 </div>
               </div>
             </body>
             </html>';
-            $autoResponse->AltBody = 'Thank you for applying for a trial class with Success at 11 Plus English. We\'ve received your application and one of our team members will contact you within the next 24 hours to arrange your session.';
+$autoResponse->AltBody = 'Thank you for your interest in Success at 11 Plus English. Your trial class application has been received.\n\nApplication Details:\n- Name: ' . $enqName . '\n- Email: ' . $enqMail . '\n- Phone: ' . $enqPhone . '\n- Year Group: ' . $enqApply . (!empty($enqModule) ? '\n- Module Interest: ' . $enqModule : '') . (!empty($enqMsg) ? '\n- Message: ' . $enqMsg : '') . '\nWe will be in touch with further details soon.';
             if ($autoResponse->send()) {
                 $userMailSuccess = true;
                 log_error('Auto-response email sent to user: ' . $enqMail);
@@ -223,8 +229,11 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
     // 2. Send Admin Notification (always attempt)
     // =============================
     try {
+        log_error("Attempting to send admin notification email");
+        
         $mail = new PHPMailer();
         $mail->isSMTP();
+        $mail->SMTPDebug = 0; // 0 = off, 1 = client messages, 2 = client and server messages
         $mail->Host       = $mailConfig['host'];
         $mail->SMTPAuth   = true;
         $mail->Username   = $mailConfig['username'];
@@ -233,8 +242,11 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
         $mail->Port       = $mailConfig['port'];
         $mail->setFrom($mailConfig['from_email'], $mailConfig['from_name']);
         $mail->addReplyTo($mailConfig['reply_to_email'], $mailConfig['reply_to_name']);
+        $mail->addAddress($mailConfig['from_email'], 'Success At 11 Plus English Admin'); // Send to admin
         $mail->isHTML($mailConfig['is_html']);
         $mail->CharSet = $mailConfig['charset'];
+        
+        log_error("Admin PHPMailer configured. Recipients: " . $mailConfig['from_email']);
         // DKIM settings (commented out for now)
         // if (isset($mailConfig['dkim_domain'])) {
         //     $mail->DKIM_domain = $mailConfig['dkim_domain'];
@@ -257,13 +269,13 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>New Enquiry Received</title>
           <style>
-            body { margin:0; padding:0; background:#f7f7f7; }
+            body { margin:0; padding:0; background:#f7f7f7; font-family: Arial, sans-serif; }
             .wrapper { width:100%; table-layout:fixed; background:#f7f7f7; padding:30px 0; }
             .main { background:#ffffff; width:100%; max-width:650px; margin:0 auto; border-radius:8px; overflow:hidden; }
             .header { background: linear-gradient(90deg, #1E40AF 0%, #F59E0B 100%); padding:24px; text-align:center; }
-            .header h1 { margin:0; font-family:\'Source Serif Pro\', serif; font-size:1.8rem; color:#ffffff; }
-            .header p { margin:8px 0 0; font-family:Varela Round, sans-serif; font-size:1rem; color:#e0e0e0; }
-            .content { padding:28px; font-family:Varela Round, sans-serif; color:#212529; line-height:1.6; }
+            .header h1 { margin:0; font-family:Arial, sans-serif; font-size:1.8rem; color:#ffffff; }
+            .header p { margin:8px 0 0; font-family:Arial, sans-serif; font-size:1rem; color:#e0e0e0; }
+            .content { padding:28px; font-family:Arial, sans-serif; color:#212529; line-height:1.6; }
             .box { background:#f8f9fa; border-left:4px solid #F59E0B; padding:16px 20px; margin:20px 0; border-radius:4px; }
             .footer { background:#ffffff; text-align:center; padding:16px; font-size:12px; color:#888888; }
             .footer a { color:#1E40AF; text-decoration:none; }
@@ -318,12 +330,23 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
     // 3. Output Response (show user mail status if trial form)
     // =============================
     if (isset($_POST["eqTry"])) {
-        if ($userMailSuccess) {
-            outputResponse('success', 'Your application has been submitted successfully! We will contact you shortly. (Confirmation email sent)', $redirectUrl);
+        // For trial class applications, we always show success to the user
+        // but provide different messaging based on email delivery status
+        if ($userMailSuccess && $adminMailSuccess) {
+            outputResponse('success', 'Your application has been submitted successfully! We will contact you shortly. A confirmation email has been sent to your inbox.', $redirectUrl);
+        } elseif ($userMailSuccess && !$adminMailSuccess) {
+            outputResponse('success', 'Your application has been submitted successfully! We will contact you shortly. A confirmation email has been sent to your inbox.', $redirectUrl);
+            log_error('Trial form submitted successfully but admin notification failed');
+        } elseif (!$userMailSuccess && $adminMailSuccess) {
+            outputResponse('success', 'Your application has been submitted successfully! We will contact you shortly. However, we could not send a confirmation email to your address - please check your email or contact us directly.', $redirectUrl);
+            log_error('Trial form submitted successfully but user confirmation failed');
         } else {
-            outputResponse('success', 'Your application has been submitted! However, we could not send a confirmation email to your address. Please check your details or contact us if needed.', $redirectUrl);
+            // Both emails failed, but still show success to user
+            outputResponse('success', 'Your application has been submitted! However, there may have been an issue with our email system. We will contact you shortly using the details you provided.', $redirectUrl);
+            log_error('Trial form submitted but both emails failed - User: ' . $userMailError . ', Admin: ' . $adminMailError);
         }
     } else {
+        // For other forms, require admin email to succeed
         if ($adminMailSuccess) {
             outputResponse('success', 'Your application has been submitted successfully! We will contact you shortly.', $redirectUrl);
         } else {

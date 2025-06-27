@@ -941,7 +941,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <!-- Row 1: Structure -->
                 <div class="row g-5 align-items-center mb-5">
                     <div class="col-md-6">
-                        <img src="assets/images/success/image17.png" alt="Happy student showing thumbs up" class="img-fluid rounded shadow-lg">
+                        <img src="assets/images/success/PositiveStudy.png" alt="Happy student showing thumbs up" class="img-fluid rounded shadow-lg">
                     </div>
                     <div class="col-md-6">
                         <div class="benefit-item d-flex align-items-start mb-4">

@@ -169,7 +169,7 @@ $_SESSION['form_submitted'] = false;
                     </div>
                     <h3>Application Submitted Successfully</h3>
                     <p class="lead mb-4">Thank you for your interest in our trial class. Your application has been received!</p>
-                    <p>Our team will contact you within 24 hours to arrange your session. In the meantime, we've sent a confirmation email to your inbox.</p>
+                    <p>We will be in touch with further details soon. In the meantime, we've sent a confirmation email to your inbox.</p>
                     <p>If you have any questions, please feel free to contact us.</p>
                     <a href="index.php" class="btn btn-primary">
                         <i class="bi bi-house-door-fill me-2"></i>Return to Home

@@ -391,7 +391,7 @@ if (isset($_SESSION['status']) && isset($_SESSION['status_code'])) {
                                     
                                     <div class="col-md-6">
                                         <label for="module" class="form-label"><i class="bi bi-book-fill"></i>Module Interest</label>
-                                        <select id="module" name="eqModule" class="form-select" required>
+                                        <select id="module" name="eqModule" class="form-select">
                                             <option value="">Select a module</option>
                                             <option value="Comprehension">Comprehension</option>
                                             <option value="Creative Writing">Creative Writing</option>
@@ -492,6 +492,12 @@ if (isset($_SESSION['status']) && isset($_SESSION['status_code'])) {
                     submitBtn.prop('disabled', false);
                     
                     if (response.status === 'success') {
+                        // Show success message
+                        $('<div class="alert alert-success mb-4">' +
+                            '<i class="bi bi-check-circle-fill me-2"></i>' +
+                            (response.message || 'Your application has been submitted successfully!') +
+                            '</div>').insertBefore('#trial-form');
+                        
                         // Load and display the thank you message
                         $.get('thank-you-inline.php', function(thankyouContent) {
                             $('#trial-form').html(thankyouContent);
@@ -503,6 +509,9 @@ if (isset($_SESSION['status']) && isset($_SESSION['status_code'])) {
                             
                             // Set a cookie or localStorage item to show they've applied
                             localStorage.setItem('trialClassApplied', 'true');
+                        }).fail(function() {
+                            // If thank-you-inline.php fails to load, show inline success message
+                            $('#trial-form').html('<div class="alert alert-success text-center"><div class="mb-4"><i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i></div><h4 class="alert-heading">Application Submitted!</h4><p>Thank you for your interest! Your trial class application has been received. Our team will contact you within 24 hours to arrange your session.</p><hr><p class="mb-0"><small>A confirmation email has been sent to your inbox. If you don\'t see it, please check your spam folder.</small></p></div>');
                         });
                     } else {
                         // Show error message
