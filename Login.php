@@ -44,6 +44,8 @@ if (!isset($_SESSION)) {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      margin: 0;
+      padding: 0;
     }
     
     h1, h2, h3, h4, h5, h6 {
@@ -53,18 +55,29 @@ if (!isset($_SESSION)) {
     .login-container {
       flex: 1;
       display: flex;
-      align-items: center;
-      padding: 2rem 0;
+      align-items: stretch;
+      padding: 0;
+      min-height: calc(100vh - 80px); /* Subtract navbar height */
     }
     
     .login-card {
       background: var(--card-bg);
-      border-radius: 20px;
+      border-radius: 0;
       overflow: hidden;
       box-shadow: 0 25px 60px rgba(30, 64, 175, 0.15);
-      border: 1px solid rgba(30, 64, 175, 0.1);
-      max-width: 900px;
-      margin: 2rem auto;
+      border: none;
+      min-height: 100vh;
+      margin: 0;
+    }
+    
+    .login-card .row {
+      height: 100%;
+      min-height: 100vh;
+    }
+    
+    .login-card .col-lg-6 {
+      display: flex;
+      flex-direction: column;
     }
     
     .login-image {
@@ -73,7 +86,7 @@ if (!isset($_SESSION)) {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 500px;
+      min-height: 100%;
     }
     
     .login-image img {
@@ -85,6 +98,10 @@ if (!isset($_SESSION)) {
     
     .login-form {
       padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100%;
     }
     
     .login-header {
@@ -215,9 +232,14 @@ if (!isset($_SESSION)) {
     }
     
     @media (max-width: 768px) {
+      .login-container {
+        min-height: calc(100vh - 60px); /* Adjust for smaller navbar */
+      }
+      
       .login-card {
-        margin: 1rem;
-        border-radius: 15px;
+        margin: 0;
+        border-radius: 0;
+        min-height: 100vh;
       }
       
       .login-form {
@@ -242,7 +264,7 @@ if (!isset($_SESSION)) {
   </div>
   
   <div class="login-container">
-    <div class="container">
+    <div class="container-fluid px-0">
       <div class="login-card">
         <div class="row g-0">
           <div class="col-lg-6">
@@ -298,7 +320,7 @@ if (!isset($_SESSION)) {
                       Remember Me
                     </label>
                   </div>
-                  <a href="ForgotPassword" class="forgot-link">Forgot Password?</a>
+                  <a href="ForgotPassword.php" class="forgot-link">Forgot Password?</a>
                 </div>
 
                 <button type="submit" name="submit" class="btn-login">
