@@ -37,15 +37,7 @@ if (!$file_path || !file_exists($file_path)) {
     exit;
 }
 
-// Determine file type and appropriate viewer
-$file_extension = strtolower(pathinfo($file_path, PATHINFO_EXTENSION));
-
-// Set appropriate headers
-header('Content-Type: application/pdf');
-header('Content-Disposition: inline; filename="' . $ebook['title'] . '.pdf"');
-header('Content-Length: ' . filesize($file_path));
-
-// Output the file
-readfile($file_path);
+// Redirect to secure download.php for viewing
+header('Location: ../download.php?file=' . urlencode($ebook['file_path']) . '&type=ebooks&action=view');
 exit;
 ?>

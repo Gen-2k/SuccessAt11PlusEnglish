@@ -174,8 +174,8 @@ function deleteActivity() {
     
     if (mysqli_query($conn, $query)) {
         // Delete file if exists
-        if ($fileData && $fileData['file_path'] && file_exists('../' . $fileData['file_path'])) {
-            unlink('../' . $fileData['file_path']);
+        if ($fileData && $fileData['file_path'] && file_exists('../uploads/' . $fileData['file_path'])) {
+            unlink('../uploads/' . $fileData['file_path']);
         }
         echo json_encode(['status' => 'success', 'message' => 'Activity deleted successfully']);
     } else {
@@ -721,7 +721,7 @@ include 'includes/navigation.php';
     function viewActivityFile() {
         const filePath = document.getElementById('viewFileBtn').getAttribute('data-file-path');
         if (filePath) {
-            window.open('../' + filePath, '_blank');
+            window.open('../download.php?file=' + encodeURIComponent(filePath) + '&type=activities&action=view', '_blank');
         }
     }
 
@@ -729,12 +729,7 @@ include 'includes/navigation.php';
     function downloadActivityFile() {
         const filePath = document.getElementById('downloadFileBtn').getAttribute('data-file-path');
         if (filePath) {
-            const link = document.createElement('a');
-            link.href = '../' + filePath;
-            link.download = '';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            window.location.href = '../download.php?file=' + encodeURIComponent(filePath) + '&type=activities&action=download';
         }
     }
 

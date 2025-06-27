@@ -186,21 +186,9 @@ function resourceFileExists($file_path, $resource_type) {
 }
 
 // Get resource file URL (web-accessible path for browser links)
-function getResourceUrl($file_path, $resource_type) {
+function getResourceUrl($file_path, $resource_type, $action = 'view') {
     if (!$file_path) return null;
-    $file_path = ltrim($file_path, '/');
-    
-    // Check if file exists and get the correct path
-    $resolved_path = resolveResourcePath($file_path, $resource_type);
-    if (!file_exists($resolved_path)) {
-        return null;
-    }
-    
-    // Convert physical path to web URL - relative to StudentDashboard folder
-    if (strpos($file_path, 'uploads/') === 0) {
-        return '../' . $file_path;
-    }
-    return '../uploads/' . $resource_type . '/' . basename($file_path);
+    return '../download.php?file=' . urlencode($file_path) . '&type=' . urlencode($resource_type) . '&action=' . urlencode($action);
 }
 
 // Get student's purchased ebooks
@@ -312,11 +300,7 @@ function getEbookUrl($ebook_id) {
     if (!$ebook || !$ebook['file_path']) {
         return null;
     }
-    $file_path = ltrim($ebook['file_path'], '/');
-    if (strpos($file_path, 'uploads/') === 0) {
-        return '/' . $file_path;
-    }
-    return '/uploads/' . $file_path;
+    return '../download.php?file=' . urlencode($ebook['file_path']) . '&type=ebooks';
 }
 
 // Check if student can purchase a specific ebook (based on module enrollment)
