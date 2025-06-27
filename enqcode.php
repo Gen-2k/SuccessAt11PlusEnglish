@@ -121,6 +121,9 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
 
     // Load mail config
     $mailConfig = require __DIR__ . '/mail/mail_config.php';
+    
+    // Include unsubscribe helper
+    require_once __DIR__ . '/includes/unsubscribe_helper.php';
 
     $adminMailSuccess = false;
     $userMailSuccess = false;
@@ -197,10 +200,7 @@ if (isset($_POST["eqName"]) || isset($_POST["eqFTC"]) || isset($_POST["eqTry"]))
                       </table>
                     </p>
                   </div>
-                  <div class="footer">
-                    &copy; ' . date('Y') . ' Success at 11 Plus English. All rights reserved.<br>
-                    <a href="https://elevenplusenglish.co.uk/unsubscribe.php?unsub_email=' . base64_encode($enqMail) . '">Unsubscribe</a>
-                  </div>
+                  ' . generateUnsubscribeFooter($enqMail) . '
                 </div>
               </div>
             </body>

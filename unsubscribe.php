@@ -61,62 +61,109 @@ if (!isset($_SESSION)) {
         <?php include('navbar2.php') ?>
     </div>
     <?php
-        $unPage="0";
-        $error_message="";
-        $unsubMail=base64_decode($_GET['unsub_email']);
-        if(isset($_POST['unsub_submit'])){
-            $nlselectQ="SELECT * FROM newsletter WHERE Subr_email = '$unsubMail'";
-            $nlselectQR=mysqli_query($connection, $nlselectQ);
-            if($nlselectQR){
-                $nlunsubQ="DELETE FROM newsletter WHERE Subr_email = '$unsubMail'";
-                $nlunsubQR=mysqli_query($connection, $nlunsubQ);
-                if($nlunsubQR){
-                    $unPage="1";
-                    $error_message="Unsubscribed Successfully";
-                }else{
-                    $unPage="0";
-                    $error_message="Try Again Later";
+        $unPage = 'form'; // 'form', 'success', 'error'
+        $message = '';
+        $unsubMail = '';
+        
+        // Get encoded email from GET or POST
+        $encodedUnsubEmail = '';
+        if (isset($_GET['unsub_email']) && !empty(trim($_GET['unsub_email']))) {
+            $encodedUnsubEmail = trim(urldecode($_GET['unsub_email']));
+        } elseif (isset($_POST['unsub_email']) && !empty(trim($_POST['unsub_email']))) {
+            $encodedUnsubEmail = trim($_POST['unsub_email']);
+        }
+        
+        // Validate and decode email
+        if (!empty($encodedUnsubEmail)) {
+            // Try to decode the base64
+            $decodedEmail = base64_decode($encodedUnsubEmail, true);
+            
+            if ($decodedEmail !== false && !empty($decodedEmail)) {
+                $unsubMail = $decodedEmail;
+                // Validate email format
+                if (!filter_var($unsubMail, FILTER_VALIDATE_EMAIL)) {
+                    $unPage = 'error';
+                    $message = 'The email address in the unsubscribe link is not valid.';
                 }
-            }else{
-                $unPage="0";
-                $error_message="Not yet to subscribe";
+            } else {
+                $unPage = 'error';
+                $message = 'The unsubscribe link appears to be corrupted. Please use the original link from your email.';
             }
+        } else {
+            $unPage = 'error';
+            $message = 'This page requires a valid unsubscribe link. Please use the unsubscribe link from your email newsletter.';
+        }
+        
+        // Process unsubscribe request
+        if (isset($_POST['unsub_submit']) && $unPage == 'form') {
+            // Check if email exists in newsletter
+            $stmt = mysqli_prepare($connection, "SELECT id FROM newsletter WHERE email = ?");
+            mysqli_stmt_bind_param($stmt, "s", $unsubMail);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            
+            if (mysqli_num_rows($result) > 0) {
+                // Email exists, delete it
+                $deleteStmt = mysqli_prepare($connection, "DELETE FROM newsletter WHERE email = ?");
+                mysqli_stmt_bind_param($deleteStmt, "s", $unsubMail);
+                
+                if (mysqli_stmt_execute($deleteStmt)) {
+                    $unPage = 'success';
+                    $message = 'You have been successfully unsubscribed from our newsletter';
+                } else {
+                    $unPage = 'error';
+                    $message = 'Error occurred while unsubscribing. Please try again later';
+                }
+                mysqli_stmt_close($deleteStmt);
+            } else {
+                $unPage = 'error';
+                $message = 'Email address not found in our newsletter subscription list';
+            }
+            mysqli_stmt_close($stmt);
         }
     ?>
 <div class="container d-flex justify-content-center">
-        <div class="unsubcribeContainer">
-            <div class="box_shad d-flex my-3 p-3">
-                <?php if (!empty($unPage == '0')) { ?>
-                    <div class="" style="background-color: #fff; padding: 10px">
-                        <div class="h4 text-center fw-bold"> Do you want to unsubscribe ? </div>
-                        <?php
-                        if (!empty($error_message)) {
-                        ?>
-                            <div class="message error_message text-danger fs-5 text-center"><?php echo $error_message; ?></div>
-                        <?php
-                        }
-                        ?>
-                        <form action="" method="POST" class="needs-validation" novalidate>
-                            <p class="txt">Hi,</p>
-                            <p for="email" class="txt">If you unsubscribe your email <span class="text-secondary">"<?php echo $unsubMail; ?>"</span>, you will no longer receive our newsletter emails.</p>
-                            <div class="d-flex justify-content-between">
-                                <button type="submit" name="unsub_submit" class="btn  btn-block" style="background-color: #1e40af; color: #fff; ">
-                                    Unsubscribe
-                                </button>
-                                <a href="https://www.successat11plusenglish.com/" class="btn btn-secondary">Cancel</a>
-                            </div>
-                        </form>
+    <div class="unsubcribeContainer">
+        <div class="box_shad d-flex my-3 p-3">
+            <div class="" style="background-color: #fff; padding: 20px; width: 100%;">
+                
+                <?php if ($unPage == 'form'): ?>
+                    <!-- Show unsubscribe form -->
+                    <div class="h4 text-center fw-bold">Do you want to unsubscribe?</div>
+                    <form action="" method="POST" class="needs-validation" novalidate>
+                        <input type="hidden" name="unsub_email" value="<?php echo htmlspecialchars($encodedUnsubEmail); ?>">
+                        <p class="txt">Hi,</p>
+                        <p class="txt">If you unsubscribe your email <span class="text-primary fw-bold">"<?php echo htmlspecialchars($unsubMail); ?>"</span>, you will no longer receive our newsletter emails.</p>
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="submit" name="unsub_submit" class="btn btn-primary" style="background-color: #1e40af; border-color: #1e40af;">
+                                Unsubscribe
+                            </button>
+                            <a href="<?php echo BASE_URL; ?>" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
+                
+                <?php elseif ($unPage == 'success'): ?>
+                    <!-- Show success message -->
+                    <div class="text-center">
+                        <div class="h4 text-success fw-bold mb-3">✓ Unsubscribed Successfully</div>
+                        <p class="text-muted"><?php echo htmlspecialchars($message); ?></p>
+                        <a href="<?php echo BASE_URL; ?>" class="btn btn-primary mt-3">Return to Website</a>
                     </div>
-            <?php } elseif (!empty($unPage == '1')) {
-                    if (!empty($error_message)) {
-            ?>
-                <div class=" text-success fs-1 text-center"><?php echo $error_message; ?></div>
-        <?php
-                    }
-                } ?>
+                
+                <?php else: ?>
+                    <!-- Show error message -->
+                    <div class="text-center">
+                        <div class="h4 text-danger fw-bold mb-3">⚠ Error</div>
+                        <p class="text-muted"><?php echo htmlspecialchars($message); ?></p>
+                        <a href="<?php echo BASE_URL; ?>" class="btn btn-primary mt-3">Return to Website</a>
+                    </div>
+                
+                <?php endif; ?>
+                
             </div>
         </div>
     </div>
+</div>
 
     <?php include('footer.php') ?>
 

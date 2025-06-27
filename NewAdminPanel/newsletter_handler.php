@@ -9,6 +9,7 @@ ini_set('log_errors', 1);
 
 require_once 'config/config.php';
 require_once 'includes/auth.php';
+require_once '../includes/unsubscribe_helper.php';
 
 // Clean any previous output
 if (ob_get_length()) ob_clean();
@@ -279,10 +280,7 @@ try {
               </table>
             </p>
           </div>
-          <div class="footer">
-            &copy; ' . date('Y') . ' Success at 11 Plus English. All rights reserved.<br>
-            <a href="' . (defined('BASE_URL') ? BASE_URL : 'http://localhost/SuccessAt11PlusEnglish/') . 'unsubscribe.php?email={SUBSCRIBER_EMAIL_ENCODED}">Unsubscribe from newsletters</a>
-          </div>
+          {UNSUBSCRIBE_FOOTER}
         </div>
       </div>
     </body>
@@ -318,9 +316,11 @@ try {
             $mail->addAddress($subscriber['email'], $subscriberName);
             
             // Personalize email content
+            $unsubscribeFooter = generateUnsubscribeFooter($subscriber['email']);
+            
             $personalizedHtml = str_replace(
-                ['{SUBSCRIBER_NAME}', '{SUBSCRIBER_EMAIL_ENCODED}'],
-                [htmlspecialchars($subscriberName), base64_encode($subscriber['email'])],
+                ['{SUBSCRIBER_NAME}', '{UNSUBSCRIBE_FOOTER}'],
+                [htmlspecialchars($subscriberName), $unsubscribeFooter],
                 $htmlTemplate
             );
             

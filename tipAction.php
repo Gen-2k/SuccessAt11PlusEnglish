@@ -101,8 +101,14 @@ if (isset($_POST['action']) && $_POST['action'] == 'newsletter') {
     // Helper: Generate Email Content Based on Tip Type
     // -------------------------------------------------------------------------
     function generateTipContent($tip_type, $name, $email) {
+        // Include unsubscribe helper
+        require_once __DIR__ . '/includes/unsubscribe_helper.php';
+        
         $subject = '';
         $content = '';
+        
+        // Generate unsubscribe footer
+        $unsubscribeFooter = generateUnsubscribeFooter($email);
         // --- Comprehension & Creative Writing Tips ---
         if ($tip_type === 'comprehension_creative_writing') {
             $subject = 'Essential Tips for 11 Plus English: Comprehension, Vocabulary & Creative Writing Success';
@@ -207,10 +213,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'newsletter') {
                           </table>
                         </p>
                       </div>
-                      <div class="footer">
-                        &copy; ' . date('Y') . ' Success at 11 Plus English. All rights reserved. <br>
-                        <a href="https://elevenplusenglish.co.uk/unsubscribe.php?unsub_email=' . base64_encode($email) . '">Unsubscribe</a>
-                      </div>
+                      ' . $unsubscribeFooter . '
                     </div>
                   </div>
                 </body>
@@ -297,10 +300,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'newsletter') {
                           </table>
                         </p>
                       </div>
-                      <div class="footer">
-                        &copy; ' . date('Y') . ' Success at 11 Plus English. All rights reserved.<br>
-                        <a href="https://elevenplusenglish.co.uk/unsubscribe.php?unsub_email=' . base64_encode($email) . '">Unsubscribe</a>
-                      </div>
+                      ' . $unsubscribeFooter . '
                     </div>
                   </div>
                 </body>
@@ -350,10 +350,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'newsletter') {
                           </table>
                         </p>
                       </div>
-                      <div class="footer">
-                        &copy; ' . date('Y') . ' Success at 11 Plus English. All rights reserved.<br>
-                        <a href="https://elevenplusenglish.co.uk/unsubscribe.php?unsub_email=' . base64_encode($email) . '">Unsubscribe</a>
-                      </div>
+                      ' . $unsubscribeFooter . '
                     </div>
                   </div>
                 </body>

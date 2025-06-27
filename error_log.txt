@@ -21,3 +21,11 @@
 [26-Jun-2025 13:32:10 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
 [26-Jun-2025 13:32:27 Europe/London] Newsletter subscription attempt started
 [26-Jun-2025 13:32:30 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[27-Jun-2025 08:13:05 Europe/London] Newsletter subscription attempt started
+[27-Jun-2025 08:13:05 Europe/London] Attempting to insert newsletter subscription: Name=sample, Email=socaco8714@iridales.com
+[27-Jun-2025 08:13:08 Europe/London] Newsletter tip email sent for: socaco8714@iridales.com
+[27-Jun-2025 08:13:16 Europe/London] Newsletter subscription attempt started
+[27-Jun-2025 08:13:19 Europe/London] Newsletter tip email sent for: socaco8714@iridales.com
+[27-Jun-2025 08:14:59 Europe/London] Newsletter subscription attempt started
+[27-Jun-2025 08:14:59 Europe/London] Attempting to insert newsletter subscription: Name=asdsad, Email=socaco8714@iridales.com
+[27-Jun-2025 08:15:02 Europe/London] Newsletter tip email sent for: socaco8714@iridales.com
