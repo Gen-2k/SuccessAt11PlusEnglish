@@ -1,0 +1,7 @@
+[2025-06-30 11:45:25] Stripe session retrieved | Context: {"session_id":"cs_test_a1OO5P0r6PSzpchGEHZlrHZd4mQ7NjKRhHUpS73HsJD5245O1eIRIgw1JV","payment_status":"paid"}
+[2025-06-30 11:45:25] Payment successful | Context: {"session_id":"cs_test_a1OO5P0r6PSzpchGEHZlrHZd4mQ7NjKRhHUpS73HsJD5245O1eIRIgw1JV","student_email":"socaco8714@iridales.com","module":"1:1 Tutoring","class":"year6","price":45}
+[2025-06-30 11:45:25] Student account created | Context: {"student_id":10,"email":"socaco8714@iridales.com"}
+[2025-06-30 11:45:25] Enrollment created | Context: {"student_id":10,"module":"1:1 Tutoring"}
+[2025-06-30 11:45:25] Added to newsletter | Context: {"email":"socaco8714@iridales.com"}
+[2025-06-30 11:45:25] Database commit successful | Context: {"student_id":10}
+[2025-06-30 11:45:29] Email sent | Context: {"to":"socaco8714@iridales.com","name":"test student","module":"1:1 Tutoring","class":"year6"}

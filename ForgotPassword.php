@@ -654,7 +654,6 @@ function db_exec($conn, $sql, $params, $types = '') {
     
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./formValidation.js"></script>
     <script>
         // Initialize components based on current step
         const step = "<?php echo $step; ?>";

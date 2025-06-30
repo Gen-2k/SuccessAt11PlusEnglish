@@ -177,30 +177,34 @@ if (!isset($_SESSION)) {
       color: var(--theme-blue);
     }
     
-    .form-check {
-      margin: 1.5rem 0;
+    .password-toggle-btn:focus {
+      outline: 2px solid var(--theme-blue);
+      outline-offset: 2px;
+      border-radius: 3px;
     }
     
-    .form-check-input:checked {
-      background-color: var(--theme-blue);
-      border-color: var(--theme-blue);
+    .form-control.is-valid {
+      border-color: #198754;
+      background-color: #fff;
     }
     
-    .form-check-label {
-      color: #495057;
-      font-weight: 500;
+    .form-control.is-invalid {
+      border-color: #dc3545;
+      background-color: #fff;
     }
     
-    .forgot-link {
-      color: var(--theme-blue);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
+    .invalid-feedback {
+      display: block;
+      color: #dc3545;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
     }
     
-    .forgot-link:hover {
-      color: var(--theme-blue-dark);
-      text-decoration: underline;
+    .valid-feedback {
+      display: block;
+      color: #198754;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
     }
     
     .btn-login {
@@ -227,12 +231,31 @@ if (!isset($_SESSION)) {
       transform: translateY(0);
     }
     
+    .btn-login:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    /* Toastr Customization */
     #toast-container > .toast-error {
       background-color: #dc3545;
+      box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
     }
     
     #toast-container > .toast-success {
       background-color: #198754;
+      box-shadow: 0 4px 15px rgba(25, 135, 84, 0.3);
+    }
+    
+    #toast-container > .toast-info {
+      background-color: var(--theme-blue);
+      box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+    }
+    
+    #toast-container > .toast {
+      border-radius: 8px;
+      font-family: 'Varela Round', sans-serif;
     }
     
     @media (max-width: 768px) {
@@ -262,7 +285,7 @@ if (!isset($_SESSION)) {
   </style>
 </head>
 
-<body onload="getCookieUserdata()">
+<body>
   <div class="sticky-sm-top">
     <?php include('navbar2.php') ?>
   </div>
@@ -284,14 +307,21 @@ if (!isset($_SESSION)) {
                 <p>Sign in to access your Success At 11 Plus English account</p>
               </div>
               
+              <!-- Error/Success Messages -->
+              <div id="loginMessages"></div>
+              
               <?php
               if (isset($_SESSION['status_code'])) {
-                echo "<script type='text/javascript'>toastr.error('".$_SESSION['status_code']."')</script>";
+                echo "<script type='text/javascript'>
+                  document.addEventListener('DOMContentLoaded', function() {
+                    toastr.error('".$_SESSION['status_code']."');
+                  });
+                </script>";
                 unset($_SESSION['status_code']);
               }
               ?>
               
-              <form action="loginaction.php" method="POST" autocomplete="off" class="needs-validation" novalidate>
+              <form action="loginaction.php" method="POST" autocomplete="off" id="loginForm" class="needs-validation" novalidate>
                 <div class="mb-3">
                   <label for="email" class="form-label">
                     <i class="bi bi-envelope-fill"></i>Email Address
@@ -327,7 +357,7 @@ if (!isset($_SESSION)) {
                   <a href="ForgotPassword.php" class="forgot-link">Forgot Password?</a>
                 </div>
 
-                <button type="submit" name="submit" class="btn-login">
+                <button type="submit" name="submit" class="btn-login" id="loginBtn">
                   <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
                 </button>
               </form>
@@ -342,65 +372,224 @@ if (!isset($_SESSION)) {
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="formValidation.js"></script>
 
 </body>
  <script>
-  const userId = document.getElementById('email');
-  const password = document.getElementById('pass');
-  const togglePasswordBtn = document.getElementById('togglePassword');
-  const toggleIcon = document.getElementById('toggleIcon');
-  const rememberMe = document.getElementById('rememberMe');
+  document.addEventListener('DOMContentLoaded', function() {
+    // Configure toastr options
+    toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "newestOnTop": true,
+      "progressBar": true,
+      "positionClass": "toast-top-right",
+      "preventDuplicates": true,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    };
 
-  // Toggle password visibility with new button
-  togglePasswordBtn.addEventListener('click', () => {
-    if (password.type === 'password') {
-      password.type = 'text';
-      toggleIcon.classList.replace('bi-eye-slash', 'bi-eye');
-    } else {
-      password.type = 'password';
-      toggleIcon.classList.replace('bi-eye', 'bi-eye-slash');
-    }
-  });
+    const userId = document.getElementById('email');
+    const password = document.getElementById('pass');
+    const togglePasswordBtn = document.getElementById('togglePassword');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const rememberMe = document.getElementById('rememberMe');
+    const loginForm = document.getElementById('loginForm');
+    const loginBtn = document.getElementById('loginBtn');
 
-  // Remember me functionality
-  let expiryDate = new Date();
-  const month = (expiryDate.getMonth() + 2);
-  expiryDate.setMonth(month);
+    // Clear any validation states on page load
+    clearValidation(userId);
+    clearValidation(password);
 
-  rememberMe.addEventListener('click', () => {
-    if (rememberMe.checked && userId.value.trim() !== "" && password.value.trim() !== "") {
-      const uName = userId.value;
-      const pwd = password.value;
-      document.cookie = "username=" + encodeURIComponent(uName) + "; Expires=" + expiryDate + ";path=/Login";
-      document.cookie = "password=" + encodeURIComponent(pwd) + "; Expires=" + expiryDate + ";path=/Login";
-    }
-  });
-
-  function getCookieUserdata() {
-    const userEmailId = getCookie('username');
-    const userPwd = getCookie('password');
-
-    if (userEmailId) userId.value = userEmailId;
-    if (userPwd) password.value = userPwd;
-    if (userEmailId && userPwd) rememberMe.checked = true;
-  }
-
-  function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
+    // Form validation functions
+    function validateField(field) {
+      const value = field.value.trim();
+      let isValid = true;
+      
+      if (field.id === 'email') {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (value === '') {
+          isValid = false;
+          showFieldError(field, 'Email address is required');
+        } else if (!emailPattern.test(value)) {
+          isValid = false;
+          showFieldError(field, 'Please enter a valid email address');
+        } else {
+          showFieldSuccess(field);
+        }
+      } else if (field.id === 'pass') {
+        if (value === '') {
+          isValid = false;
+          showFieldError(field, 'Password is required');
+        } else if (value.length < 3) {
+          isValid = false;
+          showFieldError(field, 'Password must be at least 3 characters');
+        } else {
+          showFieldSuccess(field);
+        }
       }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
+      
+      return isValid;
+    }
+
+    function showFieldError(field, message) {
+      field.classList.remove('is-valid');
+      field.classList.add('is-invalid');
+      const feedback = field.parentNode.querySelector('.invalid-feedback') || field.nextElementSibling;
+      if (feedback && feedback.classList.contains('invalid-feedback')) {
+        feedback.textContent = message;
       }
     }
-    return "";
-  }
+
+    function showFieldSuccess(field) {
+      field.classList.remove('is-invalid');
+      field.classList.add('is-valid');
+    }
+
+    function clearValidation(field) {
+      field.classList.remove('is-valid', 'is-invalid');
+    }
+
+    function validateForm() {
+      const emailValid = validateField(userId);
+      const passwordValid = validateField(password);
+      return emailValid && passwordValid;
+    }
+
+    // Real-time validation
+    userId.addEventListener('blur', () => validateField(userId));
+    password.addEventListener('blur', () => validateField(password));
+    
+    userId.addEventListener('input', () => {
+      if (userId.classList.contains('is-invalid')) {
+        validateField(userId);
+      }
+    });
+    
+    password.addEventListener('input', () => {
+      if (password.classList.contains('is-invalid')) {
+        validateField(password);
+      }
+    });
+
+    // Form submission with enhanced validation
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Validate all fields
+      if (!validateForm()) {
+        // Focus first invalid field
+        const firstInvalid = loginForm.querySelector('.is-invalid');
+        if (firstInvalid) {
+          firstInvalid.focus();
+        }
+        toastr.error('Please correct the errors before submitting.');
+        return false;
+      }
+      
+      // Check if form is already being submitted
+      if (loginBtn.disabled) {
+        return false;
+      }
+      
+      // Show loading state
+      const originalText = loginBtn.innerHTML;
+      loginBtn.disabled = true;
+      loginBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Signing In...';
+      
+      // Submit form after brief delay for UX
+      setTimeout(() => {
+        // Create a hidden form to submit (prevents double submission)
+        const hiddenForm = document.createElement('form');
+        hiddenForm.method = 'POST';
+        hiddenForm.action = 'loginaction.php';
+        hiddenForm.style.display = 'none';
+        
+        // Add form data
+        const usernameInput = document.createElement('input');
+        usernameInput.type = 'hidden';
+        usernameInput.name = 'username';
+        usernameInput.value = userId.value;
+        hiddenForm.appendChild(usernameInput);
+        
+        const passwordInput = document.createElement('input');
+        passwordInput.type = 'hidden';
+        passwordInput.name = 'password';
+        passwordInput.value = password.value;
+        hiddenForm.appendChild(passwordInput);
+        
+        const submitInput = document.createElement('input');
+        submitInput.type = 'hidden';
+        submitInput.name = 'login_submit'; // changed from 'submit' to 'login_submit'
+        submitInput.value = '1';
+        hiddenForm.appendChild(submitInput);
+        
+        document.body.appendChild(hiddenForm);
+        hiddenForm.submit();
+      }, 500);
+    });
+
+    // Toggle password visibility
+    togglePasswordBtn.addEventListener('click', () => {
+      if (password.type === 'password') {
+        password.type = 'text';
+        toggleIcon.classList.replace('bi-eye-slash', 'bi-eye');
+        togglePasswordBtn.setAttribute('aria-label', 'Hide password');
+      } else {
+        password.type = 'password';
+        toggleIcon.classList.replace('bi-eye', 'bi-eye-slash');
+        togglePasswordBtn.setAttribute('aria-label', 'Show password');
+      }
+    });
+
+    // Remember me functionality
+    let expiryDate = new Date();
+    const month = (expiryDate.getMonth() + 2);
+    expiryDate.setMonth(month);
+
+    rememberMe.addEventListener('click', () => {
+      if (rememberMe.checked && userId.value.trim() !== "" && password.value.trim() !== "") {
+        const uName = userId.value;
+        const pwd = password.value;
+        document.cookie = "username=" + encodeURIComponent(uName) + "; Expires=" + expiryDate + ";path=/Login";
+        document.cookie = "password=" + encodeURIComponent(pwd) + "; Expires=" + expiryDate + ";path=/Login";
+      }
+    });
+
+    function getCookieUserdata() {
+      const userEmailId = getCookie('username');
+      const userPwd = getCookie('password');
+
+      if (userEmailId) userId.value = userEmailId;
+      if (userPwd) password.value = userPwd;
+      if (userEmailId && userPwd) rememberMe.checked = true;
+    }
+
+    function getCookie(cname) {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    // Load saved credentials on page load
+    getCookieUserdata();
+  });
 </script>
 
 </html>
