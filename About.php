@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="indexStyles.css">
+    <link rel="icon" type="image/x-icon" href="./assets/favicons/favicon.ico">
     <style>
     :root {
         --theme-blue: #1E40AF;

@@ -1,0 +1,12 @@
+[30-Jun-2025 06:28:33 Europe/London] Newsletter subscription attempt started
+[30-Jun-2025 06:28:37 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[30-Jun-2025 06:29:07 Europe/London] Newsletter subscription attempt started
+[30-Jun-2025 06:29:12 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[30-Jun-2025 06:29:32 Europe/London] Newsletter subscription attempt started
+[30-Jun-2025 06:29:36 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[30-Jun-2025 06:30:19 Europe/London] Newsletter subscription attempt started
+[30-Jun-2025 06:30:23 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[30-Jun-2025 06:30:50 Europe/London] Newsletter subscription attempt started
+[30-Jun-2025 06:30:54 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[30-Jun-2025 06:35:53 Europe/London] Newsletter subscription attempt started
+[30-Jun-2025 06:35:57 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com

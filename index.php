@@ -27,7 +27,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta property="og:image" content="./assets/images/logonew.png" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./assets/images/logonew.png">
+    <link rel="icon" type="image/x-icon" href="./assets/favicons/favicon.ico">
 
     <!-- External Stylesheets -->
     <link rel="stylesheet" href="./indexStyles.css">
@@ -717,11 +717,11 @@ if (session_status() === PHP_SESSION_NONE) {
                     </div>
 
                     <!-- Carousel Indicators - Properly Centered -->
-                    <div class="carousel-indicators position-static d-flex justify-content-center mt-4 mb-0">
+                    <!-- <div class="carousel-indicators position-static d-flex justify-content-center mt-4 mb-0">
                         <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Mobile: Stacked Cards -->
@@ -1307,36 +1307,6 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <!-- Footer -->
     <?php include('footer.php'); ?>
-
-    <!-- Newsletter Popup -->
-    <div class="newsLetterContainer align-items-center justify-content-center">
-        <div class="card p-4 p-md-5 position-relative newsLetterCard" style="max-width: 420px; width: 100%;">
-            <button type="button" class="btn-close closeButton position-absolute top-0 end-0 mt-2 me-2" aria-label="Close"></button>
-            <div id="formScreen">
-                <h3 class="card-title blue fw-bold mb-2 text-center" id="formTitle">Subscribe to our Newsletter</h3>
-                <p class="text-muted mb-4 text-center" id="formDescription">Enter your details below to subscribe to our newsletter and receive updates.</p>
-                <form action="" id="newsPop" method="POST">
-                    <input type="hidden" name="tip_type" id="tipType" value="">
-                    <div class="mb-4">
-                        <label for="n_name" class="form-label visually-hidden">Name</label>
-                        <input class="form-control shadow-none fs-5 py-3" type="text" name="n_name" id="n_name" placeholder="Name" required>
-                        <span></span>
-                    </div>
-                    <div class="mb-4">
-                        <label for="n_email" class="form-label visually-hidden">Email</label>
-                        <input class="form-control shadow-none eMail fs-5 py-3" type="email" name="n_email" id="n_email" placeholder="Email" required>
-                        <span class="form-text fs-6 text-dark">We will not share your email with anyone.</span>
-                    </div>
-                    <div class="mb-4 form-check checkBoxCon">
-                        <input type="checkbox" class="form-check-input shadow-none" id="privacyCheck" required>
-                        <label for="privacyCheck" class="form-check-label fs-6 text-dark">Yes I understand that you will use the information provided via this form to be in touch and to send the freebie, and also to keep me updated with your newsletters.
-                            <a href="Privacy-policy">Privacy Policy</a></label>
-                    </div>
-                    <button type="submit" class="btn btn-danger w-100 shadow-none subscribeBtn fs-5 fw-semibold" name="n_submit">Subscribe</button>
-                </form>
-            </div>
-        </div>
-    </div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
