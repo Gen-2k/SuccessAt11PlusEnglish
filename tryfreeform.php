@@ -468,9 +468,9 @@ if (isset($_SESSION['status']) && isset($_SESSION['status_code'])) {
                     msg = 'Please enter a valid email address.';
                 }
             } else if (id === 'phn') {
-                if (!/^\d{10,}$/.test(val)) {
+                if (!/^\d{10,12}$/.test(val)) {
                     valid = false;
-                    msg = 'Please enter a valid phone number (at least 10 digits).';
+                    msg = 'Please enter a valid phone number (10-12 digits).';
                 }
             }
 
@@ -499,9 +499,11 @@ if (isset($_SESSION['status']) && isset($_SESSION['status_code'])) {
             validateField($(this));
         });
 
-        // Phone number: allow only digits
+        // Phone number: allow only digits and max 12 digits
         $('#phn').on('input', function() {
-            $(this).val($(this).val().replace(/[^0-9]/g, ''));
+            let cleaned = $(this).val().replace(/[^0-9]/g, '');
+            if (cleaned.length > 12) cleaned = cleaned.slice(0, 12);
+            $(this).val(cleaned);
             validateField($(this));
         });
 
