@@ -24,7 +24,7 @@ $purchase_data = $_SESSION['pending_ebook_purchase'];
 // Initialize Stripe
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$stripe = new \Stripe\StripeClient("sk_test_51RWXNGRpJQGKwRds9xlMwIqdodtLHtOXNhdLs2Q0TBJQxEWOU4iOeNteMrFS9UpZHXQ55auZQ2UnrR9wCsYlupan005sNBiK3o");
+$stripe = new \Stripe\StripeClient("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");
 
 // Logging function
 function logEbookPaymentEvent($message, $context = []) {
