@@ -120,7 +120,12 @@ function formatCourseTitle($title) {
                                 </div>
 
                             </div>                            <!-- 1st Parent's Details -->                            <div class="form_tab">
-                                <h1 class="page-title"><?php echo isset($_GET['courseName']) ? $_GET['courseName'] : $_SESSION['courseName']; ?></h1>
+                                <h1 class="page-title">
+                                    <?php
+                                        $rawTitle = isset($_GET['courseName']) ? $_GET['courseName'] : (isset($_SESSION['courseName']) ? $_SESSION['courseName'] : '');
+                                        echo formatCourseTitle($rawTitle);
+                                    ?>
+                                </h1>
                                 <h2 class="section-heading">Parent Details</h2>
                                 <div class="row g-3">
                                     <div class="col-md">
