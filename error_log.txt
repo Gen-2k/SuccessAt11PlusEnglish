@@ -10,3 +10,37 @@
 [30-Jun-2025 06:30:54 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
 [30-Jun-2025 06:35:53 Europe/London] Newsletter subscription attempt started
 [30-Jun-2025 06:35:57 Europe/London] Newsletter tip email sent for: sagosmsr@gmail.com
+[2025-06-30 08:48:21] Form submission received - POST data: Array
+(
+    [eqTry] => 
+    [eqName] => s
+    [eqMail] => 
+    [eqPhone] => sd
+    [eqApply] => Year 4
+    [eqModule] => 
+    [eqMsg] => 
+)
+
+[2025-06-30 08:48:21] Is AJAX request: No
+[2025-06-30 08:48:21] Form submission detected - processing now
+[2025-06-30 08:48:21] Missing required fields: eqMail
+[2025-06-30 08:53:13] Form submission received - POST data: Array
+(
+    [eqTry] => 1
+    [eqName] => sample
+    [eqMail] => sagosmsr@gmail.com
+    [eqPhone] => 9874563210
+    [eqApply] => Year 6
+    [eqModule] => Creative Writing
+    [eqMsg] => sadasdasd
+)
+
+[2025-06-30 08:53:13] Is AJAX request: Yes
+[2025-06-30 08:53:13] Form submission detected - processing now
+[2025-06-30 08:53:13] Processing form data: Name=sample, Email=sagosmsr@gmail.com, Phone=9874563210, Apply=Year 6, Module=Creative Writing
+[2025-06-30 08:53:13] Attempting to send auto-response email to: sagosmsr@gmail.com
+[2025-06-30 08:53:13] PHPMailer configured for auto-response. Recipients: sagosmsr@gmail.com
+[2025-06-30 07:53:16] Auto-response email sent to user: sagosmsr@gmail.com
+[2025-06-30 07:53:16] Attempting to send admin notification email
+[2025-06-30 07:53:16] Admin PHPMailer configured. Recipients: success@elevenplusenglish.co.uk
+[2025-06-30 07:53:20] Admin notification email sent.

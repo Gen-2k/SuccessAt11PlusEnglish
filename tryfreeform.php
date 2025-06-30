@@ -20,6 +20,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./assets/favicons/favicon.ico">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     
@@ -430,138 +431,160 @@ if (isset($_SESSION['status']) && isset($_SESSION['status_code'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
     $(document).ready(function() {
+        // Helper: show a single alert above the form
+        function showAlert(type, message) {
+            $('.alert').remove();
+            const icon = type === 'success'
+                ? '<i class="bi bi-check-circle-fill me-2"></i>'
+                : '<i class="bi bi-exclamation-triangle-fill me-2"></i>';
+            const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+            $('<div class="alert ' + alertClass + ' mb-4">' + icon + message + '</div>')
+                .insertBefore('#trial-form');
+        }
+
+        // Field validation logic
+        function validateField($field) {
+            $field.next('.invalid-feedback, .valid-feedback').remove();
+            let id = $field.attr('id');
+            let val = $field.val().trim();
+            let valid = true, msg = '';
+
+            // Only validate required fields (not Additional Info)
+            if (id === 'msg') {
+                $field.removeClass('is-invalid is-valid');
+                return true;
+            }
+            if (val === '') {
+                valid = false;
+                if (id === 'fname') msg = 'Please enter your full name.';
+                else if (id === 'email') msg = 'Please enter your email address.';
+                else if (id === 'phn') msg = 'Please enter your phone number.';
+                else if (id === 'apfor') msg = 'Please select a year group.';
+                else msg = 'This field is required.';
+            } else if (id === 'email') {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(val)) {
+                    valid = false;
+                    msg = 'Please enter a valid email address.';
+                }
+            } else if (id === 'phn') {
+                if (!/^\d{10,}$/.test(val)) {
+                    valid = false;
+                    msg = 'Please enter a valid phone number (at least 10 digits).';
+                }
+            }
+
+            if (!valid) {
+                $field.removeClass('is-valid').addClass('is-invalid');
+                $field.after('<div class="invalid-feedback">' + msg + '</div>');
+            } else {
+                $field.removeClass('is-invalid').addClass('is-valid');
+            }
+            return valid;
+        }
+
+        // Validate all fields on submit
+        function validateForm() {
+            let allValid = true;
+            $('#trial-form input, #trial-form select, #trial-form textarea').each(function() {
+                if (!validateField($(this))) {
+                    allValid = false;
+                }
+            });
+            return allValid;
+        }
+
+        // Real-time validation (do not trigger on page load)
+        $('#trial-form input, #trial-form select, #trial-form textarea').on('input blur change', function() {
+            validateField($(this));
+        });
+
+        // Phone number: allow only digits
+        $('#phn').on('input', function() {
+            $(this).val($(this).val().replace(/[^0-9]/g, ''));
+            validateField($(this));
+        });
+
+        // Year group logic for Verbal Reasoning
+        $('#apfor').on('change', function() {
+            const selectedYear = $(this).val();
+            const vrOption = $('#module option[value="Verbal Reasoning"]');
+            const moduleSelect = $('#module');
+            if (selectedYear === 'Year 6') {
+                vrOption.hide();
+                if (moduleSelect.val() === 'Verbal Reasoning') {
+                    moduleSelect.val('');
+                    moduleSelect.removeClass('is-valid is-invalid');
+                    moduleSelect.next('.invalid-feedback, .valid-feedback').remove();
+                }
+            } else {
+                vrOption.show();
+            }
+        });
+        $('#apfor').trigger('change');
+
         // Form submission with AJAX
         $('#trial-form').on('submit', function(e) {
             e.preventDefault();
-            
-            // Remove any existing alerts before validation
             $('.alert').remove();
-            
-            // Form validation
-            if (this.checkValidity() === false) {
-                e.stopPropagation();
-                $(this).addClass('was-validated');
-                
-                // Show an error message
-                $('<div class="alert alert-danger mb-4">' +
-                    '<i class="bi bi-exclamation-triangle-fill me-2"></i>' +
-                    'Please fill in all required fields before submitting.' +
-                    '</div>').insertBefore('#trial-form button[type="submit"]');
-                
+            let isValid = validateForm();
+            if (!isValid) {
                 // Scroll to first error
-                let firstError = $(this).find(':invalid').first();
+                let firstError = $(this).find('.is-invalid').first();
                 if (firstError.length) {
-                    $('html, body').animate({
-                        scrollTop: firstError.offset().top - 100
-                    }, 500);
-                    
-                    // Add visual indication to the first error field
-                    firstError.addClass('is-invalid').focus();
-                    if (!firstError.next('.invalid-feedback').length) {
-                        firstError.after('<div class="invalid-feedback">' + (firstError[0].validationMessage || 'This field is required') + '</div>');
-                    }
+                    $('html, body').animate({ scrollTop: firstError.offset().top - 100 }, 500);
+                    firstError.focus();
                 }
+                showAlert('error', 'Please correct the highlighted errors before submitting.');
                 return;
             }
-            
             // Show loading indicator
             let submitBtn = $(this).find('button[type="submit"]');
             let originalBtnText = submitBtn.html();
             submitBtn.html('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Processing...');
             submitBtn.prop('disabled', true);
-            
             // Get form data
             let formData = $(this).serialize();
-            
-            console.log('Submitting form data:', formData);
-            
-            // Send the AJAX request
+            // Send AJAX
             $.ajax({
                 url: './enqcode.php',
                 type: 'POST',
                 data: formData,
                 dataType: 'json',
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
+                headers: { 'X-Requested-With': 'XMLHttpRequest' },
                 success: function(response) {
-                    console.log('Response received:', response);
-                    
-                    // Reset the button
                     submitBtn.html(originalBtnText);
                     submitBtn.prop('disabled', false);
-                    
                     if (response.status === 'success') {
-                        // Show success message
-                        $('<div class="alert alert-success mb-4">' +
-                            '<i class="bi bi-check-circle-fill me-2"></i>' +
-                            (response.message || 'Your application has been submitted successfully!') +
-                            '</div>').insertBefore('#trial-form');
-                        
-                        // Load and display the thank you message
+                        showAlert('success', response.message || 'Your application has been submitted successfully!');
+                        // Load thank you message
                         $.get('thank-you-inline.php', function(thankyouContent) {
                             $('#trial-form').html(thankyouContent);
-                            
-                            // Scroll to top of form
-                            $('html, body').animate({
-                                scrollTop: $('#trial-form').offset().top - 100
-                            }, 500);
-                            
-                            // Set a cookie or localStorage item to show they've applied
+                            $('html, body').animate({ scrollTop: $('#trial-form').offset().top - 100 }, 500);
                             localStorage.setItem('trialClassApplied', 'true');
                         }).fail(function() {
-                            // If thank-you-inline.php fails to load, show inline success message
                             $('#trial-form').html('<div class="alert alert-success text-center"><div class="mb-4"><i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i></div><h4 class="alert-heading">Application Submitted!</h4><p>Thank you for your interest! Your trial class application has been received. Our team will contact you within 24 hours to arrange your session.</p><hr><p class="mb-0"><small>A confirmation email has been sent to your inbox. If you don\'t see it, please check your spam folder.</small></p></div>');
                         });
                     } else {
-                        // Show error message
-                        $('<div class="alert alert-danger mb-4">' +
-                            '<i class="bi bi-exclamation-triangle-fill me-2"></i>' +
-                            (response.message || 'There was a problem submitting your application. Please try again or contact us directly.') +
-                            '</div>').insertBefore('#trial-form button[type="submit"]');
-                            
+                        showAlert('error', response.message || 'There was a problem submitting your application. Please try again or contact us directly.');
                         // Scroll to error
-                        $('html, body').animate({
-                            scrollTop: $('.alert-danger').offset().top - 100
-                        }, 500);
+                        $('html, body').animate({ scrollTop: $('.alert-danger').offset().top - 100 }, 500);
                     }
                 },
                 error: function(xhr, status, error) {
-                    console.error('Error:', status, error);
-                    console.error('Response text:', xhr.responseText);
-
-                    // Reset the button
                     submitBtn.html(originalBtnText);
                     submitBtn.prop('disabled', false);
-
-                    // Determine error message
                     let errorMessage = 'There was a problem submitting your application. Please try again or contact us directly.';
-                    // Check if the response is JSON and contains a message
                     if (xhr.responseJSON && xhr.responseJSON.message) {
                         errorMessage = xhr.responseJSON.message;
                     } else {
-                        // Fallback for non-JSON responses or unexpected server errors
-                        // Avoid showing raw server errors to the user
                         errorMessage = 'A server error occurred. Please try again or contact us directly.';
                     }
-
-                    // Remove any existing alerts before showing the new one
-                    $('.alert').remove();
-
-                    // Show the error
-                    $('<div class="alert alert-danger mb-4">' +
-                        '<i class="bi bi-exclamation-triangle-fill me-2"></i>' +
-                        errorMessage +
-                        '</div>').insertBefore('#trial-form button[type="submit"]');
-
-                    // Scroll to error
-                    $('html, body').animate({
-                        scrollTop: $('.alert-danger').offset().top - 100
-                    }, 500);
+                    showAlert('error', errorMessage);
+                    $('html, body').animate({ scrollTop: $('.alert-danger').offset().top - 100 }, 500);
                 },
-                timeout: 15000, // 15 second timeout
+                timeout: 15000,
                 complete: function() {
-                    // Always make sure button is re-enabled in case of any errors
                     if (submitBtn.prop('disabled')) {
                         submitBtn.html(originalBtnText);
                         submitBtn.prop('disabled', false);
@@ -569,86 +592,10 @@ if (isset($_SESSION['status']) && isset($_SESSION['status_code'])) {
                 }
             });
         });
-        
-        // Real-time validation as user types/changes fields
-        $('#trial-form input, #trial-form select, #trial-form textarea').on('input blur', function() {
-            validateField($(this));
-        });
-        
-        // Phone number validation - allow only numbers
-        $('#phn').on('input', function() {
-            $(this).val($(this).val().replace(/[^0-9]/g, ''));
-            validateField($(this));
-        });
-        
-        // Function to validate a single field
-        function validateField($field) {
-            // Remove existing feedback
-            $field.next('.invalid-feedback, .valid-feedback').remove();
-            
-            if ($field.val() === '') {
-                // Empty field
-                $field.removeClass('is-valid').addClass('is-invalid');
-                $field.after('<div class="invalid-feedback">This field is required</div>');
-                return false;
-            } else if (!$field[0].checkValidity()) {
-                // Invalid according to HTML5 validation
-                $field.removeClass('is-valid').addClass('is-invalid');
-                $field.after('<div class="invalid-feedback">' + ($field[0].validationMessage || 'Please enter a valid value') + '</div>');
-                return false;
-            } else {
-                // Additional specific validations
-                if ($field.attr('id') === 'email') {
-                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailPattern.test($field.val())) {
-                        $field.removeClass('is-valid').addClass('is-invalid');
-                        $field.after('<div class="invalid-feedback">Please enter a valid email address</div>');
-                        return false;
-                    }
-                } else if ($field.attr('id') === 'phn') {
-                    if ($field.val().length < 10) {
-                        $field.removeClass('is-valid').addClass('is-invalid');
-                        $field.after('<div class="invalid-feedback">Please enter a valid phone number</div>');
-                        return false;
-                    }
-                }
-                
-                // All validation passed
-                $field.removeClass('is-invalid').addClass('is-valid');
-                return true;
-            }
-        }
-        
-        // Clear validation on focus
-        $('#trial-form input, #trial-form select, #trial-form textarea').on('focus', function() {
-            $(this).removeClass('is-invalid');
-            $(this).next('.invalid-feedback').remove();
-        });
-        
-        // Handle year group selection to show/hide Verbal Reasoning
-        $('#apfor').on('change', function() {
-            const selectedYear = $(this).val();
-            const vrOption = $('#module option[value="Verbal Reasoning"]');
-            const moduleSelect = $('#module');
-            
-            if (selectedYear === 'Year 6') {
-                // Hide Verbal Reasoning for Year 6
-                vrOption.hide();
-                // If Verbal Reasoning was selected, reset the selection
-                if (moduleSelect.val() === 'Verbal Reasoning') {
-                    moduleSelect.val('');
-                    // Remove validation styling if present
-                    moduleSelect.removeClass('is-valid is-invalid');
-                    moduleSelect.next('.invalid-feedback, .valid-feedback').remove();
-                }
-            } else {
-                // Show Verbal Reasoning for Year 4 and 5
-                vrOption.show();
-            }
-        });
-        
-        // Initialize the module options based on current year selection
-        $('#apfor').trigger('change');
+
+        // Remove all validation states on page load
+        $('#trial-form input, #trial-form select, #trial-form textarea').removeClass('is-valid is-invalid');
+        $('#trial-form .invalid-feedback, #trial-form .valid-feedback').remove();
     });
     </script>
 </body>
