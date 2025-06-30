@@ -295,6 +295,7 @@
                 box-shadow: var(--shadow-md);
                 position: relative;
                 overflow: hidden;
+                white-space: nowrap; /* Prevent line break */
             }
 
             .signin-btn::before {
@@ -408,6 +409,7 @@
                     width: 100%;
                     padding: 1rem 1.5rem;
                     font-size: 1.1rem;
+                    white-space: nowrap; /* Prevent line break on tablets/laptops */
                 }
 
                 .navbar-brand {
@@ -468,6 +470,7 @@
                 .signin-btn {
                     padding: 0.875rem 1.25rem;
                     font-size: 1rem;
+                    white-space: nowrap; /* Prevent line break on mobile */
                 }
             }
 
@@ -505,6 +508,7 @@
                 .signin-btn {
                     padding: 0.75rem 1rem;
                     font-size: 0.95rem;
+                    white-space: nowrap; /* Prevent line break on mobile */
                 }
             }/* Accessibility Improvements */
             .nav-link:focus,
@@ -672,10 +676,21 @@
                         }
                     });
 
-                    // Mobile click behavior
+                    // Mobile click behavior for dropdown items only (not main navbar toggle)
                     toggle.addEventListener('click', function(e) {
                         if (window.innerWidth <= 991) {
                             e.preventDefault();
+                            e.stopPropagation(); // Prevent event bubbling
+                            
+                            // Close all other dropdowns first
+                            dropdowns.forEach(otherDropdown => {
+                                if (otherDropdown !== dropdown) {
+                                    const otherMenu = otherDropdown.querySelector('.dropdown-menu');
+                                    otherMenu.style.display = 'none';
+                                }
+                            });
+                            
+                            // Toggle current dropdown
                             const isVisible = menu.style.display === 'block';
                             menu.style.display = isVisible ? 'none' : 'block';
                             if (!isVisible) {
@@ -695,6 +710,33 @@
                         });
                     }
                 });
+
+                // Handle Bootstrap navbar collapse events
+                const navbarCollapse = document.getElementById('navbarContent');
+                if (navbarCollapse) {
+                    // Close all dropdowns when main navbar is collapsed
+                    navbarCollapse.addEventListener('hidden.bs.collapse', function() {
+                        dropdowns.forEach(dropdown => {
+                            const menu = dropdown.querySelector('.dropdown-menu');
+                            menu.style.display = 'none';
+                        });
+                    });
+
+                    // Also close dropdowns when clicking outside
+                    document.addEventListener('click', function(e) {
+                        if (window.innerWidth <= 991) {
+                            const clickedInsideNav = navbarCollapse.contains(e.target);
+                            const clickedToggler = e.target.closest('.navbar-toggler');
+                            
+                            if (!clickedInsideNav && !clickedToggler) {
+                                dropdowns.forEach(dropdown => {
+                                    const menu = dropdown.querySelector('.dropdown-menu');
+                                    menu.style.display = 'none';
+                                });
+                            }
+                        }
+                    });
+                }
             });
         </script>
     </body>

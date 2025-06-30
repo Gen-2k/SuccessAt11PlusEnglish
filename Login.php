@@ -282,6 +282,19 @@ if (!isset($_SESSION)) {
         font-size: 1.5rem;
       }
     }
+    
+    /* Fix overlap of eye and tick icons in password field */
+    .password-toggle .form-control {
+      padding-right: 3.2rem; /* More space for both icons */
+    }
+    .password-toggle-btn {
+      right: 38px; /* Move left to avoid overlap with tick */
+    }
+    /* On invalid/valid state, keep enough space for both icons */
+    .password-toggle .form-control.is-valid,
+    .password-toggle .form-control.is-invalid {
+      padding-right: 3.2rem;
+    }
   </style>
 </head>
 
