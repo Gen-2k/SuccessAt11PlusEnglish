@@ -965,7 +965,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             <i class="bi bi-person-video3 blue fs-2 me-3 flex-shrink-0 mt-1"></i>
                             <div>
                                 <h4 class="h4 fw-bold blue mb-2">Expert Teachers</h4>
-                                <p class="mb-0 text-dark fs-5">Full trained and experienced teachers with up to
+                                <p class="mb-0 text-dark fs-5">Fully trained and experienced teachers with up to
                                     date DBS
                                     checks.</p>
                             </div>
