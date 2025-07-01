@@ -44,3 +44,23 @@
 [2025-06-30 07:53:16] Attempting to send admin notification email
 [2025-06-30 07:53:16] Admin PHPMailer configured. Recipients: success@elevenplusenglish.co.uk
 [2025-06-30 07:53:20] Admin notification email sent.
+[2025-06-30 15:38:25] Form submission received - POST data: Array
+(
+    [eqTry] => 1
+    [eqName] => Jon Stewart Doe
+    [eqMail] => sagosmsr@gmail.com
+    [eqPhone] => 6019521325
+    [eqApply] => Year 5
+    [eqModule] => Creative Writing
+    [eqMsg] => fsdfsd fsdf
+)
+
+[2025-06-30 15:38:25] Is AJAX request: Yes
+[2025-06-30 15:38:25] Form submission detected - processing now
+[2025-06-30 15:38:25] Processing form data: Name=Jon Stewart Doe, Email=sagosmsr@gmail.com, Phone=6019521325, Apply=Year 5, Module=Creative Writing
+[2025-06-30 15:38:25] Attempting to send auto-response email to: sagosmsr@gmail.com
+[2025-06-30 15:38:25] PHPMailer configured for auto-response. Recipients: sagosmsr@gmail.com
+[2025-06-30 14:38:30] Auto-response email sent to user: sagosmsr@gmail.com
+[2025-06-30 14:38:30] Attempting to send admin notification email
+[2025-06-30 14:38:30] Admin PHPMailer configured. Recipients: success@elevenplusenglish.co.uk
+[2025-06-30 14:38:32] Admin notification email sent.

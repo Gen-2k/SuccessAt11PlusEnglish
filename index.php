@@ -93,7 +93,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         </h1>
 
                         <h2 class="h4 blue fw-bold mb-4 hero-subtitle" style="font-size: 2rem;">
-                            Welcome to SuccessAt11PlusEnglish.
+                            Welcome to Success At 11 Plus English.
                         </h2>
 
                         <div class="mb-5">

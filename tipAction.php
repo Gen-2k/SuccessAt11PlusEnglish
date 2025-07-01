@@ -157,7 +157,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'newsletter') {
                         <div class="box">
                           <ul>
                             <li><strong>Daily Reading:</strong> Aim for at least 15 minutes each day. Read purposefully—understand the material and note any difficult words.</li>
-                            <li><strong>Sophisticated Vocabulary:</strong> Use advanced words in daily conversations to enhance comprehension and creative writing skills.</li>
+                            <li><strong>Sophisticated Vocabulary:</strong> Use advanced words in daily conversations, to enhance comprehension and creative writing skills.</li>
                             <li><strong>Spelling, Punctuation & Grammar:</strong> Mastering these rules is essential for answering test questions accurately.</li>
                           </ul>
                         </div>
@@ -252,7 +252,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'newsletter') {
                   <div class="wrapper">
                     <div class="main">
                       <div class="header">
-                        <h1>Parents’ 11+ Reading Guide</h1>
+                        <h1>Parents 11+ Reading Guide</h1>
                         <p>Encourage a Lifelong Love of Reading</p>
                       </div>
                       <div class="content">

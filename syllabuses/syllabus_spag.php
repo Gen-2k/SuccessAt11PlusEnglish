@@ -556,7 +556,7 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
                 <div class="week-content">
                     <ul class="learning-objectives">
                         <li>WORDS TYPES – NOUNS, PRONOUNS, ADJECTIVES</li>
-                        <li>ARTICLES (A, AN, THE), VERBS, MODAL,ADVERBS</li>
+                        <li>ARTICLES (A, AN, THE), VERBS, MODAL VERBS</li>
                         <li>DETERMINERS</li>
                     </ul>
                 </div>
@@ -601,7 +601,8 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
                 </div>
                 <div class="week-content">
                     <ul class="learning-objectives">
-                        <li>SENTENCE PUNCTATION, COMMAS, BRACKETS AND DASHES</li>
+                        <li>SENTENCE PUNCTUATION, COMMAS, BRACKETS AND DASHES</li>
+
                     </ul>
                 </div>
             </div>
