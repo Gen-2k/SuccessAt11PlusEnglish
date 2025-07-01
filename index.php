@@ -93,7 +93,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         </h1>
 
                         <h2 class="h4 blue fw-bold mb-4 hero-subtitle" style="font-size: 2rem;">
-                            Welcome to Success At 11 Plus English.
+                            Welcome to Success At 11 Plus <span style="color: var(--accent-gold);">English</span>
                         </h2>
 
                         <div class="mb-5">
@@ -892,36 +892,35 @@ if (session_status() === PHP_SESSION_NONE) {
                     <!-- Guided Teaching -->
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 text-center p-4 shadow-sm border-0 hover-lift" style="background-color: #eff6ff;">
-                            <div class="mb-3">
-                                <i class="bi bi-person-workspace display-3 text-blue"></i>
+                            <div class="mb-4">
+                                <img src="assets/images/image3.png" alt="Guided Teaching" style="width:100%;height:160px;object-fit:cover;border-radius:12px;">
                             </div>
-                            <h4 class="h4 fw-bold mb-3">Guided Teaching</h4>
-                            <p class="text-dark fs-5 mb-0">Expert instruction introducing concepts clearly and
-                                interactively.</p>
+                            <h4 class="h4 fw-bold mb-3 text-blue">Guided Teaching</h4>
+                            <p class="text-dark fs-5 mb-0">Expert instruction introducing concepts clearly and interactively.</p>
                         </div>
                     </div>
 
                     <!-- Learning Resources -->
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 text-center p-4 shadow-sm border-0 hover-lift" style="background-color:#eff6ff;">
-                            <div class="mb-3">
-                                <i class="bi bi-journal-richtext display-3 text-blue"></i>
+                            <div class="mb-4">
+                                <img src="assets/images/image67.png" alt="Learning Resources" style="width:100%;height:160px;object-fit:cover;border-radius:12px;">
+
                             </div>
-                            <h4 class="h4 fw-bold mb-3">Learning Resources</h4>
-                            <p class="text-dark fs-5 mb-0">Access to notes, materials, and weekly resources via the
-                                student portal.</p>
+                            <h4 class="h4 fw-bold mb-3 text-blue">Learning Resources</h4>
+                            <p class="text-dark fs-5 mb-0">Access to notes, materials, and weekly resources via the student portal.</p>
                         </div>
                     </div>
 
                     <!-- Worksheets & Tests -->
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 text-center p-4 shadow-sm border-0 hover-lift" style="background-color: #eff6ff;">
-                            <div class="mb-3">
-                                <i class="bi bi-card-checklist display-3 text-blue"></i>
+                            <div class="mb-4">
+                                <img src="assets/images/success/carousel-course.png" alt="Worksheets & Tests" style="width:100%;height:160px;object-fit:cover;border-radius:12px;">
                             </div>
-                            <h4 class="h4 fw-bold mb-3">Worksheets & Tests</h4>
-                            <p class="text-dark fs-5 mb-0">Regular practice through worksheets and optional
-                                end-of-term assessments.</p>
+                            <h4 class="h4 fw-bold mb-3 text-blue">Worksheets & Tests</h4>
+
+                            <p class="text-dark fs-5 mb-0">Regular practice through worksheets and optional end-of-term assessments.</p>
                         </div>
                     </div>
                 </div>
@@ -1013,7 +1012,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <!-- Call to Action -->
                 <div class="text-center mt-5 pt-4" style="border-top: 3px solid rgba(220, 53, 69, 0.1);">
                     <div class="mb-4 p-4 rounded-4" style="background: linear-gradient(135deg, rgba(220, 53, 69, 0.08), rgba(220, 53, 69, 0.05)); border: 2px solid rgba(220, 53, 69, 0.2);">
-                        <p class="mb-2 fw-bold text-danger fs-4">Ready to boost your child's 11+ success?</p>
+                        <p class="mb-2 fw-bold text-danger fs-4">Ready to boost your child's 11 Plus success?</p>
                         <p class="mb-2 lh-lg text-dark fs-5">Our classes use proven strategies and expert techniques to build confidence and skills!</p>
                         <p class="mb-0 fw-semibold text-dark fs-5" style="color: var(--theme-blue);">Get your FREE expert tips below and join our online classes to improve your child's English skills for life!</p>
                     </div>
@@ -1028,7 +1027,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                     </div>
                                     <div class="flex-grow-1 text-start">
                                         <h6 class="fw-bold mb-2 text-white">Click to Get FREE Comprehension & Creative Writing Tips</h6>
-                                        <p class="mb-0 text-white-50 small">Expert strategies for 11+ exam success</p>
+                                        <p class="mb-0 text-white-50 small">Expert strategies for 11 Plus exam success</p>
                                     </div>
                                 </div>
                             </button>

@@ -18,7 +18,7 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
     <meta property="og:site_name" content="Success At 11 Plus English">
     <meta property="og:title" content="Verbal Reasoning Syllabus | Success At 11 Plus English">
     <meta property="og:url" content="<?php echo (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
-    <meta property="og:image" content="<?php echo rtrim(BASE_URL, '/'); ?>/assets/images/logonew.png">
+    <meta property="og:image" content="../assets/favicons/favicon.ico">
     
     <title>Verbal Reasoning Syllabus | Success At 11 Plus English</title>
     
@@ -32,7 +32,7 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="<?php echo rtrim(BASE_URL, '/'); ?>/assets/images/logonew.png">
+    <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico"> 
 
     <style>
         :root {
