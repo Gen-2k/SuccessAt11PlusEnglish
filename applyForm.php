@@ -18,6 +18,8 @@ if (isset($_GET['class']) && isset($_GET['module'])) {
 }
 
 function formatCourseTitle($title) {
+    // Insert space between 'Year' and number (e.g., 'Year4' -> 'Year 4')
+    $title = preg_replace('/(Year)(\d+)/i', '$1 $2', $title);
     // Capitalize first letter of each word, but keep numbers as is
     return preg_replace_callback('/\b([a-z])/', function($matches) {
         return strtoupper($matches[1]);
