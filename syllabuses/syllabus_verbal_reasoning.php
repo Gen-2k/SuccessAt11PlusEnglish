@@ -549,7 +549,7 @@ if (!defined('BASE_URL')) { define('BASE_URL', '/'); }
                 <div class="week-content">
                     <ul class="learning-objectives">
                         <li>TYPE A - INSERT A LETTER</li>
-                        <li>TYPE B - -ODD WORDS</li>
+                        <li>TYPE B - ODD WORDS</li>
                         <li>TYPE D - SYNONYMS</li>
                     </ul>
                 </div>

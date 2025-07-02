@@ -3,11 +3,6 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-// Clear all session data
-if (isset($_SESSION['user_session_id'])) {
-    session_id($_SESSION['user_session_id']);
-}
-
 // Unset all session variables
 $_SESSION = array();
 
